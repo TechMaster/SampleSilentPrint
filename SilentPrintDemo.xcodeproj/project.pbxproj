@@ -7,25 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2478C151EB21150004EEC16 /* ConfigurePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = E2478C131EB21150004EEC16 /* ConfigurePrinter.m */; };
+		E2478C161EB21150004EEC16 /* ConfigurePrinter.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2478C141EB21150004EEC16 /* ConfigurePrinter.xib */; };
+		E2478C1A1EB23076004EEC16 /* SilentPrint.m in Sources */ = {isa = PBXBuildFile; fileRef = E2478C191EB23076004EEC16 /* SilentPrint.m */; };
+		E2478C1E1EB24773004EEC16 /* PrintMultipleItems.m in Sources */ = {isa = PBXBuildFile; fileRef = E2478C1C1EB24773004EEC16 /* PrintMultipleItems.m */; };
+		E2478C1F1EB24773004EEC16 /* PrintMultipleItems.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2478C1D1EB24773004EEC16 /* PrintMultipleItems.xib */; };
+		E2478C241EB248F2004EEC16 /* 3.html in Resources */ = {isa = PBXBuildFile; fileRef = E2478C211EB248F2004EEC16 /* 3.html */; };
+		E2478C251EB248F2004EEC16 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E2478C221EB248F2004EEC16 /* 2.jpg */; };
+		E2478C261EB248F2004EEC16 /* 1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E2478C231EB248F2004EEC16 /* 1.pdf */; };
 		E27ABE9E1EB1F217006D5A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABE9D1EB1F217006D5A01 /* main.m */; };
 		E27ABEA11EB1F217006D5A01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABEA01EB1F217006D5A01 /* AppDelegate.m */; };
 		E27ABEA41EB1F217006D5A01 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABEA31EB1F217006D5A01 /* ViewController.m */; };
-		E27ABEA71EB1F217006D5A01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEA51EB1F217006D5A01 /* Main.storyboard */; };
 		E27ABEA91EB1F217006D5A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEA81EB1F217006D5A01 /* Assets.xcassets */; };
 		E27ABEAC1EB1F217006D5A01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEAA1EB1F217006D5A01 /* LaunchScreen.storyboard */; };
+		E27ABEBA1EB1F362006D5A01 /* BootLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABEB71EB1F362006D5A01 /* BootLogic.m */; };
+		E27ABEBB1EB1F362006D5A01 /* ConsoleScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABEB81EB1F362006D5A01 /* ConsoleScreen.m */; };
+		E27ABEBC1EB1F362006D5A01 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABEB91EB1F362006D5A01 /* MainScreen.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E2478C121EB21150004EEC16 /* ConfigurePrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurePrinter.h; sourceTree = "<group>"; };
+		E2478C131EB21150004EEC16 /* ConfigurePrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurePrinter.m; sourceTree = "<group>"; };
+		E2478C141EB21150004EEC16 /* ConfigurePrinter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigurePrinter.xib; sourceTree = "<group>"; };
+		E2478C181EB23076004EEC16 /* SilentPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SilentPrint.h; sourceTree = "<group>"; };
+		E2478C191EB23076004EEC16 /* SilentPrint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SilentPrint.m; sourceTree = "<group>"; };
+		E2478C1B1EB24773004EEC16 /* PrintMultipleItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintMultipleItems.h; sourceTree = "<group>"; };
+		E2478C1C1EB24773004EEC16 /* PrintMultipleItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintMultipleItems.m; sourceTree = "<group>"; };
+		E2478C1D1EB24773004EEC16 /* PrintMultipleItems.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrintMultipleItems.xib; sourceTree = "<group>"; };
+		E2478C211EB248F2004EEC16 /* 3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = 3.html; path = SampleItems/3.html; sourceTree = "<group>"; };
+		E2478C221EB248F2004EEC16 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = SampleItems/2.jpg; sourceTree = "<group>"; };
+		E2478C231EB248F2004EEC16 /* 1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = 1.pdf; path = SampleItems/1.pdf; sourceTree = "<group>"; };
 		E27ABE991EB1F217006D5A01 /* SilentPrintDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilentPrintDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27ABE9D1EB1F217006D5A01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E27ABE9F1EB1F217006D5A01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E27ABEA01EB1F217006D5A01 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E27ABEA21EB1F217006D5A01 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		E27ABEA31EB1F217006D5A01 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E27ABEA61EB1F217006D5A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E27ABEA81EB1F217006D5A01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E27ABEAB1EB1F217006D5A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E27ABEAD1EB1F217006D5A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E27ABEB41EB1F362006D5A01 /* BootLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BootLogic.h; sourceTree = "<group>"; };
+		E27ABEB51EB1F362006D5A01 /* ConsoleScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsoleScreen.h; sourceTree = "<group>"; };
+		E27ABEB61EB1F362006D5A01 /* MainScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreen.h; sourceTree = "<group>"; };
+		E27ABEB71EB1F362006D5A01 /* BootLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BootLogic.m; sourceTree = "<group>"; };
+		E27ABEB81EB1F362006D5A01 /* ConsoleScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsoleScreen.m; sourceTree = "<group>"; };
+		E27ABEB91EB1F362006D5A01 /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreen.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +65,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2478C111EB21122004EEC16 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				E2478C271EB24900004EEC16 /* ConfigurePrinter */,
+				E2478C281EB2490D004EEC16 /* PrintMultipleItems */,
+			);
+			name = Basic;
+			sourceTree = "<group>";
+		};
+		E2478C171EB2305F004EEC16 /* SilentPrint */ = {
+			isa = PBXGroup;
+			children = (
+				E2478C181EB23076004EEC16 /* SilentPrint.h */,
+				E2478C191EB23076004EEC16 /* SilentPrint.m */,
+			);
+			name = SilentPrint;
+			sourceTree = "<group>";
+		};
+		E2478C201EB24888004EEC16 /* SampleItems */ = {
+			isa = PBXGroup;
+			children = (
+				E2478C211EB248F2004EEC16 /* 3.html */,
+				E2478C221EB248F2004EEC16 /* 2.jpg */,
+				E2478C231EB248F2004EEC16 /* 1.pdf */,
+			);
+			name = SampleItems;
+			sourceTree = "<group>";
+		};
+		E2478C271EB24900004EEC16 /* ConfigurePrinter */ = {
+			isa = PBXGroup;
+			children = (
+				E2478C121EB21150004EEC16 /* ConfigurePrinter.h */,
+				E2478C131EB21150004EEC16 /* ConfigurePrinter.m */,
+				E2478C141EB21150004EEC16 /* ConfigurePrinter.xib */,
+			);
+			name = ConfigurePrinter;
+			sourceTree = "<group>";
+		};
+		E2478C281EB2490D004EEC16 /* PrintMultipleItems */ = {
+			isa = PBXGroup;
+			children = (
+				E2478C1B1EB24773004EEC16 /* PrintMultipleItems.h */,
+				E2478C1C1EB24773004EEC16 /* PrintMultipleItems.m */,
+				E2478C1D1EB24773004EEC16 /* PrintMultipleItems.xib */,
+			);
+			name = PrintMultipleItems;
+			sourceTree = "<group>";
+		};
 		E27ABE901EB1F217006D5A01 = {
 			isa = PBXGroup;
 			children = (
@@ -58,11 +132,12 @@
 		E27ABE9B1EB1F217006D5A01 /* SilentPrintDemo */ = {
 			isa = PBXGroup;
 			children = (
-				E27ABE9F1EB1F217006D5A01 /* AppDelegate.h */,
-				E27ABEA01EB1F217006D5A01 /* AppDelegate.m */,
+				E2478C201EB24888004EEC16 /* SampleItems */,
+				E2478C171EB2305F004EEC16 /* SilentPrint */,
+				E27ABEB31EB1F30D006D5A01 /* MainMenu */,
+				E2478C111EB21122004EEC16 /* Basic */,
 				E27ABEA21EB1F217006D5A01 /* ViewController.h */,
 				E27ABEA31EB1F217006D5A01 /* ViewController.m */,
-				E27ABEA51EB1F217006D5A01 /* Main.storyboard */,
 				E27ABEA81EB1F217006D5A01 /* Assets.xcassets */,
 				E27ABEAA1EB1F217006D5A01 /* LaunchScreen.storyboard */,
 				E27ABEAD1EB1F217006D5A01 /* Info.plist */,
@@ -77,6 +152,21 @@
 				E27ABE9D1EB1F217006D5A01 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E27ABEB31EB1F30D006D5A01 /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E27ABEB41EB1F362006D5A01 /* BootLogic.h */,
+				E27ABEB71EB1F362006D5A01 /* BootLogic.m */,
+				E27ABEB61EB1F362006D5A01 /* MainScreen.h */,
+				E27ABEB91EB1F362006D5A01 /* MainScreen.m */,
+				E27ABEB51EB1F362006D5A01 /* ConsoleScreen.h */,
+				E27ABEB81EB1F362006D5A01 /* ConsoleScreen.m */,
+				E27ABE9F1EB1F217006D5A01 /* AppDelegate.h */,
+				E27ABEA01EB1F217006D5A01 /* AppDelegate.m */,
+			);
+			name = MainMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +227,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2478C251EB248F2004EEC16 /* 2.jpg in Resources */,
+				E2478C241EB248F2004EEC16 /* 3.html in Resources */,
 				E27ABEAC1EB1F217006D5A01 /* LaunchScreen.storyboard in Resources */,
+				E2478C261EB248F2004EEC16 /* 1.pdf in Resources */,
 				E27ABEA91EB1F217006D5A01 /* Assets.xcassets in Resources */,
-				E27ABEA71EB1F217006D5A01 /* Main.storyboard in Resources */,
+				E2478C1F1EB24773004EEC16 /* PrintMultipleItems.xib in Resources */,
+				E2478C161EB21150004EEC16 /* ConfigurePrinter.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,23 +244,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2478C1E1EB24773004EEC16 /* PrintMultipleItems.m in Sources */,
+				E27ABEBB1EB1F362006D5A01 /* ConsoleScreen.m in Sources */,
+				E27ABEBA1EB1F362006D5A01 /* BootLogic.m in Sources */,
+				E27ABEBC1EB1F362006D5A01 /* MainScreen.m in Sources */,
 				E27ABEA41EB1F217006D5A01 /* ViewController.m in Sources */,
+				E2478C1A1EB23076004EEC16 /* SilentPrint.m in Sources */,
 				E27ABEA11EB1F217006D5A01 /* AppDelegate.m in Sources */,
 				E27ABE9E1EB1F217006D5A01 /* main.m in Sources */,
+				E2478C151EB21150004EEC16 /* ConfigurePrinter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E27ABEA51EB1F217006D5A01 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E27ABEA61EB1F217006D5A01 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E27ABEAA1EB1F217006D5A01 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -309,6 +401,7 @@
 				E27ABEB21EB1F217006D5A01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

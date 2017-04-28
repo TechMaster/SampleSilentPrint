@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  ConsoleScreen.h
 //  TechmasterApp
 //
 //  Created by techmaster on 9/7/14.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface ConsoleScreen : UIViewController
+- (void) write: (NSString*) string;
+- (void) writeln: (NSString*) string;
 @end
