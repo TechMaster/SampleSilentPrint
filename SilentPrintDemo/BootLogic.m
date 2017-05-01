@@ -18,28 +18,14 @@
     SECTION : @"Basic",
     MENU : @[
       @{TITLE : @"Configure Printer", CLASS : @"ConfigurePrinter"},
-      @{TITLE : @"Print single file with preview", CLASS : @"PrintMultipleItems"}
+      @{TITLE : @"Print single file with preview", CLASS : @"PrintSingleItem"},
+      @{TITLE : @"Print multiple files in batch", CLASS : @"PrintMultipleItems"},
+      @{TITLE : @"Print batch", CLASS : @"PrintBatch"}
     ]
   };
 
-  NSDictionary *intermediate = @{
-    SECTION : @"Intermediate",
-    MENU : @[
-      @{TITLE : @"Accessory Table", CLASS : @"AccessoryTable"},
-    
-
-    ]
-  };
-  NSDictionary *advanced = @{
-    SECTION : @"Advanced",
-    MENU : @[
-      @{TITLE : @"Custom Draw Cell", CLASS : @"CustomDrawCell"},    
-      @{TITLE : @"Basic Lazy Loading", CLASS : @"DemoLazyLoading"}
-
-    ]
-  };
-
-  mainScreen.menu = @[ basic, intermediate, advanced ];
+  
+  mainScreen.menu = @[basic];
   mainScreen.title = @"Silent Print Demo";
   mainScreen.about = @"This is example app uses Silent Print";
   //--------- End of customization -----------

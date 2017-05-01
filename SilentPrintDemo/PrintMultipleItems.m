@@ -9,12 +9,14 @@
 #import "PrintMultipleItems.h"
 
 @interface PrintMultipleItems ()
+@property (weak, nonatomic) IBOutlet UILabel *selectedPrinter;
 
 @end
 
 @implementation PrintMultipleItems
 
 - (void)viewDidLoad {
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [super viewDidLoad];
 }
 
@@ -36,20 +38,22 @@
         [silentPrint configureSilentPrint:sender.frame
                                    inView:self.view
                                completion:^{
-                                   
-                                   
+                                   self.selectedPrinter.text = silentPrint.selectedPrinter.displayName;
                                }];
         
     } else {
         UIPrintInteractionController* printController = [UIPrintInteractionController sharedPrintController];
+        printController.delegate = self;
         
         NSURL* file1URL = [NSURL fileURLWithPath: [[NSBundle mainBundle] pathForResource:@"1" ofType:@"pdf"]];
         NSURL* file2URL = [NSURL fileURLWithPath: [[NSBundle mainBundle] pathForResource:@"2" ofType:@"jpg"]];
         
         
+        
         UIPrintInfo *printInfo = [UIPrintInfo printInfo];
         printInfo.outputType = UIPrintInfoOutputGeneral;
-        
+        printInfo.jobName = @"Print mutiple documents";
+        printInfo.duplex = false;
         
         printController.printInfo = printInfo;
         
@@ -60,11 +64,23 @@
                           if (error) {
                               NSLog(@"%@", error);
                           }
-                      }];       
+                          if (completed) {
+                              NSLog(@"IN XONG ROI");
+                          }
+                          
+                      }];
         
     }
     
 }
 
+#pragma mark - UIPrintInteractionControllerDelegate
+- (void)printInteractionControllerWillStartJob:(UIPrintInteractionController *)printInteractionController {
+    NSLog(@"Start printing %@", printInteractionController.printInfo);
+}
 
+
+- (void)printInteractionControllerDidFinishJob:(UIPrintInteractionController *)printInteractionController {
+    NSLog(@"Finish printing %@", printInteractionController.printInfo);
+}
 @end

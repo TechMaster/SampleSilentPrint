@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SilentPrint.h"
-@interface PrintMultipleItems : UIViewController <SilentPrintDelegate>
+@interface PrintMultipleItems : UIViewController <SilentPrintDelegate, UIPrintInteractionControllerDelegate>
 
 @end

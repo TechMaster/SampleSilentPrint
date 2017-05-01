@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E21B63AE1EB2F9ED007AB506 /* PrintSingleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B63AC1EB2F9ED007AB506 /* PrintSingleItem.m */; };
+		E21B63AF1EB2F9ED007AB506 /* PrintSingleItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21B63AD1EB2F9ED007AB506 /* PrintSingleItem.xib */; };
+		E21B63B41EB3A1C7007AB506 /* PrintBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B63B21EB3A1C7007AB506 /* PrintBatch.m */; };
+		E21B63B51EB3A1C7007AB506 /* PrintBatch.xib in Resources */ = {isa = PBXBuildFile; fileRef = E21B63B31EB3A1C7007AB506 /* PrintBatch.xib */; };
 		E2478C151EB21150004EEC16 /* ConfigurePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = E2478C131EB21150004EEC16 /* ConfigurePrinter.m */; };
 		E2478C161EB21150004EEC16 /* ConfigurePrinter.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2478C141EB21150004EEC16 /* ConfigurePrinter.xib */; };
 		E2478C1A1EB23076004EEC16 /* SilentPrint.m in Sources */ = {isa = PBXBuildFile; fileRef = E2478C191EB23076004EEC16 /* SilentPrint.m */; };
@@ -15,9 +19,9 @@
 		E2478C241EB248F2004EEC16 /* 3.html in Resources */ = {isa = PBXBuildFile; fileRef = E2478C211EB248F2004EEC16 /* 3.html */; };
 		E2478C251EB248F2004EEC16 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E2478C221EB248F2004EEC16 /* 2.jpg */; };
 		E2478C261EB248F2004EEC16 /* 1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E2478C231EB248F2004EEC16 /* 1.pdf */; };
+		E247AA0F1EB64B7E00388A00 /* koi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E247AA0E1EB64B7E00388A00 /* koi.jpg */; };
 		E27ABE9E1EB1F217006D5A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABE9D1EB1F217006D5A01 /* main.m */; };
 		E27ABEA11EB1F217006D5A01 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABEA01EB1F217006D5A01 /* AppDelegate.m */; };
-		E27ABEA41EB1F217006D5A01 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABEA31EB1F217006D5A01 /* ViewController.m */; };
 		E27ABEA91EB1F217006D5A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEA81EB1F217006D5A01 /* Assets.xcassets */; };
 		E27ABEAC1EB1F217006D5A01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEAA1EB1F217006D5A01 /* LaunchScreen.storyboard */; };
 		E27ABEBA1EB1F362006D5A01 /* BootLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABEB71EB1F362006D5A01 /* BootLogic.m */; };
@@ -26,6 +30,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E21B63AB1EB2F9ED007AB506 /* PrintSingleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintSingleItem.h; sourceTree = "<group>"; };
+		E21B63AC1EB2F9ED007AB506 /* PrintSingleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintSingleItem.m; sourceTree = "<group>"; };
+		E21B63AD1EB2F9ED007AB506 /* PrintSingleItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrintSingleItem.xib; sourceTree = "<group>"; };
+		E21B63B11EB3A1C7007AB506 /* PrintBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintBatch.h; sourceTree = "<group>"; };
+		E21B63B21EB3A1C7007AB506 /* PrintBatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintBatch.m; sourceTree = "<group>"; };
+		E21B63B31EB3A1C7007AB506 /* PrintBatch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrintBatch.xib; sourceTree = "<group>"; };
 		E2478C121EB21150004EEC16 /* ConfigurePrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigurePrinter.h; sourceTree = "<group>"; };
 		E2478C131EB21150004EEC16 /* ConfigurePrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigurePrinter.m; sourceTree = "<group>"; };
 		E2478C141EB21150004EEC16 /* ConfigurePrinter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigurePrinter.xib; sourceTree = "<group>"; };
@@ -37,12 +47,11 @@
 		E2478C211EB248F2004EEC16 /* 3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = 3.html; path = SampleItems/3.html; sourceTree = "<group>"; };
 		E2478C221EB248F2004EEC16 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = SampleItems/2.jpg; sourceTree = "<group>"; };
 		E2478C231EB248F2004EEC16 /* 1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = 1.pdf; path = SampleItems/1.pdf; sourceTree = "<group>"; };
+		E247AA0E1EB64B7E00388A00 /* koi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = koi.jpg; path = SampleItems/koi.jpg; sourceTree = "<group>"; };
 		E27ABE991EB1F217006D5A01 /* SilentPrintDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilentPrintDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27ABE9D1EB1F217006D5A01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E27ABE9F1EB1F217006D5A01 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E27ABEA01EB1F217006D5A01 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E27ABEA21EB1F217006D5A01 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E27ABEA31EB1F217006D5A01 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E27ABEA81EB1F217006D5A01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E27ABEAB1EB1F217006D5A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E27ABEAD1EB1F217006D5A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,11 +74,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E21B63AA1EB2F90D007AB506 /* PrintSingleFile */ = {
+			isa = PBXGroup;
+			children = (
+				E21B63AB1EB2F9ED007AB506 /* PrintSingleItem.h */,
+				E21B63AC1EB2F9ED007AB506 /* PrintSingleItem.m */,
+				E21B63AD1EB2F9ED007AB506 /* PrintSingleItem.xib */,
+			);
+			name = PrintSingleFile;
+			sourceTree = "<group>";
+		};
+		E21B63B01EB3A1B3007AB506 /* PrintBatch */ = {
+			isa = PBXGroup;
+			children = (
+				E21B63B11EB3A1C7007AB506 /* PrintBatch.h */,
+				E21B63B21EB3A1C7007AB506 /* PrintBatch.m */,
+				E21B63B31EB3A1C7007AB506 /* PrintBatch.xib */,
+			);
+			name = PrintBatch;
+			sourceTree = "<group>";
+		};
 		E2478C111EB21122004EEC16 /* Basic */ = {
 			isa = PBXGroup;
 			children = (
 				E2478C271EB24900004EEC16 /* ConfigurePrinter */,
+				E21B63AA1EB2F90D007AB506 /* PrintSingleFile */,
 				E2478C281EB2490D004EEC16 /* PrintMultipleItems */,
+				E21B63B01EB3A1B3007AB506 /* PrintBatch */,
 			);
 			name = Basic;
 			sourceTree = "<group>";
@@ -86,6 +117,7 @@
 		E2478C201EB24888004EEC16 /* SampleItems */ = {
 			isa = PBXGroup;
 			children = (
+				E247AA0E1EB64B7E00388A00 /* koi.jpg */,
 				E2478C211EB248F2004EEC16 /* 3.html */,
 				E2478C221EB248F2004EEC16 /* 2.jpg */,
 				E2478C231EB248F2004EEC16 /* 1.pdf */,
@@ -132,12 +164,10 @@
 		E27ABE9B1EB1F217006D5A01 /* SilentPrintDemo */ = {
 			isa = PBXGroup;
 			children = (
-				E2478C201EB24888004EEC16 /* SampleItems */,
-				E2478C171EB2305F004EEC16 /* SilentPrint */,
 				E27ABEB31EB1F30D006D5A01 /* MainMenu */,
+				E2478C171EB2305F004EEC16 /* SilentPrint */,
 				E2478C111EB21122004EEC16 /* Basic */,
-				E27ABEA21EB1F217006D5A01 /* ViewController.h */,
-				E27ABEA31EB1F217006D5A01 /* ViewController.m */,
+				E2478C201EB24888004EEC16 /* SampleItems */,
 				E27ABEA81EB1F217006D5A01 /* Assets.xcassets */,
 				E27ABEAA1EB1F217006D5A01 /* LaunchScreen.storyboard */,
 				E27ABEAD1EB1F217006D5A01 /* Info.plist */,
@@ -228,7 +258,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2478C251EB248F2004EEC16 /* 2.jpg in Resources */,
+				E247AA0F1EB64B7E00388A00 /* koi.jpg in Resources */,
 				E2478C241EB248F2004EEC16 /* 3.html in Resources */,
+				E21B63AF1EB2F9ED007AB506 /* PrintSingleItem.xib in Resources */,
+				E21B63B51EB3A1C7007AB506 /* PrintBatch.xib in Resources */,
 				E27ABEAC1EB1F217006D5A01 /* LaunchScreen.storyboard in Resources */,
 				E2478C261EB248F2004EEC16 /* 1.pdf in Resources */,
 				E27ABEA91EB1F217006D5A01 /* Assets.xcassets in Resources */,
@@ -244,11 +277,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E21B63AE1EB2F9ED007AB506 /* PrintSingleItem.m in Sources */,
 				E2478C1E1EB24773004EEC16 /* PrintMultipleItems.m in Sources */,
+				E21B63B41EB3A1C7007AB506 /* PrintBatch.m in Sources */,
 				E27ABEBB1EB1F362006D5A01 /* ConsoleScreen.m in Sources */,
 				E27ABEBA1EB1F362006D5A01 /* BootLogic.m in Sources */,
 				E27ABEBC1EB1F362006D5A01 /* MainScreen.m in Sources */,
-				E27ABEA41EB1F217006D5A01 /* ViewController.m in Sources */,
 				E2478C1A1EB23076004EEC16 /* SilentPrint.m in Sources */,
 				E27ABEA11EB1F217006D5A01 /* AppDelegate.m in Sources */,
 				E27ABE9E1EB1F217006D5A01 /* main.m in Sources */,

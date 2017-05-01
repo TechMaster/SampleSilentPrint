@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrintMultipleItems">
             <connections>
+                <outlet property="selectedPrinter" destination="Wde-rI-n7v" id="By8-W8-iME"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,38 +20,40 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Print 3 items sequentially" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdX-3e-3vY">
-                    <rect key="frame" x="16" y="63" width="343" height="68"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="68" id="fwT-vt-e7B"/>
-                        <constraint firstAttribute="width" constant="343" id="tTt-hG-Vgn"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRD-jK-UcX">
-                    <rect key="frame" x="60" y="127" width="255" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="T2q-Bn-ZNo"/>
-                        <constraint firstAttribute="width" constant="255" id="qfd-db-vvZ"/>
-                    </constraints>
-                    <state key="normal" title="Print multiple items "/>
-                    <connections>
-                        <action selector="onPrint:" destination="-1" eventType="touchUpInside" id="GjL-mw-Tch"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="b6C-tH-zfJ">
+                    <rect key="frame" x="8" y="40" width="359" height="156.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Print 3 items sequentially Notify when each item printed successfully" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdX-3e-3vY">
+                            <rect key="frame" x="0.0" y="0.0" width="359" height="41"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRD-jK-UcX">
+                            <rect key="frame" x="0.0" y="71" width="359" height="35"/>
+                            <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                            <state key="normal" title="Print multiple items "/>
+                            <connections>
+                                <action selector="onPrint:" destination="-1" eventType="touchUpInside" id="GjL-mw-Tch"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Printer is not yet selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wde-rI-n7v">
+                            <rect key="frame" x="0.0" y="136" width="359" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="wdX-3e-3vY" secondAttribute="trailing" constant="16" id="3SZ-pd-hf8"/>
-                <constraint firstItem="mRD-jK-UcX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="SeC-Bf-ub2"/>
-                <constraint firstItem="wdX-3e-3vY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="Y0K-rG-Qxv"/>
-                <constraint firstItem="wdX-3e-3vY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="63" id="oh3-P1-A49"/>
-                <constraint firstItem="mRD-jK-UcX" firstAttribute="top" secondItem="wdX-3e-3vY" secondAttribute="bottom" constant="-4" id="r3E-yl-uqQ"/>
-                <constraint firstAttribute="trailing" secondItem="mRD-jK-UcX" secondAttribute="trailing" constant="60" id="yWv-Pa-AzZ"/>
+                <constraint firstAttribute="trailing" secondItem="b6C-tH-zfJ" secondAttribute="trailing" constant="8" id="2Xt-Cv-mBH"/>
+                <constraint firstItem="b6C-tH-zfJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="fJW-4i-3gz"/>
+                <constraint firstItem="b6C-tH-zfJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="uk2-9n-uUh"/>
             </constraints>
-            <point key="canvasLocation" x="834.5" y="-709.5"/>
+            <point key="canvasLocation" x="59.5" y="-313.5"/>
         </view>
     </objects>
 </document>
