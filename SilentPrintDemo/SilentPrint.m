@@ -88,6 +88,7 @@
     if (!self.selectedPrinter) {
         [self raiseError: 100
              withMessage: @"Printer is not selected"];
+        return;
     }
     
     UIMarkupTextPrintFormatter* htmlFormatter = nil;
@@ -131,21 +132,17 @@
     }
     
     
-    if (silent) {
+    if (silent) { //Silent mode
         [printController printToPrinter:self.selectedPrinter
                       completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
                           if (error) {
                               [self.silentPrintDelegate onSilentPrintError:error];
                           }
-                          if (completed) {
-                              NSLog(@"%@ IN XONG ROI", printInteractionController.printInfo.jobName);
-                              if (complete) {
-                                  complete();
-                              }
+                          if (completed && complete) {
+                              complete();
                           }
-                          
                       }];
-    } else {
+    } else { //Interactive mode
          [printController presentAnimated:true completionHandler: nil];
     }
     
@@ -191,6 +188,10 @@
         } else {
             [self raiseError:200
                  withMessage:[NSString stringWithFormat:@"%@ cannot print", filePath]];
+            //Move next file
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self printFile:fileIndex + 1];
+            });
             return;
         }
     }

@@ -15,6 +15,15 @@
 @end
 
 @implementation ConfigurePrinter
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    SilentPrint* silentPrint = [SilentPrint getSingleton];
+    if (silentPrint.selectedPrinter) {
+        self.lblSelectedPrinter.text = silentPrint.selectedPrinter.displayName;
+    }
+    
+}
 
 
 -(void)onSilentPrintError: (NSError*) error {
