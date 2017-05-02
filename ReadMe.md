@@ -1,11 +1,17 @@
 # New silent print library
+# Introduction
+SilentPrint is wrapper library that uses Apple AirPrint SDK to print single file or multiple files.
+It allows user to choose either print interactively with pop up preview dialog or print silently.
+
+This library has only two files: SilentPrint.h and SilentPrint.m. It is a singleton class. It communicates error, printing progress to the app through SilentPrintDelegate.
+The sample app demonstrates all features of SilentPrint. Take time to play sample app and read sample code, you will understand.
+
+If you encounter bug, please report to cuong@techmaster.vn, I will fix and push back to Github.
 
 [Check this video](https://youtu.be/fm1cd00glt8)
 
 # Updates
-
 ## May 2nd 2017
-
 1. If user prints a batch, "Print is not Selected” is sent to user as error popup/notification.
 2. Print resumes when encountering bad URl file
 3. Add method to SilentPrintDelegate
@@ -40,4 +46,29 @@
     }
 }
 ```
+# How to use
+1. Adopt SilentPrintDelegate protocol
+  ```objective-c
+  #import <UIKit/UIKit.h>
+  #import "SilentPrint.h"
+  @interface PrintBatch : UIViewController <SilentPrintDelegate>
+  @end
+  ```
+2. Send multiple files to printers using SilentPrint
+  ```objective-c
+   SilentPrint* silentPrint = [SilentPrint getSingleton];
+   silentPrint.silentPrintDelegate = self;
+   NSArray *filePaths = @[
+                          [[NSBundle mainBundle] pathForResource:@"koi" ofType:@"jpg"],
+                          @"NoExistFile.jpg",
+                          [[NSBundle mainBundle] pathForResource:@"2" ofType:@"jpg"],
+                          [[NSBundle mainBundle] pathForResource:@"1" ofType:@"pdf"],
+                          [[NSBundle mainBundle] pathForResource:@"3" ofType:@"html"]
+                          ];
+
+  self.printingProgress.progress = 0.0;
+  [silentPrint printBatch: filePaths];
+  ```
+
+
 
