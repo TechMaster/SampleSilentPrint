@@ -1,20 +1,25 @@
 //
-//  PrintBatch.m
+//  PrintBatchAfterBatch.m
 //  SilentPrintDemo
 //
-//  Created by cuong on 4/28/17.
+//  Created by cuong on 5/2/17.
 //  Copyright © 2017 techmaster. All rights reserved.
 //
 
-#import "PrintBatch.h"
+#import "PrintBatchAfterBatch.h"
 
-@interface PrintBatch ()
+@interface PrintBatchAfterBatch ()
 @property (weak, nonatomic) IBOutlet UIProgressView *printingProgress;
 @property (weak, nonatomic) IBOutlet UILabel *result;
 
 @end
 
-@implementation PrintBatch
+@implementation PrintBatchAfterBatch
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.printingProgress.progress = 0.0;
+}
 
 #pragma mark - SilentPrintDelegate
 -(void)alertError: (NSString*) title
@@ -46,7 +51,7 @@
 -(void)onPrintFileComplete: (int) fileIndex withJob: (NSString*) jobName {
     SilentPrint* silentPrint = [SilentPrint getSingleton];
     self.printingProgress.progress = (float) (fileIndex + 1) / (float)silentPrint.filePaths.count;
-
+    
 }
 
 -(void) onPrintBatchComplete:(int)success andFail:(int)fail {
@@ -55,31 +60,32 @@
 }
 
 
-#pragma mark - UIViewController event
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.printingProgress.progress = 0.0;
-    self.result.text = @"";
-}
-
 #pragma mark - Print logic
-- (IBAction)printBatch:(id)sender {
+- (IBAction)printManyBatches:(id)sender {
     SilentPrint* silentPrint = [SilentPrint getSingleton];
     silentPrint.silentPrintDelegate = self;
     
     
     
-    NSArray *filePaths = @[
+    NSArray *filePaths1 = @[
                            [[NSBundle mainBundle] pathForResource:@"koi" ofType:@"jpg"],
                            @"NoExistFile.jpg",
                            [[NSBundle mainBundle] pathForResource:@"2" ofType:@"jpg"],
                            [[NSBundle mainBundle] pathForResource:@"1" ofType:@"pdf"],
-                           [[NSBundle mainBundle] pathForResource:@"3" ofType:@"html"]                           
+                           [[NSBundle mainBundle] pathForResource:@"3" ofType:@"html"]
                            ];
-   
+    
+    
+    NSArray *filePaths2 = @[
+                            [[NSBundle mainBundle] pathForResource:@"4" ofType:@"html"],
+                            [[NSBundle mainBundle] pathForResource:@"5" ofType:@"html"],
+                            [[NSBundle mainBundle] pathForResource:@"6" ofType:@"html"],
+                            [[NSBundle mainBundle] pathForResource:@"7" ofType:@"html"]
+                            ];
     self.printingProgress.progress = 0.0;
     
-    [silentPrint printBatch: filePaths];
+    [silentPrint printBatch: filePaths1];
+    [silentPrint printBatch: filePaths2];
 
 }
 

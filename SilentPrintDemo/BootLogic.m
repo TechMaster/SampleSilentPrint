@@ -20,7 +20,8 @@
       @{TITLE : @"Configure Printer", CLASS : @"ConfigurePrinter"},
       @{TITLE : @"Print single file with preview", CLASS : @"PrintSingleItem"},
       @{TITLE : @"Print multiple files in batch", CLASS : @"PrintMultipleItems"},
-      @{TITLE : @"Print batch", CLASS : @"PrintBatch"}
+      @{TITLE : @"Print batch", CLASS : @"PrintBatch"},
+      @{TITLE : @"Print batch after batch", CLASS : @"PrintBatchAfterBatch"}
     ]
   };
 

@@ -17,6 +17,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedInstance = [SilentPrint new];
+        _sharedInstance.printInProgress = false;
     });
     return _sharedInstance;
 }
@@ -151,19 +152,47 @@
 
 -(void) printBatch:(NSArray *)filePaths
 {
-    self.filePaths = filePaths;
-    [self printFile:0];
-}
+    if (self.printInProgress) { //If silent print is printing then append
+        NSLock *theLock=[NSLock new];
+        [theLock lock];
 
+        //Check if printing is in progress, then append array !
+        NSArray* arrayAfterAppend = [self.filePaths arrayByAddingObjectsFromArray:filePaths];
+        self.filePaths = arrayAfterAppend;
+        [theLock unlock];
+
+    } else {
+        self.printInProgress = true;
+        self.numberPrintFail = 0;
+        self.numberPrintSuccess = 0;
+        self.filePaths = filePaths;
+        [self printFile:0];
+    }
+}
+/*
+ * fileIndex: order of file to print in array filePaths
+ *
+ */
 -(void) printFile: (int)fileIndex
 {
-    if (fileIndex == self.filePaths.count) {
-        return;
-    }
-    
     if (!self.selectedPrinter) {
         [self raiseError: 100
              withMessage: @"Printer is not selected"];
+        return;
+    }
+    
+    if (fileIndex == self.filePaths.count) {
+        
+        NSLock *theLock=[NSLock new];
+        [theLock lock];
+        self.printInProgress = false;
+        self.filePaths = nil;
+        [theLock unlock];
+        
+        
+        [self.silentPrintDelegate onPrintBatchComplete:self.numberPrintSuccess
+                                               andFail:self.numberPrintFail];
+        return;
     }
     
     
@@ -188,6 +217,7 @@
         } else {
             [self raiseError:200
                  withMessage:[NSString stringWithFormat:@"%@ cannot print", filePath]];
+            self.numberPrintFail += 1;
             //Move next file
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self printFile:fileIndex + 1];
@@ -216,9 +246,11 @@
         [printController printToPrinter:self.selectedPrinter
                       completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
                           if (error) {
+                              self.numberPrintFail += 1;
                               [self.silentPrintDelegate onSilentPrintError:error];
                           }
                           if (completed) {
+                              self.numberPrintSuccess += 1;
                               // Gọi hàm callback
                               [self.silentPrintDelegate onPrintFileComplete:fileIndex
                                                                     withJob:printInteractionController.printInfo.jobName];
