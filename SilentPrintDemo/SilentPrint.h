@@ -12,6 +12,7 @@
 
 -(void)onSilentPrintError: (NSError*) error;
 @optional
+-(void)tryToContactPrinter: (UIPrinter*) printer;
 -(void)onPrintFileComplete: (int) fileIndex withJob: (NSString*) jobName;
 -(void)onPrintBatchComplete: (int) success andFail: (int) fail;
 @end

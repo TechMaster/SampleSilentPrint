@@ -11,6 +11,7 @@
 @interface PrintBatchAfterBatch ()
 @property (weak, nonatomic) IBOutlet UIProgressView *printingProgress;
 @property (weak, nonatomic) IBOutlet UILabel *result;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -19,10 +20,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.printingProgress.progress = 0.0;
+    self.activityIndicator.hidden = true;
+    [self.activityIndicator stopAnimating];
+    self.result.text = @"";
 }
 
 #pragma mark - SilentPrintDelegate
--(void)alertError: (NSString*) title
+/*-(void)alertError: (NSString*) title
        andMessage: (NSString*) message {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message
@@ -31,21 +35,19 @@
     [alert addAction:ok];
     
     [self presentViewController:alert animated:YES completion:nil];
+}*/
+
+
+-(void)tryToContactPrinter:(UIPrinter *)printer {
+    [self.activityIndicator startAnimating];
+    self.activityIndicator.hidden = false;
+    self.result.text = [NSString stringWithFormat:@"Try to connect to printer %@", printer.displayName];
 }
 
 -(void)onSilentPrintError: (NSError*) error {
-    NSLog(@"Error: %@", [error localizedDescription]);
-    
-    switch (error.code) {
-        case 100:
-            [self alertError:@"Error" andMessage:[error localizedDescription]];
-            break;
-        case 200:
-            [self alertError:@"Error" andMessage:[error localizedDescription]];
-            break;
-        default:
-            break;
-    }
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator.hidden = true;
+    self.result.text = [NSString stringWithFormat:@"Error: %@", [error localizedDescription]];
 }
 
 -(void)onPrintFileComplete: (int) fileIndex withJob: (NSString*) jobName {
@@ -55,6 +57,9 @@
 }
 
 -(void) onPrintBatchComplete:(int)success andFail:(int)fail {
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator.hidden = true;
+
     NSLog(@"Success : %d. - Fail: %d", success, fail);
     self.result.text = [NSString stringWithFormat:@"Success : %d - Fail: %d", success, fail];
 }

@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrintSingleItem">
             <connections>
+                <outlet property="activityIndicator" destination="xy7-UY-Wac" id="IIi-uX-vsi"/>
+                <outlet property="result" destination="JeP-kY-Pgn" id="Fth-fy-YsV"/>
                 <outlet property="switchSilentPrint" destination="Yc7-9Y-eUA" id="8uF-GH-Rcw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="PBs-Me-cag">
-                    <rect key="frame" x="8" y="100" width="359" height="111.5"/>
+                    <rect key="frame" x="8" y="100" width="359" height="182"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Switch on to silent print" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8x-a0-AL6">
                             <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
@@ -40,6 +42,15 @@
                                 <action selector="onPrint:" destination="-1" eventType="touchUpInside" id="cfE-31-wtY"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JeP-kY-Pgn">
+                            <rect key="frame" x="0.0" y="126.5" width="359" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xy7-UY-Wac">
+                            <rect key="frame" x="0.0" y="162" width="359" height="20"/>
+                        </activityIndicatorView>
                     </subviews>
                 </stackView>
             </subviews>

@@ -23,18 +23,38 @@
 }
 /* Raise error to outter application
  100: printer is not selected
+ 150: printer is offline
  200: cannot print file URL
+ 250: user cancel or print fails
  */
--(void)raiseError: (NSInteger) errorCode
-      withMessage: (NSString*) message {
+-(void)raiseError: (NSInteger) errorCode {
     //make sure delegate is not nil
-    if (self.silentPrintDelegate) {
-        NSError* error = [NSError errorWithDomain: @"SilentPrint"
-                                             code: errorCode
-                                         userInfo: @{NSLocalizedDescriptionKey: message}
-                          ];
-        [self.silentPrintDelegate onSilentPrintError:error];
+    if (!self.silentPrintDelegate) return;
+    
+    NSString* message = nil;
+    switch (errorCode) {
+        case 100:
+            message = @"Printer is not selected";
+            break;
+        case 150:
+            message = @"Printer is offline";
+            break;
+        case 200:
+            message = @"Printer cannot print invalid file URL";
+            break;
+        case 250:
+            message = @"User cancels or print fails";
+            break;
+        default:
+            message = @"Unknown error";
+            break;
     }
+    
+    NSError* error = [NSError errorWithDomain: @"SilentPrint"
+                                         code: errorCode
+                                     userInfo: @{NSLocalizedDescriptionKey: message}
+                      ];
+    [self.silentPrintDelegate onSilentPrintError:error];
     
 }
 
@@ -59,8 +79,7 @@
                          self.selectedPrinter = printerPickerController.selectedPrinter;
                          completionBlock();
                      } else {
-                         [self raiseError: 100
-                              withMessage: @"Printer is not selected"];
+                         [self raiseError: 100];
                      }
                  }];
 }
@@ -87,8 +106,7 @@
        onComplete: (void (^)(void)) complete;
 {
     if (!self.selectedPrinter) {
-        [self raiseError: 100
-             withMessage: @"Printer is not selected"];
+        [self raiseError: 100];
         return;
     }
     
@@ -110,8 +128,7 @@
             //    htmlFormatter.perPageContentInsets = UIEdgeInsetsMake(72.0, 72.0, 72.0, 72.0);
             
         } else {
-            [self raiseError:200
-                 withMessage:[NSString stringWithFormat:@"%@ cannot print", filePath]];
+            [self raiseError:200];
             return;
         }
     }
@@ -134,17 +151,40 @@
     
     
     if (silent) { //Silent mode
-        [printController printToPrinter:self.selectedPrinter
-                      completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
-                          if (error) {
-                              [self.silentPrintDelegate onSilentPrintError:error];
-                          }
-                          if (completed && complete) {
-                              complete();
-                          }
-                      }];
+        if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(tryToContactPrinter:)]) {
+            [self.silentPrintDelegate tryToContactPrinter:self.selectedPrinter];
+        }
+        
+        [self.selectedPrinter contactPrinter:^(BOOL available) {
+            if (!available) {
+                [self raiseError: 150];
+                return;
+            } else {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                    [printController printToPrinter:self.selectedPrinter
+                                  completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
+                                      if (error || !completed) {
+                                          [self.silentPrintDelegate onSilentPrintError:error];
+                                      }
+                                      if (completed && complete) {
+                                          complete();
+                                      }
+                                  }];
+                });
+            }
+        }];
+        
     } else { //Interactive mode
-         [printController presentAnimated:true completionHandler: nil];
+        [printController presentAnimated:true completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
+            if (error) {
+                [self.silentPrintDelegate onSilentPrintError:error];
+            } else if (!completed) {
+                [self raiseError:250];
+            }
+            if (completed && complete) {
+                complete();
+            }
+        }];
     }
     
     
@@ -155,12 +195,12 @@
     if (self.printInProgress) { //If silent print is printing then append
         NSLock *theLock=[NSLock new];
         [theLock lock];
-
+        
         //Check if printing is in progress, then append array !
         NSArray* arrayAfterAppend = [self.filePaths arrayByAddingObjectsFromArray:filePaths];
         self.filePaths = arrayAfterAppend;
         [theLock unlock];
-
+        
     } else {
         self.printInProgress = true;
         self.numberPrintFail = 0;
@@ -176,8 +216,7 @@
 -(void) printFile: (int)fileIndex
 {
     if (!self.selectedPrinter) {
-        [self raiseError: 100
-             withMessage: @"Printer is not selected"];
+        [self raiseError: 100];
         return;
     }
     
@@ -215,8 +254,7 @@
             htmlFormatter.perPageContentInsets = UIEdgeInsetsMake(72.0, 72.0, 72.0, 72.0);
             
         } else {
-            [self raiseError:200
-                 withMessage:[NSString stringWithFormat:@"%@ cannot print", filePath]];
+            [self raiseError:200];
             self.numberPrintFail += 1;
             //Move next file
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -242,27 +280,41 @@
         printController.printingItem = fileURL;
     }
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        [printController printToPrinter:self.selectedPrinter
-                      completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
-                          if (error) {
-                              self.numberPrintFail += 1;
-                              [self.silentPrintDelegate onSilentPrintError:error];
-                          }
-                          if (completed) {
-                              self.numberPrintSuccess += 1;
-                              // Gọi hàm callback
-                              [self.silentPrintDelegate onPrintFileComplete:fileIndex
-                                                                    withJob:printInteractionController.printInfo.jobName];
-                              
-                              dispatch_async(dispatch_get_main_queue(), ^{
-                                  [self printFile:fileIndex + 1];
-                              });
-                          }
-                          
-                      }];
-    });
     
+    
+    if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(tryToContactPrinter:)]) {
+        [self.silentPrintDelegate tryToContactPrinter:self.selectedPrinter];
+    }
+    
+    [self.selectedPrinter contactPrinter:^(BOOL available) {
+        if (!available) {
+            self.printInProgress = false;
+            self.filePaths = @[];  //Reset file array
+            [self raiseError: 150];
+            return;
+        } else {
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                [printController printToPrinter:self.selectedPrinter
+                              completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
+                                  if (error) {
+                                      self.numberPrintFail += 1;
+                                      [self.silentPrintDelegate onSilentPrintError:error];
+                                  }
+                                  if (completed) {
+                                      self.numberPrintSuccess += 1;
+                                      // Gọi hàm callback
+                                      [self.silentPrintDelegate onPrintFileComplete:fileIndex
+                                                                            withJob:printInteractionController.printInfo.jobName];
+                                      
+                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                          [self printFile:fileIndex + 1];
+                                      });
+                                  }
+                                  
+                              }]; //[printController printToPrinter:self.selectedPrinter
+            });  //dispatch_async
+        }
+    }];  //self.selectedPrinter contactPrinter
 }
 
 @end

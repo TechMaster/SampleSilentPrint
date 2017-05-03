@@ -1,5 +1,6 @@
 # New silent print library
 # Introduction
+
 SilentPrint is wrapper library that uses Apple AirPrint SDK to print single file or multiple files.
 It allows user to choose either print interactively with pop up preview dialog or print silently.
 
@@ -11,7 +12,28 @@ If you encounter bug, please report to cuong@techmaster.vn, I will fix and push 
 [Check this video](https://youtu.be/fm1cd00glt8)
 
 # Updates
+## May 3rd 2017
+In method 
+```objective-c
+-(void) printFile: (NSString*)filePath
+           silent: (Boolean) silent
+       onComplete: (void (^)(void)) complete;
+```
+add logic call 
+```
+[UIPrinter contactPrinter:^(BOOL available)]
+```
+to test if printer is online.
+
+In protocol SilentPrintDelegate, add method ```-(void)tryToContactPrinter: (UIPrinter*) printer;```
+Cosumer app will know when SilentPrint object tries to contact to printer
+
+Some times, when printer is offline but [UIPrinter contactPrinter:^(BOOL available)] still return True. 
+
+
+
 ## May 2nd 2017
+
 1. If user prints a batch, "Print is not Selected” is sent to user as error popup/notification.
 2. Print resumes when encountering bad URl file
 3. Add method to SilentPrintDelegate

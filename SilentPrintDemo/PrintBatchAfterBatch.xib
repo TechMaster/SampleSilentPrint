@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrintBatchAfterBatch">
             <connections>
+                <outlet property="activityIndicator" destination="OoP-O2-fDp" id="tiR-G8-df7"/>
                 <outlet property="printingProgress" destination="wAP-JF-LAk" id="Ngn-aK-PrJ"/>
                 <outlet property="result" destination="f11-yf-Otr" id="mXX-eh-L8d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -22,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="074-LZ-sS4">
-                    <rect key="frame" x="8" y="100" width="359" height="133"/>
+                    <rect key="frame" x="8" y="100" width="359" height="173"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Print multiple files continously" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SL5-Ii-npA">
                             <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
@@ -47,6 +48,9 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="OoP-O2-fDp" userLabel="Activity Indicator">
+                            <rect key="frame" x="0.0" y="153" width="359" height="20"/>
+                        </activityIndicatorView>
                     </subviews>
                 </stackView>
             </subviews>
