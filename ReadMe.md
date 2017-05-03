@@ -10,6 +10,12 @@ The sample app demonstrates all features of SilentPrint. Take time to play sampl
 If you encounter bug, please report to cuong@techmaster.vn, I will fix and push back to Github.
 
 [Check this video](https://youtu.be/fm1cd00glt8)
+## Error code and error reason
+
+- 100: printer is not selected
+- 150: printer is offline
+- 200: cannot print file URL
+- 250: user cancel or print fails
 
 # Updates
 ## May 3rd 2017
@@ -29,7 +35,7 @@ In protocol SilentPrintDelegate, add method ```-(void)tryToContactPrinter: (UIPr
 Cosumer app will know when SilentPrint object tries to contact to printer
 
 Some times, when printer is offline but [UIPrinter contactPrinter:^(BOOL available)] still return True. 
-
+[See my demo video](https://www.youtube.com/watch?v=8hA0YJqR6e0)
 
 
 ## May 2nd 2017

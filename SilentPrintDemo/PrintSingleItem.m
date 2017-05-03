@@ -45,7 +45,7 @@
                 onComplete:^{
                     [self.activityIndicator stopAnimating];
                     self.activityIndicator.hidden = true;
-                     self.result.text = @"Printing done";
+                    self.result.text = @"Printing done";
                 }];
 }
 
