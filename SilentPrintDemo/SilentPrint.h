@@ -19,7 +19,7 @@
 
 //--------------------
 
-@interface SilentPrint : NSObject //<UIPrintInteractionControllerDelegate>
+@interface SilentPrint : NSObject
 
 @property(nonatomic, strong) UIPrinter* selectedPrinter;
 @property(nonatomic, weak) id<SilentPrintDelegate> silentPrintDelegate;
@@ -39,13 +39,16 @@
 
 
 //Print multiple file sequentially. If SilentPrint is in printing, append filePaths to existing filePaths
--(void) printBatch:(NSArray *)filePaths;
+-(void) printBatch: (NSArray *) filePaths;
 
+-(void) printFile: (NSString*) filePath
+         inSilent: (Boolean) silent;
 //Print single file
--(void) printFile: (NSString*)filePath
+/*-(void) printFile: (NSString*)filePath
            silent: (Boolean) silent
-       onComplete: (void (^)(void)) complete;
+       onComplete: (void (^)(void)) complete;*/
 
--(void) printFile: (int)fileIndex;;
+-(void) printFile: (int) fileIndex
+    andShowDialog: (Boolean) show;
 
 @end

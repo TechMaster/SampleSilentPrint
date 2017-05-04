@@ -43,14 +43,25 @@
 
     SilentPrint* silentPrint = [SilentPrint getSingleton];
     silentPrint.silentPrintDelegate = self;
-    [silentPrint printFile: [self randomeFileToPrint]
+   /* [silentPrint printFile: [self randomeFileToPrint]
                     silent: [self.switchSilentPrint isOn]
                 onComplete:^{
                     [self.activityIndicator stopAnimating];
                     self.activityIndicator.hidden = true;
                     self.result.text = @"Printing done";
-                }];
+                }];*/
+    
+    [silentPrint printFile: [self randomeFileToPrint]
+                  inSilent: [self.switchSilentPrint isOn]];
+    
 }
+
+-(void)onPrintFileComplete: (int) fileIndex withJob: (NSString*) jobName {
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator.hidden = true;
+    self.result.text = [NSString stringWithFormat:@"Print success : %@", jobName];
+}
+
 
 - (NSString*) randomeFileToPrint {
     NSArray* fileArrays = @[@"1.pdf", @"2.jpg", @"3.html", @"4.html", @"5.html", @"6.hml", @"7.html", @"8.html", @"log1.log", @"log2.csv"];
@@ -62,13 +73,6 @@
     return [[NSBundle mainBundle] pathForResource: fileComponents[0]
                                            ofType: fileComponents[1]];
 }
-/*
-- (UIPrintPaper *)printInteractionController:(UIPrintInteractionController *)printInteractionController choosePaper:(NSArray<UIPrintPaper *> *)paperList {
-    
-    
-    UIPrintPaper* paper = [UIPrintPaper bestPaperForPageSize:CGSizeMake(10, 12) withPapersFromArray:paperList];
-    return paper;
-    
-}*/
+
 
 @end

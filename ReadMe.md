@@ -19,7 +19,12 @@ If you encounter bug, please report to cuong@techmaster.vn, I will fix and push 
 
 # Updates
 ## May 4th 2017
-Add PrintLog testing screen
+- Simplify printing logic: merge print single file with print batch
+- Support printing txt, csv, log file by adding this function
+```objective-c
+(UIPrintFormatter*) generatePrintFormater: (NSURL*) fileURL {
+NSString* fileExtension = [fileURL pathExtension];
+```
 
 ## May 3rd 2017
 In method 
