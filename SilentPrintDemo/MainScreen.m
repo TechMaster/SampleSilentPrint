@@ -92,8 +92,8 @@
         NSString *stringStoryBoard = [xibClass substringFromIndex:range.location+1];
         xibClass = [xibClass substringToIndex:range.location];
         
-        UIStoryboard *storyBoard = [[UIStoryboard alloc] init];
-        storyBoard = [UIStoryboard storyboardWithName:stringStoryBoard bundle:nil];
+        
+        UIStoryboard *storyBoard =[UIStoryboard storyboardWithName:stringStoryBoard bundle:nil];
         
         detailScreen = [storyBoard instantiateViewControllerWithIdentifier:xibClass];
         detailScreen.title = menuItem[TITLE];

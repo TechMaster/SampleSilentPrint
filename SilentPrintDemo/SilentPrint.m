@@ -107,6 +107,8 @@
 -(void) printBatch: (NSArray *)filePaths
      andShowDialog: (Boolean)show
 {
+    if (!filePaths) return;
+    
     if (self.printInProgress) { //If silent print is printing then append
         NSLock *theLock=[NSLock new];
         [theLock lock];
@@ -194,11 +196,10 @@
     //Reach end of the priting queue
     if (fileIndex == self.filePaths.count) {
         
-        NSLock *theLock=[NSLock new];
-        [theLock lock];
-        self.printInProgress = false;
-        self.filePaths = nil;
-        [theLock unlock];
+        @synchronized (self) {
+            self.printInProgress = false;
+            self.filePaths = nil;
+        }
         
         if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector( onPrintBatchComplete:andFail:)]) {
             [self.silentPrintDelegate onPrintBatchComplete:self.numberPrintSuccess
@@ -247,8 +248,10 @@
     
     [self.selectedPrinter contactPrinter:^(BOOL available) {
         if (!available) {
-            self.printInProgress = false;
-            self.filePaths = @[];  //Reset file array
+            @synchronized (self) {
+                self.printInProgress = false;
+                self.filePaths = @[];  //Reset file array
+            }
             [self raiseError: 150];
             return;
         } else {
@@ -284,6 +287,16 @@
                         [self.silentPrintDelegate onSilentPrintError:error];
                     } else if (!completed) {
                         [self raiseError:250];
+                    } else {  //Print interactively complete
+                        @synchronized (self) {
+                            self.printInProgress = false;
+                            self.filePaths = nil;
+                        }
+                        
+                        if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintFileComplete:withJob:)]) {
+                            [self.silentPrintDelegate onPrintFileComplete:fileIndex
+                                                                  withJob:printInteractionController.printInfo.jobName];
+                        }
                     }
                     
                 }];

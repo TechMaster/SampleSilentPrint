@@ -34,6 +34,8 @@
 
 
 -(void)tryToContactPrinter:(UIPrinter *)printer {
+    [self.activityIndicator startAnimating];
+    self.activityIndicator.hidden = false;
     self.result.text = [NSString stringWithFormat:@"Try to connect to printer %@", printer.displayName];
 }
 - (IBAction)onPrint:(UIButton *)sender {
@@ -43,14 +45,8 @@
 
     SilentPrint* silentPrint = [SilentPrint getSingleton];
     silentPrint.silentPrintDelegate = self;
-   /* [silentPrint printFile: [self randomeFileToPrint]
-                    silent: [self.switchSilentPrint isOn]
-                onComplete:^{
-                    [self.activityIndicator stopAnimating];
-                    self.activityIndicator.hidden = true;
-                    self.result.text = @"Printing done";
-                }];*/
-    
+
+    NSLog(@"%@", silentPrint.filePaths);
     [silentPrint printFile: [self randomeFileToPrint]
                   inSilent: [self.switchSilentPrint isOn]];
     
