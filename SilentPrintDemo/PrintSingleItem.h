@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SilentPrint.h"
-@interface PrintSingleItem : UIViewController <SilentPrintDelegate>
+@interface PrintSingleItem : UIViewController <SilentPrintDelegate, UIPrintInteractionControllerDelegate>
 
 
 @end

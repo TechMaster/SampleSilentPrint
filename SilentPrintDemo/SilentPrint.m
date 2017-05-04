@@ -18,6 +18,7 @@
     dispatch_once(&onceToken, ^{
         _sharedInstance = [SilentPrint new];
         _sharedInstance.printInProgress = false;
+        //_sharedInstance.printInteractionControllerDelegate = _sharedInstance;
     });
     return _sharedInstance;
 }
@@ -57,6 +58,8 @@
     [self.silentPrintDelegate onSilentPrintError:error];
     
 }
+
+
 
 -(void)configureSilentPrint:(CGRect)rect
                      inView:(UIView *)view
@@ -110,24 +113,12 @@
         return;
     }
     
-    UIMarkupTextPrintFormatter* htmlFormatter = nil;
+    UIPrintFormatter* printFormatter = nil;
     
     NSURL* fileURL = [NSURL fileURLWithPath: filePath];
     if (![UIPrintInteractionController canPrintURL:fileURL]) {
-        NSString* fileExtension = [fileURL pathExtension];
-        if ([fileExtension isEqualToString:@"html"] || [fileExtension isEqualToString:@"htm"]) {
-            NSString* webContent = [NSString stringWithContentsOfFile:filePath
-                                                             encoding:NSUTF8StringEncoding
-                                                                error:NULL];
-            
-            htmlFormatter = [[UIMarkupTextPrintFormatter alloc]
-                             initWithMarkupText:webContent];
-            htmlFormatter.contentInsets = UIEdgeInsetsMake(72.0, 72.0, 72.0, 72.0); // 1 inch margins
-            
-            // iOS 10.0
-            //    htmlFormatter.perPageContentInsets = UIEdgeInsetsMake(72.0, 72.0, 72.0, 72.0);
-            
-        } else {
+        printFormatter = [self generatePrintFormater:fileURL];
+        if (!printFormatter) {
             [self raiseError:200];
             return;
         }
@@ -143,8 +134,8 @@
     UIPrintInteractionController* printController = [UIPrintInteractionController sharedPrintController];
     printController.printInfo = printInfo;
     
-    if (htmlFormatter) {
-        printController.printFormatter = htmlFormatter;
+    if (printFormatter) {
+        printController.printFormatter = printFormatter;
     } else {
         printController.printingItem = fileURL;
     }
@@ -209,6 +200,42 @@
         [self printFile:0];
     }
 }
+
+/*
+ * Handle when [UIPrintInteractionController canPrintURL:fileURL] return false
+ * support to print html, htm and txt, csv, log files
+ */
+-(UIPrintFormatter*) generatePrintFormater: (NSURL*) fileURL {
+    NSString* fileExtension = [fileURL pathExtension];
+
+    if ([fileExtension isEqualToString:@"html"] || [fileExtension isEqualToString:@"htm"]) {
+        NSString* webContent = [NSString stringWithContentsOfFile: fileURL.path
+                                                         encoding: NSUTF8StringEncoding
+                                                            error: NULL];
+        
+        UIMarkupTextPrintFormatter* htmlFormatter = [[UIMarkupTextPrintFormatter alloc]
+                         initWithMarkupText:webContent];
+        
+        
+        // iOS 10.0
+        htmlFormatter.perPageContentInsets = UIEdgeInsetsMake(72.0, 72.0, 72.0, 72.0);
+        return htmlFormatter;
+    } else if ([fileExtension isEqualToString:@"txt"] ||
+               [fileExtension isEqualToString:@"csv"] ||
+               [fileExtension isEqualToString:@"log"] ) {
+        NSString* txtContent = [NSString stringWithContentsOfFile: fileURL.path
+                                                         encoding: NSUTF8StringEncoding
+                                                            error: NULL];
+
+        UISimpleTextPrintFormatter *textFormatter = [[UISimpleTextPrintFormatter alloc]
+                                                     initWithText: txtContent];
+        textFormatter.perPageContentInsets = UIEdgeInsetsMake(72.0, 72.0, 72.0, 72.0);
+        return textFormatter;
+    } else {
+        return nil;
+    }
+}
+
 /*
  * fileIndex: order of file to print in array filePaths
  *
@@ -220,6 +247,7 @@
         return;
     }
     
+    //Reach end of the priting queue
     if (fileIndex == self.filePaths.count) {
         
         NSLock *theLock=[NSLock new];
@@ -228,32 +256,19 @@
         self.filePaths = nil;
         [theLock unlock];
         
-        
         [self.silentPrintDelegate onPrintBatchComplete:self.numberPrintSuccess
                                                andFail:self.numberPrintFail];
         return;
     }
     
     
-    UIMarkupTextPrintFormatter* htmlFormatter = nil;
+    UIPrintFormatter* printFormatter = nil;
     
     NSString* filePath = self.filePaths[fileIndex];
     NSURL* fileURL = [NSURL fileURLWithPath: filePath];
     if (![UIPrintInteractionController canPrintURL:fileURL]) {
-        NSString* fileExtension = [fileURL pathExtension];
-        if ([fileExtension isEqualToString:@"html"] || [fileExtension isEqualToString:@"htm"]) {
-            NSString* webContent = [NSString stringWithContentsOfFile:filePath
-                                                             encoding:NSUTF8StringEncoding
-                                                                error:NULL];
-            
-            htmlFormatter = [[UIMarkupTextPrintFormatter alloc]
-                             initWithMarkupText:webContent];
-            
-            
-            // iOS 10.0
-            htmlFormatter.perPageContentInsets = UIEdgeInsetsMake(72.0, 72.0, 72.0, 72.0);
-            
-        } else {
+        printFormatter = [self generatePrintFormater:fileURL];
+        if (!printFormatter) {
             [self raiseError:200];
             self.numberPrintFail += 1;
             //Move next file
@@ -268,14 +283,13 @@
     UIPrintInfo *printInfo = [UIPrintInfo printInfo];
     printInfo.outputType = UIPrintInfoOutputGeneral;
     printInfo.jobName = [fileURL lastPathComponent];
-    //printInfo.duplex = self.selectedPrinter.supportsDuplex;
     
     
     UIPrintInteractionController* printController = [UIPrintInteractionController sharedPrintController];
     printController.printInfo = printInfo;
     
-    if (htmlFormatter) {
-        printController.printFormatter = htmlFormatter;
+    if (printFormatter) {
+        printController.printFormatter = printFormatter;
     } else {
         printController.printingItem = fileURL;
     }
@@ -316,5 +330,11 @@
         }
     }];  //self.selectedPrinter contactPrinter
 }
-
+#pragma mark - UIPrintInteractionControllerDelegate
+/*
+- (UIPrintPaper *)printInteractionController:(UIPrintInteractionController *)printInteractionController choosePaper:(NSArray<UIPrintPaper *> *)paperList {
+    NSLog(@"%@", paperList);
+    return paperList[0];
+}
+*/
 @end

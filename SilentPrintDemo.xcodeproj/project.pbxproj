@@ -34,6 +34,11 @@
 		E27ABEBA1EB1F362006D5A01 /* BootLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABEB71EB1F362006D5A01 /* BootLogic.m */; };
 		E27ABEBB1EB1F362006D5A01 /* ConsoleScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABEB81EB1F362006D5A01 /* ConsoleScreen.m */; };
 		E27ABEBC1EB1F362006D5A01 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABEB91EB1F362006D5A01 /* MainScreen.m */; };
+		E2FF1EF21EBAAD4D00AE9C08 /* log1.log in Resources */ = {isa = PBXBuildFile; fileRef = E2FF1EF11EBAAD4D00AE9C08 /* log1.log */; };
+		E2FF1EF61EBAAE8300AE9C08 /* log2.csv in Resources */ = {isa = PBXBuildFile; fileRef = E2FF1EF41EBAAE8300AE9C08 /* log2.csv */; };
+		E2FF1EFB1EBAAED200AE9C08 /* PrintLog.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FF1EF91EBAAED200AE9C08 /* PrintLog.m */; };
+		E2FF1EFC1EBAAED200AE9C08 /* PrintLog.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2FF1EFA1EBAAED200AE9C08 /* PrintLog.xib */; };
+		E2FF1EFE1EBAAEE300AE9C08 /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = E2FF1EFD1EBAAEE300AE9C08 /* ReadMe.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +81,12 @@
 		E27ABEB71EB1F362006D5A01 /* BootLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BootLogic.m; sourceTree = "<group>"; };
 		E27ABEB81EB1F362006D5A01 /* ConsoleScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsoleScreen.m; sourceTree = "<group>"; };
 		E27ABEB91EB1F362006D5A01 /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreen.m; sourceTree = "<group>"; };
+		E2FF1EF11EBAAD4D00AE9C08 /* log1.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = log1.log; path = SampleItems/log1.log; sourceTree = "<group>"; };
+		E2FF1EF41EBAAE8300AE9C08 /* log2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = log2.csv; path = SampleItems/log2.csv; sourceTree = "<group>"; };
+		E2FF1EF81EBAAED200AE9C08 /* PrintLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintLog.h; sourceTree = "<group>"; };
+		E2FF1EF91EBAAED200AE9C08 /* PrintLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrintLog.m; sourceTree = "<group>"; };
+		E2FF1EFA1EBAAED200AE9C08 /* PrintLog.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrintLog.xib; sourceTree = "<group>"; };
+		E2FF1EFD1EBAAEE300AE9C08 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +138,7 @@
 				E2478C281EB2490D004EEC16 /* PrintMultipleItems */,
 				E21B63B01EB3A1B3007AB506 /* PrintBatch */,
 				E2185FAD1EB8784900304253 /* PrintBatchAfterBatch */,
+				E2FF1EF71EBAAEB900AE9C08 /* PrintLog */,
 			);
 			name = Basic;
 			sourceTree = "<group>";
@@ -152,6 +164,8 @@
 				E2185FB61EB8800F00304253 /* 6.html */,
 				E2185FB71EB8800F00304253 /* 7.html */,
 				E2185FB81EB8800F00304253 /* 8.html */,
+				E2FF1EF11EBAAD4D00AE9C08 /* log1.log */,
+				E2FF1EF41EBAAE8300AE9C08 /* log2.csv */,
 			);
 			name = SampleItems;
 			sourceTree = "<group>";
@@ -179,6 +193,7 @@
 		E27ABE901EB1F217006D5A01 = {
 			isa = PBXGroup;
 			children = (
+				E2FF1EFD1EBAAEE300AE9C08 /* ReadMe.md */,
 				E27ABE9B1EB1F217006D5A01 /* SilentPrintDemo */,
 				E27ABE9A1EB1F217006D5A01 /* Products */,
 			);
@@ -228,6 +243,16 @@
 				E27ABEA01EB1F217006D5A01 /* AppDelegate.m */,
 			);
 			name = MainMenu;
+			sourceTree = "<group>";
+		};
+		E2FF1EF71EBAAEB900AE9C08 /* PrintLog */ = {
+			isa = PBXGroup;
+			children = (
+				E2FF1EF81EBAAED200AE9C08 /* PrintLog.h */,
+				E2FF1EF91EBAAED200AE9C08 /* PrintLog.m */,
+				E2FF1EFA1EBAAED200AE9C08 /* PrintLog.xib */,
+			);
+			name = PrintLog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,8 +324,11 @@
 				E27ABEAC1EB1F217006D5A01 /* LaunchScreen.storyboard in Resources */,
 				E2185FB21EB878B400304253 /* PrintBatchAfterBatch.xib in Resources */,
 				E2185FBA1EB8800F00304253 /* 6.html in Resources */,
+				E2FF1EF61EBAAE8300AE9C08 /* log2.csv in Resources */,
+				E2FF1EF21EBAAD4D00AE9C08 /* log1.log in Resources */,
 				E2185FBB1EB8800F00304253 /* 7.html in Resources */,
 				E2478C261EB248F2004EEC16 /* 1.pdf in Resources */,
+				E2FF1EFC1EBAAED200AE9C08 /* PrintLog.xib in Resources */,
 				E27ABEA91EB1F217006D5A01 /* Assets.xcassets in Resources */,
 				E2478C1F1EB24773004EEC16 /* PrintMultipleItems.xib in Resources */,
 				E2478C161EB21150004EEC16 /* ConfigurePrinter.xib in Resources */,
@@ -314,8 +342,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2FF1EFB1EBAAED200AE9C08 /* PrintLog.m in Sources */,
 				E21B63AE1EB2F9ED007AB506 /* PrintSingleItem.m in Sources */,
 				E2478C1E1EB24773004EEC16 /* PrintMultipleItems.m in Sources */,
+				E2FF1EFE1EBAAEE300AE9C08 /* ReadMe.md in Sources */,
 				E21B63B41EB3A1C7007AB506 /* PrintBatch.m in Sources */,
 				E2185FB11EB878B400304253 /* PrintBatchAfterBatch.m in Sources */,
 				E27ABEBB1EB1F362006D5A01 /* ConsoleScreen.m in Sources */,

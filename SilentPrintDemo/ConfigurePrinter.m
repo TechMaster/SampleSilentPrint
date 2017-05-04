@@ -36,8 +36,7 @@
     
     [silentPrint configureSilentPrint:sender.frame
                                inView:self.view
-                           completion:^{
-                               //NSLog(@"%@",silentPrint.selectedPrinter.displayName);
+                           completion:^{                               
                                self.lblSelectedPrinter.text = silentPrint.selectedPrinter.displayName;
         
     }];

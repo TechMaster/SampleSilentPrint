@@ -26,16 +26,6 @@
 }
 
 #pragma mark - SilentPrintDelegate
-/*-(void)alertError: (NSString*) title
-       andMessage: (NSString*) message {
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:title
-                                                                   message:message
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:ok];
-    
-    [self presentViewController:alert animated:YES completion:nil];
-}*/
 
 
 -(void)tryToContactPrinter:(UIPrinter *)printer {
@@ -83,9 +73,8 @@
     
     NSArray *filePaths2 = @[
                             [[NSBundle mainBundle] pathForResource:@"4" ofType:@"html"],
-                            [[NSBundle mainBundle] pathForResource:@"5" ofType:@"html"],
-                            [[NSBundle mainBundle] pathForResource:@"6" ofType:@"html"],
-                            [[NSBundle mainBundle] pathForResource:@"7" ofType:@"html"]
+                            [[NSBundle mainBundle] pathForResource:@"log1" ofType:@"log"],
+                            [[NSBundle mainBundle] pathForResource:@"log2" ofType:@"csv"]  
                             ];
     self.printingProgress.progress = 0.0;
     

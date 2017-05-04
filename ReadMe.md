@@ -18,6 +18,9 @@ If you encounter bug, please report to cuong@techmaster.vn, I will fix and push 
 - 250: user cancel or print fails
 
 # Updates
+## May 4th 2017
+Add PrintLog testing screen
+
 ## May 3rd 2017
 In method 
 ```objective-c

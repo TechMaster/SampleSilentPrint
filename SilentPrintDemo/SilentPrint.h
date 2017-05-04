@@ -19,7 +19,7 @@
 
 //--------------------
 
-@interface SilentPrint : NSObject <UIPrintInteractionControllerDelegate>
+@interface SilentPrint : NSObject //<UIPrintInteractionControllerDelegate>
 
 @property(nonatomic, strong) UIPrinter* selectedPrinter;
 @property(nonatomic, weak) id<SilentPrintDelegate> silentPrintDelegate;
@@ -27,6 +27,8 @@
 @property(nonatomic, assign) Boolean printInProgress;  //True when SilentPrint is sending files to printer
 @property(nonatomic, assign) int numberPrintSuccess;  //Number of successful printing job in a batch printing
 @property(nonatomic, assign) int numberPrintFail; //Number of fail printing job in a batch printing
+//@property(nonatomic, weak) id<UIPrintInteractionControllerDelegate> printInteractionControllerDelegate;
+
 
 
 +(SilentPrint*) getSingleton;
