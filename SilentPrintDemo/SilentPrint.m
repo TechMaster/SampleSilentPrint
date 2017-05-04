@@ -110,19 +110,19 @@
     if (!filePaths) return;
     
     if (self.printInProgress) { //If silent print is printing then append
-        NSLock *theLock=[NSLock new];
-        [theLock lock];
-        
-        //Check if printing is in progress, then append array !
-        NSArray* arrayAfterAppend = [self.filePaths arrayByAddingObjectsFromArray:filePaths];
-        self.filePaths = arrayAfterAppend;
-        [theLock unlock];
+        @synchronized (self) {
+            //Check if printing is in progress, then append array !
+            NSArray* arrayAfterAppend = [self.filePaths arrayByAddingObjectsFromArray:filePaths];
+            self.filePaths = arrayAfterAppend;
+        }
         
     } else {
-        self.printInProgress = true;
-        self.numberPrintFail = 0;
-        self.numberPrintSuccess = 0;
-        self.filePaths = filePaths;
+        @synchronized (self) {
+            self.printInProgress = true;
+            self.numberPrintFail = 0;
+            self.numberPrintSuccess = 0;
+            self.filePaths = filePaths;
+        }
         [self printFile:0
           andShowDialog:show];
     }
