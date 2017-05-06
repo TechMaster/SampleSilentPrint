@@ -12,7 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIProgressView *printingProgress;
 @property (weak, nonatomic) IBOutlet UILabel *result;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
+@property (weak, nonatomic) SilentPrint* silentPrint;
 @end
 
 @implementation PrintBatchAfterBatch
@@ -23,6 +23,9 @@
     self.activityIndicator.hidden = true;
     [self.activityIndicator stopAnimating];
     self.result.text = @"";
+    self.silentPrint = [SilentPrint getSingleton];
+    self.silentPrint.silentPrintDelegate = self;
+
 }
 
 #pragma mark - SilentPrintDelegate
@@ -38,11 +41,21 @@
     [self.activityIndicator stopAnimating];
     self.activityIndicator.hidden = true;
     self.result.text = [NSString stringWithFormat:@"Error: %@", [error localizedDescription]];
+    if (error.code == PRINTER_IS_OFFLINE || error.code == PRINTER_IS_NOT_SELECTED) {
+        UIPrinterPickerController *printerPicker = [UIPrinterPickerController printerPickerControllerWithInitiallySelectedPrinter:nil];
+        [printerPicker presentAnimated:true completionHandler:^(UIPrinterPickerController * _Nonnull printerPickerController, BOOL userDidSelect, NSError * _Nullable error) {
+            if (userDidSelect) {
+                self.silentPrint.selectedPrinter = printerPickerController.selectedPrinter;
+                [self.silentPrint retryPrint];
+            }
+        }];
+    }
+
 }
 
 -(void)onPrintFileComplete: (int) fileIndex withJob: (NSString*) jobName {
-    SilentPrint* silentPrint = [SilentPrint getSingleton];
-    self.printingProgress.progress = (float) (fileIndex + 1) / (float)silentPrint.filePaths.count;
+   
+    self.printingProgress.progress = (float) (fileIndex + 1) / (float) self.silentPrint.filePaths.count;
     
 }
 
@@ -57,11 +70,6 @@
 
 #pragma mark - Print logic
 - (IBAction)printManyBatches:(id)sender {
-    SilentPrint* silentPrint = [SilentPrint getSingleton];
-    silentPrint.silentPrintDelegate = self;
-    
-    
-    
     NSArray *filePaths1 = @[
                            [[NSBundle mainBundle] pathForResource:@"koi" ofType:@"jpg"],
                            @"NoExistFile.jpg",
@@ -78,8 +86,8 @@
                             ];
     self.printingProgress.progress = 0.0;
     
-    [silentPrint printBatch: filePaths1];
-    [silentPrint printBatch: filePaths2];
+    [self.silentPrint printBatch: filePaths1];
+    [self.silentPrint printBatch: filePaths2];
 
 }
 

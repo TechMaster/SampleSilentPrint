@@ -18,16 +18,12 @@
     dispatch_once(&onceToken, ^{
         _sharedInstance = [SilentPrint new];
         _sharedInstance.printInProgress = false;
-        //_sharedInstance.printInteractionControllerDelegate = _sharedInstance;
+        _sharedInstance.pendingFileIndex = NO_PENDING_FILE_PRINT; //Nothing pending from previous print
     });
     return _sharedInstance;
 }
 
 /* Raise error to outter application
- 100: printer is not selected
- 150: printer is offline
- 200: cannot print file URL
- 250: user cancel or print fails
  */
 -(void)raiseError: (NSInteger) errorCode {
     //make sure delegate is not nil
@@ -35,16 +31,16 @@
     
     NSString* message = nil;
     switch (errorCode) {
-        case 100:
+        case PRINTER_IS_NOT_SELECTED:
             message = @"Printer is not selected";
             break;
-        case 150:
+        case PRINTER_IS_OFFLINE:
             message = @"Printer is offline";
             break;
-        case 200:
+        case CANNOT_PRINT_FILE_URL:
             message = @"Printer cannot print invalid file URL";
             break;
-        case 250:
+        case USER_CANCEL_PRINT:
             message = @"User cancels or print fails";
             break;
         default:
@@ -71,7 +67,9 @@
     
     
     // Return selected printer
-    [printerPicker presentFromRect: rect inView: view animated: NO
+    [printerPicker presentFromRect: rect
+                            inView: view
+                          animated: NO
                  completionHandler: ^(UIPrinterPickerController *printerPickerController, BOOL didSelect, NSError *error) {
                      // nếu có lỗi
                      if (error && self.silentPrintDelegate) {
@@ -83,7 +81,7 @@
                          self.selectedPrinter = printerPickerController.selectedPrinter;
                          completionBlock();
                      } else {
-                         [self raiseError: 100];
+                         [self raiseError: PRINTER_IS_NOT_SELECTED];
                      }
                  }];
 }
@@ -123,9 +121,27 @@
             self.numberPrintSuccess = 0;
             self.filePaths = filePaths;
         }
+        
         [self printFile:0
           andShowDialog:show];
+
+        
     }
+}
+//Retry to print after user reconfigure or select new printer
+- (void) retryPrint {
+    if (self.filePaths.count == 0 || self.pendingFileIndex == NO_PENDING_FILE_PRINT) return;
+    
+    if (self.pendingFileIndex >= 0 && self.pendingFileIndex < self.filePaths.count) {
+        @synchronized (self) {
+            self.printInProgress = true;
+            self.numberPrintFail = 0;
+            self.numberPrintSuccess = 0;
+        }
+        [self printFile: self.pendingFileIndex //start from pending file Index
+          andShowDialog: false];
+    }
+    
 }
 
 /*
@@ -134,7 +150,9 @@
 
 -(void) printFile: (NSString*) filePath
          inSilent: (Boolean) silent{
-    [self printBatch:@[filePath] andShowDialog:!silent];
+    if (filePath) {
+        [self printBatch:@[filePath] andShowDialog:!silent];
+    }
 }
 
 
@@ -145,6 +163,8 @@
         [self printBatch:filePaths andShowDialog:true];  //filePath has only one item, then show printing dialog
     }
 }
+
+
 
 /*
  * Handle when [UIPrintInteractionController canPrintURL:fileURL] return false
@@ -189,7 +209,11 @@
     andShowDialog: (Boolean)show
 {
     if (!self.selectedPrinter) {
-        [self raiseError: 100];
+        @synchronized (self) {
+            self.printInProgress = false;
+            self.pendingFileIndex = fileIndex;
+        }
+        [self raiseError: PRINTER_IS_NOT_SELECTED];
         return;
     }
     
@@ -199,6 +223,7 @@
         @synchronized (self) {
             self.printInProgress = false;
             self.filePaths = nil;
+            self.pendingFileIndex = NO_PENDING_FILE_PRINT;
         }
         
         if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector( onPrintBatchComplete:andFail:)]) {
@@ -216,7 +241,7 @@
     if (![UIPrintInteractionController canPrintURL:fileURL]) {
         printFormatter = [self generatePrintFormater:fileURL];
         if (!printFormatter) {
-            [self raiseError:200];
+            [self raiseError: CANNOT_PRINT_FILE_URL];
             self.numberPrintFail += 1;
             //Move next file
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -249,10 +274,11 @@
     [self.selectedPrinter contactPrinter:^(BOOL available) {
         if (!available) {
             @synchronized (self) {
-                self.printInProgress = false;
-                self.filePaths = @[];  //Reset file array
+                //Mark pending file index to retry print
+                self.pendingFileIndex = fileIndex;
+                self.printInProgress = false;                
             }
-            [self raiseError: 150];
+            [self raiseError: PRINTER_IS_OFFLINE];
             return;
         } else {
             if (!show) {  //SILENT MODE
@@ -265,13 +291,14 @@
                                       }
                                       if (completed) {
                                           self.numberPrintSuccess += 1;
-                                          // Gọi hàm callback
                                           
+                                          // Gọi hàm callback
                                           if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintFileComplete:withJob:)]) {
                                               [self.silentPrintDelegate onPrintFileComplete:fileIndex
                                                                                     withJob:printInteractionController.printInfo.jobName];
                                           }
                                           
+                                          //Print the next file in batch
                                           dispatch_async(dispatch_get_main_queue(), ^{
                                               [self printFile:fileIndex + 1
                                                 andShowDialog:false];
@@ -283,16 +310,15 @@
                 
             } else {  //INTERACTIVE MODE
                 [printController presentAnimated:true completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
+                    @synchronized (self) {
+                        self.printInProgress = false;
+                        self.filePaths = nil;
+                    }
                     if (error) {
                         [self.silentPrintDelegate onSilentPrintError:error];
                     } else if (!completed) {
-                        [self raiseError:250];
+                        [self raiseError:USER_CANCEL_PRINT];
                     } else {  //Print interactively complete
-                        @synchronized (self) {
-                            self.printInProgress = false;
-                            self.filePaths = nil;
-                        }
-                        
                         if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintFileComplete:withJob:)]) {
                             [self.silentPrintDelegate onPrintFileComplete:fileIndex
                                                                   withJob:printInteractionController.printInfo.jobName];

@@ -10,5 +10,4 @@
 #import "SilentPrint.h"
 @interface PrintSingleItem : UIViewController <SilentPrintDelegate, UIPrintInteractionControllerDelegate>
 
-
 @end

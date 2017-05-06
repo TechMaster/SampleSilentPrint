@@ -11,16 +11,19 @@
 
 @interface ConfigurePrinter ()
 @property (weak, nonatomic) IBOutlet UILabel *lblSelectedPrinter;
-
+@property (weak, nonatomic) SilentPrint* silentPrint;
 @end
 
 @implementation ConfigurePrinter
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    SilentPrint* silentPrint = [SilentPrint getSingleton];
-    if (silentPrint.selectedPrinter) {
-        self.lblSelectedPrinter.text = silentPrint.selectedPrinter.displayName;
+    self.silentPrint = [SilentPrint getSingleton];
+    self.silentPrint.silentPrintDelegate = self;
+    if (self.silentPrint.selectedPrinter) {
+        self.lblSelectedPrinter.text = self.silentPrint.selectedPrinter.displayName;
     }
     
 }
@@ -30,14 +33,11 @@
     NSLog(@"Error: %@", [error localizedDescription]);
 }
 
-- (IBAction)onConfigurePrint:(UIButton*)sender {
-    SilentPrint* silentPrint = [SilentPrint getSingleton];
-    silentPrint.silentPrintDelegate = self;
-    
-    [silentPrint configureSilentPrint:sender.frame
+- (IBAction)onConfigurePrint:(UIButton*)sender {    
+    [self.silentPrint configureSilentPrint:sender.frame
                                inView:self.view
                            completion:^{                               
-                               self.lblSelectedPrinter.text = silentPrint.selectedPrinter.displayName;
+                               self.lblSelectedPrinter.text = self.silentPrint.selectedPrinter.displayName;
         
     }];
 }

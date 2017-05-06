@@ -12,24 +12,36 @@
 @property (weak, nonatomic) IBOutlet UISwitch *switchSilentPrint;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *result;
-
+@property (weak, nonatomic) SilentPrint* silentPrint;
 @end
 
 @implementation PrintSingleItem
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.activityIndicator.hidden = true;
     [self.activityIndicator stopAnimating];
     self.result.text = @"";
     
-    UIPrintInteractionController* printController = [UIPrintInteractionController sharedPrintController];
-    printController.delegate = self;
+    self.silentPrint = [SilentPrint getSingleton];
+    self.silentPrint.silentPrintDelegate = self;
+    
 }
 
 -(void)onSilentPrintError: (NSError*) error {
     [self.activityIndicator stopAnimating];
     self.activityIndicator.hidden = true;
     self.result.text = [NSString stringWithFormat:@"Error: %@", [error localizedDescription]];
+    if (error.code == PRINTER_IS_OFFLINE || error.code == PRINTER_IS_NOT_SELECTED) {
+        UIPrinterPickerController *printerPicker = [UIPrinterPickerController printerPickerControllerWithInitiallySelectedPrinter:nil];
+        [printerPicker presentAnimated:true completionHandler:^(UIPrinterPickerController * _Nonnull printerPickerController, BOOL userDidSelect, NSError * _Nullable error) {
+            if (userDidSelect) {
+                self.silentPrint.selectedPrinter = printerPickerController.selectedPrinter;
+                [self.silentPrint retryPrint];
+            }
+        }];
+    }
 }
 
 
@@ -43,12 +55,9 @@
     [self.activityIndicator startAnimating];
     self.result.text = @"";
 
-    SilentPrint* silentPrint = [SilentPrint getSingleton];
-    silentPrint.silentPrintDelegate = self;
-
-    NSLog(@"%@", silentPrint.filePaths);
-    [silentPrint printFile: [self randomeFileToPrint]
-                  inSilent: [self.switchSilentPrint isOn]];
+    
+    [self.silentPrint printFile: [self randomeFileToPrint]
+                       inSilent: [self.switchSilentPrint isOn]];
     
 }
 
@@ -63,8 +72,7 @@
     NSArray* fileArrays = @[@"1.pdf", @"2.jpg", @"3.html", @"4.html", @"5.html", @"6.hml", @"7.html", @"8.html", @"log1.log", @"log2.csv"];
     
     int fileIndex = arc4random() % fileArrays.count;
-    NSString* file = fileArrays[fileIndex];
-    NSLog(@"File to print: %@", file);
+    NSString* file = fileArrays[fileIndex];    
     NSArray* fileComponents = [file componentsSeparatedByString:@"."];
     return [[NSBundle mainBundle] pathForResource: fileComponents[0]
                                            ofType: fileComponents[1]];

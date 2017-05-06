@@ -17,7 +17,24 @@ If you encounter bug, please report to cuong@techmaster.vn, I will fix and push 
 - 200: cannot print file URL
 - 250: user cancel or print fails
 
+# Todo (not yet done)
+Fix out of margin error
+
 # Updates
+## May 6th 2017
+- Popup printer configuration when user has not yet selected printer or printer is offline
+- Resume printing after printer is selected. See SilentPrint.retryPrint method.
+- Add new property SilentPrint.pendingFileIndex to store the last fileIndex
+- Fix random crash in printFile:inSilent just add ```if (filePath)``` to validate filePath
+```objective-c
+-(void) printFile: (NSString*) filePath
+         inSilent: (Boolean) silent{
+    if (filePath) {
+        [self printBatch:@[filePath] andShowDialog:!silent];
+    }
+}
+```
+
 ## May 4th 2017
 - Simplify printing logic: merge print single file with print batch
 - Support printing txt, csv, log file by adding this function

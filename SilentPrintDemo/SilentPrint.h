@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#define PRINTER_IS_NOT_SELECTED     100
+#define PRINTER_IS_OFFLINE          150
+#define CANNOT_PRINT_FILE_URL       200
+#define USER_CANCEL_PRINT           250
+
+#define NO_PENDING_FILE_PRINT       -1
+
 @protocol SilentPrintDelegate
 
 -(void)onSilentPrintError: (NSError*) error;
@@ -27,7 +34,8 @@
 @property(nonatomic, assign) Boolean printInProgress;  //True when SilentPrint is sending files to printer
 @property(nonatomic, assign) int numberPrintSuccess;  //Number of successful printing job in a batch printing
 @property(nonatomic, assign) int numberPrintFail; //Number of fail printing job in a batch printing
-//@property(nonatomic, weak) id<UIPrintInteractionControllerDelegate> printInteractionControllerDelegate;
+@property(nonatomic, assign) int pendingFileIndex; //File index of print batch
+
 
 
 
@@ -41,14 +49,15 @@
 //Print multiple file sequentially. If SilentPrint is in printing, append filePaths to existing filePaths
 -(void) printBatch: (NSArray *) filePaths;
 
+//Prin a single file, in fact we turn to printBatch with filePaths has only one item
 -(void) printFile: (NSString*) filePath
          inSilent: (Boolean) silent;
-//Print single file
-/*-(void) printFile: (NSString*)filePath
-           silent: (Boolean) silent
-       onComplete: (void (^)(void)) complete;*/
 
+//Print a file item in silentPrint.filePaths array
 -(void) printFile: (int) fileIndex
     andShowDialog: (Boolean) show;
+
+//Retry previous command after configure printer or reselect new printer
+-(void) retryPrint;
 
 @end
