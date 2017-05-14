@@ -26,6 +26,7 @@
                         <constraint firstAttribute="width" constant="144" id="FpQ-aS-OkT"/>
                         <constraint firstAttribute="height" constant="30" id="ZS4-TK-NY0"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Configure Printer"/>
                     <connections>
                         <action selector="onConfigurePrint:" destination="-1" eventType="touchUpInside" id="hlx-T1-d3f"/>
@@ -48,7 +49,7 @@
                 <constraint firstItem="ZNF-t0-nhb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="f9x-Un-2Wm"/>
                 <constraint firstItem="Gpa-6j-4l9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uFy-F4-Qhb"/>
             </constraints>
-            <point key="canvasLocation" x="473" y="-345"/>
+            <point key="canvasLocation" x="26" y="-373"/>
         </view>
     </objects>
 </document>

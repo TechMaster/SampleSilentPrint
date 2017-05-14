@@ -14,8 +14,8 @@
   MainScreen *mainScreen =
       [[MainScreen alloc] initWithStyle:UITableViewStyleGrouped];
   //--------- From this line, please customize your menu data -----------
-  NSDictionary *basic = @{
-    SECTION : @"Basic",
+  NSDictionary *silentPrintDemo = @{
+    SECTION : @"Silent Print V2",
     MENU : @[
       @{TITLE : @"Configure Printer", CLASS : @"ConfigurePrinter"},
       @{TITLE : @"Print single file with preview", CLASS : @"PrintSingleItem"},
@@ -24,9 +24,17 @@
       @{TITLE : @"Print batch after batch", CLASS : @"PrintBatchAfterBatch"}
     ]
   };
+    
+    NSDictionary *pdfGenerate = @{
+                            SECTION : @"PDF Generation",
+                            MENU : @[
+                                    @{TITLE : @"Demo Mustache", CLASS : @"MustacheBasicDemo"}
+                                    
+                                    ]
+                            };
 
   
-  mainScreen.menu = @[basic];
+  mainScreen.menu = @[silentPrintDemo, pdfGenerate];
   mainScreen.title = @"Silent Print Demo";
   mainScreen.about = @"This is example app uses Silent Print";
   //--------- End of customization -----------

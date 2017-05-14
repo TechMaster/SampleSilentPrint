@@ -21,6 +21,10 @@ If you encounter bug, please report to cuong@techmaster.vn, I will fix and push 
 Fix out of margin error
 
 # Updates
+## May 14th 2017
+- Add PDF Generation library
+- Demo print to PDF at paper size Letter and A4. AirPrint always uses default Letter.
+
 ## May 6th 2017
 - Popup printer configuration when user has not yet selected printer or printer is offline
 - Resume printing after printer is selected. See SilentPrint.retryPrint method.

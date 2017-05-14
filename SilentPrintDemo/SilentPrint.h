@@ -26,7 +26,8 @@
 
 //--------------------
 
-@interface SilentPrint : NSObject
+@interface SilentPrint : NSObject <UIPrintInteractionControllerDelegate>
+
 
 @property(nonatomic, strong) UIPrinter* selectedPrinter;
 @property(nonatomic, weak) id<SilentPrintDelegate> silentPrintDelegate;

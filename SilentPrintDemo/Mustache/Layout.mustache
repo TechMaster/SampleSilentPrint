@@ -1,0 +1,44 @@
+<html>
+<head><title> Test</title>
+<link rel="stylesheet" id="test" type="text/css" href={{#valuePageOrientation}}"LandscapeStyle.css"{{/valuePageOrientation}}{{^valuePageOrientation}}
+"PortraitStyle.css"
+{{/valuePageOrientation}}>
+<meta charset="utf-8" >
+<script src="jquery-3.1.1.slim.min.js"></script>
+</head>
+<body>
+{{$content}}Default content{{/}}
+<script>
+// truyen data font o day
+var topDoctorText = {{topDoctorTextSize}};
+var greetingText = {{greetingTextSize}};
+var bottomDoctorText = {{bottomDoctorTextSize}};
+
+var boxBottomText1 = {{boxBottomTextSize1}};
+var boxBottomImageHeader1 = {{boxBottomImageHeaderSize1}};
+var boxBottomImageCaption1 = {{boxBottomImageCaptionSize1}};
+
+var boxBottomText2 = {{boxBottomTextSize2}};
+var boxBottomImageHeader2 = {{boxBottomImageHeaderSize2}};
+var boxBottomImageCaption2 = {{boxBottomImageCaptionSize2}};
+
+
+$('#topDoctorText font').css({"-webkit-line-clamp":parseInt(132/topDoctorText-1).toString()});
+$('#greetingText font').css({"-webkit-line-clamp":parseInt((376/greetingText-3)).toString()});
+$('#bottomDoctorText font').css({"-webkit-line-clamp":parseInt((84/bottomDoctorText-1)).toString()});
+
+$('.boxBottomText1 font').css({"-webkit-line-clamp":parseInt((132/boxBottomText1-1)).toString()});
+$('.boxBottomImageHeader1 font').css({"-webkit-line-clamp":parseInt((72/boxBottomImageHeader1-1)).toString()});
+$('.boxBottomImageCaption1 font').css({"-webkit-line-clamp":parseInt((96/boxBottomImageCaption1-1)).toString()});
+
+$('.boxBottomText2 font').css({"-webkit-line-clamp":parseInt((132/boxBottomText2-1)).toString()});
+$('.boxBottomImageHeader2 font').css({"-webkit-line-clamp":parseInt((72/boxBottomImageHeader2-1)).toString()});
+$('.boxBottomImageCaption2 font').css({"-webkit-line-clamp":parseInt((96/boxBottomImageCaption2-1)).toString()});
+
+if ($('.box').length <=1){
+$('.box').toggleClass('box_Modify');
+}
+
+</script>
+</body>
+</html>

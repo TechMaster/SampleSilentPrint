@@ -19,6 +19,7 @@
         _sharedInstance = [SilentPrint new];
         _sharedInstance.printInProgress = false;
         _sharedInstance.pendingFileIndex = NO_PENDING_FILE_PRINT; //Nothing pending from previous print
+        
     });
     return _sharedInstance;
 }
@@ -261,6 +262,8 @@
     UIPrintInteractionController* printController = [UIPrintInteractionController sharedPrintController];
     printController.printInfo = printInfo;
     
+    printController.delegate = self;
+    
     if (printFormatter) {
         printController.printFormatter = printFormatter;
     } else {
@@ -272,7 +275,7 @@
     }
     
     [self.selectedPrinter contactPrinter:^(BOOL available) {
-        if (!available) {
+        if (!available) {//Printer is Not available
             @synchronized (self) {
                 //Mark pending file index to retry print
                 self.pendingFileIndex = fileIndex;
@@ -281,6 +284,7 @@
             [self raiseError: PRINTER_IS_OFFLINE];
             return;
         } else {
+            
             if (!show) {  //SILENT MODE
                 dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
                     [printController printToPrinter:self.selectedPrinter
@@ -309,6 +313,8 @@
                 });  //dispatch_async
                 
             } else {  //INTERACTIVE MODE
+                printController.showsPaperSelectionForLoadedPapers = YES;
+                
                 [printController presentAnimated:true completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
                     @synchronized (self) {
                         self.printInProgress = false;
@@ -331,4 +337,14 @@
         }
     }];  //self.selectedPrinter contactPrinter
 }
+
+#pragma mark - UIPrintInteractionControllerDelegate
+- (UIPrintPaper *)printInteractionController:(UIPrintInteractionController *)printInteractionController
+                                 choosePaper:(NSArray<UIPrintPaper *> *)paperList {
+   
+    UIPrintPaper* paperA4 = [UIPrintPaper bestPaperForPageSize: CGSizeMake(595.2, 841.8) //A4
+                                           withPapersFromArray: paperList];    
+    return paperA4;
+}
 @end
+

@@ -1,0 +1,225 @@
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(../font/Roboto-Regular.ttf);
+}
+@page  {
+    size: 11in 8.5in;
+    margin: 0.5in 0in 0.5in 0.5in;
+    background-color: white;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    background-color: white;
+    counter-increment: page;
+    counter-reset: page 0;
+    @bottom-center {
+        counter-increment: page;
+        counter-reset: page 1;
+        content: counter(page) " of " counter(pages);
+    }
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+    color: black;
+    font-family: 'roboto';
+    font-size: 13px;
+}
+#main-content{
+    width: 10.5in;
+    background-color:white;
+    overflow: hidden;
+}
+.text{
+    display: -webkit-box;
+    max-width: 100%;
+    margin: 0;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0px 5px 0px 5px;
+}
+#section1{
+    /*background-color: #FF9900;*/
+    height: 1.375in;
+}
+#section2{
+    /*background-color: #FF9900;*/
+    height: 4.125in;
+}
+#logo{
+    float: left;
+    width: 6.5in;
+    height: 1.375in;
+}
+#logo img{
+    width: 6.5in;
+    height: 1.375in;
+    margin-right: 0.125in;
+    
+}
+#greetingText{
+    float: left;
+    width: 6.5in;
+    height: 4in;
+    margin-top: 0.125in;
+    overflow:hidden;
+    
+}
+#greetingText font{
+    max-height: 375px;
+}
+.aside{
+    float: right;
+    width: 4in;
+    height: 4.125in;
+}
+#topDoctorText{
+    float: right;
+    width: 3.75in;
+    height: 1.375in;
+    margin-right: 0.125in;
+    line-height: 1.1;
+    overflow:hidden;
+}
+#topDoctorText font{
+    max-height: 132px;
+}
+#topDoctorText p{
+    margin: 0px;
+}
+#doctorImage{
+    float: right;
+    width: 3.75in;
+    height: 3in;
+    text-align: center;
+    margin-top: 0.125in;
+    margin-right: 0.125in;
+    border: 1.5px solid #636363;
+}
+#doctorImage img{
+    display: block;
+    margin: 0 auto;
+    max-height: 3in;
+    width: 100%;
+    height: 100%;
+    background-color: #d0d0d0;
+}
+#bottomDoctorText{
+    margin-top: 0.125in;
+    float: right;
+    width: 3.75in;
+    height: 0.875in;
+    margin-right: 0.125in;
+    padding: 0px 10px 0px 10px;
+    overflow:hidden;
+}
+#bottomDoctorText font{
+    max-height: 72px;
+}
+hr{
+    position: relative;
+    color: black;
+    height: 2px;
+    margin-right: 0.125in;
+    margin-top: 0.125in;
+    /*margin-bottom: 0.125in;*/
+}
+#surgeryInfoText{
+    margin-right: 0.125in;
+    margin-bottom: 0.125in;
+    width: 10in;
+    text-align: justify;
+    overflow: hidden;
+    padding: 0px 10px 0px 10px;
+}
+#section3{
+    margin-top: 0.125in;
+    margin-right: 0.125in;
+    min-height: 0px;
+}
+#section4{
+    margin-top: 0.125in;
+    margin-right: 0.125in;
+    overflow: hidden;
+}
+.box{
+    position: relative;
+    width: 47.7%;
+    margin-left: 0.125in;
+    float: left;
+}
+.box_Modify{
+    width: 100%;
+    float: left;
+    margin: 0;
+}
+.boxBottomText{
+    width: 100%;
+    height: 1.5in;
+    float: left;
+    margin-bottom: 0.125in;
+    overflow:hidden;
+}
+.boxBottomText font{
+    max-height: 132px;
+}
+.boxBottomImageHeader{
+    width: 100%;
+    height: 0.75in;
+    text-align: j;
+    float: left;
+    margin-bottom: 0.125in;
+    overflow:hidden;
+}
+.boxBottomImageHeader font{
+    max-height: 72px;
+}
+.boxBottomImage img{
+    max-height: 100%;
+    max-width: 100%;
+}
+.boxBottomImage{
+    width: 100%;
+    display: inline-block;
+    height: 2in;
+    text-align: center;
+    float: left;
+    margin-bottom: 0.125in;
+    overflow: hidden;
+}
+
+.boxBottomImageCaption{
+    width: 100%;
+    height: 1in;
+    float: left;
+    overflow:hidden;
+}
+.boxBottomImageCaption font{
+    max-height: 96px;
+    
+}
+#section5{
+    margin-left: 0.25in;
+}
+.area{
+    position: relative;
+    float: left;
+    width: 2.3125in;
+    height: 2.16777in;
+    text-align: center;
+    margin-top: 0.25in;
+    margin-right: 0.25in;
+}
+
+.area img{
+    width: 100%;
+    height: 100%;
+}
+
+
+

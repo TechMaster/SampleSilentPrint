@@ -19,6 +19,11 @@
     [super viewDidLoad];
     UIBarButtonItem* barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"About" style:UIBarButtonItemStylePlain target:self action:@selector(onAbout)];
     self.navigationItem.rightBarButtonItem = barButtonItem;
+    self.navigationItem.backBarButtonItem =
+    [[UIBarButtonItem alloc] initWithTitle:@""
+                                     style:UIBarButtonItemStylePlain
+                                    target:nil
+                                    action:nil];
 }
 - (void)setAbout:(NSString *)about {
     _about = [NSString stringWithFormat:@"%@\n\n%@", about, @"Written by Techmaster Vietnam Ltd"];
