@@ -1,0 +1,30 @@
+<html>
+<head>
+<meta charset="utf-8" >
+
+<link rel="stylesheet" type="text/css" href="Letter_portrait.css">
+<script src="jquery-3.1.1.slim.min.js"></script>
+
+</head>
+<body>
+
+<div class="report">
+	<div class="page">
+		<div class="subpage">Page 1/2
+			<img src = "SmithNephew.png" class="logo">
+			<h1>Hello Arthur</h1>
+		</div>
+	</div>
+	<div class="page">
+      <div class="subpage">Page 2/2
+				<img src = "" id="test">
+			</div>
+	</div>
+</div>
+<script>
+var data = {{{images}}}
+document.getElementById("test").src = data[0].file;
+</script>
+
+</body>
+</html>

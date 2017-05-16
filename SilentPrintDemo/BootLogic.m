@@ -19,20 +19,17 @@
     MENU : @[
       @{TITLE : @"Configure Printer", CLASS : @"ConfigurePrinter"},
       @{TITLE : @"Print single file with preview", CLASS : @"PrintSingleItem"},
-      //@{TITLE : @"Print using UIPrint​Interaction​Controller.printItems", CLASS : @"PrintMultipleItems"},
-      //@{TITLE : @"Print batch", CLASS : @"PrintBatch"},
       @{TITLE : @"Print batch after batch", CLASS : @"PrintBatchAfterBatch"}
     ]
   };
     
-    NSDictionary *pdfGenerate = @{
-                            SECTION : @"PDF Generation",
-                            MENU : @[
-                                    @{TITLE : @"Demo Mustache", CLASS : @"MustacheBasicDemo"}
-                                    
-                                    ]
-                            };
-
+  NSDictionary *pdfGenerate = @{
+    SECTION : @"PDF Generation",
+       MENU : @[
+      @{TITLE : @"AirPrint Letter vs A4", CLASS : @"MustacheBasicDemo"},
+      @{TITLE : @"Photos -> PDF", CLASS : @"GenerateImagesCollection"}
+    ]
+    };
   
   mainScreen.menu = @[silentPrintDemo, pdfGenerate];
   mainScreen.title = @"Silent Print Demo";

@@ -36,16 +36,7 @@
     self.generator = [PDFGenerator new];
     self.silentPrint = [SilentPrint getSingleton];
     self.silentPrint.silentPrintDelegate = self;
-    
-    for (NSString* family in [UIFont familyNames])
-    {
-        NSLog(@"%@", family);
-        
-        for (NSString* name in [UIFont fontNamesForFamilyName: family])
-        {
-            NSLog(@"  %@", name);
-        }
-    }
+  
 }
 
 - (void) generateA4PDF {
