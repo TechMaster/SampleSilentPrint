@@ -18,9 +18,14 @@ If you encounter bug, please report to cuong@techmaster.vn, I will fix and push 
 - 250: user cancel or print fails
 
 # Todo (not yet done)
-Fix out of margin error
+1. Fix out of margin error (fixed at May 18th 2017)
+
 
 # Updates
+## May 18th 2017
+- Use Mustache, Javascript, HTML, CSS to generate PDF. This approach is better than coding Objective-C
+- Fix margin problem
+
 ## May 14th 2017
 - Add PDF Generation library
 - Demo print to PDF at paper size Letter and A4. AirPrint always uses default Letter.

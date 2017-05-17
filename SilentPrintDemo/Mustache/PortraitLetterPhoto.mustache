@@ -1,30 +1,38 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8" >
-
-<link rel="stylesheet" type="text/css" href="Letter_portrait.css">
-<script src="jquery-3.1.1.slim.min.js"></script>
-
+	<meta charset="utf-8">	
+	<link rel="stylesheet" type="text/css" href="LetterPortrait.css">
 </head>
 <body>
-
-<div class="report">
-	<div class="page">
-		<div class="subpage">Page 1/2
-			<img src = "SmithNephew.png" class="logo">
-			<h1>Hello Arthur</h1>
-		</div>
-	</div>
-	<div class="page">
-      <div class="subpage">Page 2/2
-				<img src = "" id="test">
+	<div id="report">
+		<div class="page" id ="firstPage">
+			<div class="subpage">
+				<p>Page <span class="pageNumber">1</span> / <span class="allPage"></span></p>
+				<img src = "SmithNephew.png" class="logo">
+				<h1>Patient Report</h1>
 			</div>
-	</div>
-</div>
-<script>
-var data = {{{images}}}
-document.getElementById("test").src = data[0].file;
-</script>
+		</div>
+		<!-- From here page 2, 3, 4,... -->
+		<div id="otherPages">
+			<div class="page ">
+				<div class="subpage">
+					<p>Page <span class="pageNumber">2</span> / <span class="allPage"></span></p>
+					<div class="image_box">
+						<div class="image_info">
+							<img src="" class="image">
+							<p class="title"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div> <!-- End of report -->
 
+	<script src="jquery-3.1.1.slim.min.js"></script>
+	<script type="text/javascript" src="LetterPortrait.js"></script>
+	<script>
+    const data = {{{images}}};
+    getImage(data, {{imagesPerPage}});
+	</script>
 </body>
-</html>

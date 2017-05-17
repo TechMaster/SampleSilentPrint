@@ -75,8 +75,8 @@
                              @{@"file": @"30.jpg", @"desc": @"Mang Tay"}
                              ];
     NSUInteger totalImages = imagesArray.count;
-    //int numberSelectedImages =  arc4random() % totalImages;
-    int numberSelectedImages = totalImages;
+    int numberSelectedImages =  arc4random() % totalImages;
+    
     
     NSArray* selectedImages = [imagesArray subarrayWithRange:NSMakeRange(0, numberSelectedImages)];
     
@@ -95,8 +95,9 @@
     
     return @{
              @"name": @"Arthur",
-             @"images": jsonString//selectedImages
-            };
+             @"images": jsonString, //selectedImages
+             @"imagesPerPage": @4 //Number of image per page
+             };
     
 }
 - (void) generateReport {
