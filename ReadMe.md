@@ -22,6 +22,8 @@ If you encounter bug, please report to cuong@techmaster.vn, I will fix and push 
 
 
 # Updates
+## May 23rd 2017
+- Update report
 ## May 18th 2017
 - Use Mustache, Javascript, HTML, CSS to generate PDF. This approach is better than coding Objective-C
 - Fix margin problem

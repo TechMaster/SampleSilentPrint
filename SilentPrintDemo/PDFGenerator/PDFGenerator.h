@@ -1,25 +1,37 @@
 //
 //  PDFGenerator.h
-//  PDFGenerator
+//  SilentPrintDemo
 //
-//  Created by Tuuu on 11/9/16.
-//  Copyright © 2016 Tuuu. All rights reserved.
+//  Created by cuong on 5/11/17.
+//  Copyright © 2017 techmaster. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import <WebKit/WebKit.h>
-#import <UIKit/UIKit.h>
-//#import <GRMustache/GRMustache.h>
-#import "PreviewPDF.h"
-#import "ConstantKeys.h"
-#import "PDFGeneratorFile.h"
-#import "PDFPageRender.h"
-//! Project version number for PDFGenerator.
-FOUNDATION_EXPORT double PDFGeneratorVersionNumber;
+#import <GRMustache/GRMustache.h>
+#import "PaperConfig.h"
 
-//! Project version string for PDFGenerator.
-FOUNDATION_EXPORT const unsigned char PDFGeneratorVersionString[];
+#define WKWEBVIEW_IS_LOADING            100
+#define WKWEBVIEW_RENDER_NO_PDF_DATA    150
 
-// In this header, you should import all the public headers of your framework using statements like #import <PDFGenerator/PublicHeader.h>
+typedef void (^onGenerateComplete)(NSString* _Nullable result, NSError*  _Nullable error);
+
+@interface PDFGenerator : NSObject
+
+-(void) generateHTML: (NSDictionary* _Nonnull) data
+       usingTemplate: (NSString* _Nonnull) template
+          onComplete: (onGenerateComplete _Nonnull ) complete;
+
+-(void) generateHTML: (NSDictionary*_Nonnull) data
+     withPaperConfig: (PaperConfig* _Nullable) paperConfig
+        fromResource: (NSString*_Nonnull) name
+              bundle: (NSBundle *_Nullable) bundle
+          onComplete: (onGenerateComplete _Nonnull) complete;
+
+-(void)generatePDF: (NSString* _Nonnull) fileOutput
+         ofWebView: (WKWebView* _Nonnull) webView
+   withPaperConfig: (PaperConfig* _Nullable) paperConfig
+        onComplete: (onGenerateComplete _Nonnull) complete;
+@end
 
 
