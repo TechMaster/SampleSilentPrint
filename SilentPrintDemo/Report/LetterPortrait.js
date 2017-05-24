@@ -80,8 +80,15 @@
 		}
 
 		//chiều cao của 2 ô nhận xét của bác sĩ phụ bằng nhau
- 		$('#bottomText1').height($('.bottomText').height());
-		$('#bottomText2').height($('.bottomText').height())	
+		if ($('#bottomText1').height() - $('#bottomText2').height() > 0) {
+			$('#bottomText2').height($('#bottomText1').height())	
+		}
+		else if ($('#bottomText2').height() - $('#bottomText1').height() > 0){
+			$('#bottomText1').height($('#bottomText2').height())	
+		}
+
+
+
 	};
  
  	
