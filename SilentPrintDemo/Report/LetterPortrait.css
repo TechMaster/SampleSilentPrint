@@ -95,10 +95,7 @@ section{
 	height: 906px;
 	overflow:hidden;
 }
-section *{
-	overflow:hidden;
-	text-align: left;
-} 
+
 #logo_box {
 	width: 500px ;
 	height: 147px ;
@@ -108,7 +105,7 @@ section *{
 	justify-content: center;
 	align-items: center;
 	float: left;
-	margin-bottom: 5px; 
+	margin-bottom: 3px; 
 }
 #reportLogo{
 	width: auto;
@@ -122,32 +119,33 @@ section *{
 	border: 1px solid #f89828;
 	float: right;
 	padding: 10px;
-	margin-bottom: 5px; 
+	margin-bottom: 3px; 
 	background: #f89828;
 	color :white;
 }
 #greetingText {
-	width: 500px;
-	height: 256px ;
+	width: 504px;
+	height: 252px ;
 	border: 1px solid #f89828;
 	float: left;
 	padding: 10px;
-	margin: 5px 0;
+	margin: 3px 0;
 }
 #topDoctorImageBox{
 	width: 190px;
 	height: 205px ;
 	border: 1px solid #f89828;
 	float: right;
-	margin: 5px 0;
+	margin: 3px 0;
 	padding: 1px;
+	background: white;
 }
 #bottomDoctorText {
 	width: 190px;
 	border: 1px solid #f89828;
 	float: right;
 	padding: 10px;
-	margin: 5px 0;
+	margin: 3px 0;
 	background: #f89828;
 	color :white
 }
@@ -155,17 +153,19 @@ section *{
 	width: 100%;
 	border: 1px solid #f89828;
 	padding: 10px;
-	margin: 5px 0 10px 0;
+	margin: 3px 0;
 	float: left;
 }
 #bottomTextBox{
-	clear: both;
+	width: 100%;
+	float: left;
 }
 .bottomText {
 	border: 1px solid #f89828;
 	width: 47%;
 	padding: 10px;
 	float: left;
+	margin: 3px 0;
 }
 #bottomText2 {
 	float: right;
@@ -183,24 +183,26 @@ section *{
 .bottomImageHeader {
 	border: 1px solid #f89828;
 	padding: 10px;
-	margin: 10px 0;
+	margin: 3px 0;
 	background: #f89828;
 	color :white;
-	display: table;
+	display: inline-block;
 }
 .bottomImageBox {
 	border: 1px solid #f89828;
 	width: 99px;
 	height: 107px;
-	margin: 10px 25% 5px 25%;
+	margin: 3px 25%;
     display: inline-block;
     padding: 1px;
+    background: white;
 }
 .bottomImageCaption {
 	padding: 10px;
 	background: #f89828;
 	color :white;
 	display: inline-block;
+	margin-top: 3px 
 }
 
 /* SECOND PAGE / SECOND PAGE / SECOND PAGE / SECOND PAGE / SECOND PAGE / SECOND PAGE / SECOND PAGE */

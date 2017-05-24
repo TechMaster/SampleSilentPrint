@@ -81,14 +81,36 @@
 
 		//chiều cao của 2 ô nhận xét của bác sĩ phụ bằng nhau
 		if ($('#bottomText1').height() - $('#bottomText2').height() > 0) {
-			$('#bottomText2').height($('#bottomText1').height())	
+			$('#bottomText2').height($('#bottomText1').height());
 		}
 		else if ($('#bottomText2').height() - $('#bottomText1').height() > 0){
-			$('#bottomText1').height($('#bottomText2').height())	
+			$('#bottomText1').height($('#bottomText2').height());
 		}
 
 
+		//Khi mấy ô trang 1 không có Text thì sẽ ẩn đi
+		for ( var i =0 ; i<$('.text').length ; i++) {
+			if ($($('.text')[i]).text()==''){$($('.text')[i]).css('display','none')} ;
+		}
 
+		//Khi 2 ô ảnh ở dưới ko có ảnh thì sẽ ẩn đi
+		for ( var i =0 ; i<$('.bottomImage').length ; i++) {
+			if( $('.bottomImage')[i].src.indexOf("jpg",'png','jpeg')==-1 ){
+				$($('.bottomImageBox')[i]).css('display','none')
+			}
+		}
+
+
+		//Giới hạn số lượng chữ 
+		if($('#surgeryInfoText').text().length >566) {
+			$('#surgeryInfoText').html($('#surgeryInfoText').text().substring(0,566));
+		}
+		if($('#bottomText1').text().length >247) {
+			$('#bottomText1').html($('#bottomText1').text().substring(0,247));
+		}
+		if($('#bottomText2').text().length >247) {
+			$('#bottomText2').html($('#bottomText2').text().substring(0,247));
+		}
 	};
  
  	
