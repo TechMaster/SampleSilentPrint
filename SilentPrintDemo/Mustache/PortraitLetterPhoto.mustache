@@ -14,31 +14,26 @@
 						<img id="reportLogo" src={{valueLogo}}>
 					</div>
 					{{/valueLogo}}
+					{{#valueTopDoctorText}}
 					<div id="topDoctorText">
-						The name of the Doctor <br>
-						Organization <br>
-						Andress <br>
-						Phone / fax <br>
-						Website link
-
+						{{{valueTopDoctorText}}}
 					</div>
+					{{/valueTopDoctorText}}
+					
+					{{#valueGreetingText}}
 					<div id="greetingText">
-					Greetings Text<br>
-						<br>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						{{{valueGreetingText}}}
 					</div>
+					{{/valueGreetingText}}
+					
+					{{#valueDoctorImage}}
 					<div id='topDoctorImageBox'>
-						<img id="topDoctorImage" src="doctor1.jpg">
+						<img id="topDoctorImage" src={{valueDoctorImage}}>
 					</div>
-					<p id="bottomDoctorText">Dr. Van Kimmel</p>
-
-
-
+					{{/valueDoctorImage}}
+					{{# valueBottomDoctorText}}
+						<p id="bottomDoctorText">{{valueBottomDoctorText}}</p>
+					{{/ valueBottomDoctorText}}
 
 					<div id="surgeryInfoText" class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

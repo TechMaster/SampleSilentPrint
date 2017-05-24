@@ -78,8 +78,10 @@
             break;
     }
 }
-- (NSDictionary*) generateData {
-    int imagesPerPage = 4;
+/*
+ Generate JSON array of random photo
+ */
+- (NSString*) generateSelectedImages: (int) imagesPerPage {
     NSArray* imagesArray = @[
                              @{@"file": @"01.jpg", @"desc": @"Violet flower"},
                              @{@"file": @"02.jpg", @"desc": @"Hong Kong"},
@@ -119,6 +121,7 @@
     //NSArray* selectedImages = [imagesArray subarrayWithRange:NSMakeRange(0, numberSelectedImages)];
     
     
+    //Scale down size of image to reduce file size of PDF
     NSMutableArray * selectedImages = [[NSMutableArray alloc] initWithCapacity:numberSelectedImages];
     
     for (int i = 0; i < numberSelectedImages; i++) {
@@ -134,7 +137,7 @@
         
         NSDictionary* scaledImageItem = @{@"file": outputPath, @"desc" : [imageItem valueForKey:@"desc"]};
         [selectedImages addObject:scaledImageItem];
-
+        
     }
     
     NSError *error;
@@ -142,16 +145,34 @@
                                                        options:(NSJSONWritingOptions) (NSJSONWritingPrettyPrinted)
                                                          error:&error];
     
-    NSString* jsonString;
+    
     if (!jsonData) {
         NSLog(@"Error: %@", error.localizedDescription);
-        jsonString = @"{}";
+        return @"{}";
     } else {
-        jsonString= [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
+
+}
+- (NSDictionary*) generateData {
+    int imagesPerPage = 4;
+    NSString* jsonString = [self generateSelectedImages:imagesPerPage];
     
     return @{
-             : @"Arthur",
+             kLogo: @"logo1.png",
+             
+             kTopDoctorText: @"Cardiovascular Surgery<br>\
+             Room 1503, Block C<br>\
+             Phone: 0902209011<br>\
+             Email: Zhivago@mayo.org",
+             
+             kDoctorImage: @"doctor1.jpg",
+             
+             kBottomDoctorText: @"Doctor Ivan Zhivago Baker",
+             
+             kGreetingText: @"Welcome to Heart Surgery Dept",
+             
+             
              @"images": jsonString, //selectedImages
              @"imagesPerPage": @(imagesPerPage) //Number of image per page
              };
