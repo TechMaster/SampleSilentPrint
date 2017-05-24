@@ -51,9 +51,34 @@
                                                marginLeft:0];
 }
 #pragma mark - Prepare Data
-
-
+/*
+ Calculate max width of image when layout number of images (imagePerPage) in a page that have width (pageWidth)
+ */
+- (float) imageWidthToScale: (int) imagePerPage
+              withPageWidth: (float) pageWidth {
+    switch (imagePerPage) {
+        case 1:
+            return pageWidth;
+            break;
+        case 2:
+            return pageWidth / 1.5;
+            break;
+        case 3:
+            return pageWidth / 2;
+        case 4:
+            return pageWidth / 2;
+        case 5:
+            return pageWidth / 2;
+        case 6:
+            return pageWidth / 2;
+            break;
+        default:
+            return pageWidth / 3;
+            break;
+    }
+}
 - (NSDictionary*) generateData {
+    int imagesPerPage = 4;
     NSArray* imagesArray = @[
                              @{@"file": @"01.jpg", @"desc": @"Violet flower"},
                              @{@"file": @"02.jpg", @"desc": @"Hong Kong"},
@@ -87,7 +112,7 @@
                              @{@"file": @"30.jpg", @"desc": @"Mang Tay"}
                              ];
     NSUInteger totalImages = imagesArray.count;
-    int numberSelectedImages = 9;// arc4random() % totalImages;
+    int numberSelectedImages = arc4random() % totalImages;
     
     
     //NSArray* selectedImages = [imagesArray subarrayWithRange:NSMakeRange(0, numberSelectedImages)];
@@ -102,7 +127,10 @@
         
         NSString* inputPath = [[NSBundle mainBundle] pathForResource:[file stringByDeletingPathExtension]
                                                               ofType:[file pathExtension]];
-        NSString* outputPath = [UIImage scaleDownImage:inputPath maxWidth: 262];
+        NSString* outputPath = [UIImage scaleDownImage: inputPath
+                                              maxWidth: [self imageWidthToScale:imagesPerPage
+                                                                  withPageWidth:800]];
+        
         NSDictionary* scaledImageItem = @{@"file": outputPath, @"desc" : [imageItem valueForKey:@"desc"]};
         [selectedImages addObject:scaledImageItem];
 
@@ -124,7 +152,7 @@
     return @{
              @"name": @"Arthur",
              @"images": jsonString, //selectedImages
-             @"imagesPerPage": @3 //Number of image per page
+             @"imagesPerPage": @(imagesPerPage) //Number of image per page
              };
     
 }

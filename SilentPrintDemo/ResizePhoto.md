@@ -9,7 +9,13 @@ If we don't scale photo size, file size of final PDF is big.
 # How to calculate size of scaled photo when generate PDF
 
 N : image per page
-pagewidth = 
+pagewidth = (215.9mm - 2 * 15mm)= 185 mm
+1 mm = 0.0393701 inch
+print resolution = 300 pixel per inch
+display resolution = 72 pixel per inch
+185 mm  * 0.0393701 * 300 DPI = 2185
+185 * 0.0393701 * 72 = 524 pixels
+524 / 2
 1. max width = pagewidth
 2. max width = pageheight / 1.5
 3. max width = pagewidth / 2

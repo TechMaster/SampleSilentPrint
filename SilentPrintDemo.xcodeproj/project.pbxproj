@@ -44,7 +44,6 @@
 		E22485D21ED49A870052B051 /* PortraitLetterPhoto.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E22485CD1ED49A870052B051 /* PortraitLetterPhoto.mustache */; };
 		E22485D31ED49A870052B051 /* PortraitReport.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E22485CE1ED49A870052B051 /* PortraitReport.mustache */; };
 		E22485FE1ED49B090052B051 /* LetterPortrait.css in Resources */ = {isa = PBXBuildFile; fileRef = E22485D51ED49B090052B051 /* LetterPortrait.css */; };
-		E22485FF1ED49B090052B051 /* letter_portrait_v10.html in Resources */ = {isa = PBXBuildFile; fileRef = E22485D61ED49B090052B051 /* letter_portrait_v10.html */; };
 		E22486001ED49B090052B051 /* jquery-3.2.1.slim.min.js in Resources */ = {isa = PBXBuildFile; fileRef = E22485D71ED49B090052B051 /* jquery-3.2.1.slim.min.js */; };
 		E22486011ED49B090052B051 /* LetterPortrait.js in Resources */ = {isa = PBXBuildFile; fileRef = E22485D81ED49B090052B051 /* LetterPortrait.js */; };
 		E22486031ED49B090052B051 /* 01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E22485DA1ED49B090052B051 /* 01.jpg */; };
@@ -164,7 +163,6 @@
 		E22485CD1ED49A870052B051 /* PortraitLetterPhoto.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PortraitLetterPhoto.mustache; path = Mustache/PortraitLetterPhoto.mustache; sourceTree = "<group>"; };
 		E22485CE1ED49A870052B051 /* PortraitReport.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PortraitReport.mustache; path = Mustache/PortraitReport.mustache; sourceTree = "<group>"; };
 		E22485D51ED49B090052B051 /* LetterPortrait.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = LetterPortrait.css; path = Report/LetterPortrait.css; sourceTree = "<group>"; };
-		E22485D61ED49B090052B051 /* letter_portrait_v10.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = letter_portrait_v10.html; path = Report/letter_portrait_v10.html; sourceTree = "<group>"; };
 		E22485D71ED49B090052B051 /* jquery-3.2.1.slim.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery-3.2.1.slim.min.js"; path = "Report/jquery-3.2.1.slim.min.js"; sourceTree = "<group>"; };
 		E22485D81ED49B090052B051 /* LetterPortrait.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = LetterPortrait.js; path = Report/LetterPortrait.js; sourceTree = "<group>"; };
 		E22485DA1ED49B090052B051 /* 01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 01.jpg; path = Report/01.jpg; sourceTree = "<group>"; };
@@ -304,7 +302,6 @@
 			isa = PBXGroup;
 			children = (
 				E22485D51ED49B090052B051 /* LetterPortrait.css */,
-				E22485D61ED49B090052B051 /* letter_portrait_v10.html */,
 				E22485D71ED49B090052B051 /* jquery-3.2.1.slim.min.js */,
 				E22485D81ED49B090052B051 /* LetterPortrait.js */,
 				E22485DA1ED49B090052B051 /* 01.jpg */,
@@ -616,7 +613,6 @@
 				E22486081ED49B090052B051 /* 06.jpg in Resources */,
 				E22485D21ED49A870052B051 /* PortraitLetterPhoto.mustache in Resources */,
 				E2478C251EB248F2004EEC16 /* 2.jpg in Resources */,
-				E22485FF1ED49B090052B051 /* letter_portrait_v10.html in Resources */,
 				E2185FB41EB87E4500304253 /* 4.html in Resources */,
 				E247AA0F1EB64B7E00388A00 /* koi.jpg in Resources */,
 				E22486241ED49B090052B051 /* logo1.png in Resources */,
