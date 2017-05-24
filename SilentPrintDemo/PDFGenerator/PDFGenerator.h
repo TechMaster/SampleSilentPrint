@@ -32,6 +32,8 @@ typedef void (^onGenerateComplete)(NSString* _Nullable result, NSError*  _Nullab
          ofWebView: (WKWebView* _Nonnull) webView
    withPaperConfig: (PaperConfig* _Nonnull) paperConfig
         onComplete: (onGenerateComplete _Nonnull) complete;
+
+
 @end
 
 

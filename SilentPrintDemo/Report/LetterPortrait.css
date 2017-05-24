@@ -7,11 +7,11 @@
 	box-sizing: border-box ;
 	margin: 0 ;
 	padding: 0 ;
-	font-family: "Roboto-Regular";
+	font-family: "Arial";
 	font-size: 16px;
 }
 .page {
-		width: 215.9mm;
+    width: 215.9mm;
     height: 279.4mm;
     padding: 15mm;
     margin: 10mm auto;

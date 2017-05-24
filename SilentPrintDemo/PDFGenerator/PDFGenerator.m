@@ -8,13 +8,16 @@
 
 #import "PDFGenerator.h"
 #import "PDFPageRenderer.h"
+
 @class PaperConfig;
 
 @implementation PDFGenerator
 
 
 
--(void) generateHTML: (NSDictionary*) data usingTemplate: (NSString*) template onComplete:  (onGenerateComplete) complete{
+-(void) generateHTML: (NSDictionary*) data
+       usingTemplate: (NSString*) template
+          onComplete:  (onGenerateComplete) complete{
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSError* error = nil;
@@ -36,26 +39,26 @@
     
     NSMutableDictionary* appendedData = [[NSMutableDictionary alloc] initWithDictionary:data];
     [appendedData setValue: paperConfig.paperOrientation == PaperOrientationPortrait ? @"portrait" : @"landscape"
-               forKey: @"PaperOrientation"];
+                    forKey: @"PaperOrientation"];
     
     [appendedData setValue: paperConfig.paperType == PaperTypeLetter ? @"Letter" : @"A4"
-               forKey: @"PaperType"];
+                    forKey: @"PaperType"];
     
     [appendedData setValue: @(paperConfig.marginTop)
-               forKey: @"MarginTop"];
-
+                    forKey: @"MarginTop"];
+    
     [appendedData setValue: @(paperConfig.marginBottom)
-               forKey: @"MarginBottom"];
+                    forKey: @"MarginBottom"];
     
     
     [appendedData setValue: @(paperConfig.marginLeft)
-               forKey: @"MarginLeft"];
+                    forKey: @"MarginLeft"];
     
     [appendedData setValue: @(paperConfig.marginRight)
-               forKey: @"MarginRight"];
+                    forKey: @"MarginRight"];
     
     return (NSDictionary*) appendedData;
-
+    
 }
 
 -(void) generateHTML: (NSDictionary*) data

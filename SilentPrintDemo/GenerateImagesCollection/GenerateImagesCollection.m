@@ -9,7 +9,7 @@
 #import "GenerateImagesCollection.h"
 #import <WebKit/WebKit.h>
 #import "PDFGenerator.h"
-
+#import "UIImage+Utils.h"
 
 @interface GenerateImagesCollection ()
 @property (nonatomic, strong) PDFGenerator* generator;
@@ -26,12 +26,18 @@
     [self.view addSubview: self.webView];
     
     
-    UIBarButtonItem* generateReport = [[UIBarButtonItem alloc] initWithTitle:@"Report" style:UIBarButtonItemStylePlain target:self action:@selector(generateReport)];
+    UIBarButtonItem* generateReport = [[UIBarButtonItem alloc] initWithTitle:@"Report"
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:self
+                                                                      action:@selector(generateReport)];
     
     self.navigationItem.leftItemsSupplementBackButton = YES;
     self.navigationItem.leftBarButtonItems = @[generateReport];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Print" style:UIBarButtonItemStylePlain target:self action:@selector(printDocument)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Print"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(printDocument)];
     
     self.generator = [PDFGenerator new];
     self.silentPrint = [SilentPrint getSingleton];
@@ -81,10 +87,26 @@
                              @{@"file": @"30.jpg", @"desc": @"Mang Tay"}
                              ];
     NSUInteger totalImages = imagesArray.count;
-    int numberSelectedImages =  arc4random() % totalImages;
+    int numberSelectedImages = 9;// arc4random() % totalImages;
     
     
-    NSArray* selectedImages = [imagesArray subarrayWithRange:NSMakeRange(0, numberSelectedImages)];
+    //NSArray* selectedImages = [imagesArray subarrayWithRange:NSMakeRange(0, numberSelectedImages)];
+    
+    
+    NSMutableArray * selectedImages = [[NSMutableArray alloc] initWithCapacity:numberSelectedImages];
+    
+    for (int i = 0; i < numberSelectedImages; i++) {
+        NSDictionary* imageItem = imagesArray[i];
+        
+        NSString* file = [imageItem valueForKey:@"file"];
+        
+        NSString* inputPath = [[NSBundle mainBundle] pathForResource:[file stringByDeletingPathExtension]
+                                                              ofType:[file pathExtension]];
+        NSString* outputPath = [UIImage scaleDownImage:inputPath maxWidth: 262];
+        NSDictionary* scaledImageItem = @{@"file": outputPath, @"desc" : [imageItem valueForKey:@"desc"]};
+        [selectedImages addObject:scaledImageItem];
+
+    }
     
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:selectedImages
@@ -102,7 +124,7 @@
     return @{
              @"name": @"Arthur",
              @"images": jsonString, //selectedImages
-             @"imagesPerPage": @4 //Number of image per page
+             @"imagesPerPage": @3 //Number of image per page
              };
     
 }
