@@ -97,8 +97,8 @@ section{
 }
 
 #logo_box {
-	width: 500px ;
-	height: 147px ;
+	width: 450px ;
+	height: 125px ;
 	background: white;
 	padding: 2%;
 	display: flex;
@@ -114,34 +114,36 @@ section{
   	max-height: 100%;*/
 }
 #topDoctorText {
-	width: 190px ;
-	height: 147px ;
+	width: 220px ;
+	height: 125px ;
 	border: 1px solid #f89828;
 	float: right;
 	padding: 10px;
 	margin-bottom: 3px; 
 	background: #f89828;
 	color :white;
+	margin-left:6px; 
 }
 #greetingText {
-	width: 504px;
-	height: 252px ;
+	width: 474px;
+	height: 280px ;
 	border: 1px solid #f89828;
 	float: left;
 	padding: 10px;
 	margin: 3px 0;
 }
 #topDoctorImageBox{
-	width: 190px;
-	height: 205px ;
+	width: 220px;
+	height: 233px ;
 	border: 1px solid #f89828;
 	float: right;
-	margin: 3px 0;
+	margin: 3px 0 3px 6px;
 	padding: 1px;
 	background: white;
+	display: flex;
 }
 #bottomDoctorText {
-	width: 190px;
+	width: 220px;
 	border: 1px solid #f89828;
 	float: right;
 	padding: 10px;
@@ -155,6 +157,8 @@ section{
 	padding: 10px;
 	margin: 3px 0;
 	float: left;
+	max-height: 136px;
+    overflow: hidden;
 }
 #bottomTextBox{
 	width: 100%;
@@ -166,6 +170,8 @@ section{
 	padding: 10px;
 	float: left;
 	margin: 3px 0;
+	max-height: 136px;
+    overflow: hidden;
 }
 #bottomText2 {
 	float: right;
@@ -193,7 +199,7 @@ section{
 	width: 99px;
 	height: 107px;
 	margin: 3px 25%;
-    display: inline-block;
+    display: inline-flex;
     padding: 1px;
     background: white;
 }
