@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "PDFGenerator.h"
 #import "UIImage+Utils.h"
+#import "ConstantKeys.h"
 
 @interface GenerateImagesCollection ()
 @property (nonatomic, strong) PDFGenerator* generator;
@@ -150,7 +151,7 @@
     }
     
     return @{
-             @"name": @"Arthur",
+             : @"Arthur",
              @"images": jsonString, //selectedImages
              @"imagesPerPage": @(imagesPerPage) //Number of image per page
              };
