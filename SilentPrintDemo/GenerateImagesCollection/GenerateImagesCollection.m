@@ -37,6 +37,12 @@
     self.silentPrint = [SilentPrint getSingleton];
     self.silentPrint.silentPrintDelegate = self;
 
+    self.paperConfig = [[PaperConfig alloc] initPaperType:PaperTypeLetter
+                                              orientation:PaperOrientationPortrait
+                                                marginTop:0
+                                             marginBottom:0
+                                              marginRight:0
+                                               marginLeft:0];
 }
 #pragma mark - Prepare Data
 

@@ -501,11 +501,11 @@
 			isa = PBXGroup;
 			children = (
 				E22485C11ED49A3E0052B051 /* PaperConfig.h */,
-				E22485C21ED49A3E0052B051 /* PDFGenerator.h */,
-				E22485C31ED49A3E0052B051 /* PDFPageRenderer.h */,
 				E22485C41ED49A3E0052B051 /* PaperConfig.m */,
-				E22485C51ED49A3E0052B051 /* PDFGenerator.m */,
+				E22485C31ED49A3E0052B051 /* PDFPageRenderer.h */,
 				E22485C61ED49A3E0052B051 /* PDFPageRenderer.m */,
+				E22485C21ED49A3E0052B051 /* PDFGenerator.h */,
+				E22485C51ED49A3E0052B051 /* PDFGenerator.m */,
 			);
 			name = PDFGenerator;
 			sourceTree = "<group>";

@@ -25,4 +25,12 @@ typedef enum {
 @property(nonatomic, assign) float marginBottom;
 @property(nonatomic, assign) float marginRight;
 @property(nonatomic, assign) float marginLeft;
+
+- (id) initPaperType: (PaperType) paperType
+         orientation: (PaperOrientation) paperOrientation
+           marginTop: (float) marginTop
+        marginBottom: (float) marginBottom
+         marginRight: (float) marginRight
+          marginLeft: (float)marginLeft;
+
 @end

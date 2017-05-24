@@ -31,39 +31,27 @@
  Add printing paper configuration to data
  */
 -(NSDictionary*) appendPaperConfigToData: (NSDictionary*) data
-                         withPaperConfig: (nullable PaperConfig*) paperConfig
+                         withPaperConfig: (PaperConfig* _Nonnull) paperConfig
 {
-    PaperConfig* localPaperConfig;
-    if (paperConfig) {
-        localPaperConfig = paperConfig;
-    } else {
-        localPaperConfig = [PaperConfig new];
-        localPaperConfig.paperOrientation = PaperOrientationPortrait;
-        localPaperConfig.paperType = PaperTypeLetter;
-        localPaperConfig.marginTop = 20;
-        localPaperConfig.marginBottom = 20;
-        localPaperConfig.marginLeft = 20;
-        localPaperConfig.marginRight = 20;
-    }
     
     NSMutableDictionary* appendedData = [[NSMutableDictionary alloc] initWithDictionary:data];
-    [appendedData setValue: localPaperConfig.paperOrientation == PaperOrientationPortrait ? @"portrait" : @"landscape"
+    [appendedData setValue: paperConfig.paperOrientation == PaperOrientationPortrait ? @"portrait" : @"landscape"
                forKey: @"PaperOrientation"];
     
-    [appendedData setValue: localPaperConfig.paperType == PaperTypeLetter ? @"Letter" : @"A4"
+    [appendedData setValue: paperConfig.paperType == PaperTypeLetter ? @"Letter" : @"A4"
                forKey: @"PaperType"];
     
-    [appendedData setValue: @(localPaperConfig.marginTop)
+    [appendedData setValue: @(paperConfig.marginTop)
                forKey: @"MarginTop"];
 
-    [appendedData setValue: @(localPaperConfig.marginBottom)
+    [appendedData setValue: @(paperConfig.marginBottom)
                forKey: @"MarginBottom"];
     
     
-    [appendedData setValue: @(localPaperConfig.marginLeft)
+    [appendedData setValue: @(paperConfig.marginLeft)
                forKey: @"MarginLeft"];
     
-    [appendedData setValue: @(localPaperConfig.marginRight)
+    [appendedData setValue: @(paperConfig.marginRight)
                forKey: @"MarginRight"];
     
     return (NSDictionary*) appendedData;
@@ -71,7 +59,7 @@
 }
 
 -(void) generateHTML: (NSDictionary*) data
-     withPaperConfig: (nullable PaperConfig*) paperConfig
+     withPaperConfig: (PaperConfig*) paperConfig
         fromResource: (NSString*) name
               bundle: (NSBundle *) bundle
           onComplete: (onGenerateComplete) complete{
@@ -129,7 +117,7 @@
  */
 -(void)generatePDF: (NSString*) fileOutput
          ofWebView: (WKWebView*) webView
-   withPaperConfig: (nullable PaperConfig*) paperConfig
+   withPaperConfig: (PaperConfig*) paperConfig
         onComplete: (onGenerateComplete) complete;
 {
     if (webView.isLoading) {
@@ -141,22 +129,15 @@
     [pdfRenderer addPrintFormatter:webView.viewPrintFormatter
              startingAtPageAtIndex:0];
     
-    //increase these values according to your requirement
-    float topPadding = 0.0f;
-    float bottomPadding = 0.0f;
-    float leftPadding = 0.0f;
-    float rightPadding = 0.0f;
+    
     
     CGSize paperSize = [self getPaperSize:paperConfig.paperType];
     
     CGRect paperRect = CGRectMake(0, 0, paperSize.width, paperSize.height);
     
-    CGRect printableRect = CGRectMake(leftPadding,
-                                      topPadding,
-                                      paperSize.width-leftPadding-rightPadding,
-                                      paperSize.height-topPadding-bottomPadding);
+    CGRect printableRect = paperRect;
     
-    NSLog(@"x = %f, y = %f, w = %f, h =%f", paperRect.origin.x, paperRect.origin.y, paperRect.size.width, paperRect.size.height);
+    //NSLog(@"x = %f, y = %f, w = %f, h =%f", paperRect.origin.x, paperRect.origin.y, paperRect.size.width, paperRect.size.height);
     [pdfRenderer setValue:[NSValue valueWithCGRect:paperRect]
                    forKey:@"paperRect"];
     
