@@ -6,7 +6,7 @@
 		//reset lại lúc đầu tiên
 		$('#report').html(origin);
 
-		// gọi ra số trang sẽ hiển thị
+		// gọi ra số trang sẽ hiển thị ảnh
 		let numberOfPage = Math.ceil(totalImage/imagesPerPage)
 		//tạo số trang
 		let content = ''
@@ -38,8 +38,10 @@
 		//số trang
 		let allPage =$('.allPage');
 		let pageNumber =$('.pageNumber');
-		for (let i=0 ; i<=numberOfPage+1 ; i++) {
-			allPage[i].innerText = numberOfPage+2 ;
+		if ($('#firstPage')[0] != undefined) {numberOfPage = numberOfPage+1}
+		else if ($('#firstPage')[0]==undefined) {numberOfPage = numberOfPage}
+		for (let i=0 ; i<=numberOfPage ; i++) {
+			allPage[i].innerText = $('.allPage').length ;
 			pageNumber[i].innerText = i+1 ;
 		}
 		
