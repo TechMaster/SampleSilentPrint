@@ -6,6 +6,7 @@
 </head>
 <body>
 	<div id="report">
+
 		<div class="page" id ="firstPage">
 			<div class="subpage">
 				<section>
@@ -31,59 +32,60 @@
 						<img id="topDoctorImage" src={{valueDoctorImage}}>
 					</div>
 					{{/valueDoctorImage}}
-					{{# valueBottomDoctorText}}
+					{{#valueBottomDoctorText}}
 						<p id="bottomDoctorText">{{valueBottomDoctorText}}</p>
-					{{/ valueBottomDoctorText}}
+					{{/valueBottomDoctorText}}
 
-					<div id="surgeryInfoText" class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+					{{#valueSurgeryInfoText}}
+					<div id="surgeryInfoText" class="text">{{valueSurgeryInfoText}}</div>
+					{{/valueSurgeryInfoText}}
 
 					<div id="bottomTextBox">
-						<div class="bottomText text" id="bottomText1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-						<div class="bottomText text" id="bottomText2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-					</div>
-
-					<div class="bottom">
-						<p class="bottomImageHeader text" id="bottomImageHeader1">Name of Physician Assistant</p>
-						<div class='bottomImageBox'>
-							<img class='bottomImage' id="bottomImage1" src="doctor2.jpg">
-						</div>
-						<p class="bottomImageCaption text" id="bottomImageCaption1">Helena Jokovic</p>
-					</div>
-
-					<div class="bottom">
+						{{#valueBottomText1}}
+							<div class="bottomText text" id="bottomText1">{{valueBottomText1}}</div>
+						{{/valueBottomText1}}
 						
-						<p class="bottomImageHeader text" id="bottomImageHeader2">Name of Physician Assistant</p>
-						<div class="bottomImageBox">
-							<img class='bottomImage' id="bottomImage2" src="doctor3.jpg" >
+						{{#valueBottomText2}}
+							<div class="bottomText text" id="bottomText2">{{valueBottomText2}}</div>
+						{{/valueBottomText2}}
+					</div>
+
+					<div class="bottom">
+						{{#valueBottomImageHeader1}}
+							<p class="bottomImageHeader text" id="bottomImageHeader1">{{valueBottomImageHeader1}}</p>
+						{{/valueBottomImageHeader1}}
+						 
+						{{#valueBottomImage1}}
+						<div class='bottomImageBox'>
+							<img class='bottomImage' id="bottomImage1" src={{valueBottomImage1}}>
 						</div>
-						<p class="bottomImageCaption text" id="bottomImageCaption2">Van Basten</p>
+						{{/valueBottomImage1}}
+
+						{{#valueBottomImageCaption1}}
+							<p class="bottomImageCaption text" id="bottomImageCaption1">{{valueBottomImageCaption1}}</p>
+						{{/valueBottomImageCaption1}}
+					</div>
+
+					<div class="bottom">
+						{{#valueBottomImageHeader2}}
+						<p class="bottomImageHeader text" id="bottomImageHeader2">{{valueBottomImageHeader2}}</p>
+						{{/valueBottomImageHeader2}}
+
+						{{#valueBottomImage2}}
+						<div class="bottomImageBox">
+							<img class='bottomImage' id="bottomImage2" src={{valueBottomImage2}} >
+						</div>
+						{{/valueBottomImage2}}
+						{{#valueBottomImageCaption2}}
+							<p class="bottomImageCaption text" id="bottomImageCaption2">{{valueBottomImageCaption2}}</p>
+						{{/valueBottomImageCaption2}}
 					</div>
 
 				</section>
 				<p class="line">Page <span class="pageNumber"></span> / <span class="allPage"></span></p>
 			</div>
 		</div>
-
+	
 
 		<!-- From here page 2,3,4,5 ... -->
 		<div id="otherPages">

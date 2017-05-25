@@ -21,6 +21,10 @@
 
 @implementation GenerateImagesCollection
 
+int _imagesPerPage;
+int _numberSelectedImages;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
@@ -50,6 +54,8 @@
                                              marginBottom:0
                                               marginRight:0
                                                marginLeft:0];
+    
+    
 }
 #pragma mark - Prepare Data
 /*
@@ -81,7 +87,7 @@
 /*
  Generate JSON array of random photo
  */
-- (NSString*) generateSelectedImages: (int) imagesPerPage {
+- (NSString*) generateSelectedImages {
     NSArray* imagesArray = @[
                              @{@"file": @"01.jpg", @"desc": @"Violet flower"},
                              @{@"file": @"02.jpg", @"desc": @"Hong Kong"},
@@ -115,16 +121,21 @@
                              @{@"file": @"30.jpg", @"desc": @"Mang Tay"}
                              ];
     NSUInteger totalImages = imagesArray.count;
-    int numberSelectedImages = arc4random() % totalImages;
+    _numberSelectedImages = arc4random() % 8;//totalImages;
     
+    if (_numberSelectedImages < _imagesPerPage) {
+        _imagesPerPage = _numberSelectedImages;
+    }
+    
+    NSLog(@"Selected Images: %d - Image Per Page: %d", _numberSelectedImages, _imagesPerPage);
     
     //NSArray* selectedImages = [imagesArray subarrayWithRange:NSMakeRange(0, numberSelectedImages)];
     
     
     //Scale down size of image to reduce file size of PDF
-    NSMutableArray * selectedImages = [[NSMutableArray alloc] initWithCapacity:numberSelectedImages];
+    NSMutableArray * selectedImages = [[NSMutableArray alloc] initWithCapacity: _numberSelectedImages];
     
-    for (int i = 0; i < numberSelectedImages; i++) {
+    for (int i = 0; i < _numberSelectedImages; i++) {
         NSDictionary* imageItem = imagesArray[i];
         
         NSString* file = [imageItem valueForKey:@"file"];
@@ -132,7 +143,7 @@
         NSString* inputPath = [[NSBundle mainBundle] pathForResource:[file stringByDeletingPathExtension]
                                                               ofType:[file pathExtension]];
         NSString* outputPath = [UIImage scaleDownImage: inputPath
-                                              maxWidth: [self imageWidthToScale:imagesPerPage
+                                              maxWidth: [self imageWidthToScale:_imagesPerPage
                                                                   withPageWidth:800]];
         
         NSDictionary* scaledImageItem = @{@"file": outputPath, @"desc" : [imageItem valueForKey:@"desc"]};
@@ -155,10 +166,13 @@
 
 }
 - (NSDictionary*) generateData {
-    int imagesPerPage = 4;
-    NSString* jsonString = [self generateSelectedImages:imagesPerPage];
+    
+    NSString* jsonString = [self generateSelectedImages];
     
     return @{
+             @"PatientReport": @"show", //If this key has non-empty string, then 1st page Patient Report will be shown
+             
+             //data for 1st page: Patient Report
              kLogo: @"logo1.png",
              
              kTopDoctorText: @"Cardiovascular Surgery<br>\
@@ -172,13 +186,31 @@
              
              kGreetingText: @"Welcome to Heart Surgery Dept",
              
+             kSurgeryInfoText: @"Endoscopic surgery is a method of operating on internal body structures, such as knee joints or reproductive organs, by passing an instrument called an endoscope through a body opening or tiny incision.",
              
+             kBottomText1: @"Washed the incision. Change to bandage every 2 days",
+             kBottomText2: @"Patient is in good condition. He needs to take rest for 2 week",
+             
+             kBottomImageHeader1: @"Helena Jokovic",
+             kBottomImageHeader2: @"Van Basten",
+             
+             kBottomImage1: @"doctor2.jpg",
+             kBottomImage2: @"doctor3.jpg",
+             
+             kBottomImageCaption1: @"Surgery assistant",
+             
+             kBottomImageCaption2: @"Rehabilitation nurse",
+             
+             //data for selected images in consequence page
              @"images": jsonString, //selectedImages
-             @"imagesPerPage": @(imagesPerPage) //Number of image per page
+             @"imagesPerPage": @(_imagesPerPage) //Number of image per page
              };
     
 }
 - (void) generateReport {
+    _imagesPerPage = 8;
+    _numberSelectedImages = 9;
+    
     [self generatePDF:[self generateData]];
 }
 
@@ -193,7 +225,6 @@
                           if (error) {
                               NSLog(@"%@", error);
                           } else {
-                              NSLog(@"%@", result);
                               NSString *path = [[NSBundle mainBundle] bundlePath];
                               NSURL *baseURL = [NSURL fileURLWithPath:path];
                               [self.webView loadHTMLString:result baseURL: baseURL];
@@ -212,7 +243,6 @@
                          if (error) {
                              NSLog(@"%@", error);
                          } else {
-                             NSLog(@"PDF: %@", result);
                              [self.silentPrint printFile: result
                                                 inSilent: false];
                          }
