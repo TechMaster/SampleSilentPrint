@@ -13,7 +13,7 @@
 .page {
     width: 215.9mm;
     height: 279.4mm;
-    padding: 15mm;
+    padding: 10mm;
     margin: 10mm auto;
     border: 1px #D3D3D3 solid;
     border-radius: 5px;
@@ -22,8 +22,8 @@
     page-break-after: always;
 }
 .subpage {
-	height: 249mm;
-	/*outline: 15mm #FFEAEA solid;*/
+	height: 259mm;
+	/*outline: 10mm #FFEAEA solid;*/
 }
 p {
 	text-align: center;
@@ -34,14 +34,13 @@ p {
 }
 .image_box {
 	width: 100% ;
-	height: 768px;
+	height: 807px;
 	display: flex ;
 	justify-content: center ;
 	align-items:center;
 	flex-flow: row wrap;
 }
 .image_info {
-	display: inline-block ;
 	width: 100% ;
 }
 img {
@@ -57,24 +56,23 @@ img {
 	display: block
 }
 .b2 {
-	width: 72%;
-    margin: 1.4%;
+	width: 70%;
 }
 .b3 {
 	width: 48%;
-    margin: 6% 1%;
+    margin: 0 1%;
 }
 .b5 {
-	width: 48%;
-    margin: 0% 1%;
+	width: 45%;
+    margin: 0 2.5%;
 }
 .b7 { 
 	width: 32%;
-    margin: 4% 0.65%;
+    margin:0 0.65%;
 }
 .b10 { 
 	width: 32%;
-    margin: 1.1% 0.65%;
+    margin:0 0.65%;
 
 }
 @page {
@@ -94,13 +92,13 @@ img {
 
 /* FIRST PAGE / FIRST PAGE / FIRST PAGE / FIRST PAGE / FIRST PAGE / FIRST PAGE */
 section{
-	height: 906px;
+	height: 949px;
 	overflow:hidden;
 }
 
 #logo_box {
-	width: 450px ;
-	height: 125px ;
+	width: 482px ;
+	height: 142px ;
 	background: white;
 	padding: 2%;
 	display: flex;
@@ -116,8 +114,8 @@ section{
   	max-height: 100%;*/
 }
 #topDoctorText {
-	width: 220px ;
-	height: 125px ;
+	width: 250px ;
+	height: 142px ;
 	border: 1px solid #f89828;
 	float: right;
 	padding: 10px;
@@ -127,16 +125,16 @@ section{
 	margin-left:6px; 
 }
 #greetingText {
-	width: 474px;
-	height: 280px ;
+	width: 482px;
+	height: 316px ;
 	border: 1px solid #f89828;
 	float: left;
 	padding: 10px;
 	margin: 3px 0;
 }
 #topDoctorImageBox{
-	width: 220px;
-	height: 233px ;
+	width: 250px;
+	height: 270px ;
 	border: 1px solid #f89828;
 	float: right;
 	margin: 3px 0 3px 6px;
@@ -145,7 +143,7 @@ section{
 	display: flex;
 }
 #bottomDoctorText {
-	width: 220px;
+	width: 250px;
 	border: 1px solid #f89828;
 	float: right;
 	padding: 10px;
@@ -168,7 +166,7 @@ section{
 }
 .bottomText {
 	border: 1px solid #f89828;
-	width: 47%;
+	width: 48%;
 	padding: 10px;
 	float: left;
 	margin: 3px 0;
@@ -180,7 +178,7 @@ section{
 
 } 
 .bottom {
-	width: 47%;
+	width: 48%;
 	float: left;
 	text-align: center;
 }
@@ -218,7 +216,7 @@ section{
 
 .doctorInfo {
 	width: 100%;
-	height: 143px;
+	height: 140px;
 	background: #CBD2E4;
 	border-radius:10px; 
 	/*font-weight: bold;*/
@@ -251,7 +249,7 @@ section{
 
 pre {
     white-space: pre-line;
-    height: 906px;
+    height: 950px;
 }
 
 

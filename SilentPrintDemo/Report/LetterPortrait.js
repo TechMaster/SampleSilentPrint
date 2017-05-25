@@ -103,32 +103,32 @@
 
 		//Giới hạn số lượng chữ cho từng ô
 		
-		if($('#bottomDoctorText').text().length >23) {
-			$('#bottomDoctorText').html($('#bottomDoctorText').text().substring(0,23)+' ...');
+		if($('#bottomDoctorText').text().length >27) {
+			$('#bottomDoctorText').html($('#bottomDoctorText').text().substring(0,27)+' ...');
 		}
-		if($('#greetingText').text().length >840) {
-			$('#greetingText').html($('#greetingText').text().substring(0,840)+' ...');
+		if($('#greetingText').text().length >1080) {
+			$('#greetingText').html($('#greetingText').text().substring(0,1080)+' ...');
 		}
-		if($('#surgeryInfoText').text().length >590) {
-			$('#surgeryInfoText').html($('#surgeryInfoText').text().substring(0,590)+' ...');
+		if($('#surgeryInfoText').text().length >640) {
+			$('#surgeryInfoText').html($('#surgeryInfoText').text().substring(0,640)+' ...');
 		}
-		if($('#bottomText1').text().length >260) {
-			$('#bottomText1').html($('#bottomText1').text().substring(0,260)+' ...');
+		if($('#bottomText1').text().length >270) {
+			$('#bottomText1').html($('#bottomText1').text().substring(0,270)+' ...');
 		}
-		if($('#bottomText2').text().length >260) {
-			$('#bottomText2').html($('#bottomText2').text().substring(0,260)+' ...');
+		if($('#bottomText2').text().length >270) {
+			$('#bottomText2').html($('#bottomText2').text().substring(0,270)+' ...');
 		}
-		if($('#bottomImageHeader1').text().length >38) {
-			$('#bottomImageHeader1').html($('#bottomImageHeader1').text().substring(0,38)+' ...');
+		if($('#bottomImageHeader1').text().length >41) {
+			$('#bottomImageHeader1').html($('#bottomImageHeader1').text().substring(0,41)+' ...');
 		}
-		if($('#bottomImageHeader2').text().length >38) {
-			$('#bottomImageHeader2').html($('#bottomImageHeader2').text().substring(0,38)+' ...');
+		if($('#bottomImageHeader2').text().length >41) {
+			$('#bottomImageHeader2').html($('#bottomImageHeader2').text().substring(0,41)+' ...');
 		}
-		if($('#bottomImageCaption1').text().length >38) {
-			$('#bottomImageCaption1').html($('#bottomImageCaption1').text().substring(0,38)+' ...');
+		if($('#bottomImageCaption1').text().length >41) {
+			$('#bottomImageCaption1').html($('#bottomImageCaption1').text().substring(0,41)+' ...');
 		}
-		if($('#bottomImageCaption2').text().length >38) {
-			$('#bottomImageCaption2').html($('#bottomImageCaption2').text().substring(0,38)+' ...');
+		if($('#bottomImageCaption2').text().length >41) {
+			$('#bottomImageCaption2').html($('#bottomImageCaption2').text().substring(0,41)+' ...');
 		}
 	}
  
