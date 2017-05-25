@@ -35,12 +35,14 @@ p {
 .image_box {
 	width: 100% ;
 	height: 768px;
-	display: table-cell ;
-	text-align: center ;
-	vertical-align: middle
+	display: flex ;
+	justify-content: center ;
+	align-items:center;
+	flex-flow: row wrap;
 }
 .image_info {
 	display: inline-block ;
+	width: 100% ;
 }
 img {
 	width: 100% ;
