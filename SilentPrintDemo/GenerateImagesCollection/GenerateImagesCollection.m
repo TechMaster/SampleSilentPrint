@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "PDFGenerator.h"
 #import "UIImage+Utils.h"
-#import "ConstantKeys.h"
+#import "LENSReportKey.h"
 
 @interface GenerateImagesCollection ()
 @property (nonatomic, strong) PDFGenerator* generator;
@@ -170,7 +170,7 @@ int _numberSelectedImages;
     NSString* jsonString = [self generateSelectedImages];
     
     return @{
-             @"PatientReport": @"", //If this key has non-empty string, then 1st page Patient Report will be shown
+             kEnablePatientReport: @"", //If this key has non-empty string, then 1st page Patient Report will be shown
              
              //data for 1st page: Patient Report
              kLogo: @"logo1.png",
@@ -202,17 +202,20 @@ int _numberSelectedImages;
              kBottomImageCaption2: @"Rehabilitation nurse",
              
              //data for selected images in consequence page
-             @"images": jsonString, //selectedImages
-             @"imagesPerPage": @(_imagesPerPage), //Number of image per page
+             kSelectedImages: jsonString, //selectedImages
+             kImagesPerPage: @(_imagesPerPage), //Number of image per page
              
              
-             @"reportLine1": @"Doctor: Ivan Zhivago Baker",
-             @"reportLine2": @"Mayo Clinic - Cardio Surgery",
-             @"reportLine3": @"MRN: 212-485",
-             @"reportLine4": @"Patient: John Silver Bank",
-             @"reportLine5": @"Surgery date 2017-06-10",
-             @"reportLine6": @"Zhivago@gmail.com",
-             @"reportLogo" : @"logo1.png"
+             kReportLine1: @"Doctor: Ivan Zhivago Baker",
+             kReportLine2: @"Mayo Clinic - Cardio Surgery",
+             kReportLine3: @"Zhivago@gmail.com",
+             
+             kReportLine4: @"Patient: John Silver Bank",
+             kReportLine5: @"MRN: 212-485",
+             kReportLine6: @"Surgery date 2017-06-10",
+             
+             
+             kReportLogo : @"logo1.png"
              };
     
 }

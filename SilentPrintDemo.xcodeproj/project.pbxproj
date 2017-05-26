@@ -212,6 +212,7 @@
 		E27ABEAD1EB1F217006D5A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E28794AC1EC3627000BECA7A /* PDFGeneration.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = PDFGeneration.md; path = SilentPrintDemo/PDFGeneration.md; sourceTree = "<group>"; };
 		E2CD29221EC4AB7100E94B5A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		E2E261B81ED887AE0045FDA0 /* LENSReportKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LENSReportKey.h; path = PDFGenerator/LENSReportKey.h; sourceTree = "<group>"; };
 		E2E749FE1ED549FA0068DB02 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		E2E74A051ED575EB0068DB02 /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Utils.h"; path = "ScaleImage/UIImage+Utils.h"; sourceTree = "<group>"; };
 		E2E74A061ED575EB0068DB02 /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Utils.m"; path = "ScaleImage/UIImage+Utils.m"; sourceTree = "<group>"; };
@@ -515,6 +516,7 @@
 				E22485C61ED49A3E0052B051 /* PDFPageRenderer.m */,
 				E22485C21ED49A3E0052B051 /* PDFGenerator.h */,
 				E22485C51ED49A3E0052B051 /* PDFGenerator.m */,
+				E2E261B81ED887AE0045FDA0 /* LENSReportKey.h */,
 			);
 			name = PDFGenerator;
 			sourceTree = "<group>";
