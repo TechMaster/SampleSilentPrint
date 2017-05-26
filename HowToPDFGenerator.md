@@ -6,21 +6,23 @@ PDF Generator library depends on two Apple Libraries and one 3rd party library
 3. [Mustache](https://github.com/groue/GRMustache): template library. Use CocoaPod to install
 
 **Source codes of PDF Generator**
-PaperConfig.h 
-PaperConfig.m
-PDFGenerator.h
-PDFGenerator.m
-PDFPageRenderer.h
-PDFPageRenderer.m
-UIImage+Utils.h
-UIImage+Utils.m
-LENSReportKey.h
+- PaperConfig.h 
+- PaperConfig.m   //configure page size, orientation, margin
+- PDFGenerator.h
+- PDFGenerator.m    //Convert data + mustache --> HTML
+- PDFPageRenderer.h
+- PDFPageRenderer.m //Format to render PDF
+- UIImage+Utils.h
+- UIImage+Utils.m //resize image
+- LENSReportKey.h //define place holder fields in report
 
 **Mustache, JavaScript, CSS files to generate Letter size, portrait report for LENS project**
 jquery-3.2.1.slim.min.js
 LetterPortrait.css
 LetterPortrait.js
 PortraitLetterPhoto.mustache
+
+We can add more reports as we wish. This PDF Generator is totally decoupled from main application.
 
 **Key functions in PDF Generator**
 ```objective-c
