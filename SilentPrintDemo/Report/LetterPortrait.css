@@ -107,7 +107,7 @@ section{
 	float: left;
 	margin-bottom: 3px; 
 }
-#reportLogo{
+#reportLogo , .doctorInfoLogo{
 	width: auto;
 	max-width: 100%;
  /* 	height : auto;
@@ -242,7 +242,8 @@ section{
 	padding-right: 10px;
 	float: left;
 	display: flex;
-	align-items:center;
+	justify-content: center;
+	align-items: center;
 }
 
 /* LAST PAGE / LAST PAGE / LAST PAGE / LAST PAGE / LAST PAGE / LAST PAGE / LAST PAGE / LAST PAGE */
