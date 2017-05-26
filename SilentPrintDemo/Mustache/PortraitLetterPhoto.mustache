@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div id="report">
-
+		{{#PatientReport}}
 		<div class="page" id ="firstPage">
 			<div class="subpage">
 				<section>
@@ -85,7 +85,7 @@
 				<p class="line">Page <span class="pageNumber"></span> / <span class="allPage"></span></p>
 			</div>
 		</div>
-	
+		{{/PatientReport}}
 
 		<!-- From here page 2,3,4,5 ... -->
 		<div id="otherPages">
@@ -93,21 +93,18 @@
 				<div class="subpage">
 					<div class="doctorInfo">
 						<div>
-							<p>Dr. Brad Cohen</p>
-							<p>Paloma Health</p>
-							<p>Arch Health Partners</p>
-							<p>Patient Name: 12-2-2016</p>
+							{{#reportLine1}}<p>{{reportLine1}}</p>{{/reportLine1}}
+							{{#reportLine2}}<p>{{reportLine2}}</p>{{/reportLine2}}
+							{{#reportLine3}}<p>{{reportLine3}}</p>{{/reportLine3}}
+							{{#reportLine4}}<p>{{reportLine4}}</p>{{/reportLine4}}
 						</div>
 						<div>
-							<p>MRN: 12-2-2016</p>
-							<p>Doctor Email:
-								<br>
-								Brad@gmail.com
-							</p>	
+							{{#reportLine5}}<p>{{reportLine5}}</p>{{/reportLine5}}
+							{{#reportLine6}}<p>{{reportLine6}}</p>{{/reportLine6}}
 						</div>
-						<div>
-							<img src="logo2.png">	
-						</div>
+						{{#reportLogo}}
+						<div><img src={{reportLogo}}></div>
+						{{/reportLogo}}
 					</div>
 					<div class="image_box">
 						<div class="image_info">

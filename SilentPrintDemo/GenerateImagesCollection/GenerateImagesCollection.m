@@ -170,7 +170,7 @@ int _numberSelectedImages;
     NSString* jsonString = [self generateSelectedImages];
     
     return @{
-             @"PatientReport": @"show", //If this key has non-empty string, then 1st page Patient Report will be shown
+             @"PatientReport": @"", //If this key has non-empty string, then 1st page Patient Report will be shown
              
              //data for 1st page: Patient Report
              kLogo: @"logo1.png",
@@ -203,7 +203,16 @@ int _numberSelectedImages;
              
              //data for selected images in consequence page
              @"images": jsonString, //selectedImages
-             @"imagesPerPage": @(_imagesPerPage) //Number of image per page
+             @"imagesPerPage": @(_imagesPerPage), //Number of image per page
+             
+             
+             @"reportLine1": @"Doctor: Ivan Zhivago Baker",
+             @"reportLine2": @"Mayo Clinic - Cardio Surgery",
+             @"reportLine3": @"MRN: 212-485",
+             @"reportLine4": @"Patient: John Silver Bank",
+             @"reportLine5": @"Surgery date 2017-06-10",
+             @"reportLine6": @"Zhivago@gmail.com",
+             @"reportLogo" : @"logo1.png"
              };
     
 }
