@@ -106,7 +106,7 @@ section{
 	align-items: center;
 	float: left;
 	margin-bottom: 3px; 
-}
+}	
 #reportLogo , .doctorInfoLogo{
 	width: auto;
 	max-width: 100%;
@@ -225,25 +225,18 @@ section{
 	text-align: left;
 	padding: 8px 0 8px 20px;
 }
-.doctorInfo div:nth-child(1){
-	width: 30%; 
+.doctorInfo div{
+	width: 33.33%; 
 	height: 100%;
-	float: left;
-}
-.doctorInfo div:nth-child(2){
-	width: 36%; 
-	height: 100%;
-	padding-top: 33px;
-	float: left;
-}
-.doctorInfo div:nth-child(3){
-	width: 34%; 
-	height: 100%;
-	padding-right: 10px;
 	float: left;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
+	flex-flow: row wrap;
+}
+.doctorInfo div:nth-child(3){
+	padding-right: 20px;
+	justify-content: flex-end;
 }
 
 /* LAST PAGE / LAST PAGE / LAST PAGE / LAST PAGE / LAST PAGE / LAST PAGE / LAST PAGE / LAST PAGE */

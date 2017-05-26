@@ -121,7 +121,7 @@ int _numberSelectedImages;
                              @{@"file": @"30.jpg", @"desc": @"Mang Tay"}
                              ];
     NSUInteger totalImages = imagesArray.count;
-    _numberSelectedImages = arc4random() % 8;//totalImages;
+    _numberSelectedImages = arc4random() % totalImages;
     
     if (_numberSelectedImages < _imagesPerPage) {
         _imagesPerPage = _numberSelectedImages;
