@@ -97,9 +97,11 @@
 
 		//Khi 2 ô ảnh ở dưới ko có ảnh thì sẽ ẩn đi
 		for ( var i =0 ; i<$('.bottomImage').length ; i++) {
-			if( $('.bottomImage')[i].src.indexOf('jpg')==-1 
-			|| $('.bottomImage')[i].src.indexOf('png')==-1 ){
+			if( $('.bottomImage')[i].src.indexOf('jpg')==-1){
 				$($('.bottomImageBox')[i]).css('display','none')
+			}
+			else if (|| $('.bottomImage')[i].src.indexOf('png')==-1 ){
+				$($('.bottomImageBox')[i]).css('display','none')	
 			}
 		}
 
