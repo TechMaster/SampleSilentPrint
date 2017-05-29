@@ -90,6 +90,8 @@
 		E27ABEA91EB1F217006D5A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEA81EB1F217006D5A01 /* Assets.xcassets */; };
 		E27ABEAC1EB1F217006D5A01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEAA1EB1F217006D5A01 /* LaunchScreen.storyboard */; };
 		E28794AD1EC3627000BECA7A /* PDFGeneration.md in Sources */ = {isa = PBXBuildFile; fileRef = E28794AC1EC3627000BECA7A /* PDFGeneration.md */; };
+		E2B520CF1EDBD3C800FFEEF0 /* SilentPDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */; };
+		E2B520D01EDBD3C800FFEEF0 /* SilentPDFGenerator.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */; };
 		E2CD29231EC4AB7100E94B5A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2CD29221EC4AB7100E94B5A /* WebKit.framework */; };
 		E2E749FF1ED549FA0068DB02 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E749FE1ED549FA0068DB02 /* ImageIO.framework */; };
 		E2E74A071ED575EB0068DB02 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E74A061ED575EB0068DB02 /* UIImage+Utils.m */; };
@@ -211,6 +213,9 @@
 		E27ABEAB1EB1F217006D5A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E27ABEAD1EB1F217006D5A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E28794AC1EC3627000BECA7A /* PDFGeneration.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = PDFGeneration.md; path = SilentPrintDemo/PDFGeneration.md; sourceTree = "<group>"; };
+		E2B520CC1EDBD3C800FFEEF0 /* SilentPDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SilentPDFGenerator.h; path = SilentPDFGenerator/SilentPDFGenerator.h; sourceTree = "<group>"; };
+		E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SilentPDFGenerator.m; path = SilentPDFGenerator/SilentPDFGenerator.m; sourceTree = "<group>"; };
+		E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SilentPDFGenerator.xib; path = SilentPDFGenerator/SilentPDFGenerator.xib; sourceTree = "<group>"; };
 		E2CD29221EC4AB7100E94B5A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E2E261B81ED887AE0045FDA0 /* LENSReportKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LENSReportKey.h; path = PDFGenerator/LENSReportKey.h; sourceTree = "<group>"; };
 		E2E749FE1ED549FA0068DB02 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -501,6 +506,7 @@
 		E28794AB1EC35F2200BECA7A /* DemoPDFGeneration */ = {
 			isa = PBXGroup;
 			children = (
+				E2B520CB1EDBD38A00FFEEF0 /* SilentPDFGenerator */,
 				E2236C6D1EC93D02008BC220 /* MustacheBasicDemo */,
 				E2236C6E1EC93E12008BC220 /* GenerateImagesCollection */,
 			);
@@ -519,6 +525,16 @@
 				E2E261B81ED887AE0045FDA0 /* LENSReportKey.h */,
 			);
 			name = PDFGenerator;
+			sourceTree = "<group>";
+		};
+		E2B520CB1EDBD38A00FFEEF0 /* SilentPDFGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				E2B520CC1EDBD3C800FFEEF0 /* SilentPDFGenerator.h */,
+				E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */,
+				E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */,
+			);
+			name = SilentPDFGenerator;
 			sourceTree = "<group>";
 		};
 		E2E74A001ED572730068DB02 /* ScaleImage */ = {
@@ -622,6 +638,7 @@
 				E224861D1ED49B090052B051 /* 27.jpg in Resources */,
 				E224860F1ED49B090052B051 /* 13.jpg in Resources */,
 				E224860C1ED49B090052B051 /* 10.jpg in Resources */,
+				E2B520D01EDBD3C800FFEEF0 /* SilentPDFGenerator.xib in Resources */,
 				E22486221ED49B090052B051 /* doctor2.jpg in Resources */,
 				E2E74A0C1ED5766F0068DB02 /* ScaleImage.xib in Resources */,
 				E22485BF1ED4997D0052B051 /* GenerateImagesCollection.xib in Resources */,
@@ -735,6 +752,7 @@
 				E22485991ED497C10052B051 /* PDFPageRender.m in Sources */,
 				E22485C71ED49A3E0052B051 /* PaperConfig.m in Sources */,
 				E22485BB1ED4993E0052B051 /* MustacheBasicDemo.m in Sources */,
+				E2B520CF1EDBD3C800FFEEF0 /* SilentPDFGenerator.m in Sources */,
 				E2FF1EFE1EBAAEE300AE9C08 /* ReadMe.md in Sources */,
 				E28794AD1EC3627000BECA7A /* PDFGeneration.md in Sources */,
 				E22485961ED497C10052B051 /* Filter.m in Sources */,

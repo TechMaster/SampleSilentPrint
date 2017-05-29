@@ -1,32 +1,35 @@
 //
-//  GenerateImagesCollection.m
+//  SilentPDFGenerator.m
 //  SilentPrintDemo
 //
-//  Created by cuong on 5/15/17.
+//  Created by cuong on 5/29/17.
 //  Copyright © 2017 techmaster. All rights reserved.
 //
 
-#import "GenerateImagesCollection.h"
+#import "SilentPDFGenerator.h"
 #import <WebKit/WebKit.h>
+
 #import "PDFGenerator.h"
 #import "UIImage+Utils.h"
 #import "LENSReportKey.h"
 
-@interface GenerateImagesCollection ()
+
+@interface SilentPDFGenerator ()
 @property (nonatomic, strong) PDFGenerator* generator;
 @property (nonatomic, strong) WKWebView* webView;
 @property (nonatomic, strong) SilentPrint* silentPrint;
 @property (nonatomic, strong) PaperConfig* paperConfig;
 @property (nonatomic, assign) int imagesPerPage;
 @property (nonatomic, assign) int numberSelectedImages;
+@property (weak, nonatomic) IBOutlet UITextView *txtResult;
+
 @end
 
-@implementation GenerateImagesCollection
+@implementation SilentPDFGenerator
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview: self.webView];
-    
+    self.webView = [WKWebView new];
+        
     
     UIBarButtonItem* generateReport = [[UIBarButtonItem alloc] initWithTitle:@"Report"
                                                                        style:UIBarButtonItemStylePlain
@@ -44,7 +47,7 @@
     self.generator = [PDFGenerator new];
     self.silentPrint = [SilentPrint getSingleton];
     self.silentPrint.silentPrintDelegate = self;
-
+    
     self.paperConfig = [[PaperConfig alloc] initPaperType:PaperTypeLetter
                                               orientation:PaperOrientationPortrait
                                                 marginTop:0
@@ -54,6 +57,7 @@
     
     
 }
+
 #pragma mark - Prepare Data
 /*
  Calculate max width of image when layout number of images (imagePerPage) in a page that have width (pageWidth)
@@ -160,7 +164,7 @@
     } else {
         return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
-
+    
 }
 - (NSDictionary*) generateData {
     
@@ -173,9 +177,9 @@
              kLogo: @"logo1.png",
              
              kTopDoctorText: @"Cardiovascular Surgery<br>\
-             Room 1503, Block C<br>\
-             Phone: 0902209011<br>\
-             Email: Zhivago@mayo.org",
+                 Room 1503, Block C<br>\
+                 Phone: 0902209011<br>\
+                 Email: Zhivago@mayo.org",
              
              kDoctorImage: @"doctor1.jpg",
              
@@ -235,8 +239,13 @@
                               NSLog(@"%@", error);
                           } else {
                               NSString *path = [[NSBundle mainBundle] bundlePath];
+                              dispatch_async(dispatch_get_main_queue(), ^{
+                                  self.txtResult.text = @"Generate HTML report successfully. Tap on Print button to generate PDF file then print";
+                              });
                               NSURL *baseURL = [NSURL fileURLWithPath:path];
                               [self.webView loadHTMLString:result baseURL: baseURL];
+                              
+                              
                           }
                       }];
     
@@ -252,11 +261,15 @@
                          if (error) {
                              NSLog(@"%@", error);
                          } else {
+                             dispatch_async(dispatch_get_main_queue(), ^{
+                                 self.txtResult.text = result;
+                             });
                              [self.silentPrint printFile: result
                                                 inSilent: false];
                          }
                      }];
 }
+
 
 #pragma mark - SilentPrintDelegate
 -(void)onSilentPrintError: (NSError*) error {
@@ -271,6 +284,4 @@
         }];
     }
 }
-
-
 @end
