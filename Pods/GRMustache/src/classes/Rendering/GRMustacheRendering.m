@@ -215,7 +215,7 @@ void freeCurrentContentTypeStack(void *objects) {
  *                      renderForMustacheTag:asEnumerationItem:context:HTMLSafe:error:
  *                      method.
  * @param boolValueIMP  the implementation of the mustacheBoolValue method.
- * @param aClass        the class to modify.
+ * @param klass        the class to modify.
  */
 + (void)registerRenderWithIterationSupportIMP:(GRMustacheRenderWithIterationSupportIMP)renderIMP boolValueIMP:(GRMustacheBoolValueIMP)boolValueIMP forClass:(Class)klass
 {
@@ -244,7 +244,7 @@ void freeCurrentContentTypeStack(void *objects) {
  *
  * @param renderIMP     the implementation of the
  *                      renderForMustacheTag:context:HTMLSafe:error: method.
- * @param aClass        the class to modify.
+ * @param klass        the class to modify.
  */
 + (void)registerRenderIMP:(GRMustacheRenderIMP)renderIMP forClass:(Class)klass
 {

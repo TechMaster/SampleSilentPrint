@@ -62,7 +62,7 @@
  * the node argument, but GRMustacheInheritableSectionNode and
  * GRMustacheInheritablePartialNode.
  *
- * @param ASTNode  A node
+ * @param templateASTNode  A node
  *
  * @return The resolution of the node in the context of Mustache template
  *         inheritance.

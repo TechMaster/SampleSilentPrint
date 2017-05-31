@@ -21,7 +21,6 @@
 		E22485981ED497C10052B051 /* PDFGeneratorFile.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485931ED497C10052B051 /* PDFGeneratorFile.m */; };
 		E22485991ED497C10052B051 /* PDFPageRender.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485941ED497C10052B051 /* PDFPageRender.m */; };
 		E224859A1ED497C10052B051 /* PreviewPDF.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485951ED497C10052B051 /* PreviewPDF.m */; };
-		E22485A01ED497DD0052B051 /* PDFGeneration.md in Sources */ = {isa = PBXBuildFile; fileRef = E224859D1ED497DD0052B051 /* PDFGeneration.md */; };
 		E22485A21ED497DD0052B051 /* SilentPrint.m in Sources */ = {isa = PBXBuildFile; fileRef = E224859F1ED497DD0052B051 /* SilentPrint.m */; };
 		E22485A61ED497EA0052B051 /* ConfigurePrinter.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22485A41ED497EA0052B051 /* ConfigurePrinter.xib */; };
 		E22485A71ED497EA0052B051 /* ConfigurePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485A51ED497EA0052B051 /* ConfigurePrinter.m */; };
@@ -89,7 +88,6 @@
 		E27ABE9E1EB1F217006D5A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABE9D1EB1F217006D5A01 /* main.m */; };
 		E27ABEA91EB1F217006D5A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEA81EB1F217006D5A01 /* Assets.xcassets */; };
 		E27ABEAC1EB1F217006D5A01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEAA1EB1F217006D5A01 /* LaunchScreen.storyboard */; };
-		E28794AD1EC3627000BECA7A /* PDFGeneration.md in Sources */ = {isa = PBXBuildFile; fileRef = E28794AC1EC3627000BECA7A /* PDFGeneration.md */; };
 		E2B520CF1EDBD3C800FFEEF0 /* SilentPDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */; };
 		E2B520D01EDBD3C800FFEEF0 /* SilentPDFGenerator.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */; };
 		E2CD29231EC4AB7100E94B5A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2CD29221EC4AB7100E94B5A /* WebKit.framework */; };
@@ -97,10 +95,8 @@
 		E2E74A071ED575EB0068DB02 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E74A061ED575EB0068DB02 /* UIImage+Utils.m */; };
 		E2E74A0B1ED5766F0068DB02 /* ScaleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E74A091ED5766F0068DB02 /* ScaleImage.m */; };
 		E2E74A0C1ED5766F0068DB02 /* ScaleImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E74A0A1ED5766F0068DB02 /* ScaleImage.xib */; };
-		E2E74A0E1ED57AE80068DB02 /* ResizePhoto.md in Sources */ = {isa = PBXBuildFile; fileRef = E2E74A0D1ED57AE80068DB02 /* ResizePhoto.md */; };
 		E2FF1EF21EBAAD4D00AE9C08 /* log1.log in Resources */ = {isa = PBXBuildFile; fileRef = E2FF1EF11EBAAD4D00AE9C08 /* log1.log */; };
 		E2FF1EF61EBAAE8300AE9C08 /* log2.csv in Resources */ = {isa = PBXBuildFile; fileRef = E2FF1EF41EBAAE8300AE9C08 /* log2.csv */; };
-		E2FF1EFE1EBAAEE300AE9C08 /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = E2FF1EFD1EBAAEE300AE9C08 /* ReadMe.md */; };
 		F7DA71BD9EDD5ED1A74FDE8D /* libPods-SilentPrintDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7848BD5FA7FF62C4BF0057 /* libPods-SilentPrintDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -133,7 +129,6 @@
 		E22485941ED497C10052B051 /* PDFPageRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFPageRender.m; path = OldPDFGenerator/PDFPageRender.m; sourceTree = "<group>"; };
 		E22485951ED497C10052B051 /* PreviewPDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewPDF.m; path = OldPDFGenerator/PreviewPDF.m; sourceTree = "<group>"; };
 		E224859C1ED497DD0052B051 /* SilentPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SilentPrint.h; path = SilentPrint/SilentPrint.h; sourceTree = "<group>"; };
-		E224859D1ED497DD0052B051 /* PDFGeneration.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = PDFGeneration.md; path = SilentPrint/PDFGeneration.md; sourceTree = "<group>"; };
 		E224859F1ED497DD0052B051 /* SilentPrint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SilentPrint.m; path = SilentPrint/SilentPrint.m; sourceTree = "<group>"; };
 		E22485A31ED497EA0052B051 /* ConfigurePrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigurePrinter.h; path = ConfigurePrinter/ConfigurePrinter.h; sourceTree = "<group>"; };
 		E22485A41ED497EA0052B051 /* ConfigurePrinter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConfigurePrinter.xib; path = ConfigurePrinter/ConfigurePrinter.xib; sourceTree = "<group>"; };
@@ -212,7 +207,6 @@
 		E27ABEA81EB1F217006D5A01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E27ABEAB1EB1F217006D5A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E27ABEAD1EB1F217006D5A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E28794AC1EC3627000BECA7A /* PDFGeneration.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = PDFGeneration.md; path = SilentPrintDemo/PDFGeneration.md; sourceTree = "<group>"; };
 		E2B520CC1EDBD3C800FFEEF0 /* SilentPDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SilentPDFGenerator.h; path = SilentPDFGenerator/SilentPDFGenerator.h; sourceTree = "<group>"; };
 		E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SilentPDFGenerator.m; path = SilentPDFGenerator/SilentPDFGenerator.m; sourceTree = "<group>"; };
 		E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SilentPDFGenerator.xib; path = SilentPDFGenerator/SilentPDFGenerator.xib; sourceTree = "<group>"; };
@@ -224,10 +218,8 @@
 		E2E74A081ED5766F0068DB02 /* ScaleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScaleImage.h; path = ScaleImage/ScaleImage.h; sourceTree = "<group>"; };
 		E2E74A091ED5766F0068DB02 /* ScaleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScaleImage.m; path = ScaleImage/ScaleImage.m; sourceTree = "<group>"; };
 		E2E74A0A1ED5766F0068DB02 /* ScaleImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScaleImage.xib; path = ScaleImage/ScaleImage.xib; sourceTree = "<group>"; };
-		E2E74A0D1ED57AE80068DB02 /* ResizePhoto.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = ResizePhoto.md; path = SilentPrintDemo/ResizePhoto.md; sourceTree = "<group>"; };
 		E2FF1EF11EBAAD4D00AE9C08 /* log1.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = log1.log; path = SampleItems/log1.log; sourceTree = "<group>"; };
 		E2FF1EF41EBAAE8300AE9C08 /* log2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = log2.csv; path = SampleItems/log2.csv; sourceTree = "<group>"; };
-		E2FF1EFD1EBAAEE300AE9C08 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 		FCE10543823FFD05046F75AC /* Pods-SilentPrintDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilentPrintDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SilentPrintDemo/Pods-SilentPrintDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -366,7 +358,6 @@
 			children = (
 				E224859C1ED497DD0052B051 /* SilentPrint.h */,
 				E224859F1ED497DD0052B051 /* SilentPrint.m */,
-				E224859D1ED497DD0052B051 /* PDFGeneration.md */,
 			);
 			name = SilentPrint;
 			sourceTree = "<group>";
@@ -431,9 +422,6 @@
 		E27ABE901EB1F217006D5A01 = {
 			isa = PBXGroup;
 			children = (
-				E2E74A0D1ED57AE80068DB02 /* ResizePhoto.md */,
-				E28794AC1EC3627000BECA7A /* PDFGeneration.md */,
-				E2FF1EFD1EBAAEE300AE9C08 /* ReadMe.md */,
 				E27ABE9B1EB1F217006D5A01 /* SilentPrintDemo */,
 				E27ABE9A1EB1F217006D5A01 /* Products */,
 				B320705CFACC076A9FEF7A76 /* Pods */,
@@ -753,8 +741,6 @@
 				E22485C71ED49A3E0052B051 /* PaperConfig.m in Sources */,
 				E22485BB1ED4993E0052B051 /* MustacheBasicDemo.m in Sources */,
 				E2B520CF1EDBD3C800FFEEF0 /* SilentPDFGenerator.m in Sources */,
-				E2FF1EFE1EBAAEE300AE9C08 /* ReadMe.md in Sources */,
-				E28794AD1EC3627000BECA7A /* PDFGeneration.md in Sources */,
 				E22485961ED497C10052B051 /* Filter.m in Sources */,
 				E22485A21ED497DD0052B051 /* SilentPrint.m in Sources */,
 				E22485C91ED49A3E0052B051 /* PDFPageRenderer.m in Sources */,
@@ -762,9 +748,7 @@
 				E22485981ED497C10052B051 /* PDFGeneratorFile.m in Sources */,
 				E2E74A071ED575EB0068DB02 /* UIImage+Utils.m in Sources */,
 				E22485871ED497010052B051 /* BootLogic.m in Sources */,
-				E22485A01ED497DD0052B051 /* PDFGeneration.md in Sources */,
 				E2E74A0B1ED5766F0068DB02 /* ScaleImage.m in Sources */,
-				E2E74A0E1ED57AE80068DB02 /* ResizePhoto.md in Sources */,
 				E22485AC1ED497FB0052B051 /* PrintSingleItem.m in Sources */,
 				E27ABE9E1EB1F217006D5A01 /* main.m in Sources */,
 				E22485B61ED4982D0052B051 /* PrintBatchAfterBatch.m in Sources */,

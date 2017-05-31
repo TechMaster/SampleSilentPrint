@@ -165,7 +165,7 @@
  * In the context of template inheritance, return the node that should be
  * rendered in lieu of the node argument.
  *
- * @param ASTNode  A node
+ * @param templateASTNode  A node
  *
  * @return The resolution of the node in the context of Mustache template
  *         inheritance.
