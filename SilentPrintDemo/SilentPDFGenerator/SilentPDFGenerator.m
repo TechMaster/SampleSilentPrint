@@ -171,7 +171,7 @@
     NSString* jsonString = [self generateSelectedImages];
     
     return @{
-             kEnablePatientReport: @"", //If this key has non-empty string, then 1st page Patient Report will be shown
+             kEnablePatientReport: @"show", //If this key has non-empty string, then 1st page Patient Report will be shown
              
              //data for 1st page: Patient Report
              kLogo: @"logo1.png",

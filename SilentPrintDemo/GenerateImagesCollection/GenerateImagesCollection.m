@@ -167,7 +167,7 @@
     NSString* jsonString = [self generateSelectedImages];
     
     return @{
-             kEnablePatientReport: @"", //If this key has non-empty string, then 1st page Patient Report will be shown
+             kEnablePatientReport: @1, //If this key has non-empty string, then 1st page Patient Report will be shown
              
              //data for 1st page: Patient Report
              kLogo: @"logo1.png",
@@ -181,9 +181,9 @@
              
              kBottomDoctorText: @"Doctor Ivan Zhivago Baker",
              
-             kGreetingText: @"Welcome to Heart Surgery Dept",
+             kGreetingText: @"<p align=\"right\"><font face=\"Smith&NephewLF\"  style=\"font-size:32px; color:rgb(255,115,0); \">Welcome to Heart Surgery Dept</font></p>",
              
-             kSurgeryInfoText: @"Endoscopic surgery is a method of operating on internal body structures, such as knee joints or reproductive organs, by passing an instrument called an endoscope through a body opening or tiny incision.",
+             kSurgeryInfoText: @"<p align=\"left\"><font face=\"Smith&NephewLF\"  style=\"font-size:17px; color:rgb(255,115,0); \">Endoscopic surgery is a method of operating on internal body structures, such as knee joints or reproductive organs, by passing an instrument called an endoscope through a body opening or tiny incision.</font></p>",
              
              kBottomText1: @"Washed the incision. Change to bandage every 2 days",
              kBottomText2: @"Patient is in good condition. He needs to take rest for 2 week",
