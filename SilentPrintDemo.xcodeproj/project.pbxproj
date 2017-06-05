@@ -16,11 +16,6 @@
 		E22485871ED497010052B051 /* BootLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485831ED497010052B051 /* BootLogic.m */; };
 		E22485881ED497010052B051 /* ConsoleScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485841ED497010052B051 /* ConsoleScreen.m */; };
 		E22485891ED497010052B051 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485851ED497010052B051 /* MainScreen.m */; };
-		E22485961ED497C10052B051 /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485911ED497C10052B051 /* Filter.m */; };
-		E22485971ED497C10052B051 /* NSString+PageNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485921ED497C10052B051 /* NSString+PageNumber.m */; };
-		E22485981ED497C10052B051 /* PDFGeneratorFile.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485931ED497C10052B051 /* PDFGeneratorFile.m */; };
-		E22485991ED497C10052B051 /* PDFPageRender.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485941ED497C10052B051 /* PDFPageRender.m */; };
-		E224859A1ED497C10052B051 /* PreviewPDF.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485951ED497C10052B051 /* PreviewPDF.m */; };
 		E22485A21ED497DD0052B051 /* SilentPrint.m in Sources */ = {isa = PBXBuildFile; fileRef = E224859F1ED497DD0052B051 /* SilentPrint.m */; };
 		E22485A61ED497EA0052B051 /* ConfigurePrinter.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22485A41ED497EA0052B051 /* ConfigurePrinter.xib */; };
 		E22485A71ED497EA0052B051 /* ConfigurePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485A51ED497EA0052B051 /* ConfigurePrinter.m */; };
@@ -36,11 +31,7 @@
 		E22485C71ED49A3E0052B051 /* PaperConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485C41ED49A3E0052B051 /* PaperConfig.m */; };
 		E22485C81ED49A3E0052B051 /* PDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485C51ED49A3E0052B051 /* PDFGenerator.m */; };
 		E22485C91ED49A3E0052B051 /* PDFPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485C61ED49A3E0052B051 /* PDFPageRenderer.m */; };
-		E22485CF1ED49A870052B051 /* BaseReport.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E22485CA1ED49A870052B051 /* BaseReport.mustache */; };
-		E22485D01ED49A870052B051 /* Document.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E22485CB1ED49A870052B051 /* Document.mustache */; };
-		E22485D11ED49A870052B051 /* Layout.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E22485CC1ED49A870052B051 /* Layout.mustache */; };
 		E22485D21ED49A870052B051 /* PortraitLetterPhoto.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E22485CD1ED49A870052B051 /* PortraitLetterPhoto.mustache */; };
-		E22485D31ED49A870052B051 /* PortraitReport.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E22485CE1ED49A870052B051 /* PortraitReport.mustache */; };
 		E22485FE1ED49B090052B051 /* LetterPortrait.css in Resources */ = {isa = PBXBuildFile; fileRef = E22485D51ED49B090052B051 /* LetterPortrait.css */; };
 		E22486001ED49B090052B051 /* jquery-3.2.1.slim.min.js in Resources */ = {isa = PBXBuildFile; fileRef = E22485D71ED49B090052B051 /* jquery-3.2.1.slim.min.js */; };
 		E22486011ED49B090052B051 /* LetterPortrait.js in Resources */ = {isa = PBXBuildFile; fileRef = E22485D81ED49B090052B051 /* LetterPortrait.js */; };
@@ -80,6 +71,10 @@
 		E22486241ED49B090052B051 /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = E22485FB1ED49B090052B051 /* logo1.png */; };
 		E22486251ED49B090052B051 /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = E22485FC1ED49B090052B051 /* logo2.png */; };
 		E22486261ED49B090052B051 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E22485FD1ED49B090052B051 /* Roboto-Regular.ttf */; };
+		E22F42FC1EE3151B00F0E1D9 /* WYSIWYGReport.m in Sources */ = {isa = PBXBuildFile; fileRef = E22F42FB1EE3151B00F0E1D9 /* WYSIWYGReport.m */; };
+		E22F42FF1EE31D9900F0E1D9 /* UserEntry.js in Resources */ = {isa = PBXBuildFile; fileRef = E22F42FD1EE31D9900F0E1D9 /* UserEntry.js */; };
+		E22F43001EE31D9900F0E1D9 /* WYSIWYGReport.js in Resources */ = {isa = PBXBuildFile; fileRef = E22F42FE1EE31D9900F0E1D9 /* WYSIWYGReport.js */; };
+		E22F43021EE31DF200F0E1D9 /* WYSIWYGReport.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E22F43011EE31DF200F0E1D9 /* WYSIWYGReport.mustache */; };
 		E2478C241EB248F2004EEC16 /* 3.html in Resources */ = {isa = PBXBuildFile; fileRef = E2478C211EB248F2004EEC16 /* 3.html */; };
 		E2478C251EB248F2004EEC16 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E2478C221EB248F2004EEC16 /* 2.jpg */; };
 		E2478C261EB248F2004EEC16 /* 1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E2478C231EB248F2004EEC16 /* 1.pdf */; };
@@ -87,6 +82,11 @@
 		E27ABE9E1EB1F217006D5A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABE9D1EB1F217006D5A01 /* main.m */; };
 		E27ABEA91EB1F217006D5A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEA81EB1F217006D5A01 /* Assets.xcassets */; };
 		E27ABEAC1EB1F217006D5A01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEAA1EB1F217006D5A01 /* LaunchScreen.storyboard */; };
+		E2AEB9D81EE3AB0A001E0C9A /* VueInterop.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AEB9D71EE3AB0A001E0C9A /* VueInterop.m */; };
+		E2AEB9DA1EE3AC24001E0C9A /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = E2AEB9D91EE3AC24001E0C9A /* index.html */; };
+		E2AEB9DC1EE3AE43001E0C9A /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = E2AEB9DB1EE3AE43001E0C9A /* main.css */; };
+		E2AEB9E01EE3AE80001E0C9A /* inter.js in Resources */ = {isa = PBXBuildFile; fileRef = E2AEB9DF1EE3AE80001E0C9A /* inter.js */; };
+		E2AEB9E31EE3B185001E0C9A /* someJSLibrary in Resources */ = {isa = PBXBuildFile; fileRef = E2AEB9E21EE3B185001E0C9A /* someJSLibrary */; };
 		E2B520CF1EDBD3C800FFEEF0 /* SilentPDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */; };
 		E2B520D01EDBD3C800FFEEF0 /* SilentPDFGenerator.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */; };
 		E2CD29231EC4AB7100E94B5A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2CD29221EC4AB7100E94B5A /* WebKit.framework */; };
@@ -115,18 +115,6 @@
 		E22485831ED497010052B051 /* BootLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BootLogic.m; path = MainMenu/BootLogic.m; sourceTree = "<group>"; };
 		E22485841ED497010052B051 /* ConsoleScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConsoleScreen.m; path = MainMenu/ConsoleScreen.m; sourceTree = "<group>"; };
 		E22485851ED497010052B051 /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScreen.m; path = MainMenu/MainScreen.m; sourceTree = "<group>"; };
-		E224858A1ED497C10052B051 /* ConstantKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConstantKeys.h; path = OldPDFGenerator/ConstantKeys.h; sourceTree = "<group>"; };
-		E224858B1ED497C10052B051 /* Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Filter.h; path = OldPDFGenerator/Filter.h; sourceTree = "<group>"; };
-		E224858C1ED497C10052B051 /* NSString+PageNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+PageNumber.h"; path = "OldPDFGenerator/NSString+PageNumber.h"; sourceTree = "<group>"; };
-		E224858D1ED497C10052B051 /* PDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFGenerator.h; path = OldPDFGenerator/PDFGenerator.h; sourceTree = "<group>"; };
-		E224858E1ED497C10052B051 /* PDFGeneratorFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFGeneratorFile.h; path = OldPDFGenerator/PDFGeneratorFile.h; sourceTree = "<group>"; };
-		E224858F1ED497C10052B051 /* PDFPageRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFPageRender.h; path = OldPDFGenerator/PDFPageRender.h; sourceTree = "<group>"; };
-		E22485901ED497C10052B051 /* PreviewPDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreviewPDF.h; path = OldPDFGenerator/PreviewPDF.h; sourceTree = "<group>"; };
-		E22485911ED497C10052B051 /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Filter.m; path = OldPDFGenerator/Filter.m; sourceTree = "<group>"; };
-		E22485921ED497C10052B051 /* NSString+PageNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+PageNumber.m"; path = "OldPDFGenerator/NSString+PageNumber.m"; sourceTree = "<group>"; };
-		E22485931ED497C10052B051 /* PDFGeneratorFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFGeneratorFile.m; path = OldPDFGenerator/PDFGeneratorFile.m; sourceTree = "<group>"; };
-		E22485941ED497C10052B051 /* PDFPageRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFPageRender.m; path = OldPDFGenerator/PDFPageRender.m; sourceTree = "<group>"; };
-		E22485951ED497C10052B051 /* PreviewPDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreviewPDF.m; path = OldPDFGenerator/PreviewPDF.m; sourceTree = "<group>"; };
 		E224859C1ED497DD0052B051 /* SilentPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SilentPrint.h; path = SilentPrint/SilentPrint.h; sourceTree = "<group>"; };
 		E224859F1ED497DD0052B051 /* SilentPrint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SilentPrint.m; path = SilentPrint/SilentPrint.m; sourceTree = "<group>"; };
 		E22485A31ED497EA0052B051 /* ConfigurePrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigurePrinter.h; path = ConfigurePrinter/ConfigurePrinter.h; sourceTree = "<group>"; };
@@ -152,11 +140,7 @@
 		E22485C41ED49A3E0052B051 /* PaperConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaperConfig.m; path = PDFGenerator/PaperConfig.m; sourceTree = "<group>"; };
 		E22485C51ED49A3E0052B051 /* PDFGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFGenerator.m; path = PDFGenerator/PDFGenerator.m; sourceTree = "<group>"; };
 		E22485C61ED49A3E0052B051 /* PDFPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFPageRenderer.m; path = PDFGenerator/PDFPageRenderer.m; sourceTree = "<group>"; };
-		E22485CA1ED49A870052B051 /* BaseReport.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BaseReport.mustache; path = Mustache/BaseReport.mustache; sourceTree = "<group>"; };
-		E22485CB1ED49A870052B051 /* Document.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Document.mustache; path = Mustache/Document.mustache; sourceTree = "<group>"; };
-		E22485CC1ED49A870052B051 /* Layout.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Layout.mustache; path = Mustache/Layout.mustache; sourceTree = "<group>"; };
 		E22485CD1ED49A870052B051 /* PortraitLetterPhoto.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PortraitLetterPhoto.mustache; path = Mustache/PortraitLetterPhoto.mustache; sourceTree = "<group>"; };
-		E22485CE1ED49A870052B051 /* PortraitReport.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PortraitReport.mustache; path = Mustache/PortraitReport.mustache; sourceTree = "<group>"; };
 		E22485D51ED49B090052B051 /* LetterPortrait.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = LetterPortrait.css; path = Report/LetterPortrait.css; sourceTree = "<group>"; };
 		E22485D71ED49B090052B051 /* jquery-3.2.1.slim.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery-3.2.1.slim.min.js"; path = "Report/jquery-3.2.1.slim.min.js"; sourceTree = "<group>"; };
 		E22485D81ED49B090052B051 /* LetterPortrait.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = LetterPortrait.js; path = Report/LetterPortrait.js; sourceTree = "<group>"; };
@@ -196,6 +180,11 @@
 		E22485FB1ED49B090052B051 /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo1.png; path = Report/logo1.png; sourceTree = "<group>"; };
 		E22485FC1ED49B090052B051 /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo2.png; path = Report/logo2.png; sourceTree = "<group>"; };
 		E22485FD1ED49B090052B051 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Regular.ttf"; path = "Report/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		E22F42FA1EE3151B00F0E1D9 /* WYSIWYGReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WYSIWYGReport.h; path = WYSIWYGReport/WYSIWYGReport.h; sourceTree = "<group>"; };
+		E22F42FB1EE3151B00F0E1D9 /* WYSIWYGReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WYSIWYGReport.m; path = WYSIWYGReport/WYSIWYGReport.m; sourceTree = "<group>"; };
+		E22F42FD1EE31D9900F0E1D9 /* UserEntry.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = UserEntry.js; path = Report/UserEntry.js; sourceTree = "<group>"; };
+		E22F42FE1EE31D9900F0E1D9 /* WYSIWYGReport.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = WYSIWYGReport.js; path = Report/WYSIWYGReport.js; sourceTree = "<group>"; };
+		E22F43011EE31DF200F0E1D9 /* WYSIWYGReport.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WYSIWYGReport.mustache; path = Mustache/WYSIWYGReport.mustache; sourceTree = "<group>"; };
 		E2478C211EB248F2004EEC16 /* 3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = 3.html; path = SampleItems/3.html; sourceTree = "<group>"; };
 		E2478C221EB248F2004EEC16 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = SampleItems/2.jpg; sourceTree = "<group>"; };
 		E2478C231EB248F2004EEC16 /* 1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = 1.pdf; path = SampleItems/1.pdf; sourceTree = "<group>"; };
@@ -205,6 +194,12 @@
 		E27ABEA81EB1F217006D5A01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E27ABEAB1EB1F217006D5A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E27ABEAD1EB1F217006D5A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2AEB9D61EE3AB0A001E0C9A /* VueInterop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VueInterop.h; path = VueInterop/VueInterop.h; sourceTree = "<group>"; };
+		E2AEB9D71EE3AB0A001E0C9A /* VueInterop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VueInterop.m; path = VueInterop/VueInterop.m; sourceTree = "<group>"; };
+		E2AEB9D91EE3AC24001E0C9A /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = VueInterop/index.html; sourceTree = "<group>"; };
+		E2AEB9DB1EE3AE43001E0C9A /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = main.css; path = VueInterop/main.css; sourceTree = "<group>"; };
+		E2AEB9DF1EE3AE80001E0C9A /* inter.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = inter.js; path = VueInterop/inter.js; sourceTree = "<group>"; };
+		E2AEB9E21EE3B185001E0C9A /* someJSLibrary */ = {isa = PBXFileReference; lastKnownFileType = folder; name = someJSLibrary; path = VueInterop/someJSLibrary; sourceTree = "<group>"; };
 		E2B520CC1EDBD3C800FFEEF0 /* SilentPDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SilentPDFGenerator.h; path = SilentPDFGenerator/SilentPDFGenerator.h; sourceTree = "<group>"; };
 		E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SilentPDFGenerator.m; path = SilentPDFGenerator/SilentPDFGenerator.m; sourceTree = "<group>"; };
 		E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SilentPDFGenerator.xib; path = SilentPDFGenerator/SilentPDFGenerator.xib; sourceTree = "<group>"; };
@@ -296,6 +291,8 @@
 		E22485D41ED49ADE0052B051 /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				E22F42FD1EE31D9900F0E1D9 /* UserEntry.js */,
+				E22F42FE1EE31D9900F0E1D9 /* WYSIWYGReport.js */,
 				E22485D51ED49B090052B051 /* LetterPortrait.css */,
 				E22485D71ED49B090052B051 /* jquery-3.2.1.slim.min.js */,
 				E22485D81ED49B090052B051 /* LetterPortrait.js */,
@@ -337,6 +334,15 @@
 				E22485FD1ED49B090052B051 /* Roboto-Regular.ttf */,
 			);
 			name = Report;
+			sourceTree = "<group>";
+		};
+		E22F42F91EE313BB00F0E1D9 /* WYSIWYGReport */ = {
+			isa = PBXGroup;
+			children = (
+				E22F42FA1EE3151B00F0E1D9 /* WYSIWYGReport.h */,
+				E22F42FB1EE3151B00F0E1D9 /* WYSIWYGReport.m */,
+			);
+			name = WYSIWYGReport;
 			sourceTree = "<group>";
 		};
 		E2478C111EB21122004EEC16 /* Basic */ = {
@@ -392,28 +398,8 @@
 			children = (
 				E22485D41ED49ADE0052B051 /* Report */,
 				E28794951EC35DE700BECA7A /* Template */,
-				E27204651EC31DB10033E166 /* OldPDFGenerator */,
 			);
 			name = PDFGeneration;
-			sourceTree = "<group>";
-		};
-		E27204651EC31DB10033E166 /* OldPDFGenerator */ = {
-			isa = PBXGroup;
-			children = (
-				E224858A1ED497C10052B051 /* ConstantKeys.h */,
-				E224858B1ED497C10052B051 /* Filter.h */,
-				E224858C1ED497C10052B051 /* NSString+PageNumber.h */,
-				E224858D1ED497C10052B051 /* PDFGenerator.h */,
-				E224858E1ED497C10052B051 /* PDFGeneratorFile.h */,
-				E224858F1ED497C10052B051 /* PDFPageRender.h */,
-				E22485901ED497C10052B051 /* PreviewPDF.h */,
-				E22485911ED497C10052B051 /* Filter.m */,
-				E22485921ED497C10052B051 /* NSString+PageNumber.m */,
-				E22485931ED497C10052B051 /* PDFGeneratorFile.m */,
-				E22485941ED497C10052B051 /* PDFPageRender.m */,
-				E22485951ED497C10052B051 /* PreviewPDF.m */,
-			);
-			name = OldPDFGenerator;
 			sourceTree = "<group>";
 		};
 		E27ABE901EB1F217006D5A01 = {
@@ -479,11 +465,8 @@
 		E28794951EC35DE700BECA7A /* Template */ = {
 			isa = PBXGroup;
 			children = (
-				E22485CA1ED49A870052B051 /* BaseReport.mustache */,
-				E22485CB1ED49A870052B051 /* Document.mustache */,
-				E22485CC1ED49A870052B051 /* Layout.mustache */,
+				E22F43011EE31DF200F0E1D9 /* WYSIWYGReport.mustache */,
 				E22485CD1ED49A870052B051 /* PortraitLetterPhoto.mustache */,
-				E22485CE1ED49A870052B051 /* PortraitReport.mustache */,
 			);
 			name = Template;
 			sourceTree = "<group>";
@@ -494,6 +477,8 @@
 				E2B520CB1EDBD38A00FFEEF0 /* SilentPDFGenerator */,
 				E2236C6D1EC93D02008BC220 /* MustacheBasicDemo */,
 				E2236C6E1EC93E12008BC220 /* GenerateImagesCollection */,
+				E2AEB9D51EE3AA83001E0C9A /* VueInterop */,
+				E22F42F91EE313BB00F0E1D9 /* WYSIWYGReport */,
 			);
 			name = DemoPDFGeneration;
 			sourceTree = "<group>";
@@ -510,6 +495,19 @@
 				E2E261B81ED887AE0045FDA0 /* LENSReportKey.h */,
 			);
 			name = PDFGenerator;
+			sourceTree = "<group>";
+		};
+		E2AEB9D51EE3AA83001E0C9A /* VueInterop */ = {
+			isa = PBXGroup;
+			children = (
+				E2AEB9E21EE3B185001E0C9A /* someJSLibrary */,
+				E2AEB9D61EE3AB0A001E0C9A /* VueInterop.h */,
+				E2AEB9D71EE3AB0A001E0C9A /* VueInterop.m */,
+				E2AEB9D91EE3AC24001E0C9A /* index.html */,
+				E2AEB9DB1EE3AE43001E0C9A /* main.css */,
+				E2AEB9DF1EE3AE80001E0C9A /* inter.js */,
+			);
+			name = VueInterop;
 			sourceTree = "<group>";
 		};
 		E2B520CB1EDBD38A00FFEEF0 /* SilentPDFGenerator */ = {
@@ -611,15 +609,17 @@
 				E22486041ED49B090052B051 /* 02.jpg in Resources */,
 				E224861E1ED49B090052B051 /* 28.jpg in Resources */,
 				E2185FB91EB8800F00304253 /* 5.html in Resources */,
+				E2AEB9DA1EE3AC24001E0C9A /* index.html in Resources */,
 				E22486141ED49B090052B051 /* 18.jpg in Resources */,
 				E2185FBC1EB8800F00304253 /* 8.html in Resources */,
 				E22486081ED49B090052B051 /* 06.jpg in Resources */,
 				E22485D21ED49A870052B051 /* PortraitLetterPhoto.mustache in Resources */,
+				E22F43021EE31DF200F0E1D9 /* WYSIWYGReport.mustache in Resources */,
+				E2AEB9E31EE3B185001E0C9A /* someJSLibrary in Resources */,
 				E2478C251EB248F2004EEC16 /* 2.jpg in Resources */,
 				E2185FB41EB87E4500304253 /* 4.html in Resources */,
 				E247AA0F1EB64B7E00388A00 /* koi.jpg in Resources */,
 				E22486241ED49B090052B051 /* logo1.png in Resources */,
-				E22485CF1ED49A870052B051 /* BaseReport.mustache in Resources */,
 				E224861D1ED49B090052B051 /* 27.jpg in Resources */,
 				E224860F1ED49B090052B051 /* 13.jpg in Resources */,
 				E224860C1ED49B090052B051 /* 10.jpg in Resources */,
@@ -636,8 +636,8 @@
 				E22485B01ED498180052B051 /* PrintBatch.xib in Resources */,
 				E22486091ED49B090052B051 /* 07.jpg in Resources */,
 				E22486191ED49B090052B051 /* 23.jpg in Resources */,
+				E22F42FF1EE31D9900F0E1D9 /* UserEntry.js in Resources */,
 				E22486251ED49B090052B051 /* logo2.png in Resources */,
-				E22485D11ED49A870052B051 /* Layout.mustache in Resources */,
 				E22486121ED49B090052B051 /* 16.jpg in Resources */,
 				E22486101ED49B090052B051 /* 14.jpg in Resources */,
 				E224861A1ED49B090052B051 /* 24.jpg in Resources */,
@@ -645,8 +645,9 @@
 				E22486161ED49B090052B051 /* 20.jpg in Resources */,
 				E224860B1ED49B090052B051 /* 09.jpg in Resources */,
 				E27ABEAC1EB1F217006D5A01 /* LaunchScreen.storyboard in Resources */,
-				E22485D31ED49A870052B051 /* PortraitReport.mustache in Resources */,
+				E2AEB9E01EE3AE80001E0C9A /* inter.js in Resources */,
 				E22486151ED49B090052B051 /* 19.jpg in Resources */,
+				E2AEB9DC1EE3AE43001E0C9A /* main.css in Resources */,
 				E22486071ED49B090052B051 /* 05.jpg in Resources */,
 				E22486031ED49B090052B051 /* 01.jpg in Resources */,
 				E2185FBA1EB8800F00304253 /* 6.html in Resources */,
@@ -665,10 +666,10 @@
 				E224860E1ED49B090052B051 /* 12.jpg in Resources */,
 				E22486211ED49B090052B051 /* doctor1.jpg in Resources */,
 				E224861C1ED49B090052B051 /* 26.jpg in Resources */,
-				E22485D01ED49A870052B051 /* Document.mustache in Resources */,
 				E224860A1ED49B090052B051 /* 08.jpg in Resources */,
 				E22486261ED49B090052B051 /* Roboto-Regular.ttf in Resources */,
 				E22485FE1ED49B090052B051 /* LetterPortrait.css in Resources */,
+				E22F43001EE31D9900F0E1D9 /* WYSIWYGReport.js in Resources */,
 				E22486111ED49B090052B051 /* 15.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -729,19 +730,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E22485861ED497010052B051 /* AppDelegate.m in Sources */,
-				E22485971ED497C10052B051 /* NSString+PageNumber.m in Sources */,
 				E22485C81ED49A3E0052B051 /* PDFGenerator.m in Sources */,
 				E22485C01ED4997D0052B051 /* GenerateImagesCollection.m in Sources */,
+				E22F42FC1EE3151B00F0E1D9 /* WYSIWYGReport.m in Sources */,
 				E22485A71ED497EA0052B051 /* ConfigurePrinter.m in Sources */,
-				E22485991ED497C10052B051 /* PDFPageRender.m in Sources */,
 				E22485C71ED49A3E0052B051 /* PaperConfig.m in Sources */,
 				E22485BB1ED4993E0052B051 /* MustacheBasicDemo.m in Sources */,
 				E2B520CF1EDBD3C800FFEEF0 /* SilentPDFGenerator.m in Sources */,
-				E22485961ED497C10052B051 /* Filter.m in Sources */,
+				E2AEB9D81EE3AB0A001E0C9A /* VueInterop.m in Sources */,
 				E22485A21ED497DD0052B051 /* SilentPrint.m in Sources */,
 				E22485C91ED49A3E0052B051 /* PDFPageRenderer.m in Sources */,
-				E224859A1ED497C10052B051 /* PreviewPDF.m in Sources */,
-				E22485981ED497C10052B051 /* PDFGeneratorFile.m in Sources */,
 				E2E74A071ED575EB0068DB02 /* UIImage+Utils.m in Sources */,
 				E22485871ED497010052B051 /* BootLogic.m in Sources */,
 				E2E74A0B1ED5766F0068DB02 /* ScaleImage.m in Sources */,

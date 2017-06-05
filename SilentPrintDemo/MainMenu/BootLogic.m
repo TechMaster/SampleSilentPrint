@@ -28,8 +28,10 @@
        MENU : @[
       @{TITLE : @"AirPrint Letter vs A4", CLASS : @"MustacheBasicDemo"},
       @{TITLE : @"Scale Image", CLASS : @"ScaleImage"},
-      @{TITLE : @"Photos -> PDF", CLASS : @"GenerateImagesCollection"},
-      @{TITLE : @"Generate PDF in silent", CLASS : @"SilentPDFGenerator"}
+      @{TITLE : @"Report with Photos -> PDF", CLASS : @"GenerateImagesCollection"},
+      @{TITLE : @"Generate PDF in silent", CLASS : @"SilentPDFGenerator"},
+      @{TITLE : @"WYSIWYG Report Setting", CLASS : @"WYSIWYGReport"},
+      @{TITLE : @"Vue Interop", CLASS : @"VueInterop"}
     ]
     };
   
