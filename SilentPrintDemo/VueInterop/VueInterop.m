@@ -16,10 +16,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"index"
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"basic"
                                                      ofType:@"html"];
-    NSURL *url = [NSURL fileURLWithPath:path];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    /*NSURL *url = [NSURL fileURLWithPath:path];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];*/
+    
+
+    
+    NSString* htmlString = [NSString stringWithContentsOfFile: path
+                                                     encoding: NSUTF8StringEncoding
+                                                        error: nil];
     
     WKWebViewConfiguration *theConfiguration = [WKWebViewConfiguration new];
     
@@ -28,7 +34,12 @@
     
     self.webView = [[WKWebView alloc] initWithFrame:self.view.frame
                                       configuration:theConfiguration];
-    [self.webView loadRequest:request];
+   // [self.webView loadRequest:request];
+    
+    NSString *basePath = [[NSBundle mainBundle] bundlePath];
+    NSURL *baseURL = [NSURL fileURLWithPath:basePath];
+    
+    [self.webView loadHTMLString:htmlString baseURL:baseURL];
     [self.view addSubview:self.webView];
 }
 
