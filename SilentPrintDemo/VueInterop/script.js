@@ -7,11 +7,18 @@ var app = new Vue({
             { text: 'Learn JavaScript' },
             { text: 'Learn Vue' },
             { text: 'Build something awesome' }
-            ]
+            ],
+    logophoto: 'imageIcon.png'
+
   },
     methods: {
       openCameraRoll: function () {
-        window.webkit.messageHandlers.interOp.openCameraRoll()
+        var message = {"action":"openCameraRoll"}
+        window.webkit.messageHandlers.interOp.postMessage(message)
       }
     }
 })
+
+function changeLogo(path) {
+  app.logophoto = path
+}

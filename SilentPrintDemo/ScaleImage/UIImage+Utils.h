@@ -15,5 +15,6 @@
 + (NSString*_Nullable) scaleDownImage: (NSString*_Nonnull) fullInputPath
 maxWidth: (float) maxWidth;
 
+- (NSString*_Nullable) scaleTo: (float) maxWidth;
 @end
 #endif /* Header_h */

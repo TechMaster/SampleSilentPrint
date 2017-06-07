@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
 
-@interface VueInterop : UIViewController <WKScriptMessageHandler>
+@interface VueInterop : UIViewController <WKScriptMessageHandler, UIImagePickerControllerDelegate>
 @property(nonatomic, strong) WKWebView *webView;
 @end

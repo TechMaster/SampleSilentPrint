@@ -59,5 +59,35 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     
 }
 
+- (NSString*_Nullable) scaleTo: (float) maxWidth {
+    NSData *imageData = UIImagePNGRepresentation(self);
+    CGImageSourceRef imageSource = CGImageSourceCreateWithData((__bridge CFDataRef)imageData, NULL);
+    if (!imageSource) return nil;
+    
+    
+    CFDictionaryRef options = (__bridge CFDictionaryRef)@{
+                                                          (id)kCGImageSourceThumbnailMaxPixelSize: @(maxWidth),
+                                                          (id)kCGImageSourceCreateThumbnailFromImageIfAbsent: (id)kCFBooleanTrue,
+                                                          (id)kCGImageSourceCreateThumbnailWithTransform: (id)kCFBooleanTrue
+                                                          };
+    
+    CGImageRef cgScaledImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options);
+    
+    UIImage *uiImage = [UIImage imageWithCGImage:cgScaledImage];
+    NSData *jpgData = UIImageJPEGRepresentation(uiImage, 0.9f);
+    
+    NSString* randomOutputFileName = [NSString stringWithFormat:@"%@.jpg", [UIImage randomStringWithLength:8]];
+    
+    NSURL *fileURLInTempFolder = [NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent: randomOutputFileName]];
+    //----------
+    [jpgData writeToURL:fileURLInTempFolder
+             atomically:NO];
+    
+    CGImageRelease(cgScaledImage);
+    CFRelease(imageSource);
+    
+    return [fileURLInTempFolder path];
+    
+}
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "VueInterop.h"
+#import "UIImage+Utils.h"
 
 @interface VueInterop ()
 
@@ -34,7 +35,7 @@
     
     self.webView = [[WKWebView alloc] initWithFrame:self.view.frame
                                       configuration:theConfiguration];
-   // [self.webView loadRequest:request];
+   
     
     NSString *basePath = [[NSBundle mainBundle] bundlePath];
     NSURL *baseURL = [NSURL fileURLWithPath:basePath];
@@ -47,12 +48,14 @@
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message{
     NSDictionary *sentData = (NSDictionary*)message.body;
+    NSLog(@"%@", sentData);
+    [self openCameraRoll];
+    /*
     long aCount = [sentData[@"count"] integerValue];
     aCount++;
     
     
-    /*[self.webView evaluateJavaScript:[NSString stringWithFormat:@"storeAndShow(%ld)", aCount]
-                   completionHandler:nil];*/
+    
     
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"count": @555, @"data": @"World is wild and fun", @"gender": @true}
@@ -64,7 +67,31 @@
     NSLog(@"%@", jsonString);
     
     [self.webView evaluateJavaScript:[NSString stringWithFormat:@"receiveJSON(%@)", jsonString]
-                   completionHandler:nil];
+                   completionHandler:nil];*/
 }
 
+-(void) openCameraRoll {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    NSLog(@"%@", info);
+    UIImage* selectedImage = info[@"UIImagePickerControllerOriginalImage"];
+    NSString* resizedImagePath = [selectedImage scaleTo:600];
+    NSLog(@"%@", resizedImagePath);
+    [self.webView evaluateJavaScript:[NSString stringWithFormat:@"changeLogo('%@')", resizedImagePath]
+                   completionHandler:nil];
+    
+    [picker dismissViewControllerAnimated:true completion:^{
+        
+    }];
+    
+}
 @end
