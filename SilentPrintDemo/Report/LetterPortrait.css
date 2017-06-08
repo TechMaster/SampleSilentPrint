@@ -211,14 +211,41 @@ section{
 	display: inline-block;
 	margin-top: 3px 
 }
-.hover {
+.hover , .hover2 {
 	transition: 0.3s;
+	cursor: pointer;
 }
 .hover:hover {
 	background:#fbddb9 !important;
 	color: black !important;
 }
-
+.hover2:hover img{
+	filter:blur(5px);
+}
+#topDoctorImageBox , .bottomImageBox {
+	position: relative;
+}
+.upload{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 92px;
+	margin-left: -46px;
+	margin-top: -25px;
+	background: url(up.png) top  no-repeat;
+	background-size: 40%; 
+	padding-top:40px;
+	opacity: 0;
+	transition: 0.3s;
+}
+#topDoctorImageBox .upload {
+	width: 102px;
+	margin-left: -51px;
+	padding-top:50px;
+}
+.hover2:hover .upload {
+	opacity: 1;
+}
 
 
 
