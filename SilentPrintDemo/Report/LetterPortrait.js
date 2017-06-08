@@ -133,8 +133,13 @@
 			$('#bottomImageCaption2').html($('#bottomImageCaption2').text().substring(0,41)+' ...');
 		}
 	}
- 
- 	
+
+
+
+	// click vào ô chữ tại trang 1 
+ 	$('body').on('click','.hover',function(){
+ 		alert('HAVE A NICE DAY !');
+ 	})
 
  	
 	

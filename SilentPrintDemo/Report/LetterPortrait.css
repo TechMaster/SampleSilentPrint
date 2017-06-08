@@ -110,6 +110,7 @@ section{
 #reportLogo , .doctorInfoLogo{
 	width: auto;
 	max-width: 100%;
+	cursor: pointer;
  /* 	height : auto;
   	max-height: 100%;*/
 }
@@ -210,6 +211,17 @@ section{
 	display: inline-block;
 	margin-top: 3px 
 }
+.hover {
+	transition: 0.3s;
+}
+.hover:hover {
+	background:#fbddb9 !important;
+	color: black !important;
+}
+
+
+
+
 
 /* SECOND PAGE / SECOND PAGE / SECOND PAGE / SECOND PAGE / SECOND PAGE / SECOND PAGE / SECOND PAGE */
 
