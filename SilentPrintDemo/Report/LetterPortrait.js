@@ -4,7 +4,7 @@
 		const totalImage = data.length ;
 		
 		//reset lại lúc đầu tiên
-		$('#report').html(origin);
+		//$('#report').html(origin);  //Cần phải bỏ lệnh này không là Vue không chạy được
 
 		// gọi ra số trang sẽ hiển thị ảnh
 		let numberOfPage = Math.ceil(totalImage/imagesPerPage)
@@ -136,16 +136,7 @@
 
 
 
-	// click vào ô chữ tại trang 1 
- 	$('body').on('click','.hover',function(){
- 		alert('HAVE A NICE DAY !');
- 	})
- 	// click vào ô ảnh tại trang 1 
- 	$('body').on('click','.hover2',function(){
- 		alert('HAVE A NICE DAY !');
- 	})
 
- 	
 	
 
 
