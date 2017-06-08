@@ -140,6 +140,10 @@
  	$('body').on('click','.hover',function(){
  		alert('HAVE A NICE DAY !');
  	})
+ 	// click vào ô ảnh tại trang 1 
+ 	$('body').on('click','.hover2',function(){
+ 		alert('HAVE A NICE DAY !');
+ 	})
 
  	
 	
