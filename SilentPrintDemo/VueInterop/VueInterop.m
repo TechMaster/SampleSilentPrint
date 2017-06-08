@@ -10,7 +10,7 @@
 #import "UIImage+Utils.h"
 
 @interface VueInterop ()
-
+@property(nonatomic, strong) NSString* selectID;
 @end
 
 @implementation VueInterop
@@ -19,10 +19,6 @@
     [super viewDidLoad];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"basic"
                                                      ofType:@"html"];
-    /*NSURL *url = [NSURL fileURLWithPath:path];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];*/
-    
-
     
     NSString* htmlString = [NSString stringWithContentsOfFile: path
                                                      encoding: NSUTF8StringEncoding
@@ -48,9 +44,13 @@
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message{
     NSDictionary *sentData = (NSDictionary*)message.body;
-    NSLog(@"%@", sentData);
-    [self openCameraRoll];
-    /*
+    if ([sentData[@"action"]  isEqual: @"openCameraRoll"]) {
+        NSLog(@"%@", sentData[@"photoid"]);
+        self.selectID = sentData[@"photoid"];
+        [self openCameraRoll];
+
+    }
+        /*
     long aCount = [sentData[@"count"] integerValue];
     aCount++;
     
@@ -82,11 +82,9 @@
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    NSLog(@"%@", info);
     UIImage* selectedImage = info[@"UIImagePickerControllerOriginalImage"];
     NSString* resizedImagePath = [selectedImage scaleTo:600];
-    NSLog(@"%@", resizedImagePath);
-    [self.webView evaluateJavaScript:[NSString stringWithFormat:@"changeLogo('%@')", resizedImagePath]
+    [self.webView evaluateJavaScript:[NSString stringWithFormat:@"changePhoto('%@', '%@')", resizedImagePath, self.selectID]
                    completionHandler:nil];
     
     [picker dismissViewControllerAnimated:true completion:^{

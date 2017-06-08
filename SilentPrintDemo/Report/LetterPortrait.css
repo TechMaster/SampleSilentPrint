@@ -222,7 +222,7 @@ section{
 .hover2:hover img{
 	filter:blur(5px);
 }
-#topDoctorImageBox , .bottomImageBox {
+#topDoctorImageBox , .bottomImageBox , #logo_box{
 	position: relative;
 }
 .upload{
@@ -238,10 +238,16 @@ section{
 	opacity: 0;
 	transition: 0.3s;
 }
-#topDoctorImageBox .upload {
+#topDoctorImageBox .upload   {
 	width: 102px;
 	margin-left: -51px;
 	padding-top:50px;
+}
+#logo_box .upload {
+	width: 146px;
+	margin-left: -73px;
+	padding-top:50px;
+	background-size: 27%; 
 }
 .hover2:hover .upload {
 	opacity: 1;

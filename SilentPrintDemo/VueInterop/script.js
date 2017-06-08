@@ -8,17 +8,22 @@ var app = new Vue({
             { text: 'Learn Vue' },
             { text: 'Build something awesome' }
             ],
-    logophoto: 'imageIcon.png'
+    logophoto: 'imageIcon.png',
+    photo2: 'imageIcon.png'
 
   },
     methods: {
-      openCameraRoll: function () {
-        var message = {"action":"openCameraRoll"}
+      openCameraRoll: function (photoid) {
+        var message = {"action":"openCameraRoll", "photoid": photoid}
         window.webkit.messageHandlers.interOp.postMessage(message)
+      },
+
+      enterText: function(textid) {
+        alert(textid)
       }
     }
 })
 
-function changeLogo(path) {
-  app.logophoto = path
+function changePhoto(path, photoid) {  
+  app[photoid] = path
 }
