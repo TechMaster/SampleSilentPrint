@@ -10,14 +10,16 @@
 			<div class="subpage">	
 				<section>
 					<div id="logo_box">
-						<img id="reportLogo" :src="reportLogo" v-on:click="openCameraRoll">						
+						<img id="reportLogo" :src="reportLogo" v-on:click="openCameraRoll">
+						<p class="upload">min 246 x 246 pixels</p>
 					</div>
 					<div id="topDoctorText" v-html="topDoctorText" v-on:click="enterText"></div>
 
 					<div id="greetingText" v-html="greetingText" v-on:click="enterText"></div>
 
 					<div id='topDoctorImageBox'>
-						<img id="topDoctorImage" :src="topDoctorImage" v-on:click="openCameraRoll">						
+						<img id="topDoctorImage" :src="topDoctorImage" v-on:click="openCameraRoll">
+						<p class="upload">min 246 x 246 pixels</p>
 					</div>
 					<p id="bottomDoctorText" v-html="bottomDoctorText" v-on:click="enterText"></p>
 
@@ -25,6 +27,7 @@
 
 					<div id="bottomTextBox">
 						<div class="bottomText text" id="bottomText1" v-html="bottomText1" v-on:click="enterText"></div>
+
 						<div class="bottomText text hover" id="bottomText2" v-html="bottomText2" v-on:click="enterText"></div>
 
 					</div>
@@ -32,7 +35,8 @@
 					<div class="bottom">
 						<p class="bottomImageHeader text hover" id="bottomImageHeader1" v-on:click="enterText">{{bottomImageHeader1}}</p>
 						<div class='bottomImageBox hover2'>
-							<img class='bottomImage' id="bottomImage1" :src="bottomImage1" v-on:click="openCameraRoll">							
+							<img class='bottomImage' id="bottomImage1" :src="bottomImage1" v-on:click="openCameraRoll">
+							<p class="upload">min 95 x 95 pixels</p>
 						</div>
 						<p class="bottomImageCaption text hover" id="bottomImageCaption1" v-on:click="enterText">{{bottomImageCaption1}}</p>
 					</div>
@@ -40,7 +44,8 @@
 					<div class="bottom">						
 						<p class="bottomImageHeader text hover" id="bottomImageHeader2" v-on:click="enterText">{{bottomImageHeader2}}</p>
 						<div class="bottomImageBox hover2">
-							<img class='bottomImage' id="bottomImage2" :src="bottomImage2" v-on:click="openCameraRoll">							
+							<img class='bottomImage' id="bottomImage2" :src="bottomImage2" v-on:click="openCameraRoll">
+							<p class="upload">min 95 x 95 pixels</p>
 						</div>
 						<p class="bottomImageCaption text hover" id="bottomImageCaption2" v-on:click="enterText">{{bottomImageCaption2}}</p>
 					</div>

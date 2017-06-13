@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"basic"
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"letter_portrait_vue"
                                                      ofType:@"html"];
     
     NSString* htmlString = [NSString stringWithContentsOfFile: path
@@ -40,13 +40,17 @@
     [self.view addSubview:self.webView];
 }
 
+-(void) viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    NSLog(@"w = %f, h = %f", size.width, size.height);
+    self.webView.frame = CGRectMake(0, 0, size.width, size.height);
+}
 
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message{
     NSDictionary *sentData = (NSDictionary*)message.body;
     if ([sentData[@"action"]  isEqual: @"openCameraRoll"]) {
-        NSLog(@"%@", sentData[@"photoid"]);
-        self.selectID = sentData[@"photoid"];
+        NSLog(@"%@", sentData[@"id"]);
+        self.selectID = sentData[@"id"];
         [self openCameraRoll];
 
     }
