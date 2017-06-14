@@ -29,7 +29,7 @@
     [theConfiguration.userContentController addScriptMessageHandler:self
                                                                name:@"interOp"];
     
-    self.webView = [[WKWebView alloc] initWithFrame:self.view.frame
+    self.webView = [[WebViewTextInput alloc] initWithFrame:self.view.frame
                                       configuration:theConfiguration];
    
     
