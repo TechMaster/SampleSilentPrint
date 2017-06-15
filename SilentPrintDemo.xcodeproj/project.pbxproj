@@ -74,6 +74,8 @@
 		E22F42FF1EE31D9900F0E1D9 /* UserEntry.js in Resources */ = {isa = PBXBuildFile; fileRef = E22F42FD1EE31D9900F0E1D9 /* UserEntry.js */; };
 		E22F43001EE31D9900F0E1D9 /* WYSIWYGReport.js in Resources */ = {isa = PBXBuildFile; fileRef = E22F42FE1EE31D9900F0E1D9 /* WYSIWYGReport.js */; };
 		E22F43021EE31DF200F0E1D9 /* WYSIWYGReport.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E22F43011EE31DF200F0E1D9 /* WYSIWYGReport.mustache */; };
+		E23E8F8B1EF19BF60052DAAC /* PortraitReport.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E23E8F8A1EF19BF60052DAAC /* PortraitReport.mustache */; };
+		E23E8F8D1EF19C260052DAAC /* BaseReport.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E23E8F8C1EF19C260052DAAC /* BaseReport.mustache */; };
 		E2478C241EB248F2004EEC16 /* 3.html in Resources */ = {isa = PBXBuildFile; fileRef = E2478C211EB248F2004EEC16 /* 3.html */; };
 		E2478C251EB248F2004EEC16 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E2478C221EB248F2004EEC16 /* 2.jpg */; };
 		E2478C261EB248F2004EEC16 /* 1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E2478C231EB248F2004EEC16 /* 1.pdf */; };
@@ -83,7 +85,7 @@
 		E27ABEA91EB1F217006D5A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEA81EB1F217006D5A01 /* Assets.xcassets */; };
 		E2A4B8851EEFD35300DD386D /* letter_portrait_vue.html in Resources */ = {isa = PBXBuildFile; fileRef = E2A4B8841EEFD35300DD386D /* letter_portrait_vue.html */; };
 		E2A4B8901EF055B600DD386D /* KeyboardBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A4B88F1EF055B600DD386D /* KeyboardBar.m */; };
-		E2A4B8931EF0583700DD386D /* WebViewTextInput.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A4B8921EF0583700DD386D /* WebViewTextInput.m */; };
+		E2A4B8931EF0583700DD386D /* ViewWithKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A4B8921EF0583700DD386D /* ViewWithKeyboard.m */; };
 		E2AEB9D81EE3AB0A001E0C9A /* VueInterop.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AEB9D71EE3AB0A001E0C9A /* VueInterop.m */; };
 		E2B520CF1EDBD3C800FFEEF0 /* SilentPDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */; };
 		E2B520D01EDBD3C800FFEEF0 /* SilentPDFGenerator.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */; };
@@ -182,6 +184,8 @@
 		E22F42FD1EE31D9900F0E1D9 /* UserEntry.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = UserEntry.js; path = Report/UserEntry.js; sourceTree = "<group>"; };
 		E22F42FE1EE31D9900F0E1D9 /* WYSIWYGReport.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = WYSIWYGReport.js; path = Report/WYSIWYGReport.js; sourceTree = "<group>"; };
 		E22F43011EE31DF200F0E1D9 /* WYSIWYGReport.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WYSIWYGReport.mustache; path = Mustache/WYSIWYGReport.mustache; sourceTree = "<group>"; };
+		E23E8F8A1EF19BF60052DAAC /* PortraitReport.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PortraitReport.mustache; path = Mustache/PortraitReport.mustache; sourceTree = "<group>"; };
+		E23E8F8C1EF19C260052DAAC /* BaseReport.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BaseReport.mustache; path = Mustache/BaseReport.mustache; sourceTree = "<group>"; };
 		E2478C211EB248F2004EEC16 /* 3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = 3.html; path = SampleItems/3.html; sourceTree = "<group>"; };
 		E2478C221EB248F2004EEC16 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = SampleItems/2.jpg; sourceTree = "<group>"; };
 		E2478C231EB248F2004EEC16 /* 1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = 1.pdf; path = SampleItems/1.pdf; sourceTree = "<group>"; };
@@ -195,8 +199,8 @@
 		E2A4B8841EEFD35300DD386D /* letter_portrait_vue.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = letter_portrait_vue.html; path = Report/letter_portrait_vue.html; sourceTree = "<group>"; };
 		E2A4B88E1EF055B600DD386D /* KeyboardBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KeyboardBar.h; path = TextKeyboard/KeyboardBar.h; sourceTree = "<group>"; };
 		E2A4B88F1EF055B600DD386D /* KeyboardBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KeyboardBar.m; path = TextKeyboard/KeyboardBar.m; sourceTree = "<group>"; };
-		E2A4B8911EF0583700DD386D /* WebViewTextInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewTextInput.h; path = VueInterop/WebViewTextInput.h; sourceTree = "<group>"; };
-		E2A4B8921EF0583700DD386D /* WebViewTextInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewTextInput.m; path = VueInterop/WebViewTextInput.m; sourceTree = "<group>"; };
+		E2A4B8911EF0583700DD386D /* ViewWithKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewWithKeyboard.h; path = VueInterop/ViewWithKeyboard.h; sourceTree = "<group>"; };
+		E2A4B8921EF0583700DD386D /* ViewWithKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewWithKeyboard.m; path = VueInterop/ViewWithKeyboard.m; sourceTree = "<group>"; };
 		E2AEB9D61EE3AB0A001E0C9A /* VueInterop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VueInterop.h; path = VueInterop/VueInterop.h; sourceTree = "<group>"; };
 		E2AEB9D71EE3AB0A001E0C9A /* VueInterop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VueInterop.m; path = VueInterop/VueInterop.m; sourceTree = "<group>"; };
 		E2B520CC1EDBD3C800FFEEF0 /* SilentPDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SilentPDFGenerator.h; path = SilentPDFGenerator/SilentPDFGenerator.h; sourceTree = "<group>"; };
@@ -467,6 +471,8 @@
 			children = (
 				E22F43011EE31DF200F0E1D9 /* WYSIWYGReport.mustache */,
 				E22485CD1ED49A870052B051 /* PortraitLetterPhoto.mustache */,
+				E23E8F8A1EF19BF60052DAAC /* PortraitReport.mustache */,
+				E23E8F8C1EF19C260052DAAC /* BaseReport.mustache */,
 			);
 			name = Template;
 			sourceTree = "<group>";
@@ -512,8 +518,8 @@
 				E25845C01EE780A500563AF5 /* vue.min.js */,
 				E2AEB9D61EE3AB0A001E0C9A /* VueInterop.h */,
 				E2AEB9D71EE3AB0A001E0C9A /* VueInterop.m */,
-				E2A4B8911EF0583700DD386D /* WebViewTextInput.h */,
-				E2A4B8921EF0583700DD386D /* WebViewTextInput.m */,
+				E2A4B8911EF0583700DD386D /* ViewWithKeyboard.h */,
+				E2A4B8921EF0583700DD386D /* ViewWithKeyboard.m */,
 			);
 			name = VueInterop;
 			sourceTree = "<group>";
@@ -660,8 +666,10 @@
 				E224861F1ED49B090052B051 /* 29.jpg in Resources */,
 				E22486051ED49B090052B051 /* 03.jpg in Resources */,
 				E22486131ED49B090052B051 /* 17.jpg in Resources */,
+				E23E8F8B1EF19BF60052DAAC /* PortraitReport.mustache in Resources */,
 				E2FF1EF21EBAAD4D00AE9C08 /* log1.log in Resources */,
 				E2185FBB1EB8800F00304253 /* 7.html in Resources */,
+				E23E8F8D1EF19C260052DAAC /* BaseReport.mustache in Resources */,
 				E22486201ED49B090052B051 /* 30.jpg in Resources */,
 				E22486181ED49B090052B051 /* 22.jpg in Resources */,
 				E2478C261EB248F2004EEC16 /* 1.pdf in Resources */,
@@ -736,7 +744,7 @@
 				E22485861ED497010052B051 /* AppDelegate.m in Sources */,
 				E22485C81ED49A3E0052B051 /* PDFGenerator.m in Sources */,
 				E22485C01ED4997D0052B051 /* GenerateImagesCollection.m in Sources */,
-				E2A4B8931EF0583700DD386D /* WebViewTextInput.m in Sources */,
+				E2A4B8931EF0583700DD386D /* ViewWithKeyboard.m in Sources */,
 				E22F42FC1EE3151B00F0E1D9 /* WYSIWYGReport.m in Sources */,
 				E22485A71ED497EA0052B051 /* ConfigurePrinter.m in Sources */,
 				E22485C71ED49A3E0052B051 /* PaperConfig.m in Sources */,

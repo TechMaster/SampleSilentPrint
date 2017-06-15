@@ -16,7 +16,7 @@
 
 @end
 
-@interface KeyboardBar : UIView
+@interface KeyboardBar : UIView <UITextViewDelegate>
 
 - (id)initWithDelegate:(id<KeyboardBarDelegate>)delegate;
 

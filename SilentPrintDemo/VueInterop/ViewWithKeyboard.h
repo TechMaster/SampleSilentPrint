@@ -6,9 +6,9 @@
 //  Copyright © 2017 techmaster. All rights reserved.
 //
 
-#import <WebKit/WebKit.h>
+
 #import "KeyboardBar.h"
-@interface WebViewTextInput : WKWebView
+@interface ViewWithKeyboard : UIView
 
 @property (weak, nonatomic) id<KeyboardBarDelegate> keyboardBarDelegate;
 // Override inputAccessoryView to readWrite

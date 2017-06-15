@@ -30,9 +30,11 @@
         
         self.backgroundColor = [UIColor colorWithWhite:0.75f alpha:1.0f];
         
-        //Vẽ ô text + nút
+        //Draw text and button
         self.textView = [[UITextView alloc]initWithFrame:CGRectMake(5, 5, frame.size.width - 70, frame.size.height - 10)];
         self.textView.backgroundColor = [UIColor colorWithRed:1.f green:1.f blue:1.f alpha:1.f];
+        
+        self.textView.delegate = self; //
         [self addSubview:self.textView];
         
         self.actionButton = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width - 60, 5, 55, frame.size.height - 10)];
@@ -52,6 +54,12 @@
 - (void) didTouchAction
 {
     [self.delegate keyboardBar:self sendText:self.textView.text];
+}
+
+#pragma mark - UITextViewDelegate
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    NSLog(@"textViewDidEndEditing");
+    self.hidden = true;
 }
 
 @end

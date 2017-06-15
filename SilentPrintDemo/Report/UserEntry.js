@@ -1,5 +1,3 @@
-//$('body').on('click','#topDoctorImage',function(){alert('it works');})
-
 var app = new Vue({
   el: '#report',
   data: {
@@ -55,14 +53,6 @@ function changePhoto(path, photoid) {
   app[photoid] = path
 }
 
-/*
-// click vào ô chữ tại trang 1 
-$('body').on('click','.hover',function(){
-	alert('HAVE A NICE DAY !');
-})
-// click vào ô ảnh tại trang 1 
-$('body').on('click','.hover2',function(){
-	alert('HAVE A NICE DAY !');
-})
-*/
-
+function setText(id, text) {
+	
+}

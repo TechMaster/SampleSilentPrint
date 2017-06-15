@@ -6,14 +6,14 @@
 //  Copyright © 2017 techmaster. All rights reserved.
 //
 
-#import "WebViewTextInput.h"
+#import "ViewWithKeyboard.h"
 
-@interface WebViewTextInput()
+@interface ViewWithKeyboard()
 // Override inputAccessoryView to readWrite
 @property (nonatomic, readwrite, retain) UIView *inputAccessoryView;
 @end
 
-@implementation WebViewTextInput
+@implementation ViewWithKeyboard
 
 // Override canBecomeFirstResponder
 // to allow this view to be a responder
@@ -29,5 +29,7 @@
     }
     return _inputAccessoryView;
 }
+
+
 
 @end

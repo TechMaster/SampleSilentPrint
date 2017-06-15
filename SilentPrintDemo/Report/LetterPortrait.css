@@ -100,7 +100,6 @@ section{
 	width: 482px ;
 	height: 142px ;
 	background: white;
-	padding: 2%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -111,8 +110,8 @@ section{
 	width: auto;
 	max-width: 100%;
 	cursor: pointer;
- /* 	height : auto;
-  	max-height: 100%;*/
+  	height : auto;
+  	max-height: 100%;
 }
 #topDoctorText {
 	width: 250px ;
