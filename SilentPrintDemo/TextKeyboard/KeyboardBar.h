@@ -22,7 +22,9 @@
 - (void) setText: (NSString*) text;
 
 @property (strong, nonatomic) UITextView *textView;
-@property (strong, nonatomic) UIButton *actionButton;
+@property (strong, nonatomic) UIButton *btnSave;
+@property (strong, nonatomic) UIButton *btnClear;
+
 @property (weak, nonatomic) id<KeyboardBarDelegate> delegate;
 
 @end

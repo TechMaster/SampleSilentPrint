@@ -69,6 +69,15 @@ var app = new Vue({
     }
 })
 
+/*Vue.use(VueScrollTo, {
+     container: "body",
+     duration: 500,
+     easing: "ease",
+     offset: 100,
+     cancelable: false,
+     onDone: false,
+     onCancel: false
+ });*/
 
 function changePhoto(path, photoid) {  
   app[photoid] = path
