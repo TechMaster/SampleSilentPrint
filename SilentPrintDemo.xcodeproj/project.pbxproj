@@ -70,10 +70,8 @@
 		E22486231ED49B090052B051 /* doctor3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E22485FA1ED49B090052B051 /* doctor3.jpg */; };
 		E22486241ED49B090052B051 /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = E22485FB1ED49B090052B051 /* logo1.png */; };
 		E22486251ED49B090052B051 /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = E22485FC1ED49B090052B051 /* logo2.png */; };
-		E22F42FC1EE3151B00F0E1D9 /* WYSIWYGReport.m in Sources */ = {isa = PBXBuildFile; fileRef = E22F42FB1EE3151B00F0E1D9 /* WYSIWYGReport.m */; };
 		E22F42FF1EE31D9900F0E1D9 /* UserEntry.js in Resources */ = {isa = PBXBuildFile; fileRef = E22F42FD1EE31D9900F0E1D9 /* UserEntry.js */; };
 		E22F43001EE31D9900F0E1D9 /* WYSIWYGReport.js in Resources */ = {isa = PBXBuildFile; fileRef = E22F42FE1EE31D9900F0E1D9 /* WYSIWYGReport.js */; };
-		E22F43021EE31DF200F0E1D9 /* WYSIWYGReport.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E22F43011EE31DF200F0E1D9 /* WYSIWYGReport.mustache */; };
 		E23E8F8B1EF19BF60052DAAC /* PortraitReport.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E23E8F8A1EF19BF60052DAAC /* PortraitReport.mustache */; };
 		E23E8F8D1EF19C260052DAAC /* BaseReport.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E23E8F8C1EF19C260052DAAC /* BaseReport.mustache */; };
 		E2478C241EB248F2004EEC16 /* 3.html in Resources */ = {isa = PBXBuildFile; fileRef = E2478C211EB248F2004EEC16 /* 3.html */; };
@@ -89,6 +87,8 @@
 		E2AEB9D81EE3AB0A001E0C9A /* VueInterop.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AEB9D71EE3AB0A001E0C9A /* VueInterop.m */; };
 		E2B520CF1EDBD3C800FFEEF0 /* SilentPDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */; };
 		E2B520D01EDBD3C800FFEEF0 /* SilentPDFGenerator.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */; };
+		E2CC065B1EFA152C00BD2162 /* HTMLConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CC065A1EFA152C00BD2162 /* HTMLConverter.m */; };
+		E2CC065D1EFA388A00BD2162 /* vue-scrollto.js in Resources */ = {isa = PBXBuildFile; fileRef = E2CC065C1EFA388A00BD2162 /* vue-scrollto.js */; };
 		E2CD29231EC4AB7100E94B5A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2CD29221EC4AB7100E94B5A /* WebKit.framework */; };
 		E2E749FF1ED549FA0068DB02 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2E749FE1ED549FA0068DB02 /* ImageIO.framework */; };
 		E2E74A071ED575EB0068DB02 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E74A061ED575EB0068DB02 /* UIImage+Utils.m */; };
@@ -179,11 +179,8 @@
 		E22485FA1ED49B090052B051 /* doctor3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = doctor3.jpg; path = Report/doctor3.jpg; sourceTree = "<group>"; };
 		E22485FB1ED49B090052B051 /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo1.png; path = Report/logo1.png; sourceTree = "<group>"; };
 		E22485FC1ED49B090052B051 /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo2.png; path = Report/logo2.png; sourceTree = "<group>"; };
-		E22F42FA1EE3151B00F0E1D9 /* WYSIWYGReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WYSIWYGReport.h; path = WYSIWYGReport/WYSIWYGReport.h; sourceTree = "<group>"; };
-		E22F42FB1EE3151B00F0E1D9 /* WYSIWYGReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WYSIWYGReport.m; path = WYSIWYGReport/WYSIWYGReport.m; sourceTree = "<group>"; };
 		E22F42FD1EE31D9900F0E1D9 /* UserEntry.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = UserEntry.js; path = Report/UserEntry.js; sourceTree = "<group>"; };
 		E22F42FE1EE31D9900F0E1D9 /* WYSIWYGReport.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = WYSIWYGReport.js; path = Report/WYSIWYGReport.js; sourceTree = "<group>"; };
-		E22F43011EE31DF200F0E1D9 /* WYSIWYGReport.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = WYSIWYGReport.mustache; path = Mustache/WYSIWYGReport.mustache; sourceTree = "<group>"; };
 		E23E8F8A1EF19BF60052DAAC /* PortraitReport.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PortraitReport.mustache; path = Mustache/PortraitReport.mustache; sourceTree = "<group>"; };
 		E23E8F8C1EF19C260052DAAC /* BaseReport.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BaseReport.mustache; path = Mustache/BaseReport.mustache; sourceTree = "<group>"; };
 		E2478C211EB248F2004EEC16 /* 3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = 3.html; path = SampleItems/3.html; sourceTree = "<group>"; };
@@ -206,6 +203,9 @@
 		E2B520CC1EDBD3C800FFEEF0 /* SilentPDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SilentPDFGenerator.h; path = SilentPDFGenerator/SilentPDFGenerator.h; sourceTree = "<group>"; };
 		E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SilentPDFGenerator.m; path = SilentPDFGenerator/SilentPDFGenerator.m; sourceTree = "<group>"; };
 		E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SilentPDFGenerator.xib; path = SilentPDFGenerator/SilentPDFGenerator.xib; sourceTree = "<group>"; };
+		E2CC06591EFA152C00BD2162 /* HTMLConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMLConverter.h; path = HTMLconverter/HTMLConverter.h; sourceTree = "<group>"; };
+		E2CC065A1EFA152C00BD2162 /* HTMLConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMLConverter.m; path = HTMLconverter/HTMLConverter.m; sourceTree = "<group>"; };
+		E2CC065C1EFA388A00BD2162 /* vue-scrollto.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "vue-scrollto.js"; path = "Report/vue-scrollto.js"; sourceTree = "<group>"; };
 		E2CD29221EC4AB7100E94B5A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E2E261B81ED887AE0045FDA0 /* LENSReportKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LENSReportKey.h; path = PDFGenerator/LENSReportKey.h; sourceTree = "<group>"; };
 		E2E749FE1ED549FA0068DB02 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -294,6 +294,7 @@
 		E22485D41ED49ADE0052B051 /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				E2CC065C1EFA388A00BD2162 /* vue-scrollto.js */,
 				E2A4B8841EEFD35300DD386D /* letter_portrait_vue.html */,
 				E22F42FD1EE31D9900F0E1D9 /* UserEntry.js */,
 				E22F42FE1EE31D9900F0E1D9 /* WYSIWYGReport.js */,
@@ -337,15 +338,6 @@
 				E22485FC1ED49B090052B051 /* logo2.png */,
 			);
 			name = Report;
-			sourceTree = "<group>";
-		};
-		E22F42F91EE313BB00F0E1D9 /* WYSIWYGReport */ = {
-			isa = PBXGroup;
-			children = (
-				E22F42FA1EE3151B00F0E1D9 /* WYSIWYGReport.h */,
-				E22F42FB1EE3151B00F0E1D9 /* WYSIWYGReport.m */,
-			);
-			name = WYSIWYGReport;
 			sourceTree = "<group>";
 		};
 		E2478C111EB21122004EEC16 /* Basic */ = {
@@ -426,7 +418,6 @@
 		E27ABE9B1EB1F217006D5A01 /* SilentPrintDemo */ = {
 			isa = PBXGroup;
 			children = (
-				E2A4B88A1EF047AF00DD386D /* TextKeyboard */,
 				E2E74A001ED572730068DB02 /* ScaleImage */,
 				E27ABEB31EB1F30D006D5A01 /* MainMenu */,
 				E2478C171EB2305F004EEC16 /* SilentPrint */,
@@ -435,6 +426,7 @@
 				E28EE43A1EC46A7600DD8747 /* PDFGenerator */,
 				E28794AB1EC35F2200BECA7A /* DemoPDFGeneration */,
 				E27204641EC31D9F0033E166 /* PDFGeneration */,
+				E2CC06571EFA14FC00BD2162 /* ExternalLibraries */,
 				E27ABEA81EB1F217006D5A01 /* Assets.xcassets */,
 				E27ABEAA1EB1F217006D5A01 /* LaunchScreen.storyboard */,
 				E27ABEAD1EB1F217006D5A01 /* Info.plist */,
@@ -469,7 +461,6 @@
 		E28794951EC35DE700BECA7A /* Template */ = {
 			isa = PBXGroup;
 			children = (
-				E22F43011EE31DF200F0E1D9 /* WYSIWYGReport.mustache */,
 				E22485CD1ED49A870052B051 /* PortraitLetterPhoto.mustache */,
 				E23E8F8A1EF19BF60052DAAC /* PortraitReport.mustache */,
 				E23E8F8C1EF19C260052DAAC /* BaseReport.mustache */,
@@ -484,7 +475,6 @@
 				E2236C6D1EC93D02008BC220 /* MustacheBasicDemo */,
 				E2236C6E1EC93E12008BC220 /* GenerateImagesCollection */,
 				E2AEB9D51EE3AA83001E0C9A /* VueInterop */,
-				E22F42F91EE313BB00F0E1D9 /* WYSIWYGReport */,
 			);
 			name = DemoPDFGeneration;
 			sourceTree = "<group>";
@@ -532,6 +522,24 @@
 				E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */,
 			);
 			name = SilentPDFGenerator;
+			sourceTree = "<group>";
+		};
+		E2CC06571EFA14FC00BD2162 /* ExternalLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				E2CC06581EFA151A00BD2162 /* HTMLConverter */,
+				E2A4B88A1EF047AF00DD386D /* TextKeyboard */,
+			);
+			name = ExternalLibraries;
+			sourceTree = "<group>";
+		};
+		E2CC06581EFA151A00BD2162 /* HTMLConverter */ = {
+			isa = PBXGroup;
+			children = (
+				E2CC06591EFA152C00BD2162 /* HTMLConverter.h */,
+				E2CC065A1EFA152C00BD2162 /* HTMLConverter.m */,
+			);
+			name = HTMLConverter;
 			sourceTree = "<group>";
 		};
 		E2E74A001ED572730068DB02 /* ScaleImage */ = {
@@ -627,7 +635,6 @@
 				E2185FBC1EB8800F00304253 /* 8.html in Resources */,
 				E22486081ED49B090052B051 /* 06.jpg in Resources */,
 				E22485D21ED49A870052B051 /* PortraitLetterPhoto.mustache in Resources */,
-				E22F43021EE31DF200F0E1D9 /* WYSIWYGReport.mustache in Resources */,
 				E2478C251EB248F2004EEC16 /* 2.jpg in Resources */,
 				E2185FB41EB87E4500304253 /* 4.html in Resources */,
 				E247AA0F1EB64B7E00388A00 /* koi.jpg in Resources */,
@@ -680,6 +687,7 @@
 				E22486211ED49B090052B051 /* doctor1.jpg in Resources */,
 				E224861C1ED49B090052B051 /* 26.jpg in Resources */,
 				E224860A1ED49B090052B051 /* 08.jpg in Resources */,
+				E2CC065D1EFA388A00BD2162 /* vue-scrollto.js in Resources */,
 				E22485FE1ED49B090052B051 /* LetterPortrait.css in Resources */,
 				E22F43001EE31D9900F0E1D9 /* WYSIWYGReport.js in Resources */,
 				E22486111ED49B090052B051 /* 15.jpg in Resources */,
@@ -745,7 +753,7 @@
 				E22485C81ED49A3E0052B051 /* PDFGenerator.m in Sources */,
 				E22485C01ED4997D0052B051 /* GenerateImagesCollection.m in Sources */,
 				E2A4B8931EF0583700DD386D /* ViewWithKeyboard.m in Sources */,
-				E22F42FC1EE3151B00F0E1D9 /* WYSIWYGReport.m in Sources */,
+				E2CC065B1EFA152C00BD2162 /* HTMLConverter.m in Sources */,
 				E22485A71ED497EA0052B051 /* ConfigurePrinter.m in Sources */,
 				E22485C71ED49A3E0052B051 /* PaperConfig.m in Sources */,
 				E22485BB1ED4993E0052B051 /* MustacheBasicDemo.m in Sources */,

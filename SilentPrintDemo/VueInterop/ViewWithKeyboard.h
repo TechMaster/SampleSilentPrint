@@ -12,5 +12,5 @@
 
 @property (weak, nonatomic) id<KeyboardBarDelegate> keyboardBarDelegate;
 // Override inputAccessoryView to readWrite
-
+- (void) setText: (NSString*) text;
 @end

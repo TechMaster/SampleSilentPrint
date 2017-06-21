@@ -30,6 +30,8 @@
     return _inputAccessoryView;
 }
 
-
+- (void) setText: (NSString*) text {
+    [(KeyboardBar*) self.inputAccessoryView setText:text];
+}
 
 @end

@@ -9,11 +9,13 @@
 #import "VueInterop.h"
 #import "UIImage+Utils.h"
 #import "ViewWithKeyboard.h"
+#import "HTMLConverter.h"
 
 @interface VueInterop ()
 @property (nonatomic, strong) NSString* selectID;
 @property (nonatomic, strong) WKWebView* webView;
 @property (nonatomic, strong) ViewWithKeyboard* view;
+@property (nonatomic, strong) HTMLConverter* htmlConverter;
 @end
 
 @implementation VueInterop
@@ -21,6 +23,11 @@
 
 - (void) loadView {
     self.view = [[ViewWithKeyboard alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Fit page"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(fitPage)];
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"letter_portrait_vue"
                                                      ofType:@"html"];
@@ -47,6 +54,27 @@
     
     [self.webView loadHTMLString:htmlString baseURL:baseURL];
     
+    self.htmlConverter = [HTMLConverter new];
+}
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self setScaleLevel:1.17];
+    //Set mode of report to edit mode, user can enter text, change photo
+    [self.webView evaluateJavaScript:@"setMode('edit');"
+                   completionHandler: nil];
+
+}
+- (void) fitPage {
+    
+    
+    
+}
+
+- (void) setScaleLevel: (float) scale {
+    NSString* script = [NSString stringWithFormat: @"document.body.style.zoom = %1.1f;", scale];
+    //NSLog(@"%@", script);
+    [self.webView evaluateJavaScript: script
+                   completionHandler:nil];
 }
 - (void) showKeyboard {
     if (![self.view isFirstResponder]) {
@@ -59,7 +87,7 @@
 }
 
 -(void) viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    NSLog(@"w = %f, h = %f", size.width, size.height);
+    //NSLog(@"w = %f, h = %f", size.width, size.height);
     self.view.frame = CGRectMake(0, 0, size.width, size.height);
 }
 
@@ -74,9 +102,11 @@
         [self openCameraRoll];
 
     } else if ([action isEqual:@"enterText"]) {
+        NSString* currentText = sentData[@"text"];
+        [self.view setText:currentText];
         [self showKeyboard];
     }
-        /*
+    /*
     long aCount = [sentData[@"count"] integerValue];
     aCount++;
     
@@ -97,7 +127,7 @@
 }
 
 -(void) openCameraRoll {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    UIImagePickerController *picker = [UIImagePickerController new];
     picker.delegate = self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -125,8 +155,14 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
 
 #pragma mark - KeyboardBarDelegate
 - (void)keyboardBar:(KeyboardBar *)keyboardBar sendText:(NSString *)text {
-    NSLog(@"%@", text);
-    [self.webView evaluateJavaScript:[NSString stringWithFormat:@"Vue.set(app, '%@', '%@')", self.selectID , text]
+    //I use HTMLConverter from https://github.com/TakahikoKawasaki/nv-ios-html-converter
+    NSString* htmlText = [[self.htmlConverter toHTML:text] stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
+    //NSLog(@"%@", htmlText);
+    
+    NSString* script = [NSString stringWithFormat:@"Vue.set(app, '%@', '%@')", self.selectID , htmlText];
+    //NSLog(@"%@", script);
+
+    [self.webView evaluateJavaScript:script
                    completionHandler:nil];
 }
 @end

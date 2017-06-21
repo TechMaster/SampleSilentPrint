@@ -12,37 +12,36 @@
 					<div id="logo_box">
 						<img id="reportLogo" :src="reportLogo" v-on:click="openCameraRoll">						
 					</div>
-					<div id="topDoctorText" v-html="topDoctorText" v-on:click="enterText"></div>
+					<div id="topDoctorText" v-if="topDoctorText" v-html="topDoctorText" v-on:click="enterText"></div>
 
-					<div id="greetingText" v-html="greetingText" v-on:click="enterText"></div>
+					<div id="greetingText" v-if="greetingText" v-html="greetingText" v-on:click="enterText" v-scroll-to="'#greetingText'"></div>
 
 					<div id='topDoctorImageBox'>
 						<img id="topDoctorImage" :src="topDoctorImage" v-on:click="openCameraRoll">						
 					</div>
-					<p id="bottomDoctorText" v-html="bottomDoctorText" v-on:click="enterText"></p>
+					<p id="bottomDoctorText" v-if="bottomDoctorText" v-html="bottomDoctorText" v-on:click="enterText" v-scroll-to="'#bottomDoctorText'"></p>
 
-					<div id="surgeryInfoText" class="text" v-html="surgeryInfoText" v-on:click="enterText"></div>
+					<div id="surgeryInfoText" class="text" v-if="surgeryInfoText" v-html="surgeryInfoText" v-on:click="enterText" v-scroll-to="'#surgeryInfoText'"></div>
 
 					<div id="bottomTextBox">
-						<div class="bottomText text" id="bottomText1" v-html="bottomText1" v-on:click="enterText"></div>
-						<div class="bottomText text hover" id="bottomText2" v-html="bottomText2" v-on:click="enterText"></div>
-
+						<div class="bottomText text" id="bottomText1" v-if="bottomText1" v-html="bottomText1" v-on:click="enterText" v-scroll-to="'#bottomText1'"></div>
+						<div class="bottomText text" id="bottomText2" v-if="bottomText2" v-html="bottomText2" v-on:click="enterText" v-scroll-to="'#bottomText2'"></div>
 					</div>
 
 					<div class="bottom">
-						<p class="bottomImageHeader text hover" id="bottomImageHeader1" v-on:click="enterText">{{bottomImageHeader1}}</p>
-						<div class='bottomImageBox hover2'>
+						<p class="bottomImageHeader text" id="bottomImageHeader1" v-if="bottomImageHeader1" v-on:click="enterText" v-scroll-to="'#bottomImageHeader1'">{{bottomImageHeader1}}</p>
+						<div class='bottomImageBox'>
 							<img class='bottomImage' id="bottomImage1" :src="bottomImage1" v-on:click="openCameraRoll">							
 						</div>
-						<p class="bottomImageCaption text hover" id="bottomImageCaption1" v-on:click="enterText">{{bottomImageCaption1}}</p>
+						<p class="bottomImageCaption text" id="bottomImageCaption1" v-if="bottomImageCaption1" v-on:click="enterText" v-scroll-to="'#bottomImageCaption1'">{{bottomImageCaption1}}</p>
 					</div>
 
 					<div class="bottom">						
-						<p class="bottomImageHeader text hover" id="bottomImageHeader2" v-on:click="enterText">{{bottomImageHeader2}}</p>
-						<div class="bottomImageBox hover2">
+						<p class="bottomImageHeader text" id="bottomImageHeader2" v-if="bottomImageHeader2" v-on:click="enterText" v-scroll-to="'#bottomImageHeader2'">{{bottomImageHeader2}}</p>
+						<div class="bottomImageBox">
 							<img class='bottomImage' id="bottomImage2" :src="bottomImage2" v-on:click="openCameraRoll">							
 						</div>
-						<p class="bottomImageCaption text hover" id="bottomImageCaption2" v-on:click="enterText">{{bottomImageCaption2}}</p>
+						<p class="bottomImageCaption text" id="bottomImageCaption2" v-if="bottomImageCaption2" v-on:click="enterText" v-scroll-to="'#bottomImageCaption2'">{{bottomImageCaption2}}</p>
 					</div>
 
 				</section>
@@ -119,6 +118,7 @@
 
 	<script src="jquery-3.2.1.slim.min.js"></script>
 	<script type="text/javascript" src="vue.min.js"></script>
+	<script type="text/javascript" src="vue-scrollto.js"></script>
 	<script type="text/javascript" src="LetterPortrait.js"></script>
 	<script type="text/javascript" src="UserEntry.js"></script>
 	<script>

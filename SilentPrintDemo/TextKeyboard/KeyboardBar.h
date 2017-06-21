@@ -19,6 +19,7 @@
 @interface KeyboardBar : UIView <UITextViewDelegate>
 
 - (id)initWithDelegate:(id<KeyboardBarDelegate>)delegate;
+- (void) setText: (NSString*) text;
 
 @property (strong, nonatomic) UITextView *textView;
 @property (strong, nonatomic) UIButton *actionButton;
