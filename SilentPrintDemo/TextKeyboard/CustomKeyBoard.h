@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class CustomKeyBoard;
-@protocol KeyboardBarDelegate <NSObject>
+@protocol CustomKeyboardDelegate <NSObject>
 
 
 - (void)onKeyboard:(CustomKeyBoard *)customKeyBoard save:(NSString *)text;
@@ -19,9 +19,8 @@
 @end
 
 @interface CustomKeyBoard : UIView <UITextViewDelegate>
-@property (weak, nonatomic) id<KeyboardBarDelegate> delegate;
+@property (weak, nonatomic) id<CustomKeyboardDelegate> delegate;
 
 - (void) setText: (NSString*) text;
 - (void) focusTextView;
-- (void) relayoutView: (CGSize) newSize;
 @end

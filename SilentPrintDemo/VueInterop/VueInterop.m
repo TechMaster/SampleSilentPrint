@@ -157,11 +157,7 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     [self.webView evaluateJavaScript:[NSString stringWithFormat:@"changePhoto('%@', '%@')", resizedImagePath, self.selectID]
                    completionHandler:nil];
     
-    
-    
-    [picker dismissViewControllerAnimated:true completion:^{
-        
-    }];
+    [picker dismissViewControllerAnimated:true completion:nil];
     
 }
 

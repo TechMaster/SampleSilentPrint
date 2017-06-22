@@ -46,6 +46,9 @@ var app = new Vue({
     methods: {
       openCameraRoll: function (event) {
       	if (app.mode === "view") return;
+      	if (app.previousSelectedTextId!== null) {
+      		clearSelectedText(app.previousSelectedTextId);
+      	}
         var message = {"action":"openCameraRoll", "id": event.target.id}
         window.webkit.messageHandlers.interOp.postMessage(message)        
       },

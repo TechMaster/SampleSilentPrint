@@ -11,7 +11,7 @@
 #import "CustomKeyBoard.h"
 @interface ViewWithKeyboard : UIView
 
-@property (weak, nonatomic) id<KeyboardBarDelegate> keyboardBarDelegate;
+@property (weak, nonatomic) id<CustomKeyboardDelegate> keyboardBarDelegate;
 // Override inputAccessoryView to readWrite
 - (void) setText: (NSString*) text;
 

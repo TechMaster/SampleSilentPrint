@@ -59,9 +59,7 @@
     [self.textView becomeFirstResponder];
 }
 
-- (void) relayoutView: (CGSize) newSize {
-    
-}
+
 #pragma mark - UITextViewDelegate
 - (void)textViewDidEndEditing:(UITextView *)textView {
     self.hidden = true;
