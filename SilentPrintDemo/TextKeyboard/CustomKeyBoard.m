@@ -20,20 +20,14 @@
     self = [[[NSBundle mainBundle] loadNibNamed:@"CustomKeyBoard" owner:self options:nil] firstObject];
 
     self.textView.delegate = self;
-    /*//Swipe down to close text view
-    UISwipeGestureRecognizer* swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeDown)];
-    
-    swipeRecognizer.direction = UISwipeGestureRecognizerDirectionDown;
-    
-    [self.textView addGestureRecognizer: swipeRecognizer];*/
-
-    UIBarButtonItem* clearButton = /*[[UIBarButtonItem alloc] initWithTitle:@"Clear" style:UIBarButtonItemStyleDone target:self action:@selector(clearText)]; */
-    
+  
+    //Add button to clear content of self.textView
+    UIBarButtonItem* clearButton =
     [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"eraser"] style:UIBarButtonItemStylePlain target:self action:@selector(clearText)];
-    
     
     UIBarButtonItemGroup* buttonGroup = [[UIBarButtonItemGroup alloc] initWithBarButtonItems:@[clearButton] representativeItem:nil];
     self.textView.inputAssistantItem.trailingBarButtonGroups = @[buttonGroup];
+    
     return self;
 }
 

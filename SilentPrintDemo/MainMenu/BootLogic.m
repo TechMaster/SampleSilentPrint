@@ -30,7 +30,7 @@
       @{TITLE : @"Scale Image", CLASS : @"ScaleImage"},
       @{TITLE : @"Report with Photos -> PDF", CLASS : @"GenerateImagesCollection"},
       @{TITLE : @"Generate PDF in silent", CLASS : @"SilentPDFGenerator"},      
-      @{TITLE : @"Patient Report Setting", CLASS : @"VueInterop"}
+      @{TITLE : @"Patient Report Setting", CLASS : @"PatientReport"}
     ]
     };
   

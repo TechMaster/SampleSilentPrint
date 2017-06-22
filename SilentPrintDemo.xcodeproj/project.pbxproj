@@ -83,9 +83,10 @@
 		E292E0551EFB720E00823577 /* CustomKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = E292E0541EFB720E00823577 /* CustomKeyBoard.m */; };
 		E292E0571EFB722200823577 /* CustomKeyBoard.xib in Resources */ = {isa = PBXBuildFile; fileRef = E292E0561EFB722200823577 /* CustomKeyBoard.xib */; };
 		E292E0591EFBC77F00823577 /* vue.min.js in Resources */ = {isa = PBXBuildFile; fileRef = E292E0581EFBC77F00823577 /* vue.min.js */; };
+		E292E0631EFBCE6E00823577 /* PatientReport.m in Sources */ = {isa = PBXBuildFile; fileRef = E292E05E1EFBCE6E00823577 /* PatientReport.m */; };
+		E292E0641EFBCE6E00823577 /* ViewWithKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E292E0601EFBCE6E00823577 /* ViewWithKeyboard.m */; };
+		E292E0651EFBCE6E00823577 /* WYSIWYGReport.m in Sources */ = {isa = PBXBuildFile; fileRef = E292E0621EFBCE6E00823577 /* WYSIWYGReport.m */; };
 		E2A4B8851EEFD35300DD386D /* letter_portrait_vue.html in Resources */ = {isa = PBXBuildFile; fileRef = E2A4B8841EEFD35300DD386D /* letter_portrait_vue.html */; };
-		E2A4B8931EF0583700DD386D /* ViewWithKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A4B8921EF0583700DD386D /* ViewWithKeyboard.m */; };
-		E2AEB9D81EE3AB0A001E0C9A /* VueInterop.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AEB9D71EE3AB0A001E0C9A /* VueInterop.m */; };
 		E2B520CF1EDBD3C800FFEEF0 /* SilentPDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */; };
 		E2B520D01EDBD3C800FFEEF0 /* SilentPDFGenerator.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */; };
 		E2CC065B1EFA152C00BD2162 /* HTMLConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CC065A1EFA152C00BD2162 /* HTMLConverter.m */; };
@@ -197,11 +198,13 @@
 		E292E0541EFB720E00823577 /* CustomKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomKeyBoard.m; path = TextKeyboard/CustomKeyBoard.m; sourceTree = "<group>"; };
 		E292E0561EFB722200823577 /* CustomKeyBoard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomKeyBoard.xib; path = TextKeyboard/CustomKeyBoard.xib; sourceTree = "<group>"; };
 		E292E0581EFBC77F00823577 /* vue.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = vue.min.js; path = Report/vue.min.js; sourceTree = "<group>"; };
+		E292E05D1EFBCE6E00823577 /* PatientReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PatientReport.h; path = WYSIWYGReport/PatientReport.h; sourceTree = "<group>"; };
+		E292E05E1EFBCE6E00823577 /* PatientReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PatientReport.m; path = WYSIWYGReport/PatientReport.m; sourceTree = "<group>"; };
+		E292E05F1EFBCE6E00823577 /* ViewWithKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewWithKeyboard.h; path = WYSIWYGReport/ViewWithKeyboard.h; sourceTree = "<group>"; };
+		E292E0601EFBCE6E00823577 /* ViewWithKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewWithKeyboard.m; path = WYSIWYGReport/ViewWithKeyboard.m; sourceTree = "<group>"; };
+		E292E0611EFBCE6E00823577 /* WYSIWYGReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WYSIWYGReport.h; path = WYSIWYGReport/WYSIWYGReport.h; sourceTree = "<group>"; };
+		E292E0621EFBCE6E00823577 /* WYSIWYGReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WYSIWYGReport.m; path = WYSIWYGReport/WYSIWYGReport.m; sourceTree = "<group>"; };
 		E2A4B8841EEFD35300DD386D /* letter_portrait_vue.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = letter_portrait_vue.html; path = Report/letter_portrait_vue.html; sourceTree = "<group>"; };
-		E2A4B8911EF0583700DD386D /* ViewWithKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewWithKeyboard.h; path = VueInterop/ViewWithKeyboard.h; sourceTree = "<group>"; };
-		E2A4B8921EF0583700DD386D /* ViewWithKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewWithKeyboard.m; path = VueInterop/ViewWithKeyboard.m; sourceTree = "<group>"; };
-		E2AEB9D61EE3AB0A001E0C9A /* VueInterop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VueInterop.h; path = VueInterop/VueInterop.h; sourceTree = "<group>"; };
-		E2AEB9D71EE3AB0A001E0C9A /* VueInterop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VueInterop.m; path = VueInterop/VueInterop.m; sourceTree = "<group>"; };
 		E2B520CC1EDBD3C800FFEEF0 /* SilentPDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SilentPDFGenerator.h; path = SilentPDFGenerator/SilentPDFGenerator.h; sourceTree = "<group>"; };
 		E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SilentPDFGenerator.m; path = SilentPDFGenerator/SilentPDFGenerator.m; sourceTree = "<group>"; };
 		E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SilentPDFGenerator.xib; path = SilentPDFGenerator/SilentPDFGenerator.xib; sourceTree = "<group>"; };
@@ -477,7 +480,7 @@
 				E2B520CB1EDBD38A00FFEEF0 /* SilentPDFGenerator */,
 				E2236C6D1EC93D02008BC220 /* MustacheBasicDemo */,
 				E2236C6E1EC93E12008BC220 /* GenerateImagesCollection */,
-				E2AEB9D51EE3AA83001E0C9A /* VueInterop */,
+				E2AEB9D51EE3AA83001E0C9A /* WYSIWYGReport */,
 			);
 			name = DemoPDFGeneration;
 			sourceTree = "<group>";
@@ -506,15 +509,17 @@
 			name = TextKeyboard;
 			sourceTree = "<group>";
 		};
-		E2AEB9D51EE3AA83001E0C9A /* VueInterop */ = {
+		E2AEB9D51EE3AA83001E0C9A /* WYSIWYGReport */ = {
 			isa = PBXGroup;
 			children = (
-				E2AEB9D61EE3AB0A001E0C9A /* VueInterop.h */,
-				E2AEB9D71EE3AB0A001E0C9A /* VueInterop.m */,
-				E2A4B8911EF0583700DD386D /* ViewWithKeyboard.h */,
-				E2A4B8921EF0583700DD386D /* ViewWithKeyboard.m */,
+				E292E05D1EFBCE6E00823577 /* PatientReport.h */,
+				E292E05E1EFBCE6E00823577 /* PatientReport.m */,
+				E292E05F1EFBCE6E00823577 /* ViewWithKeyboard.h */,
+				E292E0601EFBCE6E00823577 /* ViewWithKeyboard.m */,
+				E292E0611EFBCE6E00823577 /* WYSIWYGReport.h */,
+				E292E0621EFBCE6E00823577 /* WYSIWYGReport.m */,
 			);
-			name = VueInterop;
+			name = WYSIWYGReport;
 			sourceTree = "<group>";
 		};
 		E2B520CB1EDBD38A00FFEEF0 /* SilentPDFGenerator */ = {
@@ -756,13 +761,12 @@
 				E22485861ED497010052B051 /* AppDelegate.m in Sources */,
 				E22485C81ED49A3E0052B051 /* PDFGenerator.m in Sources */,
 				E22485C01ED4997D0052B051 /* GenerateImagesCollection.m in Sources */,
-				E2A4B8931EF0583700DD386D /* ViewWithKeyboard.m in Sources */,
 				E2CC065B1EFA152C00BD2162 /* HTMLConverter.m in Sources */,
 				E22485A71ED497EA0052B051 /* ConfigurePrinter.m in Sources */,
 				E22485C71ED49A3E0052B051 /* PaperConfig.m in Sources */,
 				E22485BB1ED4993E0052B051 /* MustacheBasicDemo.m in Sources */,
+				E292E0641EFBCE6E00823577 /* ViewWithKeyboard.m in Sources */,
 				E2B520CF1EDBD3C800FFEEF0 /* SilentPDFGenerator.m in Sources */,
-				E2AEB9D81EE3AB0A001E0C9A /* VueInterop.m in Sources */,
 				E22485A21ED497DD0052B051 /* SilentPrint.m in Sources */,
 				E22485C91ED49A3E0052B051 /* PDFPageRenderer.m in Sources */,
 				E2E74A071ED575EB0068DB02 /* UIImage+Utils.m in Sources */,
@@ -772,8 +776,10 @@
 				E27ABE9E1EB1F217006D5A01 /* main.m in Sources */,
 				E22485B61ED4982D0052B051 /* PrintBatchAfterBatch.m in Sources */,
 				E22485891ED497010052B051 /* MainScreen.m in Sources */,
+				E292E0651EFBCE6E00823577 /* WYSIWYGReport.m in Sources */,
 				E22485B11ED498180052B051 /* PrintBatch.m in Sources */,
 				E22485881ED497010052B051 /* ConsoleScreen.m in Sources */,
+				E292E0631EFBCE6E00823577 /* PatientReport.m in Sources */,
 				E292E0551EFB720E00823577 /* CustomKeyBoard.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

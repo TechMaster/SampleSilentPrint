@@ -6,30 +6,34 @@
 //  Copyright © 2017 techmaster. All rights reserved.
 //
 
-#import "VueInterop.h"
+#import "WYSIWYGReport.h"
 #import "UIImage+Utils.h"
 #import "ViewWithKeyboard.h"
 #import "HTMLConverter.h"
 
-@interface VueInterop ()
+@interface WYSIWYGReport()
 @property (nonatomic, strong) NSString* selectID;
 @property (nonatomic, strong) WKWebView* webView;
 @property (nonatomic, strong) ViewWithKeyboard* view;
 @property (nonatomic, strong) HTMLConverter* htmlConverter;
 @end
 
-@implementation VueInterop
+@implementation WYSIWYGReport
 @dynamic view;
+
+-(id) initWithReportTemplate: (NSString*) report {
+    self = [super init];
+    if (self) {
+        _reportTemplate = report;
+    }
+    return self;
+}
 
 - (void) loadView {
     self.view = [[ViewWithKeyboard alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Fit page"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(fitPage)];
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"letter_portrait_vue"
+    NSString *path = [[NSBundle mainBundle] pathForResource:self.reportTemplate
                                                      ofType:@"html"];
     
     NSString* htmlString = [NSString stringWithContentsOfFile: path
@@ -58,17 +62,11 @@
 }
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    //[self setScaleLevel:1.17];
-    //Set mode of report to edit mode, user can enter text, change photo
     [self.webView evaluateJavaScript:@"setMode('edit');"
                    completionHandler: nil];
 
 }
-- (void) fitPage {
-    
-    
-    
-}
+
 
 - (void) setScaleLevel: (float) scale {
     NSString* script = [NSString stringWithFormat: @"document.body.style.zoom = %1.1f;", scale];

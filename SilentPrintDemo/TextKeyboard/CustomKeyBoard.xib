@@ -19,16 +19,16 @@
                     <rect key="frame" x="5" y="5" width="575" height="146"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UNg-TE-ZgM">
-                            <rect key="frame" x="0.0" y="0.0" width="515" height="146"/>
+                            <rect key="frame" x="0.0" y="0.0" width="500" height="146"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CIc-qb-2OM">
-                            <rect key="frame" x="520" y="0.0" width="55" height="146"/>
+                            <rect key="frame" x="505" y="0.0" width="70" height="146"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhw-xE-J48" userLabel="Button Save">
-                                    <rect key="frame" x="0.0" y="0.0" width="55" height="70.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="70.5"/>
                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal" title="Save">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -38,7 +38,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eZ-J1-1Bu" userLabel="Button Close">
-                                    <rect key="frame" x="0.0" y="75.5" width="55" height="70.5"/>
+                                    <rect key="frame" x="0.0" y="75.5" width="70" height="70.5"/>
                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <state key="normal" title="Close">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -49,7 +49,7 @@
                                 </button>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="width" constant="55" id="Xje-Yq-sy8"/>
+                                <constraint firstAttribute="width" constant="70" id="Xje-Yq-sy8"/>
                             </constraints>
                         </stackView>
                     </subviews>
