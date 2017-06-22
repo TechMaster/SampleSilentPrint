@@ -8,6 +8,7 @@
 
 #import "ViewWithKeyboard.h"
 
+
 @interface ViewWithKeyboard()
 // Override inputAccessoryView to readWrite
 @property (nonatomic, readwrite, retain) UIView *inputAccessoryView;
@@ -25,13 +26,23 @@
 // an instance of KeyboardBar
 - (UIView *)inputAccessoryView {
     if(!_inputAccessoryView) {
-        _inputAccessoryView = [[KeyboardBar alloc] initWithDelegate:self.keyboardBarDelegate];
+       // _inputAccessoryView = [[KeyboardBar alloc] initWithDelegate:self.keyboardBarDelegate];
+        
+        CustomKeyBoard* customKeyboard = [CustomKeyBoard new];
+        customKeyboard.delegate = self.keyboardBarDelegate;
+        _inputAccessoryView = customKeyboard;
+        
     }
     return _inputAccessoryView;
 }
 
-- (void) setText: (NSString*) text {
-    [(KeyboardBar*) self.inputAccessoryView setText:text];
+- (void) setText: (NSString*) text{
+    CustomKeyBoard* customKeyboard = (CustomKeyBoard*) self.inputAccessoryView;
+    [customKeyboard setText:text];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [customKeyboard focusTextView];
+    });
 }
+
 
 @end

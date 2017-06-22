@@ -58,7 +58,7 @@
 }
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self setScaleLevel:1.17];
+    //[self setScaleLevel:1.17];
     //Set mode of report to edit mode, user can enter text, change photo
     [self.webView evaluateJavaScript:@"setMode('edit');"
                    completionHandler: nil];
@@ -72,7 +72,6 @@
 
 - (void) setScaleLevel: (float) scale {
     NSString* script = [NSString stringWithFormat: @"document.body.style.zoom = %1.1f;", scale];
-    //NSLog(@"%@", script);
     [self.webView evaluateJavaScript: script
                    completionHandler:nil];
 }
@@ -86,9 +85,22 @@
     
 }
 
+- (BOOL) becomeFirstResponder {
+    return true;
+}
+/*
+ Handle event when iPad orientation changes
+ */
 -(void) viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    //NSLog(@"w = %f, h = %f", size.width, size.height);
     self.view.frame = CGRectMake(0, 0, size.width, size.height);
+    self.webView.frame = self.view.bounds;
+    
+    if (![self.selectID isEqualToString:@""]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.webView evaluateJavaScript:[NSString stringWithFormat:@"scrollToSelectedElement('%@')", self.selectID]
+                           completionHandler:nil];
+            });
+    }
 }
 
 - (void)userContentController:(WKUserContentController *)userContentController
@@ -154,15 +166,21 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
 }
 
 #pragma mark - KeyboardBarDelegate
-- (void)keyboardBar:(KeyboardBar *)keyboardBar sendText:(NSString *)text {
+- (void)onKeyboard:(CustomKeyBoard *)customKeyBoard save:(NSString *)text {
     //I use HTMLConverter from https://github.com/TakahikoKawasaki/nv-ios-html-converter
     NSString* htmlText = [[self.htmlConverter toHTML:text] stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];
-    //NSLog(@"%@", htmlText);
     
     NSString* script = [NSString stringWithFormat:@"Vue.set(app, '%@', '%@')", self.selectID , htmlText];
-    //NSLog(@"%@", script);
+    
 
     [self.webView evaluateJavaScript:script
                    completionHandler:nil];
+}
+
+- (void)onKeyboardClose:(CustomKeyBoard *)customKeyBoard {
+    [self.webView evaluateJavaScript:[NSString stringWithFormat:@"clearSelectedText('%@')", self.selectID]
+                   completionHandler:nil];
+    self.selectID = @""; //Clear selectedID after
+    
 }
 @end

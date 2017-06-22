@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>
-#import "KeyboardBar.h"
+//#import "KeyboardBar.h"
+#import "CustomKeyBoard.h"
 
-@interface VueInterop : UIViewController <WKScriptMessageHandler, UIImagePickerControllerDelegate, KeyboardBarDelegate>
+@interface VueInterop : UIViewController <UINavigationControllerDelegate, WKScriptMessageHandler, UIImagePickerControllerDelegate, KeyboardBarDelegate>
 //@property(nonatomic, strong) WebViewTextInput *webView;
 @end

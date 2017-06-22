@@ -78,17 +78,35 @@ var app = new Vue({
      onDone: false,
      onCancel: false
  });*/
-
+/*
+Apply new photo to photo place holder
+*/
 function changePhoto(path, photoid) {  
   app[photoid] = path
 }
-
+/*
+Assign new text string to text element
+*/
 function setText(id, text) {
 	app[id] = text
 }
 
 function getZoomLevel() {
 	return document.body.style.zoom;
+}
+
+function clearSelectedText(id) {
+	if (app.previousSelectedTextId!== null) {
+    document.getElementById(app.previousSelectedTextId).style.background = app.preTextBackgroundColor;
+    app.previousSelectedTextId = null;
+    app.preTextBackgroundColor = null;
+  }
+}
+
+function scrollToSelectedElement(id) {
+	if (id !== null) {
+		VueScrollTo.scrollTo("#" + id);
+	}
 }
 
 /*

@@ -29,19 +29,19 @@
 					</div>
 
 					<div class="bottom">
-						<p class="bottomImageHeader text" id="bottomImageHeader1" v-if="bottomImageHeader1" v-on:click="enterText" v-scroll-to="'#bottomImageHeader1'">{{bottomImageHeader1}}</p>
+						<p class="bottomImageHeader text" id="bottomImageHeader1" v-if="bottomImageHeader1" v-html="bottomImageHeader1" v-on:click="enterText" v-scroll-to="'#bottomImageHeader1'"></p>
 						<div class='bottomImageBox'>
 							<img class='bottomImage' id="bottomImage1" :src="bottomImage1" v-on:click="openCameraRoll">							
 						</div>
-						<p class="bottomImageCaption text" id="bottomImageCaption1" v-if="bottomImageCaption1" v-on:click="enterText" v-scroll-to="'#bottomImageCaption1'">{{bottomImageCaption1}}</p>
+						<p class="bottomImageCaption text" id="bottomImageCaption1" v-if="bottomImageCaption1" v-html="bottomImageCaption1" v-on:click="enterText" v-scroll-to="'#bottomImageCaption1'"></p>
 					</div>
 
 					<div class="bottom">						
-						<p class="bottomImageHeader text" id="bottomImageHeader2" v-if="bottomImageHeader2" v-on:click="enterText" v-scroll-to="'#bottomImageHeader2'">{{bottomImageHeader2}}</p>
+						<p class="bottomImageHeader text" id="bottomImageHeader2" v-if="bottomImageHeader2" v-html="bottomImageHeader2" v-on:click="enterText" v-scroll-to="'#bottomImageHeader2'"></p>
 						<div class="bottomImageBox">
 							<img class='bottomImage' id="bottomImage2" :src="bottomImage2" v-on:click="openCameraRoll">							
 						</div>
-						<p class="bottomImageCaption text" id="bottomImageCaption2" v-if="bottomImageCaption2" v-on:click="enterText" v-scroll-to="'#bottomImageCaption2'">{{bottomImageCaption2}}</p>
+						<p class="bottomImageCaption text" id="bottomImageCaption2" v-if="bottomImageCaption2" v-html="bottomImageCaption2" v-on:click="enterText" v-scroll-to="'#bottomImageCaption2'"></p>
 					</div>
 
 				</section>
