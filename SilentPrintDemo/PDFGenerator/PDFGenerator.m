@@ -14,22 +14,6 @@
 @implementation PDFGenerator
 
 
-
--(void) generateHTML: (NSDictionary*) data
-       usingTemplate: (NSString*) template
-          onComplete:  (onGenerateComplete) complete{
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSError* error = nil;
-        NSString* resultHTML = [GRMustacheTemplate renderObject:data fromString:template error: &error];
-        
-        if (error) {
-            complete(NULL, error);
-        } else {
-            complete(resultHTML, NULL);
-        }
-    });
-}
 /*
  Add printing paper configuration to data
  */

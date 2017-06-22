@@ -17,16 +17,6 @@ typedef void (^onGenerateComplete)(NSString* _Nullable result, NSError*  _Nullab
 
 @interface PDFGenerator : NSObject
 
--(void) generateHTML: (NSDictionary* _Nonnull) data
-       usingTemplate: (NSString* _Nonnull) template
-          onComplete: (onGenerateComplete _Nonnull ) complete;
-
--(void) generateHTML: (NSDictionary*_Nonnull) data
-     withPaperConfig: (PaperConfig* _Nonnull) paperConfig
-        fromResource: (NSString*_Nonnull) name
-              bundle: (NSBundle *_Nullable) bundle
-          onComplete: (onGenerateComplete _Nonnull) complete;
-
 -(void)generatePDF: (NSString* _Nonnull) fileOutput
          ofWebView: (WKWebView* _Nonnull) webView
    withPaperConfig: (PaperConfig* _Nonnull) paperConfig

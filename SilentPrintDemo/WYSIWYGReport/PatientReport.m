@@ -9,6 +9,7 @@
 #import "PatientReport.h"
 #import "PDFGenerator.h"
 
+
 @interface PatientReport ()
 @property (nonatomic, strong) PDFGenerator* generator;
 @property (nonatomic, strong) SilentPrint* silentPrint;
@@ -49,11 +50,26 @@
                              NSLog(@"%@", error);
                          } else {
                              dispatch_async(dispatch_get_main_queue(), ^{
-                                 
+                                 [self informPDFSaveSuccess: pdfFile];
                              });
                          }
                      }];
 }
+
+- (void) informPDFSaveSuccess: (NSString*) pdfFile {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Save PDF success"
+                                                                   message:[NSString stringWithFormat:@"PDF file is created at %@", pdfFile]
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"Print PDF" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+                                                              
+                                                          }];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 #pragma mark - SilentPrintDelegate
 -(void)onSilentPrintError: (NSError*) error {

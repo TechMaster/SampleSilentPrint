@@ -26,16 +26,12 @@
   NSDictionary *pdfGenerate = @{
     SECTION : @"PDF Generation",
        MENU : @[
-   //   @{TITLE : @"AirPrint Letter vs A4", CLASS : @"MustacheBasicDemo"},
-      @{TITLE : @"Scale Image", CLASS : @"ScaleImage"},
-      @{TITLE : @"Report with Photos -> PDF", CLASS : @"GenerateImagesCollection"},
-      @{TITLE : @"Generate PDF in silent", CLASS : @"SilentPDFGenerator"},      
       @{TITLE : @"Patient Report Setting", CLASS : @"PatientReport"}
     ]
     };
   
   mainScreen.menu = @[silentPrintDemo, pdfGenerate];
-  mainScreen.title = @"Silent Print Demo";
+  mainScreen.title = @"Silent Print and Report Generator";
   mainScreen.about = @"This is example app uses Silent Print";
   //--------- End of customization -----------
   UINavigationController *nav =

@@ -25,13 +25,9 @@
 		E22485B11ED498180052B051 /* PrintBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485AF1ED498180052B051 /* PrintBatch.m */; };
 		E22485B51ED4982D0052B051 /* PrintBatchAfterBatch.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22485B31ED4982D0052B051 /* PrintBatchAfterBatch.xib */; };
 		E22485B61ED4982D0052B051 /* PrintBatchAfterBatch.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485B41ED4982D0052B051 /* PrintBatchAfterBatch.m */; };
-		E22485BA1ED4993E0052B051 /* MustacheBasicDemo.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22485B81ED4993E0052B051 /* MustacheBasicDemo.xib */; };
-		E22485BB1ED4993E0052B051 /* MustacheBasicDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485B91ED4993E0052B051 /* MustacheBasicDemo.m */; };
-		E22485C01ED4997D0052B051 /* GenerateImagesCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485BE1ED4997D0052B051 /* GenerateImagesCollection.m */; };
 		E22485C71ED49A3E0052B051 /* PaperConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485C41ED49A3E0052B051 /* PaperConfig.m */; };
 		E22485C81ED49A3E0052B051 /* PDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485C51ED49A3E0052B051 /* PDFGenerator.m */; };
 		E22485C91ED49A3E0052B051 /* PDFPageRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485C61ED49A3E0052B051 /* PDFPageRenderer.m */; };
-		E22485D21ED49A870052B051 /* PortraitLetterPhoto.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E22485CD1ED49A870052B051 /* PortraitLetterPhoto.mustache */; };
 		E22486001ED49B090052B051 /* jquery-3.2.1.slim.min.js in Resources */ = {isa = PBXBuildFile; fileRef = E22485D71ED49B090052B051 /* jquery-3.2.1.slim.min.js */; };
 		E22486031ED49B090052B051 /* 01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E22485DA1ED49B090052B051 /* 01.jpg */; };
 		E22486041ED49B090052B051 /* 02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E22485DB1ED49B090052B051 /* 02.jpg */; };
@@ -68,8 +64,6 @@
 		E22486231ED49B090052B051 /* doctor3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E22485FA1ED49B090052B051 /* doctor3.jpg */; };
 		E22486241ED49B090052B051 /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = E22485FB1ED49B090052B051 /* logo1.png */; };
 		E22486251ED49B090052B051 /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = E22485FC1ED49B090052B051 /* logo2.png */; };
-		E23E8F8B1EF19BF60052DAAC /* PortraitReport.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E23E8F8A1EF19BF60052DAAC /* PortraitReport.mustache */; };
-		E23E8F8D1EF19C260052DAAC /* BaseReport.mustache in Resources */ = {isa = PBXBuildFile; fileRef = E23E8F8C1EF19C260052DAAC /* BaseReport.mustache */; };
 		E2478C241EB248F2004EEC16 /* 3.html in Resources */ = {isa = PBXBuildFile; fileRef = E2478C211EB248F2004EEC16 /* 3.html */; };
 		E2478C251EB248F2004EEC16 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E2478C221EB248F2004EEC16 /* 2.jpg */; };
 		E2478C261EB248F2004EEC16 /* 1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E2478C231EB248F2004EEC16 /* 1.pdf */; };
@@ -87,8 +81,6 @@
 		E292E06F1EFBE8C800823577 /* report_mixin.js in Resources */ = {isa = PBXBuildFile; fileRef = E292E06D1EFBE8C800823577 /* report_mixin.js */; };
 		E292E0721EFBEA3000823577 /* layout_photo.js in Resources */ = {isa = PBXBuildFile; fileRef = E292E0701EFBEA3000823577 /* layout_photo.js */; };
 		E292E0731EFBEA3000823577 /* patient_report.css in Resources */ = {isa = PBXBuildFile; fileRef = E292E0711EFBEA3000823577 /* patient_report.css */; };
-		E2B520CF1EDBD3C800FFEEF0 /* SilentPDFGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */; };
-		E2B520D01EDBD3C800FFEEF0 /* SilentPDFGenerator.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */; };
 		E2CC065B1EFA152C00BD2162 /* HTMLConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CC065A1EFA152C00BD2162 /* HTMLConverter.m */; };
 		E2CC065D1EFA388A00BD2162 /* vue-scrollto.js in Resources */ = {isa = PBXBuildFile; fileRef = E2CC065C1EFA388A00BD2162 /* vue-scrollto.js */; };
 		E2CD29231EC4AB7100E94B5A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2CD29221EC4AB7100E94B5A /* WebKit.framework */; };
@@ -98,12 +90,9 @@
 		E2E74A0C1ED5766F0068DB02 /* ScaleImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E74A0A1ED5766F0068DB02 /* ScaleImage.xib */; };
 		E2FF1EF21EBAAD4D00AE9C08 /* log1.log in Resources */ = {isa = PBXBuildFile; fileRef = E2FF1EF11EBAAD4D00AE9C08 /* log1.log */; };
 		E2FF1EF61EBAAE8300AE9C08 /* log2.csv in Resources */ = {isa = PBXBuildFile; fileRef = E2FF1EF41EBAAE8300AE9C08 /* log2.csv */; };
-		F7DA71BD9EDD5ED1A74FDE8D /* libPods-SilentPrintDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE7848BD5FA7FF62C4BF0057 /* libPods-SilentPrintDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C51FDD691A45317111A9F7DA /* Pods-SilentPrintDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilentPrintDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SilentPrintDemo/Pods-SilentPrintDemo.release.xcconfig"; sourceTree = "<group>"; };
-		CE7848BD5FA7FF62C4BF0057 /* libPods-SilentPrintDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SilentPrintDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2185FB31EB87E4500304253 /* 4.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = 4.html; path = SampleItems/4.html; sourceTree = "<group>"; };
 		E2185FB51EB8800F00304253 /* 5.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = 5.html; path = SampleItems/5.html; sourceTree = "<group>"; };
 		E2185FB61EB8800F00304253 /* 6.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = 6.html; path = SampleItems/6.html; sourceTree = "<group>"; };
@@ -131,18 +120,12 @@
 		E22485B21ED4982D0052B051 /* PrintBatchAfterBatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrintBatchAfterBatch.h; path = PrintBatchAfterBatch/PrintBatchAfterBatch.h; sourceTree = "<group>"; };
 		E22485B31ED4982D0052B051 /* PrintBatchAfterBatch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PrintBatchAfterBatch.xib; path = PrintBatchAfterBatch/PrintBatchAfterBatch.xib; sourceTree = "<group>"; };
 		E22485B41ED4982D0052B051 /* PrintBatchAfterBatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrintBatchAfterBatch.m; path = PrintBatchAfterBatch/PrintBatchAfterBatch.m; sourceTree = "<group>"; };
-		E22485B71ED4993E0052B051 /* MustacheBasicDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MustacheBasicDemo.h; path = MustacheBasicDemo/MustacheBasicDemo.h; sourceTree = "<group>"; };
-		E22485B81ED4993E0052B051 /* MustacheBasicDemo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MustacheBasicDemo.xib; path = MustacheBasicDemo/MustacheBasicDemo.xib; sourceTree = "<group>"; };
-		E22485B91ED4993E0052B051 /* MustacheBasicDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MustacheBasicDemo.m; path = MustacheBasicDemo/MustacheBasicDemo.m; sourceTree = "<group>"; };
-		E22485BC1ED4997D0052B051 /* GenerateImagesCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GenerateImagesCollection.h; path = GenerateImagesCollection/GenerateImagesCollection.h; sourceTree = "<group>"; };
-		E22485BE1ED4997D0052B051 /* GenerateImagesCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GenerateImagesCollection.m; path = GenerateImagesCollection/GenerateImagesCollection.m; sourceTree = "<group>"; };
 		E22485C11ED49A3E0052B051 /* PaperConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaperConfig.h; path = PDFGenerator/PaperConfig.h; sourceTree = "<group>"; };
 		E22485C21ED49A3E0052B051 /* PDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFGenerator.h; path = PDFGenerator/PDFGenerator.h; sourceTree = "<group>"; };
 		E22485C31ED49A3E0052B051 /* PDFPageRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFPageRenderer.h; path = PDFGenerator/PDFPageRenderer.h; sourceTree = "<group>"; };
 		E22485C41ED49A3E0052B051 /* PaperConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaperConfig.m; path = PDFGenerator/PaperConfig.m; sourceTree = "<group>"; };
 		E22485C51ED49A3E0052B051 /* PDFGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFGenerator.m; path = PDFGenerator/PDFGenerator.m; sourceTree = "<group>"; };
 		E22485C61ED49A3E0052B051 /* PDFPageRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFPageRenderer.m; path = PDFGenerator/PDFPageRenderer.m; sourceTree = "<group>"; };
-		E22485CD1ED49A870052B051 /* PortraitLetterPhoto.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PortraitLetterPhoto.mustache; path = Mustache/PortraitLetterPhoto.mustache; sourceTree = "<group>"; };
 		E22485D71ED49B090052B051 /* jquery-3.2.1.slim.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "jquery-3.2.1.slim.min.js"; path = "Report/jquery-3.2.1.slim.min.js"; sourceTree = "<group>"; };
 		E22485DA1ED49B090052B051 /* 01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 01.jpg; path = Report/01.jpg; sourceTree = "<group>"; };
 		E22485DB1ED49B090052B051 /* 02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 02.jpg; path = Report/02.jpg; sourceTree = "<group>"; };
@@ -179,8 +162,6 @@
 		E22485FA1ED49B090052B051 /* doctor3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = doctor3.jpg; path = Report/doctor3.jpg; sourceTree = "<group>"; };
 		E22485FB1ED49B090052B051 /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo1.png; path = Report/logo1.png; sourceTree = "<group>"; };
 		E22485FC1ED49B090052B051 /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo2.png; path = Report/logo2.png; sourceTree = "<group>"; };
-		E23E8F8A1EF19BF60052DAAC /* PortraitReport.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = PortraitReport.mustache; path = Mustache/PortraitReport.mustache; sourceTree = "<group>"; };
-		E23E8F8C1EF19C260052DAAC /* BaseReport.mustache */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BaseReport.mustache; path = Mustache/BaseReport.mustache; sourceTree = "<group>"; };
 		E2478C211EB248F2004EEC16 /* 3.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = 3.html; path = SampleItems/3.html; sourceTree = "<group>"; };
 		E2478C221EB248F2004EEC16 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = SampleItems/2.jpg; sourceTree = "<group>"; };
 		E2478C231EB248F2004EEC16 /* 1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = 1.pdf; path = SampleItems/1.pdf; sourceTree = "<group>"; };
@@ -205,9 +186,6 @@
 		E292E06D1EFBE8C800823577 /* report_mixin.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = report_mixin.js; path = Report/report_mixin.js; sourceTree = "<group>"; };
 		E292E0701EFBEA3000823577 /* layout_photo.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = layout_photo.js; path = Report/layout_photo.js; sourceTree = "<group>"; };
 		E292E0711EFBEA3000823577 /* patient_report.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = patient_report.css; path = Report/patient_report.css; sourceTree = "<group>"; };
-		E2B520CC1EDBD3C800FFEEF0 /* SilentPDFGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SilentPDFGenerator.h; path = SilentPDFGenerator/SilentPDFGenerator.h; sourceTree = "<group>"; };
-		E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SilentPDFGenerator.m; path = SilentPDFGenerator/SilentPDFGenerator.m; sourceTree = "<group>"; };
-		E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SilentPDFGenerator.xib; path = SilentPDFGenerator/SilentPDFGenerator.xib; sourceTree = "<group>"; };
 		E2CC06591EFA152C00BD2162 /* HTMLConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HTMLConverter.h; path = HTMLconverter/HTMLConverter.h; sourceTree = "<group>"; };
 		E2CC065A1EFA152C00BD2162 /* HTMLConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HTMLConverter.m; path = HTMLconverter/HTMLConverter.m; sourceTree = "<group>"; };
 		E2CC065C1EFA388A00BD2162 /* vue-scrollto.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = "vue-scrollto.js"; path = "Report/vue-scrollto.js"; sourceTree = "<group>"; };
@@ -220,7 +198,6 @@
 		E2E74A0A1ED5766F0068DB02 /* ScaleImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScaleImage.xib; path = ScaleImage/ScaleImage.xib; sourceTree = "<group>"; };
 		E2FF1EF11EBAAD4D00AE9C08 /* log1.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = log1.log; path = SampleItems/log1.log; sourceTree = "<group>"; };
 		E2FF1EF41EBAAE8300AE9C08 /* log2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = log2.csv; path = SampleItems/log2.csv; sourceTree = "<group>"; };
-		FCE10543823FFD05046F75AC /* Pods-SilentPrintDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SilentPrintDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SilentPrintDemo/Pods-SilentPrintDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,22 +207,12 @@
 			files = (
 				E2E749FF1ED549FA0068DB02 /* ImageIO.framework in Frameworks */,
 				E2CD29231EC4AB7100E94B5A /* WebKit.framework in Frameworks */,
-				F7DA71BD9EDD5ED1A74FDE8D /* libPods-SilentPrintDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B320705CFACC076A9FEF7A76 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FCE10543823FFD05046F75AC /* Pods-SilentPrintDemo.debug.xcconfig */,
-				C51FDD691A45317111A9F7DA /* Pods-SilentPrintDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		E2185FAD1EB8784900304253 /* PrintBatchAfterBatch */ = {
 			isa = PBXGroup;
 			children = (
@@ -274,25 +241,6 @@
 				E22485AF1ED498180052B051 /* PrintBatch.m */,
 			);
 			name = PrintBatch;
-			sourceTree = "<group>";
-		};
-		E2236C6D1EC93D02008BC220 /* MustacheBasicDemo */ = {
-			isa = PBXGroup;
-			children = (
-				E22485B71ED4993E0052B051 /* MustacheBasicDemo.h */,
-				E22485B81ED4993E0052B051 /* MustacheBasicDemo.xib */,
-				E22485B91ED4993E0052B051 /* MustacheBasicDemo.m */,
-			);
-			name = MustacheBasicDemo;
-			sourceTree = "<group>";
-		};
-		E2236C6E1EC93E12008BC220 /* GenerateImagesCollection */ = {
-			isa = PBXGroup;
-			children = (
-				E22485BC1ED4997D0052B051 /* GenerateImagesCollection.h */,
-				E22485BE1ED4997D0052B051 /* GenerateImagesCollection.m */,
-			);
-			name = GenerateImagesCollection;
 			sourceTree = "<group>";
 		};
 		E22485D41ED49ADE0052B051 /* Report */ = {
@@ -397,7 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				E22485D41ED49ADE0052B051 /* Report */,
-				E28794951EC35DE700BECA7A /* Template */,
 			);
 			name = PDFGeneration;
 			sourceTree = "<group>";
@@ -407,7 +354,6 @@
 			children = (
 				E27ABE9B1EB1F217006D5A01 /* SilentPrintDemo */,
 				E27ABE9A1EB1F217006D5A01 /* Products */,
-				B320705CFACC076A9FEF7A76 /* Pods */,
 				EBEC7B7FB045656219A35C60 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -463,22 +409,9 @@
 			name = MainMenu;
 			sourceTree = "<group>";
 		};
-		E28794951EC35DE700BECA7A /* Template */ = {
-			isa = PBXGroup;
-			children = (
-				E22485CD1ED49A870052B051 /* PortraitLetterPhoto.mustache */,
-				E23E8F8A1EF19BF60052DAAC /* PortraitReport.mustache */,
-				E23E8F8C1EF19C260052DAAC /* BaseReport.mustache */,
-			);
-			name = Template;
-			sourceTree = "<group>";
-		};
 		E28794AB1EC35F2200BECA7A /* DemoPDFGeneration */ = {
 			isa = PBXGroup;
 			children = (
-				E2B520CB1EDBD38A00FFEEF0 /* SilentPDFGenerator */,
-				E2236C6D1EC93D02008BC220 /* MustacheBasicDemo */,
-				E2236C6E1EC93E12008BC220 /* GenerateImagesCollection */,
 				E2AEB9D51EE3AA83001E0C9A /* WYSIWYGReport */,
 			);
 			name = DemoPDFGeneration;
@@ -520,16 +453,6 @@
 			name = WYSIWYGReport;
 			sourceTree = "<group>";
 		};
-		E2B520CB1EDBD38A00FFEEF0 /* SilentPDFGenerator */ = {
-			isa = PBXGroup;
-			children = (
-				E2B520CC1EDBD3C800FFEEF0 /* SilentPDFGenerator.h */,
-				E2B520CD1EDBD3C800FFEEF0 /* SilentPDFGenerator.m */,
-				E2B520CE1EDBD3C800FFEEF0 /* SilentPDFGenerator.xib */,
-			);
-			name = SilentPDFGenerator;
-			sourceTree = "<group>";
-		};
 		E2CC06571EFA14FC00BD2162 /* ExternalLibraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -565,7 +488,6 @@
 			children = (
 				E2E749FE1ED549FA0068DB02 /* ImageIO.framework */,
 				E2CD29221EC4AB7100E94B5A /* WebKit.framework */,
-				CE7848BD5FA7FF62C4BF0057 /* libPods-SilentPrintDemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -577,12 +499,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E27ABEB01EB1F217006D5A01 /* Build configuration list for PBXNativeTarget "SilentPrintDemo" */;
 			buildPhases = (
-				782FCAEAE9FDCC6D90B8E8F2 /* [CP] Check Pods Manifest.lock */,
 				E27ABE951EB1F217006D5A01 /* Sources */,
 				E27ABE961EB1F217006D5A01 /* Frameworks */,
 				E27ABE971EB1F217006D5A01 /* Resources */,
-				6313CB9F048C31685A39E650 /* [CP] Embed Pods Frameworks */,
-				504CB91EE44852F86D27E6FF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -641,7 +560,6 @@
 				E22486141ED49B090052B051 /* 18.jpg in Resources */,
 				E2185FBC1EB8800F00304253 /* 8.html in Resources */,
 				E22486081ED49B090052B051 /* 06.jpg in Resources */,
-				E22485D21ED49A870052B051 /* PortraitLetterPhoto.mustache in Resources */,
 				E2478C251EB248F2004EEC16 /* 2.jpg in Resources */,
 				E292E0731EFBEA3000823577 /* patient_report.css in Resources */,
 				E2185FB41EB87E4500304253 /* 4.html in Resources */,
@@ -650,7 +568,6 @@
 				E224861D1ED49B090052B051 /* 27.jpg in Resources */,
 				E224860F1ED49B090052B051 /* 13.jpg in Resources */,
 				E224860C1ED49B090052B051 /* 10.jpg in Resources */,
-				E2B520D01EDBD3C800FFEEF0 /* SilentPDFGenerator.xib in Resources */,
 				E22486221ED49B090052B051 /* doctor2.jpg in Resources */,
 				E2E74A0C1ED5766F0068DB02 /* ScaleImage.xib in Resources */,
 				E224860D1ED49B090052B051 /* 11.jpg in Resources */,
@@ -660,7 +577,6 @@
 				E22486171ED49B090052B051 /* 21.jpg in Resources */,
 				E22485A61ED497EA0052B051 /* ConfigurePrinter.xib in Resources */,
 				E2478C241EB248F2004EEC16 /* 3.html in Resources */,
-				E22485BA1ED4993E0052B051 /* MustacheBasicDemo.xib in Resources */,
 				E22485B01ED498180052B051 /* PrintBatch.xib in Resources */,
 				E22486091ED49B090052B051 /* 07.jpg in Resources */,
 				E22486191ED49B090052B051 /* 23.jpg in Resources */,
@@ -680,10 +596,8 @@
 				E224861F1ED49B090052B051 /* 29.jpg in Resources */,
 				E22486051ED49B090052B051 /* 03.jpg in Resources */,
 				E22486131ED49B090052B051 /* 17.jpg in Resources */,
-				E23E8F8B1EF19BF60052DAAC /* PortraitReport.mustache in Resources */,
 				E2FF1EF21EBAAD4D00AE9C08 /* log1.log in Resources */,
 				E2185FBB1EB8800F00304253 /* 7.html in Resources */,
-				E23E8F8D1EF19C260052DAAC /* BaseReport.mustache in Resources */,
 				E22486201ED49B090052B051 /* 30.jpg in Resources */,
 				E22486181ED49B090052B051 /* 22.jpg in Resources */,
 				E2478C261EB248F2004EEC16 /* 1.pdf in Resources */,
@@ -703,54 +617,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		504CB91EE44852F86D27E6FF /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SilentPrintDemo/Pods-SilentPrintDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6313CB9F048C31685A39E650 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SilentPrintDemo/Pods-SilentPrintDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		782FCAEAE9FDCC6D90B8E8F2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		E27ABE951EB1F217006D5A01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -758,13 +624,10 @@
 			files = (
 				E22485861ED497010052B051 /* AppDelegate.m in Sources */,
 				E22485C81ED49A3E0052B051 /* PDFGenerator.m in Sources */,
-				E22485C01ED4997D0052B051 /* GenerateImagesCollection.m in Sources */,
 				E2CC065B1EFA152C00BD2162 /* HTMLConverter.m in Sources */,
 				E22485A71ED497EA0052B051 /* ConfigurePrinter.m in Sources */,
 				E22485C71ED49A3E0052B051 /* PaperConfig.m in Sources */,
-				E22485BB1ED4993E0052B051 /* MustacheBasicDemo.m in Sources */,
 				E292E0641EFBCE6E00823577 /* ViewWithKeyboard.m in Sources */,
-				E2B520CF1EDBD3C800FFEEF0 /* SilentPDFGenerator.m in Sources */,
 				E22485A21ED497DD0052B051 /* SilentPrint.m in Sources */,
 				E22485C91ED49A3E0052B051 /* PDFPageRenderer.m in Sources */,
 				E2E74A071ED575EB0068DB02 /* UIImage+Utils.m in Sources */,
@@ -889,7 +752,6 @@
 		};
 		E27ABEB11EB1F217006D5A01 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FCE10543823FFD05046F75AC /* Pods-SilentPrintDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -907,7 +769,6 @@
 		};
 		E27ABEB21EB1F217006D5A01 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C51FDD691A45317111A9F7DA /* Pods-SilentPrintDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
