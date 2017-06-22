@@ -13,7 +13,7 @@
 
 @interface WYSIWYGReport()
 @property (nonatomic, strong) NSString* selectID;
-@property (nonatomic, strong) WKWebView* webView;
+
 @property (nonatomic, strong) ViewWithKeyboard* view;
 @property (nonatomic, strong) HTMLConverter* htmlConverter;
 @end

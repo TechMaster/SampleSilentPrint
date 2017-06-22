@@ -7,7 +7,7 @@
 //
 
 #import "WYSIWYGReport.h"
-
-@interface PatientReport : WYSIWYGReport
+#import "SilentPrint.h"
+@interface PatientReport : WYSIWYGReport <SilentPrintDelegate>
 
 @end

@@ -13,6 +13,8 @@
 @interface WYSIWYGReport : UIViewController <UINavigationControllerDelegate, WKScriptMessageHandler, UIImagePickerControllerDelegate, CustomKeyboardDelegate>
 
 @property (nonatomic, readonly) NSString* reportTemplate;
+@property (nonatomic, strong) WKWebView* webView;
+
 
 -(id) initWithReportTemplate: (NSString*) report;
 

@@ -61,29 +61,7 @@
     
 }
 
--(void) generateHTML: (NSDictionary*) data
-     withPaperConfig: (PaperConfig*) paperConfig
-        fromResource: (NSString*) name
-              bundle: (NSBundle *) bundle
-          onComplete: (onGenerateComplete) complete{
-    
-    NSDictionary* appendedData = [self appendPaperConfigToData:data
-                                               withPaperConfig:paperConfig];
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSError* error = nil;
-        NSString* resultHTML = [GRMustacheTemplate renderObject: appendedData
-                                                   fromResource: (NSString *) name
-                                                         bundle: (NSBundle *) bundle
-                                                          error: &error];
-        
-        if (error) {
-            complete(NULL, error);
-        } else {
-            complete(resultHTML, NULL);
-        }
-    });
-}
+
 
 -(NSError*)raiseError: (NSInteger) errorCode {
     

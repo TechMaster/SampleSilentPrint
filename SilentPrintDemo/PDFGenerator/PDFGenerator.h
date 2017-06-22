@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <WebKit/WebKit.h>
-#import <GRMustache/GRMustache.h>
 #import "PaperConfig.h"
 
 #define WKWEBVIEW_IS_LOADING            100
