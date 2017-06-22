@@ -15,7 +15,7 @@
 @implementation PatientReport
 
 - (id) init {
-    return [super initWithReportTemplate:@"letter_portrait_vue"];    
+    return [super initWithReportTemplate:@"patient_report"];    
 }
 
 @end
