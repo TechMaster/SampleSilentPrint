@@ -71,6 +71,9 @@
 		E27ABE9E1EB1F217006D5A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABE9D1EB1F217006D5A01 /* main.m */; };
 		E27ABEA91EB1F217006D5A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEA81EB1F217006D5A01 /* Assets.xcassets */; };
 		E284C69B1EFCC95D0097B1AF /* PrintUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = E284C69A1EFCC95D0097B1AF /* PrintUIView.m */; };
+		E284C6A01EFD0B710097B1AF /* NSMutableArray+Queue.m in Sources */ = {isa = PBXBuildFile; fileRef = E284C69F1EFD0B710097B1AF /* NSMutableArray+Queue.m */; };
+		E284C6A41EFD21580097B1AF /* ReportDataInOut.m in Sources */ = {isa = PBXBuildFile; fileRef = E284C6A31EFD21580097B1AF /* ReportDataInOut.m */; };
+		E284C6A71EFD26E70097B1AF /* patient_report_inout.html in Resources */ = {isa = PBXBuildFile; fileRef = E284C6A61EFD26E70097B1AF /* patient_report_inout.html */; };
 		E292E0551EFB720E00823577 /* CustomKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = E292E0541EFB720E00823577 /* CustomKeyBoard.m */; };
 		E292E0571EFB722200823577 /* CustomKeyBoard.xib in Resources */ = {isa = PBXBuildFile; fileRef = E292E0561EFB722200823577 /* CustomKeyBoard.xib */; };
 		E292E0591EFBC77F00823577 /* vue.min.js in Resources */ = {isa = PBXBuildFile; fileRef = E292E0581EFBC77F00823577 /* vue.min.js */; };
@@ -174,6 +177,12 @@
 		E27ABEAD1EB1F217006D5A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E284C6991EFCC95D0097B1AF /* PrintUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrintUIView.h; path = PrintUIView/PrintUIView.h; sourceTree = "<group>"; };
 		E284C69A1EFCC95D0097B1AF /* PrintUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrintUIView.m; path = PrintUIView/PrintUIView.m; sourceTree = "<group>"; };
+		E284C69E1EFD0B710097B1AF /* NSMutableArray+Queue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSMutableArray+Queue.h"; path = "SilentPrint/NSMutableArray+Queue.h"; sourceTree = "<group>"; };
+		E284C69F1EFD0B710097B1AF /* NSMutableArray+Queue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSMutableArray+Queue.m"; path = "SilentPrint/NSMutableArray+Queue.m"; sourceTree = "<group>"; };
+		E284C6A21EFD21580097B1AF /* ReportDataInOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReportDataInOut.h; path = ReportDataInOut/ReportDataInOut.h; sourceTree = "<group>"; };
+		E284C6A31EFD21580097B1AF /* ReportDataInOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReportDataInOut.m; path = ReportDataInOut/ReportDataInOut.m; sourceTree = "<group>"; };
+		E284C6A51EFD23150097B1AF /* LENSReportKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LENSReportKey.h; path = ReportDataInOut/LENSReportKey.h; sourceTree = "<group>"; };
+		E284C6A61EFD26E70097B1AF /* patient_report_inout.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = patient_report_inout.html; path = Report/patient_report_inout.html; sourceTree = "<group>"; };
 		E292E0531EFB720E00823577 /* CustomKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomKeyBoard.h; path = TextKeyboard/CustomKeyBoard.h; sourceTree = "<group>"; };
 		E292E0541EFB720E00823577 /* CustomKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomKeyBoard.m; path = TextKeyboard/CustomKeyBoard.m; sourceTree = "<group>"; };
 		E292E0561EFB722200823577 /* CustomKeyBoard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomKeyBoard.xib; path = TextKeyboard/CustomKeyBoard.xib; sourceTree = "<group>"; };
@@ -246,9 +255,10 @@
 			name = PrintBatch;
 			sourceTree = "<group>";
 		};
-		E22485D41ED49ADE0052B051 /* Report */ = {
+		E22485D41ED49ADE0052B051 /* HTML_Vue_Report */ = {
 			isa = PBXGroup;
 			children = (
+				E284C6A61EFD26E70097B1AF /* patient_report_inout.html */,
 				E292E0701EFBEA3000823577 /* layout_photo.js */,
 				E292E0711EFBEA3000823577 /* patient_report.css */,
 				E292E06C1EFBE8C800823577 /* report_data.js */,
@@ -293,7 +303,7 @@
 				E22485FB1ED49B090052B051 /* logo1.png */,
 				E22485FC1ED49B090052B051 /* logo2.png */,
 			);
-			name = Report;
+			name = HTML_Vue_Report;
 			sourceTree = "<group>";
 		};
 		E2478C111EB21122004EEC16 /* Basic */ = {
@@ -313,6 +323,8 @@
 			children = (
 				E224859C1ED497DD0052B051 /* SilentPrint.h */,
 				E224859F1ED497DD0052B051 /* SilentPrint.m */,
+				E284C69E1EFD0B710097B1AF /* NSMutableArray+Queue.h */,
+				E284C69F1EFD0B710097B1AF /* NSMutableArray+Queue.m */,
 			);
 			name = SilentPrint;
 			sourceTree = "<group>";
@@ -345,14 +357,6 @@
 			name = ConfigurePrinter;
 			sourceTree = "<group>";
 		};
-		E27204641EC31D9F0033E166 /* PDFGeneration */ = {
-			isa = PBXGroup;
-			children = (
-				E22485D41ED49ADE0052B051 /* Report */,
-			);
-			name = PDFGeneration;
-			sourceTree = "<group>";
-		};
 		E27ABE901EB1F217006D5A01 = {
 			isa = PBXGroup;
 			children = (
@@ -380,7 +384,7 @@
 				E2478C201EB24888004EEC16 /* SampleItems */,
 				E28EE43A1EC46A7600DD8747 /* PDFGenerator */,
 				E28794AB1EC35F2200BECA7A /* DemoPDFGeneration */,
-				E27204641EC31D9F0033E166 /* PDFGeneration */,
+				E22485D41ED49ADE0052B051 /* HTML_Vue_Report */,
 				E2CC06571EFA14FC00BD2162 /* ExternalLibraries */,
 				E27ABEA81EB1F217006D5A01 /* Assets.xcassets */,
 				E27ABEAA1EB1F217006D5A01 /* LaunchScreen.storyboard */,
@@ -422,10 +426,21 @@
 			name = PrintUIView;
 			sourceTree = "<group>";
 		};
+		E284C6A11EFD20780097B1AF /* ReportDataInOut */ = {
+			isa = PBXGroup;
+			children = (
+				E284C6A21EFD21580097B1AF /* ReportDataInOut.h */,
+				E284C6A31EFD21580097B1AF /* ReportDataInOut.m */,
+				E284C6A51EFD23150097B1AF /* LENSReportKey.h */,
+			);
+			name = ReportDataInOut;
+			sourceTree = "<group>";
+		};
 		E28794AB1EC35F2200BECA7A /* DemoPDFGeneration */ = {
 			isa = PBXGroup;
 			children = (
 				E2AEB9D51EE3AA83001E0C9A /* WYSIWYGReport */,
+				E284C6A11EFD20780097B1AF /* ReportDataInOut */,
 			);
 			name = DemoPDFGeneration;
 			sourceTree = "<group>";
@@ -610,6 +625,7 @@
 				E22486051ED49B090052B051 /* 03.jpg in Resources */,
 				E22486131ED49B090052B051 /* 17.jpg in Resources */,
 				E2FF1EF21EBAAD4D00AE9C08 /* log1.log in Resources */,
+				E284C6A71EFD26E70097B1AF /* patient_report_inout.html in Resources */,
 				E2185FBB1EB8800F00304253 /* 7.html in Resources */,
 				E22486201ED49B090052B051 /* 30.jpg in Resources */,
 				E22486181ED49B090052B051 /* 22.jpg in Resources */,
@@ -636,6 +652,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E22485861ED497010052B051 /* AppDelegate.m in Sources */,
+				E284C6A01EFD0B710097B1AF /* NSMutableArray+Queue.m in Sources */,
 				E22485C81ED49A3E0052B051 /* PDFGenerator.m in Sources */,
 				E2CC065B1EFA152C00BD2162 /* HTMLConverter.m in Sources */,
 				E22485A71ED497EA0052B051 /* ConfigurePrinter.m in Sources */,
@@ -651,6 +668,7 @@
 				E27ABE9E1EB1F217006D5A01 /* main.m in Sources */,
 				E22485B61ED4982D0052B051 /* PrintBatchAfterBatch.m in Sources */,
 				E22485891ED497010052B051 /* MainScreen.m in Sources */,
+				E284C6A41EFD21580097B1AF /* ReportDataInOut.m in Sources */,
 				E292E0651EFBCE6E00823577 /* WYSIWYGReport.m in Sources */,
 				E22485B11ED498180052B051 /* PrintBatch.m in Sources */,
 				E22485881ED497010052B051 /* ConsoleScreen.m in Sources */,

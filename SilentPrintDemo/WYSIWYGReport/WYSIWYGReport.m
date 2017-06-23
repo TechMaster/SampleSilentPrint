@@ -21,6 +21,7 @@
 @implementation WYSIWYGReport
 @dynamic view;
 
+#pragma mark - public methods
 -(id) initWithReportTemplate: (NSString*) report {
     self = [super init];
     if (self) {
@@ -29,6 +30,15 @@
     return self;
 }
 
+-(void) applyJSONDataToReport: (NSString*) json
+            completionHandler: (void (^ _Nullable)(_Nullable id, NSError * _Nullable error))completionHandler
+{
+    [self.webView evaluateJavaScript: [NSString stringWithFormat: @"setData(%@);", json]
+                   completionHandler: completionHandler];
+}
+
+
+#pragma mark - UIViewController methods
 - (void) loadView {
     self.view = [[ViewWithKeyboard alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
@@ -67,7 +77,28 @@
 
 }
 
+- (BOOL) becomeFirstResponder {
+    return true;
+}
 
+
+/*
+ Handle event when iPad orientation changes
+ */
+-(void) viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    self.view.frame = CGRectMake(0, 0, size.width, size.height);
+    self.webView.frame = self.view.bounds;
+    
+    if (![self.selectID isEqualToString:@""]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.webView evaluateJavaScript:[NSString stringWithFormat:@"scrollToSelectedElement('%@')", self.selectID]
+                           completionHandler:nil];
+        });
+    }
+}
+
+
+#pragma mark
 - (void) setScaleLevel: (float) scale {
     NSString* script = [NSString stringWithFormat: @"document.body.style.zoom = %1.1f;", scale];
     [self.webView evaluateJavaScript: script
@@ -83,24 +114,7 @@
     
 }
 
-- (BOOL) becomeFirstResponder {
-    return true;
-}
-/*
- Handle event when iPad orientation changes
- */
--(void) viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    self.view.frame = CGRectMake(0, 0, size.width, size.height);
-    self.webView.frame = self.view.bounds;
-    
-    if (![self.selectID isEqualToString:@""]) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.webView evaluateJavaScript:[NSString stringWithFormat:@"scrollToSelectedElement('%@')", self.selectID]
-                           completionHandler:nil];
-            });
-    }
-}
-
+#pragma mark - WKScriptMessageHandler
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message{
     NSDictionary *sentData = (NSDictionary*)message.body;
@@ -160,6 +174,11 @@ didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
 }
 
 #pragma mark - KeyboardBarDelegate
+
+/*
+ * When user taps on button Save, text content in textView will be pass to this delegate function
+ * We need to convert to HTML before assign it to report
+ */
 - (void)onKeyboard:(CustomKeyBoard *)customKeyBoard save:(NSString *)text {
     //I use HTMLConverter from https://github.com/TakahikoKawasaki/nv-ios-html-converter
     NSString* htmlText = [[self.htmlConverter toHTML:text] stringByReplacingOccurrencesOfString:@"'" withString:@"\\'"];

@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NSMutableArray+Queue.h"  //Use queue data structure to store file path, UIView or NSData to be printed
 
 #define PRINTER_IS_NOT_SELECTED     100
 #define PRINTER_IS_OFFLINE          150

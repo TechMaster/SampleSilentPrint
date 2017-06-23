@@ -36,6 +36,9 @@
     return _inputAccessoryView;
 }
 
+/*
+ * Set text value to text view then raise up virtual keyboard
+ */
 - (void) setText: (NSString*) text{
     CustomKeyBoard* customKeyboard = (CustomKeyBoard*) self.inputAccessoryView;
     [customKeyboard setText:text];

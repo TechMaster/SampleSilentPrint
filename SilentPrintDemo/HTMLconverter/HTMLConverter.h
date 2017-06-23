@@ -27,6 +27,17 @@
 @interface HTMLConverter : NSObject
 
 /**
+ * Convert the given plain text into an HTML text.
+ */
+- (NSString *)toHTML:(NSString *)text;
+
+/**
+ * Cuong add this method to convert NSObject to JSON string
+ */
++ (NSString*)convertObjectToJSON: (id) object;
+
+
+/**
  * Convert some characters into entity references.
  * The default value is YES.
  *
@@ -91,12 +102,6 @@
  * The default value is NO.
  */
 @property (nonatomic, assign) BOOL customAttributeForTwitterLinkFlag;
-
-
-/**
- * Convert the given plain text into an HTML text.
- */
-- (NSString *)toHTML:(NSString *)text;
 
 
 @end

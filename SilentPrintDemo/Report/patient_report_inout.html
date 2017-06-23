@@ -8,7 +8,7 @@
 	<div id="report">
 		<div class="page" id ="firstPage">
 			<div class="subpage">	
-				<section>
+				<section>				
 					<div id="logo_box">
 						<img id="reportLogo" :src="reportLogo" v-on:click="openCameraRoll">						
 					</div>
@@ -56,14 +56,14 @@
 				<div class="subpage">
 					<div class="doctorInfo">
 						<div>
-							<p>{{reportLine1}}</p>
-							<p>{{reportLine2}}</p>
-							<p>{{reportLine3}}</p>							
+							<p id="reportLine1" class="text" v-html="reportLine1" v-on:click="enterText" v-scroll-to="'#reportLine1'"></p>
+							<p id="reportLine2" class="text" v-html="reportLine2" v-on:click="enterText" v-scroll-to="'#reportLine2'"></p>
+							<p id="reportLine3" class="text" v-html="reportLine3" v-on:click="enterText" v-scroll-to="'#reportLine3'"></p>							
 						</div>
 						<div>
-							<p>{{reportLine4}}</p>
-							<p>{{reportLine5}}</p>
-							<p>{{reportLine6}}</p>								
+							<p id="reportLine4" class="text" v-html="reportLine4" v-on:click="enterText" v-scroll-to="'#reportLine4'"></p>
+							<p id="reportLine5" class="text" v-html="reportLine5" v-on:click="enterText" v-scroll-to="'#reportLine5'"></p>
+							<p id="reportLine6" class="text" v-html="reportLine6" v-on:click="enterText" v-scroll-to="'#reportLine6'"></p>								
 						</div>
 						<div>
 							<img class="doctorInfoLogo" :src="doctorInfoLogo" v-on:click="openCameraRoll">	
@@ -120,11 +120,11 @@
 	<script type="text/javascript" src="vue.min.js"></script>
 	<script type="text/javascript" src="vue-scrollto.js"></script>
 	<script type="text/javascript" src="layout_photo.js"></script>
-	<script type="text/javascript" src="report_mixin.js"></script>
+	<script type="text/javascript" src="report_	mixin.js"></script>	
 	<script type="text/javascript" src="report_data.js"></script>
 
 	<script>
-		const data = [
+		/*const data = [
 	  {
 	    "desc" : "image_01",
 	    "file" : "01.jpg"
@@ -245,7 +245,7 @@
 	    "desc" : "image_30",  
 	    "file" : "30.jpg"
 	  }
-	];
-	layoutImageInPage(data, 12);
+	];*/
+	//layoutImageInPage(data, 3);
 	</script>
 </body>

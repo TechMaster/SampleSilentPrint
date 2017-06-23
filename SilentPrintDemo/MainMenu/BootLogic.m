@@ -27,7 +27,8 @@
   NSDictionary *pdfGenerate = @{
     SECTION : @"PDF Generation",
        MENU : @[
-      @{TITLE : @"Patient Report Setting", CLASS : @"PatientReport"}
+      @{TITLE : @"Patient Report Setting", CLASS : @"PatientReport"},
+      @{TITLE : @"Report Data In Out", CLASS : @"ReportDataInOut"}
     ]
     };
   

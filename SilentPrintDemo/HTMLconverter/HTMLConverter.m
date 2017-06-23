@@ -575,6 +575,23 @@ static NSArray *_entityReferences;
         return url;
     }
 }
-
+#pragma mark - convert Object to JSON string
++(NSString*) convertObjectToJSON: (id) object {
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
+                                                       options:(NSJSONWritingOptions) (NSJSONWritingPrettyPrinted)
+                                                         error:&error];
+    
+    
+    if (!jsonData) {
+        NSException* myException = [NSException
+                                    exceptionWithName:@"FileNotFoundException"
+                                    reason:@"File Not Found on System"
+                                    userInfo:nil];
+        @throw myException;
+    } else {
+        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+}
 
 @end

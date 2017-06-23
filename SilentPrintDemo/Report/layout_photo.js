@@ -1,6 +1,14 @@
 	let origin = $('#report').html() ; // gán biến origin là trạng thái HTML đầu tiên
 
-	function getImage(data,imagesPerPage){
+	/*
+	* app is global Vue variable.
+	*/
+	function layoutPhotoVue() {
+		layoutImageInPage(app["selectedImages"], app["imagesPerPage"])
+	}
+
+
+	function layoutImageInPage(data, imagesPerPage){
 		const totalImage = data.length ;
 		
 		//reset lại lúc đầu tiên
