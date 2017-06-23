@@ -222,8 +222,6 @@
         
         [self printFile:0
           andShowDialog:show];
-        
-        
     }
 }
 //Retry to print after user reconfigure or select new printer
@@ -258,7 +256,7 @@
     if (filePaths.count > 1) {
         [self printBatch:filePaths andShowDialog:false];  //Silent Print
     } else {
-        [self printBatch:filePaths andShowDialog:true];  //filePath has only one item, then show printing dialog
+        [self printBatch:filePaths andShowDialog:true];   //filePath has only one item, then show printing dialog
     }
 }
 

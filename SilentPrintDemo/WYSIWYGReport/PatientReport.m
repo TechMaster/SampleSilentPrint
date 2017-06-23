@@ -14,24 +14,28 @@
 @property (nonatomic, strong) PDFGenerator* generator;
 @property (nonatomic, strong) SilentPrint* silentPrint;
 @property (nonatomic, strong) PaperConfig* paperConfig;
+@property (nonatomic, strong) UIBarButtonItem* barBtnSavePDF;
+@property (nonatomic, strong) UIBarButtonItem* barBtnPrintReport;
 @end
 
 @implementation PatientReport
 
 - (id) init {
-    return [super initWithReportTemplate:@"patient_report"];    
+    return [super initWithReportTemplate:@"patient_report"];
 }
 
 - (void) viewDidLoad {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save PDF"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(savePDF)];
+    self.barBtnSavePDF = [[UIBarButtonItem alloc] initWithTitle:@"ExportPDF"
+                                                          style:UIBarButtonItemStylePlain
+                                                         target:self
+                                                         action:@selector(savePDF)];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Print"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(printReport)];
+    self.barBtnPrintReport = [[UIBarButtonItem alloc] initWithTitle:@"Print"
+                                                              style:UIBarButtonItemStylePlain
+                                                             target:self
+                                                             action:@selector(printReport)];
+    
+    self.navigationItem.rightBarButtonItems = @[self.barBtnSavePDF, self.barBtnPrintReport];
     
     self.generator = [PDFGenerator new];
     self.silentPrint = [SilentPrint getSingleton];
@@ -62,7 +66,12 @@
 }
 
 - (void) printReport {
-    
+    if (!self.webView.isLoading) {
+        [self.silentPrint printUIView:self.webView
+                              jobName:@"Print web"
+                                 show:false];
+    }
+
 }
 
 - (void) informPDFSaveSuccess: (NSString*) pdfFile {
@@ -84,12 +93,10 @@
 -(void)onSilentPrintError: (NSError*) error {
     NSLog(@"Error: %@", [error localizedDescription]);
     if (error.code == PRINTER_IS_OFFLINE || error.code == PRINTER_IS_NOT_SELECTED) {
-        UIPrinterPickerController *printerPicker = [UIPrinterPickerController printerPickerControllerWithInitiallySelectedPrinter:nil];
-        [printerPicker presentAnimated:true completionHandler:^(UIPrinterPickerController * _Nonnull printerPickerController, BOOL userDidSelect, NSError * _Nullable error) {
-            if (userDidSelect) {
-                self.silentPrint.selectedPrinter = printerPickerController.selectedPrinter;
-                [self.silentPrint retryPrint];
-            }
+        [self.silentPrint configureSilentPrint:CGRectZero
+                                        inView:nil
+                           orFromBarButtonitem:self.barBtnPrintReport completion:^{
+            [self.silentPrint retryPrint];
         }];
     }
 }
