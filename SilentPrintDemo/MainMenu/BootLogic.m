@@ -19,7 +19,8 @@
     MENU : @[
       @{TITLE : @"Configure Printer", CLASS : @"ConfigurePrinter"},
       @{TITLE : @"Print single file with preview", CLASS : @"PrintSingleItem"},
-      @{TITLE : @"Print batch after batch", CLASS : @"PrintBatchAfterBatch"}
+      @{TITLE : @"Print batch after batch", CLASS : @"PrintBatchAfterBatch"},
+      @{TITLE : @"Print UIView Content", CLASS : @"PrintUIView"}
     ]
   };
     

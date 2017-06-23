@@ -70,6 +70,7 @@
 		E247AA0F1EB64B7E00388A00 /* koi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E247AA0E1EB64B7E00388A00 /* koi.jpg */; };
 		E27ABE9E1EB1F217006D5A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABE9D1EB1F217006D5A01 /* main.m */; };
 		E27ABEA91EB1F217006D5A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEA81EB1F217006D5A01 /* Assets.xcassets */; };
+		E284C69B1EFCC95D0097B1AF /* PrintUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = E284C69A1EFCC95D0097B1AF /* PrintUIView.m */; };
 		E292E0551EFB720E00823577 /* CustomKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = E292E0541EFB720E00823577 /* CustomKeyBoard.m */; };
 		E292E0571EFB722200823577 /* CustomKeyBoard.xib in Resources */ = {isa = PBXBuildFile; fileRef = E292E0561EFB722200823577 /* CustomKeyBoard.xib */; };
 		E292E0591EFBC77F00823577 /* vue.min.js in Resources */ = {isa = PBXBuildFile; fileRef = E292E0581EFBC77F00823577 /* vue.min.js */; };
@@ -171,6 +172,8 @@
 		E27ABEA81EB1F217006D5A01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E27ABEAB1EB1F217006D5A01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E27ABEAD1EB1F217006D5A01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E284C6991EFCC95D0097B1AF /* PrintUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrintUIView.h; path = PrintUIView/PrintUIView.h; sourceTree = "<group>"; };
+		E284C69A1EFCC95D0097B1AF /* PrintUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrintUIView.m; path = PrintUIView/PrintUIView.m; sourceTree = "<group>"; };
 		E292E0531EFB720E00823577 /* CustomKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomKeyBoard.h; path = TextKeyboard/CustomKeyBoard.h; sourceTree = "<group>"; };
 		E292E0541EFB720E00823577 /* CustomKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomKeyBoard.m; path = TextKeyboard/CustomKeyBoard.m; sourceTree = "<group>"; };
 		E292E0561EFB722200823577 /* CustomKeyBoard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CustomKeyBoard.xib; path = TextKeyboard/CustomKeyBoard.xib; sourceTree = "<group>"; };
@@ -300,6 +303,7 @@
 				E21B63AA1EB2F90D007AB506 /* PrintSingleFile */,
 				E21B63B01EB3A1B3007AB506 /* PrintBatch */,
 				E2185FAD1EB8784900304253 /* PrintBatchAfterBatch */,
+				E284C6981EFCC9200097B1AF /* PrintUIView */,
 			);
 			name = Basic;
 			sourceTree = "<group>";
@@ -407,6 +411,15 @@
 				E22485841ED497010052B051 /* ConsoleScreen.m */,
 			);
 			name = MainMenu;
+			sourceTree = "<group>";
+		};
+		E284C6981EFCC9200097B1AF /* PrintUIView */ = {
+			isa = PBXGroup;
+			children = (
+				E284C6991EFCC95D0097B1AF /* PrintUIView.h */,
+				E284C69A1EFCC95D0097B1AF /* PrintUIView.m */,
+			);
+			name = PrintUIView;
 			sourceTree = "<group>";
 		};
 		E28794AB1EC35F2200BECA7A /* DemoPDFGeneration */ = {
@@ -627,6 +640,7 @@
 				E2CC065B1EFA152C00BD2162 /* HTMLConverter.m in Sources */,
 				E22485A71ED497EA0052B051 /* ConfigurePrinter.m in Sources */,
 				E22485C71ED49A3E0052B051 /* PaperConfig.m in Sources */,
+				E284C69B1EFCC95D0097B1AF /* PrintUIView.m in Sources */,
 				E292E0641EFBCE6E00823577 /* ViewWithKeyboard.m in Sources */,
 				E22485A21ED497DD0052B051 /* SilentPrint.m in Sources */,
 				E22485C91ED49A3E0052B051 /* PDFPageRenderer.m in Sources */,

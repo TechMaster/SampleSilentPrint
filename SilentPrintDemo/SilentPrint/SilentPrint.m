@@ -6,6 +6,7 @@
 //  Copyright © 2017 techmaster. All rights reserved.
 //
 
+
 #import "SilentPrint.h"
 
 @implementation SilentPrint
@@ -57,34 +58,58 @@
     
 }
 
-
-
--(void)configureSilentPrint:(CGRect)rect
-                     inView:(UIView *)view
-                 completion:(void (^)(void))completionBlock
+/*
+ * Show printer configure dialog. This function supports both iPhone and iPad
+ * if device is iPad, either view or barButtonItem must not be null at same time
+ * if device is iPhone pass rect = CGRectZero, and nil to both view and barButtonItem parameters
+ */
+-(void)configureSilentPrint:(CGRect) rect
+                     inView:(UIView*) view
+        orFromBarButtonitem:(UIBarButtonItem*) barButtonItem
+                 completion:(void (^)(void))completionBlock;
 {
+    //Declare a local variable point to block function that handles event user selects a printer
+    void (^handleFunction) (UIPrinterPickerController *printerPickerController, BOOL didSelect, NSError *error) = ^(UIPrinterPickerController *printerPickerController, BOOL didSelect, NSError *error) {
+        // error happens
+        if (error && self.silentPrintDelegate) {
+            [self.silentPrintDelegate onSilentPrintError:error];
+        }
+        // if printer is selected
+        if (didSelect) {
+            // assign selected printer to singleton
+            self.selectedPrinter = printerPickerController.selectedPrinter;
+            completionBlock();
+        } else {
+            [self raiseError: PRINTER_IS_NOT_SELECTED];
+        }
+        
+    };
+    
     UIPrinterPickerController *printerPicker = [UIPrinterPickerController printerPickerControllerWithInitiallySelectedPrinter:nil];
-    //The selected printer. Set this before presenting the UI to show the currently selected printer. Use this to determine which printer the user selected.
+    if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )  //iPad device
+    {
+        if (view) {  //present printer picker controller from a rect in view of iPad device
+            [printerPicker presentFromRect: rect
+                                    inView: view
+                                  animated: TRUE
+                         completionHandler: ^(UIPrinterPickerController *printerPickerController, BOOL userDidSelect, NSError *error) {
+                             handleFunction(printerPickerController, userDidSelect, error);
+                         }];
+        } else {  //present printer picker controller from a UIBarButtonItem of iPad device
+            [printerPicker presentFromBarButtonItem:barButtonItem
+                                           animated:TRUE
+                                  completionHandler:^(UIPrinterPickerController * _Nonnull printerPickerController, BOOL userDidSelect, NSError * _Nullable error) {
+                                      handleFunction(printerPickerController, userDidSelect, error);
+
+                                  }];
+        }
+    } else {  //iPhone device
+        [printerPicker presentAnimated:TRUE completionHandler:^(UIPrinterPickerController * _Nonnull printerPickerController, BOOL userDidSelect, NSError * _Nullable error) {
+            handleFunction(printerPickerController, userDidSelect, error);
+        }];
+    }
     
     
-    // Return selected printer
-    [printerPicker presentFromRect: rect
-                            inView: view
-                          animated: NO
-                 completionHandler: ^(UIPrinterPickerController *printerPickerController, BOOL didSelect, NSError *error) {
-                     // nếu có lỗi
-                     if (error && self.silentPrintDelegate) {
-                         [self.silentPrintDelegate onSilentPrintError:error];
-                     }
-                     // nếu printer đc chọn
-                     if (didSelect) {
-                         // gắn vào singleton
-                         self.selectedPrinter = printerPickerController.selectedPrinter;
-                         completionBlock();
-                     } else {
-                         [self raiseError: PRINTER_IS_NOT_SELECTED];
-                     }
-                 }];
 }
 
 -(UIMarkupTextPrintFormatter *)printHTML:(NSString *)currentFilePath
@@ -102,11 +127,18 @@
     return htmlFormatter;
 }
 
-/* 
+/*
+ * Print content of UIView
  */
 -(void) printUIView: (UIView*) view
             jobName: (NSString*)jobName
                show: (BOOL) show {
+    if (!self.selectedPrinter) {
+        [self raiseError: PRINTER_IS_NOT_SELECTED];
+        return;
+    }
+    
+    
     UIPrintInfo *printInfo = [UIPrintInfo printInfo];
     printInfo.outputType = UIPrintInfoOutputGeneral;
     printInfo.jobName = jobName;
@@ -166,10 +198,8 @@
             }
         }
     }];  //self.selectedPrinter contactPrinter
-    
-    
-    
 }
+
 -(void) printBatch: (NSArray *)filePaths
      andShowDialog: (Boolean)show
 {
@@ -192,7 +222,7 @@
         
         [self printFile:0
           andShowDialog:show];
-
+        
         
     }
 }
@@ -240,7 +270,7 @@
  */
 -(UIPrintFormatter*) generatePrintFormater: (NSURL*) fileURL {
     NSString* fileExtension = [fileURL pathExtension];
-       NSString* fileContent = [NSString stringWithContentsOfFile: fileURL.path
+    NSString* fileContent = [NSString stringWithContentsOfFile: fileURL.path
                                                       encoding: NSUTF8StringEncoding
                                                          error: NULL];
     UIPrintFormatter* printFormatter;
@@ -288,7 +318,7 @@
         if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector( onPrintBatchComplete:andFail:)]) {
             [self.silentPrintDelegate onPrintBatchComplete:self.numberPrintSuccess
                                                    andFail:self.numberPrintFail];
-        }        
+        }
         return;
     }
     
@@ -337,7 +367,7 @@
             @synchronized (self) {
                 //Mark pending file index to retry print
                 self.pendingFileIndex = fileIndex;
-                self.printInProgress = false;                
+                self.printInProgress = false;
             }
             [self raiseError: PRINTER_IS_OFFLINE];
             return;
@@ -399,9 +429,9 @@
 #pragma mark - UIPrintInteractionControllerDelegate
 - (UIPrintPaper *)printInteractionController:(UIPrintInteractionController *)printInteractionController
                                  choosePaper:(NSArray<UIPrintPaper *> *)paperList {
-   
+    
     UIPrintPaper* paperA4 = [UIPrintPaper bestPaperForPageSize: CGSizeMake(595.2, 841.8) //A4
-                                           withPapersFromArray: paperList];    
+                                           withPapersFromArray: paperList];
     return paperA4;
 }
 @end

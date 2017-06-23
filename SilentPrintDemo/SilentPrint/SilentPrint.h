@@ -42,8 +42,10 @@
 
 +(SilentPrint*) getSingleton;
 
+
 -(void)configureSilentPrint:(CGRect) rect
                      inView:(UIView*) view
+        orFromBarButtonitem:(UIBarButtonItem*) barButtonItem
                  completion:(void (^)(void))completionBlock;
 
 //Print a UIView

@@ -34,11 +34,15 @@
 }
 
 - (IBAction)onConfigurePrint:(UIButton*)sender {    
-    [self.silentPrint configureSilentPrint:sender.frame
+   /* [self.silentPrint configureSilentPrint:sender.frame
                                inView:self.view
                            completion:^{                               
                                self.lblSelectedPrinter.text = self.silentPrint.selectedPrinter.displayName;
         
+    }];*/
+    
+    [self.silentPrint configureSilentPrint:sender.frame inView:self.view orFromBarButtonitem:nil completion:^{
+        self.lblSelectedPrinter.text = self.silentPrint.selectedPrinter.displayName;
     }];
 }
 
