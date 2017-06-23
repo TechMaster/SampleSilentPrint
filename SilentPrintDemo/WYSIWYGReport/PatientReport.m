@@ -28,6 +28,11 @@
                                                                              target:self
                                                                              action:@selector(savePDF)];
     
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Print"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self
+                                                                             action:@selector(printReport)];
+    
     self.generator = [PDFGenerator new];
     self.silentPrint = [SilentPrint getSingleton];
     self.silentPrint.silentPrintDelegate = self;
@@ -54,6 +59,10 @@
                              });
                          }
                      }];
+}
+
+- (void) printReport {
+    
 }
 
 - (void) informPDFSaveSuccess: (NSString*) pdfFile {

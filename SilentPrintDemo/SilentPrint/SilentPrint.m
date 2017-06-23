@@ -102,7 +102,74 @@
     return htmlFormatter;
 }
 
-
+/* 
+ */
+-(void) printUIView: (UIView*) view
+            jobName: (NSString*)jobName
+               show: (BOOL) show {
+    UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+    printInfo.outputType = UIPrintInfoOutputGeneral;
+    printInfo.jobName = jobName;
+    printInfo.orientation = UIPrintInfoOrientationPortrait;
+    
+    UIPrintInteractionController* printController = [UIPrintInteractionController sharedPrintController];
+    printController.printInfo = printInfo;
+    printController.delegate = self;
+    
+    printController.printFormatter = [view viewPrintFormatter];
+    
+    [self.selectedPrinter contactPrinter:^(BOOL available) {
+        if (!available) {//Printer is Not available
+            [self raiseError: PRINTER_IS_OFFLINE];
+            return;
+        } else {
+            
+            if (!show) {  //SILENT MODE
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                    [printController printToPrinter:self.selectedPrinter
+                                  completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
+                                      if (error) {
+                                          [self.silentPrintDelegate onSilentPrintError:error];
+                                      }
+                                      if (completed) {
+                                          // Gọi hàm callback
+                                          if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintFileComplete:withJob:)]) {
+                                              [self.silentPrintDelegate onPrintFileComplete:0
+                                                                                    withJob:printInteractionController.printInfo.jobName];
+                                          }
+                                          
+                                      }
+                                      
+                                  }]; //[printController printToPrinter:self.selectedPrinter
+                });  //dispatch_async
+                
+            } else {  //INTERACTIVE MODE
+                printController.showsPaperSelectionForLoadedPapers = YES;
+                [printController presentAnimated:true completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
+                    @synchronized (self) {
+                        self.printInProgress = false;
+                        self.filePaths = nil;
+                    }
+                    if (error) {
+                        [self.silentPrintDelegate onSilentPrintError:error];
+                    } else if (!completed) {
+                        [self raiseError:USER_CANCEL_PRINT];
+                    } else {  //Print interactively complete
+                        if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintFileComplete:withJob:)]) {
+                            [self.silentPrintDelegate onPrintFileComplete:0
+                                                                  withJob:printInteractionController.printInfo.jobName];
+                        }
+                    }
+                    
+                }];
+                
+            }
+        }
+    }];  //self.selectedPrinter contactPrinter
+    
+    
+    
+}
 -(void) printBatch: (NSArray *)filePaths
      andShowDialog: (Boolean)show
 {
@@ -173,33 +240,24 @@
  */
 -(UIPrintFormatter*) generatePrintFormater: (NSURL*) fileURL {
     NSString* fileExtension = [fileURL pathExtension];
+       NSString* fileContent = [NSString stringWithContentsOfFile: fileURL.path
+                                                      encoding: NSUTF8StringEncoding
+                                                         error: NULL];
+    UIPrintFormatter* printFormatter;
     
     if ([fileExtension isEqualToString:@"html"] || [fileExtension isEqualToString:@"htm"]) {
-        NSString* webContent = [NSString stringWithContentsOfFile: fileURL.path
-                                                         encoding: NSUTF8StringEncoding
-                                                            error: NULL];
+        printFormatter = [[UIMarkupTextPrintFormatter alloc] initWithMarkupText: fileContent];  //Markup
         
-        UIMarkupTextPrintFormatter* htmlFormatter = [[UIMarkupTextPrintFormatter alloc]
-                                                     initWithMarkupText:webContent];
-        
-        
-        // iOS 10.0
-        htmlFormatter.perPageContentInsets = UIEdgeInsetsMake(72.0, 72.0, 72.0, 72.0);
-        return htmlFormatter;
     } else if ([fileExtension isEqualToString:@"txt"] ||
                [fileExtension isEqualToString:@"csv"] ||
                [fileExtension isEqualToString:@"log"] ) {
-        NSString* txtContent = [NSString stringWithContentsOfFile: fileURL.path
-                                                         encoding: NSUTF8StringEncoding
-                                                            error: NULL];
-        
-        UISimpleTextPrintFormatter *textFormatter = [[UISimpleTextPrintFormatter alloc]
-                                                     initWithText: txtContent];
-        textFormatter.perPageContentInsets = UIEdgeInsetsMake(72.0, 72.0, 72.0, 72.0);
-        return textFormatter;
+        printFormatter = [[UISimpleTextPrintFormatter alloc] initWithText: fileContent];  //Simple text
     } else {
         return nil;
     }
+    
+    printFormatter.perPageContentInsets = UIEdgeInsetsMake(72.0, 72.0, 72.0, 72.0);
+    return printFormatter;
 }
 
 /*
@@ -222,8 +280,8 @@
     if (fileIndex == self.filePaths.count) {
         
         @synchronized (self) {
-            self.printInProgress = false;
-            self.filePaths = nil;
+            self.printInProgress = false;  //printing is done
+            self.filePaths = nil;          //there is empy pending print queue
             self.pendingFileIndex = NO_PENDING_FILE_PRINT;
         }
         
