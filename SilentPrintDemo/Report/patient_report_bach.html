@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">	
+	<link rel="stylesheet" type="text/css" href="patient_report.css">	
+</head>
+<body>
+	<div id="report">
+		<div class="page" id ="firstPage">
+			<div class="subpage">	
+				<section>				
+					<div id="logo_box">
+						<img id="reportLogo" :src="reportLogo" v-on:click="openCameraRoll">						
+					</div>
+					<div id="topDoctorText" v-if="topDoctorText" v-html="topDoctorText" v-on:click="enterText"></div>
+
+					<div id="greetingText" v-if="greetingText" v-html="greetingText" v-on:click="enterText" v-scroll-to="'#greetingText'"></div>
+
+					<div id='topDoctorImageBox'>
+						<img id="topDoctorImage" :src="topDoctorImage" v-on:click="openCameraRoll">						
+					</div>
+					<p id="bottomDoctorText" v-if="bottomDoctorText" v-html="bottomDoctorText" v-on:click="enterText" v-scroll-to="'#bottomDoctorText'"></p>
+
+					<div id="surgeryInfoText" class="text" v-if="surgeryInfoText" v-html="surgeryInfoText" v-on:click="enterText" v-scroll-to="'#surgeryInfoText'"></div>
+
+					<div id="bottomTextBox">
+						<div class="bottomText text" id="bottomText1" v-if="bottomText1" v-html="bottomText1" v-on:click="enterText" v-scroll-to="'#bottomText1'"></div>
+						<div class="bottomText text" id="bottomText2" v-if="bottomText2" v-html="bottomText2" v-on:click="enterText" v-scroll-to="'#bottomText2'"></div>
+					</div>
+
+					<div class="bottom">
+						<p class="bottomImageHeader text" id="bottomImageHeader1" v-if="bottomImageHeader1" v-html="bottomImageHeader1" v-on:click="enterText" v-scroll-to="'#bottomImageHeader1'"></p>
+						<div class='bottomImageBox'>
+							<img class='bottomImage' id="bottomImage1" :src="bottomImage1" v-on:click="openCameraRoll">							
+						</div>
+						<p class="bottomImageCaption text" id="bottomImageCaption1" v-if="bottomImageCaption1" v-html="bottomImageCaption1" v-on:click="enterText" v-scroll-to="'#bottomImageCaption1'"></p>
+					</div>
+
+					<div class="bottom">						
+						<p class="bottomImageHeader text" id="bottomImageHeader2" v-if="bottomImageHeader2" v-html="bottomImageHeader2" v-on:click="enterText" v-scroll-to="'#bottomImageHeader2'"></p>
+						<div class="bottomImageBox">
+							<img class='bottomImage' id="bottomImage2" :src="bottomImage2" v-on:click="openCameraRoll">							
+						</div>
+						<p class="bottomImageCaption text" id="bottomImageCaption2" v-if="bottomImageCaption2" v-html="bottomImageCaption2" v-on:click="enterText" v-scroll-to="'#bottomImageCaption2'"></p>
+					</div>
+
+				</section>
+				<p class="line">Page <span class="pageNumber"></span> / <span class="allPage"></span></p>
+			</div>
+		</div>
+
+
+		<!-- From here page 2,3,4,5 ... -->
+		<div id="otherPages">
+			<div class="page">
+				<div class="subpage">
+					<div class="doctorInfo">
+						<div>
+							<p id="reportLine1" class="text" v-html="reportLine1" v-on:click="enterText" v-scroll-to="'#reportLine1'"></p>
+							<p id="reportLine2" class="text" v-html="reportLine2" v-on:click="enterText" v-scroll-to="'#reportLine2'"></p>
+							<p id="reportLine3" class="text" v-html="reportLine3" v-on:click="enterText" v-scroll-to="'#reportLine3'"></p>							
+						</div>
+						<div>
+							<p id="reportLine4" class="text" v-html="reportLine4" v-on:click="enterText" v-scroll-to="'#reportLine4'"></p>
+							<p id="reportLine5" class="text" v-html="reportLine5" v-on:click="enterText" v-scroll-to="'#reportLine5'"></p>
+							<p id="reportLine6" class="text" v-html="reportLine6" v-on:click="enterText" v-scroll-to="'#reportLine6'"></p>								
+						</div>
+						<div>
+							<img class="doctorInfoLogo" :src="doctorInfoLogo" v-on:click="openCameraRoll">	
+						</div>
+					</div>
+					<div id="image_collection">
+					<div class="image_box">
+						<div class="image_info">
+							<img src="" class="image">
+							<p class="title"></p>
+						</div>
+					</div>
+					</div>
+					<p class="line">Page <span class="pageNumber"></span> / <span class="allPage"></span></p>
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- LAST PAGE / LAST PAGE / LAST PAGE / LAST PAGE -->
+		<div id="lastPage" class="page ">
+			<div class="subpage">
+				<pre>
+					Congratulations, you have just completed the surgical phase and entered the recovery/rehabilitation phase of your operative experience.
+					Please follow the post operative instructions below to ensure an optimal recovery.
+					
+					General Information:
+					If any unexpected problems occur, please call our office.
+					You should have someone assist you for the next few days.
+					Anesthesia effects can be felt for over 36 hours.
+					We reviewed your surgical findings with you in the recovery room, it is not unusual that you may not remember this. We will discuss your surgical findings at your follow up appointment. If you have not already scheduled your follow up appointment, please do so.
+					
+					Dressings:
+					A clean and sterile dressing was placed on your wounds. You may remove this 48 hours after surgery. Place Band-Aids over your small wounds and sutures. Replace these daily. Keep your dressings clean and dry during the first 2 days. Keep wounds clean and dry until your sutures are removed. If you cover these and keep them dry, you may shower.
+					
+					Activity:
+					Please follow the Post Operative activity instructions you have been given.
+					
+					Diet:
+					Your regular diet is recommended
+					
+					Medication:
+					You have received a prescription for pain medication. Please follow the pain medication plan discussed. Generally you can expect significant pain improvement by post-op day 3.
+					
+					Questions;
+					You may call the office, we will assist you. If you experience fever/chills, excessive bleeding, shortness of breath, chest pain, redness around wounds, nausea or vomiting, please go to the Emergency Room.
+				</pre>
+				<p class="line">Page <span class="pageNumber"></span> / <span class="allPage"></span></p>
+			</div>
+		</div>	
+
+	</div> <!-- End of report -->
+
+	<script src="jquery-3.2.1.slim.min.js"></script>
+	<script type="text/javascript" src="vue.min.js"></script>
+	<script type="text/javascript" src="vue-scrollto.js"></script>
+	<script type="text/javascript" src="layout_photo.js"></script>
+	<script type="text/javascript" src="report_	mixin.js"></script>	
+	<script type="text/javascript" src="report_data.js"></script>
+
+	<script>
+		const data = [
+	  {
+	    "desc" : "image_01",
+	    "file" : "01.jpg"
+	  },
+	  {
+	    "desc" : "image_02",
+	    "file" : "02.jpg"
+	  },
+	  {
+	    "desc" : "image_03",
+	    "file" : "03.jpg"
+	  },
+	  {
+	    "desc" : "image_04",
+	    "file" : "04.jpg"
+	  },
+	  {
+	    "desc" : "image_05",
+	    "file" : "05.jpg"
+	  },
+	  {
+	    "desc" : "image_06",
+	    "file" : "06.jpg"
+	  },
+	  {
+	    "desc" : "image_07",
+	    "file" : "07.jpg"
+	  },
+	  {
+	    "desc" : "image_08",
+	    "file" : "08.jpg"
+	  },
+	  {
+	    "desc" : "image_09",
+	    "file" : "09.jpg"
+	  },
+	  {
+	    "desc" : "image_10",
+	    "file" : "10.jpg"
+	  },
+	  {
+	    "desc" : "image_11",
+	    "file" : "11.jpg"
+	  },
+	  {
+	    "desc" : "image_12",
+	    "file" : "12.jpg"
+	  },
+	  {
+	    "desc" : "image_13",
+	    "file" : "13.jpg"
+	  },
+	  {
+	    "desc" : "image_14",
+	    "file" : "14.jpg"
+	  },
+	  {
+	    "desc" : "image_15",
+	    "file" : "15.jpg"
+	  },
+	  {
+	    "desc" : "image_16",
+	    "file" : "16.jpg"
+	  },
+	  {
+	    "desc" : "image_17",
+	    "file" : "17.jpg"
+	  },
+	  {
+	    "desc" : "image_18",
+	    "file" : "18.jpg"
+	  },
+	  {
+	    "desc" : "image19",
+	    "file" : "19.jpg"
+	  },
+	  {
+	    "desc" : "image_20",
+	    "file" : "20.jpg"
+	  },
+	  {
+	    "desc" : "image_21",
+	    "file" : "21.jpg"
+	  },
+	  {
+	    "desc" : "image_22",
+	    "file" : "22.jpg"
+	  },
+	  {
+	    "desc" : "image_23",
+	    "file" : "23.jpg"
+	  },
+	  {
+	    "desc" : "image_24",
+	    "file" : "24.jpg"
+	  },
+	  {
+	    "desc" : "image_25",
+	    "file" : "25.jpg"
+	  },
+	  {
+	    "desc" : "image_26",
+	    "file" : "26.jpg"
+	  },
+	  {
+	    "desc" : "image_27",
+	    "file" : "27.jpg"
+	  },
+	  {
+	    "desc" : "image_28",
+	    "file" : "28.jpg"
+	  },
+	  {
+	    "desc" : "image_29",
+	    "file" : "29.jpg"
+	  },
+	  {
+	    "desc" : "image_30",  
+	    "file" : "30.jpg"
+	  }
+	];
+	layoutImageInPage(data, 3);
+	</script>
+</body>

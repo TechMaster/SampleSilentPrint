@@ -261,6 +261,13 @@
 }
 
 
+/*
+ * En
+ */
+-(void) printItems: (NSArray *) items {
+    [self.printQueue addObjectsFromArray:items];
+}
+
 
 /*
  * Handle when [UIPrintInteractionController canPrintURL:fileURL] return false

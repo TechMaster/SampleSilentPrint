@@ -1,4 +1,4 @@
-	let origin = $('#report').html() ; // gán biến origin là trạng thái HTML đầu tiên
+	let origin = $('#image_collection').html() ; // gán biến origin là trạng thái HTML đầu tiên
 
 	/*
 	* app is global Vue variable.
@@ -12,7 +12,7 @@
 		const totalImage = data.length ;
 		
 		//reset lại lúc đầu tiên
-		//$('#report').html(origin);  //Cần phải bỏ lệnh này không là Vue không chạy được
+		//$('#image_collection').html(origin);  //Cần phải bỏ lệnh này không là Vue không chạy được
 
 		// gọi ra số trang sẽ hiển thị ảnh
 		let numberOfPage = Math.ceil(totalImage/imagesPerPage)
