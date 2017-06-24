@@ -69,13 +69,13 @@
 							<img class="doctorInfoLogo" :src="doctorInfoLogo" v-on:click="openCameraRoll">	
 						</div>
 					</div>
-					<div id="image_collection">
-					<div class="image_box">
-						<div class="image_info">
-							<img src="" class="image">
-							<p class="title"></p>
+					<div class="image_collection">
+						<div class="image_box">
+							<div class="image_info">
+								<img src="" class="image">
+								<p class="title"></p>
+							</div>
 						</div>
-					</div>
 					</div>
 					<p class="line">Page <span class="pageNumber"></span> / <span class="allPage"></span></p>
 				</div>
@@ -248,6 +248,6 @@
 	    "file" : "30.jpg"
 	  }
 	];
-	layoutImageInPage(data, 3);
+	layoutImageInPage(data, 12);
 	</script>
 </body>

@@ -1,4 +1,4 @@
-	let origin = $('#image_collection').html() ; // gán biến origin là trạng thái HTML đầu tiên
+	let origin = $('#otherPages').html() ; // gán biến origin là trạng thái HTML đầu tiên của các trang chứa ảnh 
 
 	/*
 	* app is global Vue variable.
@@ -7,15 +7,22 @@
 		layoutImageInPage(app["selectedImages"], app["imagesPerPage"])
 	}
 
+	
 
 	function layoutImageInPage(data, imagesPerPage){
+
+		let doctorInfo =  $('.doctorInfo').html() ; // gán biến doctorInfo là thông tin của bác sĩ
+
 		const totalImage = data.length ;
-		
-		//reset lại lúc đầu tiên
-		//$('#image_collection').html(origin);  //Cần phải bỏ lệnh này không là Vue không chạy được
+
 
 		// gọi ra số trang sẽ hiển thị ảnh
-		let numberOfPage = Math.ceil(totalImage/imagesPerPage)
+		let numberOfPage = Math.ceil(totalImage/imagesPerPage) ;
+
+		//reset lại các trang ảnh như lúc đầu tiên
+		$('#otherPages').html(origin); 
+
+
 		//tạo số trang
 		let content = ''
 		for (let i=0 ; i<numberOfPage ; i++ ){
@@ -25,7 +32,10 @@
 		for (let i=numberOfPage ; i<totalImage ; i++ ){
 			content += $('.image_box').html();
 		}
-		$('#otherPages').html(content);
+
+		$('#otherPages').html(content); // truyền thông tin mới tạo ở trang vào trong #otherPages
+
+		$('.doctorInfo').html(doctorInfo); //truyền thông tin bác sĩ lại vì ko hiểu sao nó lại mất!
 
 		//truyền thông tin vào ảnh và xóa class kích thước ảnh nếu có
 		for (let i=0 ; i<totalImage ; i++ ){
