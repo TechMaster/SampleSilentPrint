@@ -3,13 +3,15 @@
 	/*
 	* app is global Vue variable.
 	*/
-	function layoutPhotoVue() {
-		layoutImageInPage(app["selectedImages"], app["imagesPerPage"])
-	}
+	
 
 	
 
 	function layoutImageInPage(data, imagesPerPage){
+
+		function layoutPhotoVue() {
+			layoutImageInPage(app["selectedImages"], app["imagesPerPage"])
+		}
 
 		let doctorInfo =  $('.doctorInfo').html() ; // gán biến doctorInfo là thông tin của bác sĩ
 
