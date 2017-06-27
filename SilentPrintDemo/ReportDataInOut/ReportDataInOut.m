@@ -25,6 +25,18 @@
 
 @implementation ReportDataInOut
 
+
+-(NSString *) randomStringWithLength: (int) len {
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
+    
+    for (int i=0; i<len; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: (uint32_t)arc4random_uniform((uint32_t)[letters length])]];
+    }
+    
+    return randomString;
+}
+
 - (id) init {
     return [super initWithReportTemplate:@"patient_report_inout"];
 }
@@ -78,9 +90,9 @@
 
 - (void) printReport {
     if (!self.webView.isLoading) {
-        [self.silentPrint printUIView:self.webView
-                              jobName:@"Print web"
-                                 show:false];
+        PrintJob* job = [[PrintJob alloc] init:self.webView
+                                      withShow:FALSE];        
+        [self.silentPrint printAJob:job];
     }
     
 }
@@ -248,7 +260,7 @@
              
              @"topDoctorImage": @"doctor1.jpg",
              
-             @"bottomDoctorText": @"Doctor Ivan Zhivago Baker",
+             @"bottomDoctorText": [self randomStringWithLength:8],//@"Doctor Ivan Zhivago Baker",
              
              @"greetingText": @"<p align=\"right\"><font face=\"Smith&NephewLF\"  style=\"font-size:32px; color:rgb(255,115,0); \">Welcome to Heart Surgery Dept</font></p>",
              
@@ -268,7 +280,7 @@
              @"bottomImageCaption2": @"Rehabilitation nurse",
              
              //2nd page------------
-             @"reportLine1": @"Doctor: Wannabe",
+             @"reportLine1": [self randomStringWithLength:8],//@"Doctor: Wantanabe",
              @"reportLine2": @"Mayo Clinic - Cardio Surgery",
              @"reportLine3": @"Zhivago@gmail.com",
              

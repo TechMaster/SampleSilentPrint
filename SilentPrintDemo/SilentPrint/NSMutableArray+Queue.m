@@ -11,9 +11,11 @@
 @implementation NSMutableArray (Queue)
 // Queues are first-in-first-out, so we remove objects from the head
 - (id) dequeue {
-    id headObject =  self[0];//[self objectAtIndex:0];
+    if (self.count == 0) { //Empty queue then return nil
+        return nil;
+    }
+    id headObject =  self[0];
     if (headObject != nil) {
-        //[[headObject retain] autorelease]; // so it isn't dealloc'ed on remove
         [self removeObjectAtIndex:0];
     }
     return headObject;

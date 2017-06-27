@@ -53,9 +53,9 @@
 
 }
 
--(void)onPrintFileComplete: (int) fileIndex withJob: (NSString*) jobName {
+-(void)onPrintJobComplete: (NSString*) jobName {
    
-    self.printingProgress.progress = (float) (fileIndex + 1) / (float) self.silentPrint.filePaths.count;
+    //self.printingProgress.progress = (float) (fileIndex + 1) / (float) self.silentPrint.filePaths.count;
     
 }
 
@@ -78,16 +78,33 @@
                            [[NSBundle mainBundle] pathForResource:@"3" ofType:@"html"]
                            ];
     
+    NSMutableArray* jobs = [NSMutableArray new];
+    for (NSString* item in filePaths1) {
+        PrintJob* job = [[PrintJob alloc] init:item withShow:FALSE];
+        job.name = [item lastPathComponent];
+        [jobs addObject:job];
+    }
     
     NSArray *filePaths2 = @[
                             [[NSBundle mainBundle] pathForResource:@"4" ofType:@"html"],
                             [[NSBundle mainBundle] pathForResource:@"log1" ofType:@"log"],
                             [[NSBundle mainBundle] pathForResource:@"log2" ofType:@"csv"]  
                             ];
-    self.printingProgress.progress = 0.0;
     
-    [self.silentPrint printBatch: filePaths1];
-    [self.silentPrint printBatch: filePaths2];
+    
+    NSMutableArray* jobs2 = [NSMutableArray new];
+    for (NSString* item in filePaths2) {
+        PrintJob* job = [[PrintJob alloc] init:item withShow:FALSE];
+        job.name = [item lastPathComponent];
+        [jobs2 addObject:job];
+    }
+    
+    self.printingProgress.progress = 0.0;
+    [self.silentPrint printJobs: jobs];
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.silentPrint printJobs: jobs2];
+    });
 
 }
 

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrintSingleItem">
             <connections>
                 <outlet property="activityIndicator" destination="xy7-UY-Wac" id="IIi-uX-vsi"/>
+                <outlet property="btnPrint" destination="iqI-8E-4Sp" id="0lx-l9-xxr"/>
                 <outlet property="result" destination="JeP-kY-Pgn" id="Fth-fy-YsV"/>
                 <outlet property="switchSilentPrint" destination="Yc7-9Y-eUA" id="8uF-GH-Rcw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

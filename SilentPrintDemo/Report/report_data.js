@@ -41,6 +41,5 @@ var app = new Vue({
 	selectedImages: [],
 	imagesPerPage: 4
 
-
 }
 })

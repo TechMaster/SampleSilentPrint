@@ -33,16 +33,13 @@
     NSLog(@"Error: %@", [error localizedDescription]);
 }
 
-- (IBAction)onConfigurePrint:(UIButton*)sender {    
-   /* [self.silentPrint configureSilentPrint:sender.frame
-                               inView:self.view
-                           completion:^{                               
-                               self.lblSelectedPrinter.text = self.silentPrint.selectedPrinter.displayName;
-        
-    }];*/
+- (IBAction)onConfigurePrint:(UIButton*)sender {
     
-    [self.silentPrint configureSilentPrint:sender.frame inView:self.view orFromBarButtonitem:nil completion:^{
+    [self.silentPrint configureSilentPrint:sender.frame
+                                    inView:self.view
+                       orFromBarButtonitem:nil completion:^{
         self.lblSelectedPrinter.text = self.silentPrint.selectedPrinter.displayName;
+        
     }];
 }
 

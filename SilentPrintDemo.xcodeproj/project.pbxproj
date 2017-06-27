@@ -12,11 +12,11 @@
 		E2185FBA1EB8800F00304253 /* 6.html in Resources */ = {isa = PBXBuildFile; fileRef = E2185FB61EB8800F00304253 /* 6.html */; };
 		E2185FBB1EB8800F00304253 /* 7.html in Resources */ = {isa = PBXBuildFile; fileRef = E2185FB71EB8800F00304253 /* 7.html */; };
 		E2185FBC1EB8800F00304253 /* 8.html in Resources */ = {isa = PBXBuildFile; fileRef = E2185FB81EB8800F00304253 /* 8.html */; };
+		E22358C31F014F4600101800 /* SilentPrint.m in Sources */ = {isa = PBXBuildFile; fileRef = E22358C21F014F4600101800 /* SilentPrint.m */; };
 		E22485861ED497010052B051 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485821ED497000052B051 /* AppDelegate.m */; };
 		E22485871ED497010052B051 /* BootLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485831ED497010052B051 /* BootLogic.m */; };
 		E22485881ED497010052B051 /* ConsoleScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485841ED497010052B051 /* ConsoleScreen.m */; };
 		E22485891ED497010052B051 /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485851ED497010052B051 /* MainScreen.m */; };
-		E22485A21ED497DD0052B051 /* SilentPrint.m in Sources */ = {isa = PBXBuildFile; fileRef = E224859F1ED497DD0052B051 /* SilentPrint.m */; };
 		E22485A61ED497EA0052B051 /* ConfigurePrinter.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22485A41ED497EA0052B051 /* ConfigurePrinter.xib */; };
 		E22485A71ED497EA0052B051 /* ConfigurePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = E22485A51ED497EA0052B051 /* ConfigurePrinter.m */; };
 		E22485AB1ED497FB0052B051 /* PrintSingleItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = E22485A91ED497FB0052B051 /* PrintSingleItem.xib */; };
@@ -68,6 +68,7 @@
 		E2478C251EB248F2004EEC16 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E2478C221EB248F2004EEC16 /* 2.jpg */; };
 		E2478C261EB248F2004EEC16 /* 1.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E2478C231EB248F2004EEC16 /* 1.pdf */; };
 		E247AA0F1EB64B7E00388A00 /* koi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E247AA0E1EB64B7E00388A00 /* koi.jpg */; };
+		E25400871F02071E00F52803 /* PrintJob.m in Sources */ = {isa = PBXBuildFile; fileRef = E25400861F02071E00F52803 /* PrintJob.m */; };
 		E27ABE9E1EB1F217006D5A01 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E27ABE9D1EB1F217006D5A01 /* main.m */; };
 		E27ABEA91EB1F217006D5A01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E27ABEA81EB1F217006D5A01 /* Assets.xcassets */; };
 		E284C69B1EFCC95D0097B1AF /* PrintUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = E284C69A1EFCC95D0097B1AF /* PrintUIView.m */; };
@@ -102,6 +103,8 @@
 		E2185FB61EB8800F00304253 /* 6.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = 6.html; path = SampleItems/6.html; sourceTree = "<group>"; };
 		E2185FB71EB8800F00304253 /* 7.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = 7.html; path = SampleItems/7.html; sourceTree = "<group>"; };
 		E2185FB81EB8800F00304253 /* 8.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = 8.html; path = SampleItems/8.html; sourceTree = "<group>"; };
+		E22358C11F014F4600101800 /* SilentPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SilentPrint.h; path = SilentPrint/SilentPrint.h; sourceTree = "<group>"; };
+		E22358C21F014F4600101800 /* SilentPrint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SilentPrint.m; path = SilentPrint/SilentPrint.m; sourceTree = "<group>"; };
 		E224857E1ED497000052B051 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MainMenu/AppDelegate.h; sourceTree = "<group>"; };
 		E224857F1ED497000052B051 /* BootLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BootLogic.h; path = MainMenu/BootLogic.h; sourceTree = "<group>"; };
 		E22485801ED497000052B051 /* ConsoleScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConsoleScreen.h; path = MainMenu/ConsoleScreen.h; sourceTree = "<group>"; };
@@ -110,8 +113,6 @@
 		E22485831ED497010052B051 /* BootLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BootLogic.m; path = MainMenu/BootLogic.m; sourceTree = "<group>"; };
 		E22485841ED497010052B051 /* ConsoleScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConsoleScreen.m; path = MainMenu/ConsoleScreen.m; sourceTree = "<group>"; };
 		E22485851ED497010052B051 /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScreen.m; path = MainMenu/MainScreen.m; sourceTree = "<group>"; };
-		E224859C1ED497DD0052B051 /* SilentPrint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SilentPrint.h; path = SilentPrint/SilentPrint.h; sourceTree = "<group>"; };
-		E224859F1ED497DD0052B051 /* SilentPrint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SilentPrint.m; path = SilentPrint/SilentPrint.m; sourceTree = "<group>"; };
 		E22485A31ED497EA0052B051 /* ConfigurePrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigurePrinter.h; path = ConfigurePrinter/ConfigurePrinter.h; sourceTree = "<group>"; };
 		E22485A41ED497EA0052B051 /* ConfigurePrinter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConfigurePrinter.xib; path = ConfigurePrinter/ConfigurePrinter.xib; sourceTree = "<group>"; };
 		E22485A51ED497EA0052B051 /* ConfigurePrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigurePrinter.m; path = ConfigurePrinter/ConfigurePrinter.m; sourceTree = "<group>"; };
@@ -170,6 +171,8 @@
 		E2478C221EB248F2004EEC16 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 2.jpg; path = SampleItems/2.jpg; sourceTree = "<group>"; };
 		E2478C231EB248F2004EEC16 /* 1.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = 1.pdf; path = SampleItems/1.pdf; sourceTree = "<group>"; };
 		E247AA0E1EB64B7E00388A00 /* koi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = koi.jpg; path = SampleItems/koi.jpg; sourceTree = "<group>"; };
+		E25400851F02071E00F52803 /* PrintJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrintJob.h; path = SilentPrint/PrintJob.h; sourceTree = "<group>"; };
+		E25400861F02071E00F52803 /* PrintJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrintJob.m; path = SilentPrint/PrintJob.m; sourceTree = "<group>"; };
 		E27ABE991EB1F217006D5A01 /* SilentPrintDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SilentPrintDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27ABE9D1EB1F217006D5A01 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E27ABEA81EB1F217006D5A01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -321,8 +324,10 @@
 		E2478C171EB2305F004EEC16 /* SilentPrint */ = {
 			isa = PBXGroup;
 			children = (
-				E224859C1ED497DD0052B051 /* SilentPrint.h */,
-				E224859F1ED497DD0052B051 /* SilentPrint.m */,
+				E25400851F02071E00F52803 /* PrintJob.h */,
+				E25400861F02071E00F52803 /* PrintJob.m */,
+				E22358C11F014F4600101800 /* SilentPrint.h */,
+				E22358C21F014F4600101800 /* SilentPrint.m */,
 				E284C69E1EFD0B710097B1AF /* NSMutableArray+Queue.h */,
 				E284C69F1EFD0B710097B1AF /* NSMutableArray+Queue.m */,
 			);
@@ -351,8 +356,8 @@
 			isa = PBXGroup;
 			children = (
 				E22485A31ED497EA0052B051 /* ConfigurePrinter.h */,
-				E22485A41ED497EA0052B051 /* ConfigurePrinter.xib */,
 				E22485A51ED497EA0052B051 /* ConfigurePrinter.m */,
+				E22485A41ED497EA0052B051 /* ConfigurePrinter.xib */,
 			);
 			name = ConfigurePrinter;
 			sourceTree = "<group>";
@@ -657,9 +662,9 @@
 				E2CC065B1EFA152C00BD2162 /* HTMLConverter.m in Sources */,
 				E22485A71ED497EA0052B051 /* ConfigurePrinter.m in Sources */,
 				E22485C71ED49A3E0052B051 /* PaperConfig.m in Sources */,
+				E22358C31F014F4600101800 /* SilentPrint.m in Sources */,
 				E284C69B1EFCC95D0097B1AF /* PrintUIView.m in Sources */,
 				E292E0641EFBCE6E00823577 /* ViewWithKeyboard.m in Sources */,
-				E22485A21ED497DD0052B051 /* SilentPrint.m in Sources */,
 				E22485C91ED49A3E0052B051 /* PDFPageRenderer.m in Sources */,
 				E2E74A071ED575EB0068DB02 /* UIImage+Utils.m in Sources */,
 				E22485871ED497010052B051 /* BootLogic.m in Sources */,
@@ -674,6 +679,7 @@
 				E22485881ED497010052B051 /* ConsoleScreen.m in Sources */,
 				E292E0631EFBCE6E00823577 /* PatientReport.m in Sources */,
 				E292E0551EFB720E00823577 /* CustomKeyBoard.m in Sources */,
+				E25400871F02071E00F52803 /* PrintJob.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

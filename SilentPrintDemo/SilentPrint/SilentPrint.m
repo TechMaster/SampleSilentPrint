@@ -2,10 +2,9 @@
 //  SilentPrint.m
 //  SilentPrintDemo
 //
-//  Created by cuong on 4/27/17.
+//  Created by cuong on 6/26/17.
 //  Copyright © 2017 techmaster. All rights reserved.
 //
-
 
 #import "SilentPrint.h"
 
@@ -19,7 +18,8 @@
     dispatch_once(&onceToken, ^{
         _sharedInstance = [SilentPrint new];
         _sharedInstance.printInProgress = false;
-        _sharedInstance.pendingFileIndex = NO_PENDING_FILE_PRINT; //Nothing pending from previous print
+        _sharedInstance.dequeuePrintJob = nil;
+        _sharedInstance.printQueue = [NSMutableArray new];
         
     });
     return _sharedInstance;
@@ -100,7 +100,7 @@
                                            animated:TRUE
                                   completionHandler:^(UIPrinterPickerController * _Nonnull printerPickerController, BOOL userDidSelect, NSError * _Nullable error) {
                                       handleFunction(printerPickerController, userDidSelect, error);
-
+                                      
                                   }];
         }
     } else {  //iPhone device
@@ -109,165 +109,7 @@
         }];
     }
     
-    
 }
-
--(UIMarkupTextPrintFormatter *)printHTML:(NSString *)currentFilePath
-{
-    NSString* content1 = [NSString stringWithContentsOfFile:currentFilePath
-                                                   encoding:NSUTF8StringEncoding
-                                                      error:NULL];
-    
-    UIMarkupTextPrintFormatter *htmlFormatter = [[UIMarkupTextPrintFormatter alloc]
-                                                 initWithMarkupText:content1];
-    //htmlFormatter.contentInsets = UIEdgeInsetsMake(72.0, 72.0, 72.0, 72.0); // 1 inch margins
-    
-    // iOS 10.0
-    htmlFormatter.perPageContentInsets = UIEdgeInsetsMake(72.0, 72.0, 72.0, 72.0);
-    return htmlFormatter;
-}
-
-/*
- * Print content of UIView
- */
--(void) printUIView: (UIView*) view
-            jobName: (NSString*)jobName
-               show: (BOOL) show {
-    if (!self.selectedPrinter) {
-        [self raiseError: PRINTER_IS_NOT_SELECTED];
-        return;
-    }
-    
-    
-    UIPrintInfo *printInfo = [UIPrintInfo printInfo];
-    printInfo.outputType = UIPrintInfoOutputGeneral;
-    printInfo.jobName = jobName;
-    printInfo.orientation = UIPrintInfoOrientationPortrait;
-    
-    UIPrintInteractionController* printController = [UIPrintInteractionController sharedPrintController];
-    printController.printInfo = printInfo;
-    printController.delegate = self;
-    
-    printController.printFormatter = [view viewPrintFormatter];
-    
-    [self.selectedPrinter contactPrinter:^(BOOL available) {
-        if (!available) {//Printer is Not available
-            [self raiseError: PRINTER_IS_OFFLINE];
-            return;
-        } else {
-            
-            if (!show) {  //SILENT MODE
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-                    [printController printToPrinter:self.selectedPrinter
-                                  completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
-                                      if (error) {
-                                          [self.silentPrintDelegate onSilentPrintError:error];
-                                      }
-                                      if (completed) {
-                                          // Gọi hàm callback
-                                          if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintFileComplete:withJob:)]) {
-                                              [self.silentPrintDelegate onPrintFileComplete:0
-                                                                                    withJob:printInteractionController.printInfo.jobName];
-                                          }
-                                          
-                                      }
-                                      
-                                  }]; //[printController printToPrinter:self.selectedPrinter
-                });  //dispatch_async
-                
-            } else {  //INTERACTIVE MODE
-                printController.showsPaperSelectionForLoadedPapers = YES;
-                [printController presentAnimated:true completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
-                    @synchronized (self) {
-                        self.printInProgress = false;
-                        self.filePaths = nil;
-                    }
-                    if (error) {
-                        [self.silentPrintDelegate onSilentPrintError:error];
-                    } else if (!completed) {
-                        [self raiseError:USER_CANCEL_PRINT];
-                    } else {  //Print interactively complete
-                        if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintFileComplete:withJob:)]) {
-                            [self.silentPrintDelegate onPrintFileComplete:0
-                                                                  withJob:printInteractionController.printInfo.jobName];
-                        }
-                    }
-                    
-                }];
-                
-            }
-        }
-    }];  //self.selectedPrinter contactPrinter
-}
-
--(void) printBatch: (NSArray *)filePaths
-     andShowDialog: (Boolean)show
-{
-    if (!filePaths) return;
-    
-    if (self.printInProgress) { //If silent print is printing then append
-        @synchronized (self) {
-            //Check if printing is in progress, then append array !
-            NSArray* arrayAfterAppend = [self.filePaths arrayByAddingObjectsFromArray:filePaths];
-            self.filePaths = arrayAfterAppend;
-        }
-        
-    } else {
-        @synchronized (self) {
-            self.printInProgress = true;
-            self.numberPrintFail = 0;
-            self.numberPrintSuccess = 0;
-            self.filePaths = filePaths;
-        }
-        
-        [self printFile:0
-          andShowDialog:show];
-    }
-}
-//Retry to print after user reconfigure or select new printer
-- (void) retryPrint {
-    if (self.filePaths.count == 0 || self.pendingFileIndex == NO_PENDING_FILE_PRINT) return;
-    
-    if (self.pendingFileIndex >= 0 && self.pendingFileIndex < self.filePaths.count) {
-        @synchronized (self) {
-            self.printInProgress = true;
-            self.numberPrintFail = 0;
-            self.numberPrintSuccess = 0;
-        }
-        [self printFile: self.pendingFileIndex //start from pending file Index
-          andShowDialog: false];
-    }
-    
-}
-
-/*
- print single file in silent mode is equal to print a batch file which has only one item and does not show dialog
- */
-
--(void) printFile: (NSString*) filePath
-         inSilent: (Boolean) silent{
-    if (filePath) {
-        [self printBatch:@[filePath] andShowDialog:!silent];
-    }
-}
-
-
--(void) printBatch: (NSArray *)filePaths {
-    if (filePaths.count > 1) {
-        [self printBatch:filePaths andShowDialog:false];  //Silent Print
-    } else {
-        [self printBatch:filePaths andShowDialog:true];   //filePath has only one item, then show printing dialog
-    }
-}
-
-
-/*
- * En
- */
--(void) printItems: (NSArray *) items {
-    [self.printQueue addObjectsFromArray:items];
-}
-
 
 /*
  * Handle when [UIPrintInteractionController canPrintURL:fileURL] return false
@@ -295,149 +137,222 @@
     return printFormatter;
 }
 
+#pragma mark - print function
 /*
- * fileIndex: order of file to print in array filePaths
- *
+ Similar with printBatch, items is array that may contains filePath, NSData or UIView content
+ items will be append to current printing queue
  */
--(void) printFile: (int)fileIndex
-    andShowDialog: (Boolean)show
-{
+-(void) printAJob: (PrintJob*) job {
+    if (!job) return;
+    
+    [self.printQueue addObject:job];
+    //if printing process is not yet running then start
+    if (!self.printInProgress) {
+        [self retryPrint];
+    }
+
+}
+
+/*
+ * Enqueue array of jobs to printQueue
+ */
+-(void) printJobs: (NSArray *) jobs {
+    [self.printQueue addObjectsFromArray:jobs];
+    //if printing process is not yet running then start
+    if (!self.printInProgress) {
+        [self retryPrint];
+    }
+}
+
+//Retry previous command after configure printer or reselect new printer
+-(void) retryPrint {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self printNextJob];
+    });
+}
+
+/*  pass itemToPrint check if it can be printed or not
+ modify printController
+ */
+- (BOOL) checkIfItemCanBePrint: (id) itemToPrint
+           withPrintController: (UIPrintInteractionController*) printController{
+    
+    BOOL canItemPrinted = false;
+    //convert NSString to NSURL then assign back to self.pendingPrintItem
+    if ([itemToPrint isKindOfClass: [NSString class]]) {
+        itemToPrint = [NSURL fileURLWithPath: itemToPrint];
+    }
+    
+    //Check type of pendingPrintItem
+    if ([itemToPrint isKindOfClass: [NSURL class]]) {
+        
+        //if file is printable then
+        if ([UIPrintInteractionController canPrintURL:itemToPrint]) {
+            canItemPrinted = true;
+            printController.printingItem = itemToPrint;
+        } else {
+            UIPrintFormatter*  printFormatter = [self generatePrintFormater:itemToPrint];
+            if (printFormatter) {
+                canItemPrinted = true;
+                printController.printFormatter = printFormatter;
+            }
+        }
+    } else if ([itemToPrint isKindOfClass: [NSData class]]) {
+        if ([UIPrintInteractionController canPrintData: itemToPrint]) {
+            canItemPrinted = true;
+            printController.printingItem = itemToPrint;
+        }
+    } else if ([itemToPrint isKindOfClass: [UIView class]]) {
+        UIPrintFormatter* printFormatter = [itemToPrint viewPrintFormatter];
+        canItemPrinted = true;
+        printController.printFormatter = printFormatter;
+        
+    } else if ([itemToPrint isKindOfClass: [UIImage class]]) {
+        canItemPrinted = true;
+        printController.printingItem = itemToPrint;
+    }
+    
+    return canItemPrinted;
+}
+
+/*
+ * Return FALSE then stop process next print job
+ * Return TRUE then process next print job
+ */
+- (BOOL) checkPrinterThenDequeuePrintJob {
+    //If printer is not selected then raise error
     if (!self.selectedPrinter) {
         @synchronized (self) {
             self.printInProgress = false;
-            self.pendingFileIndex = fileIndex;
         }
         [self raiseError: PRINTER_IS_NOT_SELECTED];
-        return;
+        return FALSE;
     }
     
-    //Reach end of the priting queue
-    if (fileIndex == self.filePaths.count) {
-        
+    //if there is no dequeuePrintJob then dequeue to get one
+    if (self.dequeuePrintJob == nil) {
         @synchronized (self) {
-            self.printInProgress = false;  //printing is done
-            self.filePaths = nil;          //there is empy pending print queue
-            self.pendingFileIndex = NO_PENDING_FILE_PRINT;
+            self.dequeuePrintJob = [self.printQueue dequeue];
         }
         
-        if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector( onPrintBatchComplete:andFail:)]) {
-            [self.silentPrintDelegate onPrintBatchComplete:self.numberPrintSuccess
-                                                   andFail:self.numberPrintFail];
+        //if dequeue item is nil again then we conclude print queue is empty
+        if (self.dequeuePrintJob == nil) {
+            @synchronized (self) {
+                self.printInProgress = false;  //printing is done
+            }
+            return FALSE;
         }
+    }
+    
+    return TRUE;
+}
+/*
+ * Dequeue a job from printQueue then print
+ * if there is an error: printer is not selected, printer is offline, then retry
+ *
+ */
+-(void) printNextJob {
+    self.printInProgress =true;
+    
+    if (![self checkPrinterThenDequeuePrintJob]) {
         return;
     }
-    
-    
-    UIPrintFormatter* printFormatter = nil;
-    
-    NSString* filePath = self.filePaths[fileIndex];
-    NSURL* fileURL = [NSURL fileURLWithPath: filePath];
-    if (![UIPrintInteractionController canPrintURL:fileURL]) {
-        printFormatter = [self generatePrintFormater:fileURL];
-        if (!printFormatter) {
-            [self raiseError: CANNOT_PRINT_FILE_URL];
-            self.numberPrintFail += 1;
-            //Move next file
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self printFile:fileIndex + 1
-                  andShowDialog:false];
-            });
-            return;
-        }
-    }
-    
-    
-    UIPrintInfo *printInfo = [UIPrintInfo printInfo];
-    printInfo.outputType = UIPrintInfoOutputGeneral;
-    printInfo.jobName = [fileURL lastPathComponent];
     
     
     UIPrintInteractionController* printController = [UIPrintInteractionController sharedPrintController];
-    printController.printInfo = printInfo;
     
+    UIPrintInfo *printInfo = [UIPrintInfo printInfo];
+    printInfo.outputType = UIPrintInfoOutputGeneral;
+    printController.printInfo = printInfo;
     printController.delegate = self;
     
-    if (printFormatter) {
-        printController.printFormatter = printFormatter;
-    } else {
-        printController.printingItem = fileURL;
+    id itemToPrint = self.dequeuePrintJob.item;
+    
+    BOOL canItemPrinted = [self checkIfItemCanBePrint:itemToPrint
+                                  withPrintController:printController];
+    
+    
+    //If item cannot be printed
+    if (!canItemPrinted) {
+        [self raiseError: CANNOT_PRINT_FILE_URL];
+        self.dequeuePrintJob = nil;
+        self.numberPrintFail += 1;
+        //Dequeue next job to print
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self printNextJob];
+        });
+        return;
     }
     
+    //Before actually print item, try to contact printer
     if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(tryToContactPrinter:)]) {
         [self.silentPrintDelegate tryToContactPrinter:self.selectedPrinter];
     }
     
     [self.selectedPrinter contactPrinter:^(BOOL available) {
-        if (!available) {//Printer is Not available
+        if (!available) {//Printer is not available
             @synchronized (self) {
-                //Mark pending file index to retry print
-                self.pendingFileIndex = fileIndex;
                 self.printInProgress = false;
             }
             [self raiseError: PRINTER_IS_OFFLINE];
             return;
-        } else {
-            
-            if (!show) {  //SILENT MODE
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-                    [printController printToPrinter:self.selectedPrinter
-                                  completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
-                                      if (error) {
-                                          self.numberPrintFail += 1;
-                                          [self.silentPrintDelegate onSilentPrintError:error];
-                                      }
-                                      if (completed) {
-                                          self.numberPrintSuccess += 1;
-                                          
-                                          // Gọi hàm callback
-                                          if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintFileComplete:withJob:)]) {
-                                              [self.silentPrintDelegate onPrintFileComplete:fileIndex
-                                                                                    withJob:printInteractionController.printInfo.jobName];
-                                          }
-                                          
-                                          //Print the next file in batch
-                                          dispatch_async(dispatch_get_main_queue(), ^{
-                                              [self printFile:fileIndex + 1
-                                                andShowDialog:false];
-                                          });
-                                      }
-                                      
-                                  }]; //[printController printToPrinter:self.selectedPrinter
-                });  //dispatch_async
-                
-            } else {  //INTERACTIVE MODE
-                printController.showsPaperSelectionForLoadedPapers = YES;
-                
-                [printController presentAnimated:true completionHandler:^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
-                    @synchronized (self) {
-                        self.printInProgress = false;
-                        self.filePaths = nil;
-                    }
-                    if (error) {
-                        [self.silentPrintDelegate onSilentPrintError:error];
-                    } else if (!completed) {
-                        [self raiseError:USER_CANCEL_PRINT];
-                    } else {  //Print interactively complete
-                        if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintFileComplete:withJob:)]) {
-                            [self.silentPrintDelegate onPrintFileComplete:fileIndex
-                                                                  withJob:printInteractionController.printInfo.jobName];
-                        }
-                    }
-                    
-                }];
+        }
+        
+        //Declare printCallBack as block function
+        void (^printCallBack)(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) = ^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
+            if (error) {
+                @synchronized (self) {
+                    self.printInProgress = false;
+                }
+                [self.silentPrintDelegate onSilentPrintError:error];
+            } else if (!completed) {
+                @synchronized (self) {
+                    self.printInProgress = false;
+                    self.dequeuePrintJob = nil;  //Set to nil ready for next job
+                }
+                [self raiseError:USER_CANCEL_PRINT];
+            } else {  //Print interactively complete
+                if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintJobComplete:)]) {
+                    [self.silentPrintDelegate onPrintJobComplete:self.dequeuePrintJob.name];
+                }
+                self.dequeuePrintJob = nil;  //Set to nil ready for next job
+                //Print the next file in batch
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self printNextJob];
+                });
                 
             }
+        };
+        
+        
+        if (!self.dequeuePrintJob.show) {  //SILENT MODE
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+                [printController printToPrinter:self.selectedPrinter
+                              completionHandler:printCallBack];
+            });  //dispatch_async
+            
+        } else {  //INTERACTIVE MODE, self.dequeuePrintJob.show = true
+            printController.showsPaperSelectionForLoadedPapers = YES;
+            
+            if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )  //iPad device
+            {
+                if (self.dequeuePrintJob.view) {  //present printer picker controller from a rect in view of iPad device
+                    [printController presentFromRect:self.dequeuePrintJob.rect
+                                              inView:self.dequeuePrintJob.view
+                                            animated:true completionHandler: printCallBack];
+                    
+                } else { //present printer picker controller from a UIBarButtonItem of iPad device
+                    [printController presentFromBarButtonItem:self.dequeuePrintJob.barButton
+                                                     animated:true
+                                            completionHandler:printCallBack];
+                }
+            } else {  //iPhone device
+                [printController presentAnimated:true completionHandler: printCallBack];
+            }
         }
+        
     }];  //self.selectedPrinter contactPrinter
 }
 
-#pragma mark - UIPrintInteractionControllerDelegate
-- (UIPrintPaper *)printInteractionController:(UIPrintInteractionController *)printInteractionController
-                                 choosePaper:(NSArray<UIPrintPaper *> *)paperList {
-    
-    UIPrintPaper* paperA4 = [UIPrintPaper bestPaperForPageSize: CGSizeMake(595.2, 841.8) //A4
-                                           withPapersFromArray: paperList];
-    return paperA4;
-}
-@end
 
+@end

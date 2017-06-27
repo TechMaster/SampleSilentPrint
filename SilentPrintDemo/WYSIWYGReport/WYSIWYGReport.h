@@ -14,10 +14,10 @@
 
 
 
-@property (nonatomic, readonly) NSString* reportTemplate;
-@property (nonatomic, strong) WKWebView* webView;
+@property (nonatomic, readonly) NSString* _Nonnull reportTemplate;
+@property (nonatomic, strong) WKWebView* _Nonnull webView;
 
--(id) initWithReportTemplate: (NSString*)  report;
--(void) applyJSONDataToReport: (NSString*) json
+-(id _Nonnull ) initWithReportTemplate: (NSString*_Nonnull)  report;
+-(void) applyJSONDataToReport: (NSString*_Nonnull) json
             completionHandler: (void (^ _Nullable)(_Nullable id, NSError * _Nullable error))completionHandler;
 @end

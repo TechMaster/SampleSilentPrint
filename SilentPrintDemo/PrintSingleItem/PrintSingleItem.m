@@ -9,6 +9,7 @@
 #import "PrintSingleItem.h"
 
 @interface PrintSingleItem ()
+@property (weak, nonatomic) IBOutlet UIButton *btnPrint;
 @property (weak, nonatomic) IBOutlet UISwitch *switchSilentPrint;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *result;
@@ -56,19 +57,37 @@
     self.result.text = @"";
 
     
-    [self.silentPrint printFile: [self randomeFileToPrint]
-                       inSilent: [self.switchSilentPrint isOn]];
+   /* [self.silentPrint printFile: [self randomeFileToPrint]
+                       inSilent: [self.switchSilentPrint isOn]];*/
+    
+    
+    NSString* fileToPrint  = [self randomFileToPrint];
+    PrintJob* job;
+    if ([self.switchSilentPrint isOn]) {
+         job = [[PrintJob alloc] init:fileToPrint
+                             withRect:self.btnPrint.frame
+                             withView:self.view
+                        withBarButton:nil];
+    } else {
+        job = [[PrintJob alloc] init:fileToPrint withShow:FALSE];
+        
+    }   
+    
+    
+    job.name = [fileToPrint lastPathComponent];
+    [self.silentPrint printAJob: job];
     
 }
 
--(void)onPrintFileComplete: (int) fileIndex withJob: (NSString*) jobName {
+-(void)onPrintJobComplete: (NSString*) jobName {
     [self.activityIndicator stopAnimating];
     self.activityIndicator.hidden = true;
     self.result.text = [NSString stringWithFormat:@"Print success : %@", jobName];
 }
 
 
-- (NSString*) randomeFileToPrint {
+
+- (NSString*) randomFileToPrint {
     NSArray* fileArrays = @[@"1.pdf", @"2.jpg", @"3.html", @"4.html", @"5.html", @"6.hml", @"7.html", @"8.html", @"log1.log", @"log2.csv"];
     
     int fileIndex = arc4random() % fileArrays.count;

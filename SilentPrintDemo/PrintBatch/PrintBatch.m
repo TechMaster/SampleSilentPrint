@@ -9,6 +9,10 @@
 #import "PrintBatch.h"
 
 @interface PrintBatch ()
+{
+    NSUInteger totalJob;
+    NSUInteger completeJob;
+}
 @property (weak, nonatomic) IBOutlet UIProgressView *printingProgress;
 @property (weak, nonatomic) IBOutlet UILabel *result;
 
@@ -43,17 +47,13 @@
     }
 }
 
--(void)onPrintFileComplete: (int) fileIndex withJob: (NSString*) jobName {
-    SilentPrint* silentPrint = [SilentPrint getSingleton];
-    self.printingProgress.progress = (float) (fileIndex + 1) / (float)silentPrint.filePaths.count;
 
+-(void)onPrintJobComplete: (NSString*) jobName {
+    
+    self.result.text = [NSString stringWithFormat:@"Print success : %@", jobName];
+    completeJob +=1;
+    self.printingProgress.progress = (float) completeJob / (float) totalJob;
 }
-
--(void) onPrintBatchComplete:(int)success andFail:(int)fail {
-    NSLog(@"Success : %d. - Fail: %d", success, fail);
-    self.result.text = [NSString stringWithFormat:@"Success : %d - Fail: %d", success, fail];
-}
-
 
 #pragma mark - UIViewController event
 - (void)viewDidLoad {
@@ -79,7 +79,20 @@
    
     self.printingProgress.progress = 0.0;
     
-    [silentPrint printBatch: filePaths];
+    NSMutableArray* jobs = [NSMutableArray new];
+    for (NSString* item in filePaths) {
+        PrintJob* job = [[PrintJob alloc] init:item withShow:FALSE];
+        job.name = [item lastPathComponent];
+        [jobs addObject:job];
+    }
+    UIImage *image = [UIImage imageNamed:@"01.jpg"];
+    PrintJob* jobView = [[PrintJob alloc] init:image withShow:FALSE];
+    jobView.name = @"an image";
+    [jobs addObject:jobView];
+    
+    totalJob = jobs.count;
+    completeJob = 0;
+    [silentPrint printJobs: jobs];
 
 }
 

@@ -42,7 +42,13 @@
 
 - (void) printView {
     if (!self.webView.isLoading) {
-        [self.silentPrint printUIView:self.webView jobName:@"Print web" show:false];
+        //[self.silentPrint printUIView:self.webView jobName:@"Print web" show:false];
+        PrintJob* job = [[PrintJob alloc] init:self.webView
+                                      withRect:CGRectNull
+                                      withView:nil
+                                 withBarButton:self.navigationItem.rightBarButtonItem];
+        
+        [self.silentPrint printAJob: job];
     }
 }
 

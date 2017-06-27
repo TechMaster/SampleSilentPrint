@@ -66,10 +66,12 @@
 }
 
 - (void) printReport {
-    if (!self.webView.isLoading) {
-        [self.silentPrint printUIView:self.webView
-                              jobName:@"Print web"
-                                 show:false];
+    if (!self.webView.isLoading) {        
+        
+        PrintJob* job = [[PrintJob alloc] init:self.webView
+                                      withShow:FALSE];
+        job.name = @"Print Web";
+        [self.silentPrint printAJob:job];
     }
 
 }
