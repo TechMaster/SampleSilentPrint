@@ -35,12 +35,17 @@
     self.activityIndicator.hidden = true;
     self.result.text = [NSString stringWithFormat:@"Error: %@", [error localizedDescription]];
     if (error.code == PRINTER_IS_OFFLINE || error.code == PRINTER_IS_NOT_SELECTED) {
-        [self.silentPrint configureSilentPrint:self.btnPrint.frame
-                                        inView:self.view
-                           orFromBarButtonitem:nil completion:^{
-                               self.result.text = self.silentPrint.selectedPrinter.displayName;
-                               [self.silentPrint retryPrint];
-                           }];
+        CGRect rect = [self.btnPrint convertRect:self.btnPrint.frame
+                                          toView:self.view];
+        
+        [self.silentPrint configureSilentPrint: rect
+                                        inView: self.view
+                           orFromBarButtonitem: nil
+                                    completion:^{
+                                        self.result.text = self.silentPrint.selectedPrinter.displayName;
+                                        [self.silentPrint retryPrint];
+                                    }];
+        
     }
 }
 
@@ -54,23 +59,19 @@
     self.activityIndicator.hidden = false;
     [self.activityIndicator startAnimating];
     self.result.text = @"";
-
-    
-   /* [self.silentPrint printFile: [self randomeFileToPrint]
-                       inSilent: [self.switchSilentPrint isOn]];*/
-    
     
     NSString* fileToPrint  = [self randomFileToPrint];
     PrintJob* job;
     if ([self.switchSilentPrint isOn]) {
-         job = [[PrintJob alloc] init:fileToPrint
-                             withRect:self.btnPrint.frame
-                             withView:self.view
-                        withBarButton:nil];
+        job = [[PrintJob alloc] init: fileToPrint
+                            withRect: self.btnPrint.frame
+                            withView: self.view
+                       withBarButton: nil];
     } else {
-        job = [[PrintJob alloc] init:fileToPrint withShow:FALSE];
+        job = [[PrintJob alloc] init: fileToPrint
+                            withShow: FALSE];
         
-    }   
+    }
     
     
     job.name = [fileToPrint lastPathComponent];
@@ -97,7 +98,7 @@
     NSArray* fileArrays = @[@"1.pdf", @"2.jpg", @"3.html", @"4.html", @"5.html", @"6.hml", @"7.html", @"8.html", @"log1.log", @"log2.csv"];
     
     int fileIndex = arc4random() % fileArrays.count;
-    NSString* file = fileArrays[fileIndex];    
+    NSString* file = fileArrays[fileIndex];
     NSArray* fileComponents = [file componentsSeparatedByString:@"."];
     return [[NSBundle mainBundle] pathForResource: fileComponents[0]
                                            ofType: fileComponents[1]];

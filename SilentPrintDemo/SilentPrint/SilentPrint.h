@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "PrintJob.h"
 #import "NSMutableArray+Queue.h"  //Use queue data structure to store file path, UIView or NSData to be printed
+
 #define PRINT_SUCCESS               0
 #define PRINTER_IS_NOT_SELECTED     100
 #define PRINTER_IS_OFFLINE          150
@@ -18,14 +19,13 @@
 
 @protocol SilentPrintDelegate
 -(void)onSilentPrintError: (NSError*) error;
+-(void)onPrintJobCallback: (NSString*) jobName
+                withError: (NSUInteger) errorCode;
 
 @optional
 -(void)tryToContactPrinter: (UIPrinter*) printer;
 
--(void)onPrintJobComplete: (NSString*) jobName;
 
--(void)onPrintJobCallback: (NSString*) jobName
-                withError: (NSUInteger) errorCode;
 
 @end
 //--------------

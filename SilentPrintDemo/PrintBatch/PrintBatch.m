@@ -37,7 +37,11 @@
 -(void)onSilentPrintError: (NSError*) error {
     self.result.text = [NSString stringWithFormat:@"Error: %@", [error localizedDescription]];
     if (error.code == PRINTER_IS_OFFLINE || error.code == PRINTER_IS_NOT_SELECTED) {
-        [self.silentPrint configureSilentPrint:self.btnPrint.frame
+        
+        CGRect rect = [self.btnPrint convertRect:self.btnPrint.frame
+                                          toView:self.navigationController.view];
+        
+        [self.silentPrint configureSilentPrint:rect
                                         inView:self.view
                            orFromBarButtonitem:nil completion:^{
                                self.result.text = self.silentPrint.selectedPrinter.displayName;
@@ -61,6 +65,7 @@
 #pragma mark - UIViewController event
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.printingProgress.progress = 0.0;
     self.result.text = @"";
     

@@ -11,7 +11,7 @@ If you encounter bug, please report to cuong@techmaster.vn, I will fix and push 
 
 [Check this video](https://youtu.be/fm1cd00glt8)
 ## Error code and error reason
-
+-   0: print success
 - 100: printer is not selected
 - 150: printer is offline
 - 200: cannot print file URL
@@ -22,8 +22,14 @@ If you encounter bug, please report to cuong@techmaster.vn, I will fix and push 
 
 
 # Updates
+## Jun 28th 2017
+Rewrite SilentPrint: replace NSArray filePaths by NSMuttableArray+Queue printQueue
+
+## Jun 20th 2017
+Replace Mustache template engine by Vue.js template engine
 ## May 23rd 2017
 - Update report
+
 ## May 18th 2017
 - Use Mustache, Javascript, HTML, CSS to generate PDF. This approach is better than coding Objective-C
 - Fix margin problem

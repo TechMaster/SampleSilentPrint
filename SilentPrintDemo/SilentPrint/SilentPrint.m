@@ -279,7 +279,9 @@
         
         [self.silentPrintDelegate onPrintJobCallback:self.dequeuePrintJob.name
                                            withError:CANNOT_PRINT_ITEM];
-        self.dequeuePrintJob = nil;        
+        @synchronized (self) {
+            self.dequeuePrintJob = nil;
+        }
         //Dequeue next job to print
         dispatch_async(dispatch_get_main_queue(), ^{
             [self printNextJob];
@@ -315,15 +317,14 @@
                     self.printInProgress = false;
                     self.dequeuePrintJob = nil;  //Set to nil ready for next job
                 }
-                //[self raiseError:USER_CANCEL_PRINT];
+              
                 [self.silentPrintDelegate onPrintJobCallback:self.dequeuePrintJob.name withError:USER_CANCEL_PRINT];
                 
             } else {  //Print interactively complete
-                //if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintJobCallback::)]) {
-                    //[self.silentPrintDelegate onPrintJobComplete:self.dequeuePrintJob.name];
                 [self.silentPrintDelegate onPrintJobCallback:self.dequeuePrintJob.name withError:PRINT_SUCCESS];
-                //}
-                self.dequeuePrintJob = nil;  //Set to nil ready for next job
+                @synchronized (self) {
+                    self.dequeuePrintJob = nil;  //Set to nil ready for next job
+                }
                 //Print the next file in batch
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self printNextJob];
