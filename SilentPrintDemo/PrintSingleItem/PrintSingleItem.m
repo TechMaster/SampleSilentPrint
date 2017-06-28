@@ -35,13 +35,12 @@
     self.activityIndicator.hidden = true;
     self.result.text = [NSString stringWithFormat:@"Error: %@", [error localizedDescription]];
     if (error.code == PRINTER_IS_OFFLINE || error.code == PRINTER_IS_NOT_SELECTED) {
-        UIPrinterPickerController *printerPicker = [UIPrinterPickerController printerPickerControllerWithInitiallySelectedPrinter:nil];
-        [printerPicker presentAnimated:true completionHandler:^(UIPrinterPickerController * _Nonnull printerPickerController, BOOL userDidSelect, NSError * _Nullable error) {
-            if (userDidSelect) {
-                self.silentPrint.selectedPrinter = printerPickerController.selectedPrinter;
-                [self.silentPrint retryPrint];
-            }
-        }];
+        [self.silentPrint configureSilentPrint:self.btnPrint.frame
+                                        inView:self.view
+                           orFromBarButtonitem:nil completion:^{
+                               self.result.text = self.silentPrint.selectedPrinter.displayName;
+                               [self.silentPrint retryPrint];
+                           }];
     }
 }
 
@@ -79,10 +78,17 @@
     
 }
 
--(void)onPrintJobComplete: (NSString*) jobName {
+- (void) onPrintJobCallback:(NSString *)jobName
+                  withError:(NSUInteger)errorCode {
+    
     [self.activityIndicator stopAnimating];
     self.activityIndicator.hidden = true;
-    self.result.text = [NSString stringWithFormat:@"Print success : %@", jobName];
+    
+    if (errorCode == PRINT_SUCCESS) {
+        self.result.text = [NSString stringWithFormat:@"Print success : %@", jobName];
+    } else {
+        self.result.text = [NSString stringWithFormat:@"Print failed : %@", jobName];
+    }
 }
 
 

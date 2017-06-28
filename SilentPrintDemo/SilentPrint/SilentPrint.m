@@ -20,6 +20,7 @@
         _sharedInstance.printInProgress = false;
         _sharedInstance.dequeuePrintJob = nil;
         _sharedInstance.printQueue = [NSMutableArray new];
+        _sharedInstance.lastErrorCode = 0;
         
     });
     return _sharedInstance;
@@ -34,13 +35,15 @@
     NSString* message = nil;
     switch (errorCode) {
         case PRINTER_IS_NOT_SELECTED:
+            if (errorCode == self.lastErrorCode) return;  //Don't raise same system error repeatedly
             message = @"Printer is not selected";
             break;
         case PRINTER_IS_OFFLINE:
+            if (errorCode == self.lastErrorCode) return;  //Don't raise same system error repeatedly
             message = @"Printer is offline";
             break;
-        case CANNOT_PRINT_FILE_URL:
-            message = @"Printer cannot print invalid file URL";
+        case CANNOT_PRINT_ITEM:
+            message = @"Printer cannot print invalid item";
             break;
         case USER_CANCEL_PRINT:
             message = @"User cancels or print fails";
@@ -54,6 +57,7 @@
                                          code: errorCode
                                      userInfo: @{NSLocalizedDescriptionKey: message}
                       ];
+    self.lastErrorCode = errorCode;
     [self.silentPrintDelegate onSilentPrintError:error];
     
 }
@@ -78,9 +82,11 @@
         if (didSelect) {
             // assign selected printer to singleton
             self.selectedPrinter = printerPickerController.selectedPrinter;
+            self.lastErrorCode = 0;
             completionBlock();
         } else {
             [self raiseError: PRINTER_IS_NOT_SELECTED];
+            self.lastErrorCode = 0;
         }
         
     };
@@ -88,20 +94,15 @@
     UIPrinterPickerController *printerPicker = [UIPrinterPickerController printerPickerControllerWithInitiallySelectedPrinter:nil];
     if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )  //iPad device
     {
-        if (view) {  //present printer picker controller from a rect in view of iPad device
+        if (view) {  //present printer picker controller from a rect in view of iPad device      
             [printerPicker presentFromRect: rect
                                     inView: view
                                   animated: TRUE
-                         completionHandler: ^(UIPrinterPickerController *printerPickerController, BOOL userDidSelect, NSError *error) {
-                             handleFunction(printerPickerController, userDidSelect, error);
-                         }];
+                         completionHandler: handleFunction];
         } else {  //present printer picker controller from a UIBarButtonItem of iPad device
-            [printerPicker presentFromBarButtonItem:barButtonItem
-                                           animated:TRUE
-                                  completionHandler:^(UIPrinterPickerController * _Nonnull printerPickerController, BOOL userDidSelect, NSError * _Nullable error) {
-                                      handleFunction(printerPickerController, userDidSelect, error);
-                                      
-                                  }];
+            [printerPicker presentFromBarButtonItem: barButtonItem
+                                           animated: TRUE
+                                  completionHandler: handleFunction];
         }
     } else {  //iPhone device
         [printerPicker presentAnimated:TRUE completionHandler:^(UIPrinterPickerController * _Nonnull printerPickerController, BOOL userDidSelect, NSError * _Nullable error) {
@@ -274,9 +275,11 @@
     
     //If item cannot be printed
     if (!canItemPrinted) {
-        [self raiseError: CANNOT_PRINT_FILE_URL];
-        self.dequeuePrintJob = nil;
-        self.numberPrintFail += 1;
+        //[self raiseError: CANNOT_PRINT_ITEM];
+        
+        [self.silentPrintDelegate onPrintJobCallback:self.dequeuePrintJob.name
+                                           withError:CANNOT_PRINT_ITEM];
+        self.dequeuePrintJob = nil;        
         //Dequeue next job to print
         dispatch_async(dispatch_get_main_queue(), ^{
             [self printNextJob];
@@ -297,6 +300,8 @@
             [self raiseError: PRINTER_IS_OFFLINE];
             return;
         }
+        //Printer is available
+        self.lastErrorCode = 0;
         
         //Declare printCallBack as block function
         void (^printCallBack)(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) = ^(UIPrintInteractionController * _Nonnull printInteractionController, BOOL completed, NSError * _Nullable error) {
@@ -305,16 +310,19 @@
                     self.printInProgress = false;
                 }
                 [self.silentPrintDelegate onSilentPrintError:error];
-            } else if (!completed) {
+            } else if (!completed) { //user cancel this print job
                 @synchronized (self) {
                     self.printInProgress = false;
                     self.dequeuePrintJob = nil;  //Set to nil ready for next job
                 }
-                [self raiseError:USER_CANCEL_PRINT];
+                //[self raiseError:USER_CANCEL_PRINT];
+                [self.silentPrintDelegate onPrintJobCallback:self.dequeuePrintJob.name withError:USER_CANCEL_PRINT];
+                
             } else {  //Print interactively complete
-                if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintJobComplete:)]) {
-                    [self.silentPrintDelegate onPrintJobComplete:self.dequeuePrintJob.name];
-                }
+                //if (self.silentPrintDelegate && [(id)self.silentPrintDelegate respondsToSelector:@selector(onPrintJobCallback::)]) {
+                    //[self.silentPrintDelegate onPrintJobComplete:self.dequeuePrintJob.name];
+                [self.silentPrintDelegate onPrintJobCallback:self.dequeuePrintJob.name withError:PRINT_SUCCESS];
+                //}
                 self.dequeuePrintJob = nil;  //Set to nil ready for next job
                 //Print the next file in batch
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -337,17 +345,19 @@
             if ( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad )  //iPad device
             {
                 if (self.dequeuePrintJob.view) {  //present printer picker controller from a rect in view of iPad device
-                    [printController presentFromRect:self.dequeuePrintJob.rect
-                                              inView:self.dequeuePrintJob.view
-                                            animated:true completionHandler: printCallBack];
+                    [printController presentFromRect: self.dequeuePrintJob.rect
+                                              inView: self.dequeuePrintJob.view
+                                            animated: TRUE
+                                   completionHandler: printCallBack];
                     
                 } else { //present printer picker controller from a UIBarButtonItem of iPad device
-                    [printController presentFromBarButtonItem:self.dequeuePrintJob.barButton
-                                                     animated:true
-                                            completionHandler:printCallBack];
+                    [printController presentFromBarButtonItem: self.dequeuePrintJob.barButton
+                                                     animated: TRUE
+                                            completionHandler: printCallBack];
                 }
             } else {  //iPhone device
-                [printController presentAnimated:true completionHandler: printCallBack];
+                [printController presentAnimated: TRUE
+                               completionHandler: printCallBack];
             }
         }
         

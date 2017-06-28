@@ -9,6 +9,12 @@
 #import "PrintBatchAfterBatch.h"
 
 @interface PrintBatchAfterBatch ()
+{
+    NSUInteger totalJob;
+    NSUInteger completeJob;
+    NSUInteger failedJob;
+}
+@property (weak, nonatomic) IBOutlet UIButton *btnPrint;
 @property (weak, nonatomic) IBOutlet UIProgressView *printingProgress;
 @property (weak, nonatomic) IBOutlet UILabel *result;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -42,31 +48,31 @@
     self.activityIndicator.hidden = true;
     self.result.text = [NSString stringWithFormat:@"Error: %@", [error localizedDescription]];
     if (error.code == PRINTER_IS_OFFLINE || error.code == PRINTER_IS_NOT_SELECTED) {
-        UIPrinterPickerController *printerPicker = [UIPrinterPickerController printerPickerControllerWithInitiallySelectedPrinter:nil];
-        [printerPicker presentAnimated:true completionHandler:^(UIPrinterPickerController * _Nonnull printerPickerController, BOOL userDidSelect, NSError * _Nullable error) {
-            if (userDidSelect) {
-                self.silentPrint.selectedPrinter = printerPickerController.selectedPrinter;
-                [self.silentPrint retryPrint];
-            }
+        
+        [self.silentPrint configureSilentPrint:self.btnPrint.frame
+                                        inView:self.view
+                           orFromBarButtonitem:nil completion:^{                               
+                               self.result.text = self.silentPrint.selectedPrinter.displayName;
+                               [self.silentPrint retryPrint];
         }];
     }
-
 }
 
--(void)onPrintJobComplete: (NSString*) jobName {
-   
-    //self.printingProgress.progress = (float) (fileIndex + 1) / (float) self.silentPrint.filePaths.count;
+- (void) onPrintJobCallback:(NSString *)jobName
+                  withError:(NSUInteger)errorCode {
+    if (errorCode == PRINT_SUCCESS) {
+        completeJob += 1;
+    } else {
+        failedJob += 1;
+    }
+    if (totalJob ==  completeJob + failedJob) {
+        [self.activityIndicator stopAnimating];
+        self.activityIndicator.hidden = true;
+    }
     
+    self.result.text = [NSString stringWithFormat:@"Print jobs: %lu - Complete jobs: %lu - Failed jobs: %lu", (unsigned long)totalJob, (unsigned long)completeJob, (unsigned long) failedJob];
+    self.printingProgress.progress = (float) (completeJob + failedJob) / (float) totalJob;
 }
-
--(void) onPrintBatchComplete:(int)success andFail:(int)fail {
-    [self.activityIndicator stopAnimating];
-    self.activityIndicator.hidden = true;
-
-    NSLog(@"Success : %d. - Fail: %d", success, fail);
-    self.result.text = [NSString stringWithFormat:@"Success : %d - Fail: %d", success, fail];
-}
-
 
 #pragma mark - Print logic
 - (IBAction)printManyBatches:(id)sender {
@@ -99,6 +105,9 @@
         [jobs2 addObject:job];
     }
     
+    totalJob = jobs.count + jobs2.count;
+    completeJob = 0;
+    failedJob = 0;
     self.printingProgress.progress = 0.0;
     [self.silentPrint printJobs: jobs];
 

@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrintBatchAfterBatch">
             <connections>
                 <outlet property="activityIndicator" destination="OoP-O2-fDp" id="tiR-G8-df7"/>
+                <outlet property="btnPrint" destination="DW2-nd-rtl" id="PLC-xN-bB0"/>
                 <outlet property="printingProgress" destination="wAP-JF-LAk" id="Ngn-aK-PrJ"/>
                 <outlet property="result" destination="f11-yf-Otr" id="mXX-eh-L8d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -60,6 +61,7 @@
                 <constraint firstAttribute="trailing" secondItem="074-LZ-sS4" secondAttribute="trailing" constant="8" id="CDk-et-sS2"/>
                 <constraint firstItem="074-LZ-sS4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="JXU-d3-Y2S"/>
             </constraints>
+            <point key="canvasLocation" x="-332" y="38"/>
         </view>
     </objects>
 </document>

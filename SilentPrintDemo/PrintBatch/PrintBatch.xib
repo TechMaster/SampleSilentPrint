@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrintBatch">
             <connections>
+                <outlet property="btnPrint" destination="zeN-is-jqp" id="bE6-e1-Abu"/>
                 <outlet property="printingProgress" destination="cNJ-GD-ibg" id="R9T-Tc-WPV"/>
                 <outlet property="result" destination="I69-fb-Vbn" id="8ez-9k-sff"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -50,6 +51,7 @@
                 <constraint firstItem="w9r-b4-t4c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="YEq-KG-MXv"/>
                 <constraint firstItem="w9r-b4-t4c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="idT-aB-vXs"/>
             </constraints>
+            <point key="canvasLocation" x="-418" y="-3"/>
         </view>
     </objects>
 </document>

@@ -232,8 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				E22485B21ED4982D0052B051 /* PrintBatchAfterBatch.h */,
-				E22485B31ED4982D0052B051 /* PrintBatchAfterBatch.xib */,
 				E22485B41ED4982D0052B051 /* PrintBatchAfterBatch.m */,
+				E22485B31ED4982D0052B051 /* PrintBatchAfterBatch.xib */,
 			);
 			name = PrintBatchAfterBatch;
 			sourceTree = "<group>";

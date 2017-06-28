@@ -64,5 +64,16 @@
     }
 }
 
+- (void) onPrintJobCallback:(NSString *)jobName
+                  withError:(NSUInteger)errorCode {
+    
+    
+    if (errorCode == PRINT_SUCCESS) {
+        
+    } else {
+     
+    }
+}
+
 
 @end
