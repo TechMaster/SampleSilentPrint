@@ -124,6 +124,10 @@
     }
 }
 
+-(void)onPrintJobCallback: (NSString*) jobName
+                withError: (NSUInteger) errorCode {
+    
+}
 #pragma mark - Prepare Data
 /*
  * Apply data as JSON string to Vue report

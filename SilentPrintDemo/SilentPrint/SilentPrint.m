@@ -311,22 +311,32 @@
                 @synchronized (self) {
                     self.printInProgress = false;
                 }
-                [self.silentPrintDelegate onSilentPrintError:error];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.silentPrintDelegate onSilentPrintError:error];
+                });
+                
             } else if (!completed) { //user cancel this print job
+                NSString* jobName  = self.dequeuePrintJob.name;
                 @synchronized (self) {
                     self.printInProgress = false;
                     self.dequeuePrintJob = nil;  //Set to nil ready for next job
                 }
               
-                [self.silentPrintDelegate onPrintJobCallback:self.dequeuePrintJob.name withError:USER_CANCEL_PRINT];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.silentPrintDelegate onPrintJobCallback:jobName
+                                                       withError:USER_CANCEL_PRINT];
+                });
+               
                 
             } else {  //Print interactively complete
-                [self.silentPrintDelegate onPrintJobCallback:self.dequeuePrintJob.name withError:PRINT_SUCCESS];
+                NSString* jobName  = self.dequeuePrintJob.name;
                 @synchronized (self) {
                     self.dequeuePrintJob = nil;  //Set to nil ready for next job
                 }
-                //Print the next file in batch
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.silentPrintDelegate onPrintJobCallback:jobName
+                                                       withError:PRINT_SUCCESS];
+                    //Print the next file in batch
                     [self printNextJob];
                 });
                 
