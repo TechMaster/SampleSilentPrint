@@ -92,8 +92,6 @@
     }
 }
 
-
-
 - (NSString*) randomFileToPrint {
     NSArray* fileArrays = @[@"1.pdf", @"2.jpg", @"3.html", @"4.html", @"5.html", @"6.hml", @"7.html", @"8.html", @"log1.log", @"log2.csv"];
     

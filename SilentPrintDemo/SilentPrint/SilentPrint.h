@@ -50,7 +50,7 @@
                  completion:(void (^)(void))completionBlock;
 
 /*
- Similar with printBatch, items is array that may contains filePath, NSData or UIView content
+ items is array that may contains filePath, NSData or UIView content
  items will be append to current printing queue
  */
 -(void) printAJob: (PrintJob*) job;

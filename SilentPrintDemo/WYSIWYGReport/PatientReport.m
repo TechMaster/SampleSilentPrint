@@ -102,5 +102,9 @@
         }];
     }
 }
+-(void)onPrintJobCallback: (NSString*) jobName
+                withError: (NSUInteger) errorCode {
+    
+}
 
 @end

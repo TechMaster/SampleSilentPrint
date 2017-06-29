@@ -1,12 +1,13 @@
 //
-//  CustomKeyBoard.h
+//  CustomKeyboard.h
 //  SilentPrintDemo
 //
-//  Created by cuong on 6/22/17.
+//  Created by cuong on 6/29/17.
 //  Copyright © 2017 techmaster. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+
 @class CustomKeyBoard;
 @protocol CustomKeyboardDelegate <NSObject>
 
@@ -20,7 +21,6 @@
 
 @interface CustomKeyBoard : UIView <UITextViewDelegate>
 @property (weak, nonatomic) id<CustomKeyboardDelegate> delegate;
-
 - (void) setText: (NSString*) text;
 - (void) focusTextView;
 @end
