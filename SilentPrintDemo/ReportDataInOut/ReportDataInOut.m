@@ -222,8 +222,8 @@
     
     NSLog(@"Selected Images: %d - Image Per Page: %d", _numberSelectedImages, _imagesPerPage);
     
-    //NSArray* selectedImages = [imagesArray subarrayWithRange:NSMakeRange(0, numberSelectedImages)];
-    
+    //Must call this method to delete old generated resized image from previous run
+    [UIImage initTempResizedImageFolder];
     
     //Scale down size of image to reduce file size of PDF
     NSMutableArray * selectedImages = [[NSMutableArray alloc] initWithCapacity: _numberSelectedImages];

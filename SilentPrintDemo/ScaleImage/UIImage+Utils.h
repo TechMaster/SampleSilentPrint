@@ -11,6 +11,8 @@
 #define Header_h
 @interface UIImage (Utils)
 
++ (void) initTempResizedImageFolder;
+
 //Resize photo then save it to temporary folder
 + (NSString*_Nullable) scaleDownImage: (NSString*_Nonnull) fullInputPath
 maxWidth: (float) maxWidth;

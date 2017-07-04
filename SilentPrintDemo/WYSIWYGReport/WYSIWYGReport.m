@@ -129,25 +129,7 @@
         NSString* currentText = sentData[@"text"];
         [self.view setText:currentText];
         [self showKeyboard];
-    }
-    /*
-    long aCount = [sentData[@"count"] integerValue];
-    aCount++;
-    
-    
-    
-    
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"count": @555, @"data": @"World is wild and fun", @"gender": @true}
-                                                       options:(NSJSONWritingOptions) (NSJSONWritingPrettyPrinted)
-                                                         error:&error];
-    
-    NSString* jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-   
-    NSLog(@"%@", jsonString);
-    
-    [self.webView evaluateJavaScript:[NSString stringWithFormat:@"receiveJSON(%@)", jsonString]
-                   completionHandler:nil];*/
+    }   
 }
 
 -(void) openCameraRoll {

@@ -1,24 +1,57 @@
-# New silent print library
-# Introduction
+# SilentPrint Library
+
+## Introduction
 
 SilentPrint is wrapper library that uses Apple AirPrint SDK to print single file or multiple files.
 It allows user to choose either print interactively with pop up preview dialog or print silently.
 
-This library has only two files: SilentPrint.h and SilentPrint.m. It is a singleton class. It communicates error, printing progress to the app through SilentPrintDelegate.
-The sample app demonstrates all features of SilentPrint. Take time to play sample app and read sample code, you will understand.
+This library has following files:
+1. SilentPrint.h, .m : main logic of SilentPrint
+2. PrintJob.h, .m: represents a single unit of print job: a file to print specified by NSString* or NSURL*, content of UIView, UIImage, NSData
+3. NSMutableArray+Queue.h, .m: extend NSMutableArray to become FIFO queue
 
-If you encounter bug, please report to cuong@techmaster.vn, I will fix and push back to Github.
+SilentPrint is a singleton class. It communicates error, printing progress to the app through SilentPrintDelegate.
 
-[Check this video](https://youtu.be/fm1cd00glt8)
-## Error code and error reason
+[The sample app](https://github.com/TechMaster/SampleSilentPrint) demonstrates all features of SilentPrint. Take time to play sample app and read sample code, you will understand.
+
+## How to use
+
+Since SilentPrint is singleton object, we don't need to use strong property points to it.When you need to use it in code, just use ```[SilentPrint getSingleton]``` or assign it to self.silentPrint property
+
+```objective-c
+@property (weak, nonatomic) SilentPrint* silentPrint;
+
+@interface ViewController : UIViewController <SilentPrintDelegate>
+
+self.silentPrint = [SilentPrint getSingleton];
+self.silentPrint.silentPrintDelegate = self;
+```
+Continue to implement two required methods in SilentPrintDelegate protocol:
+```objective-c
+-(void)onSilentPrintError: (NSError*) error;
+-(void)onPrintJobCallback: (NSString*) jobName
+                withError: (NSUInteger) errorCode;
+```
+
+### Error code and error reason
 -   0: print success
 - 100: printer is not selected
 - 150: printer is offline
 - 200: cannot print file URL
 - 250: user cancel or print fails
 
-# Todo (not yet done)
-1. Fix out of margin error (fixed at May 18th 2017)
+onSilentPrintError will be called when error code = 100 or 150
+
+onPrintJobCallBack will be called :
+- App sends file sucessfully to AirPrint (errorCode = 0)
+- file to print is invalid or cannot print file URL (error code = 200)
+- user cancels print (errorCode = 250)
+
+
+## How to report bug and request to improve
+Create issue in github and assign to me
+
+
 
 
 # Updates
