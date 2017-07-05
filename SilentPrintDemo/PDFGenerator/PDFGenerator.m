@@ -100,9 +100,12 @@
     
     CGRect paperRect = CGRectMake(0, 0, paperSize.width, paperSize.height);
     
-    CGRect printableRect = paperRect;
+    //CGRect printableRect = paperRect;
+    CGRect printableRect = CGRectMake(paperConfig.marginLeft,
+                                      paperConfig.marginTop,
+                                      paperRect.size.width - paperConfig.marginLeft - paperConfig.marginRight,
+                                      paperRect.size.height - paperConfig.marginTop - paperConfig.marginBottom);
     
-    //NSLog(@"x = %f, y = %f, w = %f, h =%f", paperRect.origin.x, paperRect.origin.y, paperRect.size.width, paperRect.size.height);
     [pdfRenderer setValue:[NSValue valueWithCGRect:paperRect]
                    forKey:@"paperRect"];
     

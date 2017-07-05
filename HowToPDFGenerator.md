@@ -1,10 +1,8 @@
 # How use PDF Generation library
 
 ## Introduction
-PDF Generator library depends on two Apple Libraries and Vue.js library
-1. Vue.js: Javascript library that is intuitive, Fast and Composable MVVM for building interactive interfaces
-2. WebKit: display web page
-3. ImageIO: scale image resolution. It is used to scale down large images before export to PDF file
+PDF Generator library does one simple job convert content in WKWebView into PDF. It does not care how web pages is rendered in WKWebView.
+
 ![Workflow](PDFGenerator.jpg)
 
 
@@ -17,7 +15,7 @@ PDF Generator library depends on two Apple Libraries and Vue.js library
 - PDFPageRenderer.m //Format to render PDF
 - UIImage+Utils.h
 - UIImage+Utils.m   //resize image then save to temporary folder
-- LENSReportKey.h   //define place holder fields in report
+
 
 We can add more reports as we wish. This PDF Generator is totally decoupled from main application.
 
@@ -61,3 +59,15 @@ Example code:
                      }];
 }
 ```
+
+## PaperConfig
+```objective-c
+   self.paperConfig = [[PaperConfig alloc] initPaperType :PaperTypeLetter
+                                              orientation:PaperOrientationPortrait
+                                                marginTop:0
+                                             marginBottom:0
+                                              marginRight:0
+                                               marginLeft:0];
+```
+
+marginTop, marginBottom, marginRight, marginLeft will add margin to result PDF file.
