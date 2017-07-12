@@ -26,6 +26,7 @@
     self = [super init];
     if (self) {
         _reportTemplate = report;
+        self.enableInteraction = TRUE;
     }
     return self;
 }
@@ -117,6 +118,9 @@
 #pragma mark - WKScriptMessageHandler
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message{
+    
+    if (!self.enableInteraction) return;
+    
     NSDictionary *sentData = (NSDictionary*)message.body;
     NSString* action = sentData[@"action"];
     self.selectID = sentData[@"id"];  //Store element ID in web report

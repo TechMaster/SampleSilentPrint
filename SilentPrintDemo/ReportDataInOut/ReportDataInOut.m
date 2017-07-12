@@ -70,6 +70,8 @@
                                              marginBottom:0
                                               marginRight:0
                                                marginLeft:0];
+    
+    self.enableInteraction = FALSE;
 }
 
 - (void) savePDF {
@@ -252,7 +254,7 @@
     NSArray* selectedImages = [self generateSelectedImages];
     
     return @{
-             kEnablePatientReport: @1, //If this key has non-empty string, then 1st page Patient Report will be shown
+             @"PatientReport": @"1", //If this key has non-empty string, then 1st page Patient Report will be shown
              
              //1st page: Patient Report
              @"reportLogo": @"logo1.png",

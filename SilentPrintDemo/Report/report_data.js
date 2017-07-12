@@ -1,7 +1,8 @@
 var app = new Vue({
 	el: '#report',
 	mixins: [mixin],
-	data: {		
+	data: {
+		PatientReport: "",
 		reportLogo: "logo2.png",
 		topDoctorImage: "doctor1.jpg",
     greetingText: "Greeting text from doctor. I don\'t why they give this field too much space", //

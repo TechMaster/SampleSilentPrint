@@ -16,6 +16,7 @@
 
 @property (nonatomic, readonly) NSString* _Nonnull reportTemplate;
 @property (nonatomic, strong) WKWebView* _Nonnull webView;
+@property (nonatomic, assign) BOOL enableInteraction; //Allow user select image or edit text
 
 -(id _Nonnull ) initWithReportTemplate: (NSString*_Nonnull)  report;
 -(void) applyJSONDataToReport: (NSString*_Nonnull) json
