@@ -92,6 +92,7 @@
 		E2E74A071ED575EB0068DB02 /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E74A061ED575EB0068DB02 /* UIImage+Utils.m */; };
 		E2E74A0B1ED5766F0068DB02 /* ScaleImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E74A091ED5766F0068DB02 /* ScaleImage.m */; };
 		E2E74A0C1ED5766F0068DB02 /* ScaleImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2E74A0A1ED5766F0068DB02 /* ScaleImage.xib */; };
+		E2EC7B4B1F1E495E00EC0ECB /* DoreenReport.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EC7B4A1F1E495E00EC0ECB /* DoreenReport.m */; };
 		E2FF1EF21EBAAD4D00AE9C08 /* log1.log in Resources */ = {isa = PBXBuildFile; fileRef = E2FF1EF11EBAAD4D00AE9C08 /* log1.log */; };
 		E2FF1EF61EBAAE8300AE9C08 /* log2.csv in Resources */ = {isa = PBXBuildFile; fileRef = E2FF1EF41EBAAE8300AE9C08 /* log2.csv */; };
 /* End PBXBuildFile section */
@@ -209,6 +210,8 @@
 		E2E74A081ED5766F0068DB02 /* ScaleImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScaleImage.h; path = ScaleImage/ScaleImage.h; sourceTree = "<group>"; };
 		E2E74A091ED5766F0068DB02 /* ScaleImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScaleImage.m; path = ScaleImage/ScaleImage.m; sourceTree = "<group>"; };
 		E2E74A0A1ED5766F0068DB02 /* ScaleImage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ScaleImage.xib; path = ScaleImage/ScaleImage.xib; sourceTree = "<group>"; };
+		E2EC7B491F1E495E00EC0ECB /* DoreenReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DoreenReport.h; path = DoreenReport/DoreenReport.h; sourceTree = "<group>"; };
+		E2EC7B4A1F1E495E00EC0ECB /* DoreenReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoreenReport.m; path = DoreenReport/DoreenReport.m; sourceTree = "<group>"; };
 		E2FF1EF11EBAAD4D00AE9C08 /* log1.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = log1.log; path = SampleItems/log1.log; sourceTree = "<group>"; };
 		E2FF1EF41EBAAE8300AE9C08 /* log2.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = log2.csv; path = SampleItems/log2.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -444,6 +447,7 @@
 			children = (
 				E2AEB9D51EE3AA83001E0C9A /* WYSIWYGReport */,
 				E284C6A11EFD20780097B1AF /* ReportDataInOut */,
+				E2EC7B481F1E48AB00EC0ECB /* DoreenReport */,
 			);
 			name = DemoPDFGeneration;
 			sourceTree = "<group>";
@@ -511,6 +515,15 @@
 				E2E74A0A1ED5766F0068DB02 /* ScaleImage.xib */,
 			);
 			name = ScaleImage;
+			sourceTree = "<group>";
+		};
+		E2EC7B481F1E48AB00EC0ECB /* DoreenReport */ = {
+			isa = PBXGroup;
+			children = (
+				E2EC7B491F1E495E00EC0ECB /* DoreenReport.h */,
+				E2EC7B4A1F1E495E00EC0ECB /* DoreenReport.m */,
+			);
+			name = DoreenReport;
 			sourceTree = "<group>";
 		};
 		EBEC7B7FB045656219A35C60 /* Frameworks */ = {
@@ -655,6 +668,7 @@
 				E22485861ED497010052B051 /* AppDelegate.m in Sources */,
 				E284C6A01EFD0B710097B1AF /* NSMutableArray+Queue.m in Sources */,
 				E22485C81ED49A3E0052B051 /* PDFGenerator.m in Sources */,
+				E2EC7B4B1F1E495E00EC0ECB /* DoreenReport.m in Sources */,
 				E2CC065B1EFA152C00BD2162 /* HTMLConverter.m in Sources */,
 				E22485A71ED497EA0052B051 /* ConfigurePrinter.m in Sources */,
 				E22485C71ED49A3E0052B051 /* PaperConfig.m in Sources */,
